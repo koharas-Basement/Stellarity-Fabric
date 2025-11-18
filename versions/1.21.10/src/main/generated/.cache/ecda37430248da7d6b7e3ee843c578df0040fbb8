@@ -1,0 +1,9 @@
+// 1.21.10	-999999999-01-01T00:00:00	stellarity/Model Definitions
+0429e543364447229c09d88787653db9d7a5516f assets/stellarity/blockstates/ashen_froglight.json
+05c1310fc18d7fdec16ea6276a0cfa3f50c452f1 assets/stellarity/blockstates/ender_dirt.json
+80ea68db0fce3510ece0f27efa870b71cfbc9b3f assets/stellarity/blockstates/ender_grass_block.json
+707e31ecfd54276900f1622294dac23e34c35f7c assets/stellarity/items/ashen_froglight.json
+9e47f2aab8eada353d085e53cd031f9ec3031cd0 assets/stellarity/items/ender_dirt.json
+bdf980bfc6ed48fdef7f6b166a731e1f0fb4ee24 assets/stellarity/items/ender_grass_block.json
+b80b63dedfba623eb3365199d0378e7847dd998f assets/stellarity/models/block/ashen_froglight.json
+79df8479252e21e42306ed8007de2d9fb9cfd99e assets/stellarity/models/block/ender_dirt.json

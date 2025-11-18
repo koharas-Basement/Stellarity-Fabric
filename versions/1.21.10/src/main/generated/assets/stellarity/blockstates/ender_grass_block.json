@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "stellarity:block/ender_grass_block"
+      },
+      {
+        "model": "stellarity:block/ender_grass_block",
+        "weight": 90
+      },
+      {
+        "model": "stellarity:block/ender_grass_block",
+        "weight": 180
+      },
+      {
+        "model": "stellarity:block/ender_grass_block",
+        "weight": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "stellarity:block/ender_grass_block_snowy"
+    }
+  }
+}

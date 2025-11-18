@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 public class StellarityItems {
     //? <= 1.21.1 {
-    /*public static final Item CALL_OF_THE_VOID = register(new CallOfTheVoid(), "call_of_the_void");
+    public static final Item CALL_OF_THE_VOID = register(new CallOfTheVoid(), "call_of_the_void");
     public static final Item ENDER_DIRT = register(new BlockItem(StellarityBlocks.ENDER_DIRT, new Item.Properties()), "ender_dirt");
     public static final Item ENDER_GRASS_BLOCK = register(new BlockItem(StellarityBlocks.ENDER_GRASS_BLOCK, new Item.Properties()), "ender_grass_block");
     public static final Item ASHEN_FROGLIGHT = register(new BlockItem(StellarityBlocks.ASHEN_FROGLIGHT, new Item.Properties()), "ashen_froglight");
@@ -22,8 +22,8 @@ public class StellarityItems {
     public static Item register(Item item, String id) {
         return Registry.register(BuiltInRegistries.ITEM,Stellarity.of(id),item);
     }
-    *///?} else {
-    public static final Item CALL_OF_THE_VOID = register("call_of_the_void", CallOfTheVoid::new, CallOfTheVoid.properties());
+    //?} else {
+    /*public static final Item CALL_OF_THE_VOID = register("call_of_the_void", CallOfTheVoid::new, CallOfTheVoid.properties());
 
 
     // IMPORTANT: blocks must be registered with useBlockDescriptionPrefix to have correct translation keys
@@ -44,7 +44,7 @@ public class StellarityItems {
         return item;
     }
 
-    //?}
+    *///?}
 
     public static void init() {
         Stellarity.LOGGER.info("Registering Stellarity Items");
