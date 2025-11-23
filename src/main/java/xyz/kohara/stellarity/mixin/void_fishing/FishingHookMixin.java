@@ -212,6 +212,7 @@ public abstract class FishingHookMixin extends Projectile implements VoidFishabl
 
   @Redirect(method = "catchingFish", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/projectile/FishingHook;lureSpeed:I", opcode = Opcodes.GETFIELD))
   private int increaseLure(FishingHook instance) {
+    isVoidFishing = evalVoidFishing();
     if (!this.buffVoidFishing || !isVoidFishing) {
       return this.lureSpeed;
     }
