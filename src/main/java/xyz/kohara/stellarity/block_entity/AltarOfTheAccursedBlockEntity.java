@@ -10,16 +10,25 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 import xyz.kohara.stellarity.StellarityBlockEntityTypes;
+import xyz.kohara.stellarity.StellarityRecipeTypes;
+import xyz.kohara.stellarity.interface_injection.ExtItemEntity;
+
+import java.util.HashMap;
+import java.util.List;
 //? > 1.21.9 {
 /*import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -31,7 +40,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
   }
 
   private boolean unlocked = false;
-  private static long ticksPassed = 0;
+  private long ticksPassed = 0;
 
   public AltarOfTheAccursedBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
     super(blockEntityType, blockPos, blockState);
@@ -107,38 +116,34 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
 
   public static <T extends BlockEntity> void tick(Level level, BlockPos blockPos, BlockState blockState, T blockEntity) {
     if (blockEntity instanceof AltarOfTheAccursedBlockEntity entity) {
+      entity.ticksPassed++;
+      double x = blockPos.getX() + 0.5d;
+      double y = blockPos.getY() + 0.5d;
+      double z = blockPos.getZ() + 0.5d;
+
       if (level.isClientSide()) {
         if (!entity.unlocked) return;
 
-        ticksPassed++;
-
-        double x = blockPos.getX() + 0.5;
-        double y = blockPos.getY() + 0.5;
-        double z = blockPos.getZ() + 0.5;
-
-
-        float angle = ticksPassed / 20f;
+        float angle = entity.ticksPassed / 20f;
         double dx = Mth.cos(angle);
         double dz = Mth.sin(angle);
 
         //? >= 1.21.9 {
-        /*var purpleStart = 12255487;
-        var purpleEnd = 1769509;
+        /*
+        var purpleParticle = new DustColorTransitionOptions(12255487, 1769509, 1.4f);
         *///?} else {
-        var purpleStart = new Vector3f(0.733f, 0.0f, 1.0f);
-        var purpleEnd = new Vector3f(0.106f, 0.0f, 0.145f);
+        var purpleParticle = new DustColorTransitionOptions(new Vector3f(0.733f, 0.0f, 1.0f), new Vector3f(0.106f, 0.0f, 0.145f), 1.4f);
         //? }
 
         level.addParticle(
-          new DustColorTransitionOptions(purpleStart, purpleEnd, 1.4f),
+          purpleParticle,
           x + dx, y, z + dz,
           0, 0, 0
         );
 
 
         level.addParticle(
-          new DustColorTransitionOptions(
-            purpleStart, purpleEnd, 1.4f),
+          purpleParticle,
           x - dx, y, z - dz,
           0, 0, 0
         );
@@ -149,17 +154,17 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
 
 
         level.addParticle(
-          new DustColorTransitionOptions(purpleStart, purpleEnd, 1.4f),
+          purpleParticle,
           x + dx, y, z + dz,
           0, 0, 0
         );
 
         level.addParticle(
-          new DustColorTransitionOptions(purpleStart, purpleEnd, 1.4f),
+          purpleParticle,
           x - dx, y, z - dz,
           0, 0, 0
         );
-        if (ticksPassed % 3 == 0) {
+        if (entity.ticksPassed % 3 == 0) {
           dx = level.random.nextGaussian() * 0.5;
           dz = level.random.nextGaussian() * 0.5;
           level.addParticle(
@@ -176,9 +181,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
           0
         );
 
-      }
-      ;
-      if (level instanceof ServerLevel server) {
+      } else if (level instanceof ServerLevel server) {
         EndDragonFight dragonFight = server.getDragonFight();
         boolean unlocked = dragonFight != null && dragonFight.hasPreviouslyKilledDragon();
 
@@ -188,8 +191,47 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
           entity.setChanged();
         }
 
+        if (!entity.unlocked) return;
+        if (entity.ticksPassed % 10 == 0) entity.handleItems(server, x, y, z);
+
       }
     }
+  }
+
+  private void handleItems( ServerLevel server, double x, double y, double z) {
+    List<ItemEntity> itemEntities = server.getEntitiesOfClass(ItemEntity.class, new AABB(
+      x - 0.5, y + 0.75d - 0.5, z - 0.5,
+      x + 0.5, y + 0.75d + 0.5, z + 0.5
+    ), entity -> ((ExtItemEntity) entity).stellarity$getItemMode() != ExtItemEntity.ItemMode.RESULT);
+
+    List<ItemStack> itemStacks = itemEntities.stream().map(ItemEntity::getItem).toList();
+
+    if (itemEntities.size() < 2) return;
+    Player player = server.getNearestPlayer(x, y, z, 5, false);
+    ExtItemEntity.ItemMode itemMode = player != null && player.isCrouching() ? ExtItemEntity.ItemMode.PICKUP : ExtItemEntity.ItemMode.CRAFTING;
+
+
+    HashMap<ItemStack, Integer> results = null;
+
+    if (itemMode == ExtItemEntity.ItemMode.CRAFTING)
+      for (var recipe : server.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
+        results = recipe.recipeRemainder(itemStacks);
+        if (results != null) break;
+      }
+
+
+
+    for (var entity : itemEntities) {
+      ExtItemEntity itemEntity = (ExtItemEntity) entity;
+      itemEntity.stellarity$setItemMode(itemMode);
+
+      if (results == null) return;
+
+      itemEntity.stellarity$updateResults(results);
+
+    }
+
+
   }
 
 

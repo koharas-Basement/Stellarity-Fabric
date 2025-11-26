@@ -3,6 +3,7 @@
   "package": "xyz.kohara.stellarity.mixin",
   "compatibilityLevel": "${java}",
   "mixins": [
+    "altar_of_the_accursed.ItemEntityMixin",
     "void_fishing.FishingHookMixin",
     "void_fishing.FishingRodItemMixin"
   ],

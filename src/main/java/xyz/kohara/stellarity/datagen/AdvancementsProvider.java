@@ -7,28 +7,28 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
 
 import net.minecraft.advancements.critereon.*;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
 import java.util.function.Consumer;
 //? >= 1.21.1 {
 /*import net.minecraft.core.HolderLookup;
 import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
-
+import net.minecraft.world.item.Item;
 import java.util.concurrent.CompletableFuture;
+import java.util.List;
+import java.util.Optional;
+import net.minecraft.core.registries.Registries;
 *///?} else {
 
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
+
   //?}
 
 public class AdvancementsProvider extends FabricAdvancementProvider {
