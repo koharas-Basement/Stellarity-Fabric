@@ -42,7 +42,6 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     this.itemMode = mode;
     boolean crafting = mode == ItemMode.CRAFTING;
     setGlowingTag(crafting);
-
     setPickUpDelay(crafting ? Short.MAX_VALUE : 0);
   }
 

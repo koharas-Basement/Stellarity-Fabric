@@ -1,0 +1,15 @@
+{
+  "type": "stellarity:altar_of_the_accursed",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "result": {
+    "item": "minecraft:amethyst_shard",
+    "count": 1
+  }
+}

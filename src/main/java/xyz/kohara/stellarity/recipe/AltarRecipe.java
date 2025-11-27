@@ -8,13 +8,12 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityRecipeTypes;
+import xyz.kohara.stellarity.StellarityRecipes;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,19 +40,16 @@ public record AltarRecipe(ResourceLocation id, HashMap<Ingredient, Integer> ingr
   public HashMap<ItemStack,Integer> recipeRemainder(List<ItemStack> itemStacks) {
     HashMap<Ingredient, Integer> required = new HashMap<>(ingredients);
     HashMap<ItemStack, Integer> available = new HashMap<>();
-    for (var itemStack : itemStacks) {
-      available.put(itemStack, itemStack.getCount());
-    }
 
-    for (var availableEntry : available.entrySet()) {
-      ItemStack itemStack = availableEntry.getKey();
-      int availableCount = availableEntry.getValue();
+    for (var itemStack : itemStacks) {
+      int availableCount = itemStack.getCount();
+
+      available.put(itemStack, itemStack.getCount());
 
       boolean exists = false;
 
-      for (var requiredEntry: required.entrySet()) {
-        Ingredient requirement = requiredEntry.getKey();
-        int requiredCount = requiredEntry.getValue();
+      for (var requirement: ingredients.keySet()) {
+        Integer requiredCount = required.get(requirement);
 
         if (!requirement.test(itemStack)) continue;
 
@@ -114,7 +110,7 @@ public record AltarRecipe(ResourceLocation id, HashMap<Ingredient, Integer> ingr
 
   @Override
   public RecipeType<?> getType() {
-    return StellarityRecipeTypes.ALTAR_RECIPE;
+    return StellarityRecipes.ALTAR_RECIPE_TYPE;
   }
 
   public static class Serializer implements RecipeSerializer<AltarRecipe> {

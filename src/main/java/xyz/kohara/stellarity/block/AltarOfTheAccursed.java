@@ -1,8 +1,8 @@
 package xyz.kohara.stellarity.block;
 
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -25,13 +27,38 @@ import xyz.kohara.stellarity.StellarityBlockEntityTypes;
 //? > 1.21 {
 
 //? } else {
-import com.mojang.serialization.MapCodec;
+
 //? }
 
 public class AltarOfTheAccursed extends BaseEntityBlock {
+  public enum State implements StringRepresentable {
+    LOCKED,
+    UNLOCKED,
+    CREATIVE_LOCKED;
+
+    @Override
+    public String getSerializedName() {
+      return switch (this) {
+        case LOCKED -> "locked";
+        case UNLOCKED -> "unlocked";
+        case CREATIVE_LOCKED -> "creative_locked";
+      };
+    }
+  }
+
+  public static final EnumProperty<State> STATE = EnumProperty.create("state", State.class);
   public AltarOfTheAccursed(Properties properties) {
     super(properties);
+
+    registerDefaultState(defaultBlockState().setValue(STATE, State.LOCKED));
   }
+
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    builder.add(STATE);
+  }
+
+
 
   public static final VoxelShape SHAPE = Block.box(0.0F, 0.0F, 0.0F, 16.0F, 13.0F, 16.0F);
 

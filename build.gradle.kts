@@ -84,6 +84,7 @@ fletchingTable {
     j52j.register("main") {
         if (stonecutter.eval(stonecutter.current.version, "< 1.21")) {
             extension("json", "data/stellarity/loot_table/void_fishing/* -> /data/stellarity/loot_tables/void_fishing/")
+            extension("json", "data/stellarity/recipe/altar_of_the_accursed/* -> /data/stellarity/recipes/altar_of_the_accursed/")
         }
     }
 }
