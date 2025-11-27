@@ -1,7 +1,7 @@
 package xyz.kohara.stellarity.advancement_criterion;
 
 //? < 1.21 {
-import com.google.gson.JsonObject;
+/*import com.google.gson.JsonObject;
 import java.util.Collection;
 
 import net.minecraft.advancements.critereon.*;
@@ -92,8 +92,8 @@ public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.
     }
   }
 }
-//? } else {
-/*import com.mojang.serialization.Codec;
+*///? } else {
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.Collection;
 import java.util.Optional;
@@ -167,4 +167,4 @@ public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.
 }
 
 
-*///? }
+//? }

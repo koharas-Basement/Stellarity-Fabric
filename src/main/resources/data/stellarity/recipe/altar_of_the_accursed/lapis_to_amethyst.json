@@ -1,5 +1,5 @@
 {
-  "type": "stellarity:altar_of_the_accursed",
+  "type": "stellarity:altar_of_the_accursed_simple",
   "ingredients": [
     {
       "item": "minecraft:diamond"

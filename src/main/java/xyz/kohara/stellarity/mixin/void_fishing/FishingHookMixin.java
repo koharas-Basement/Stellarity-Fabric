@@ -90,10 +90,10 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
   @Unique
   private boolean isEnd() {
     //? <= 1.20.1 {
-    return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
-     //?} else {
-    /*return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
-    *///?}
+    /*return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
+     *///?} else {
+    return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
+    //?}
   }
 
   @Unique
@@ -217,10 +217,10 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     }
 
     //? < 1.21 {
-    return this.lureSpeed + 2;
-    //? } else {
-    /*return this.lureSpeed + 200;
-    *///? }
+    /*return this.lureSpeed + 2;
+    *///? } else {
+    return this.lureSpeed + 200;
+    //? }
   }
 
   @Unique

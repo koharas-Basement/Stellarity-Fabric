@@ -4,6 +4,7 @@
   "compatibilityLevel": "${java}",
   "mixins": [
     "altar_of_the_accursed.ItemEntityMixin",
+    "dragon_fight.EndDragonFightMixin",
     "void_fishing.FishingHookMixin",
     "void_fishing.FishingRodItemMixin"
   ],

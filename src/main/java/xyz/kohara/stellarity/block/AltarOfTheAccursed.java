@@ -1,6 +1,8 @@
 package xyz.kohara.stellarity.block;
 
 
+
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.BlockGetter;
@@ -34,15 +36,29 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
   public enum State implements StringRepresentable {
     LOCKED,
     UNLOCKED,
-    CREATIVE_LOCKED;
+    CREATIVE_LOCKED,
+    CREATIVE_UNLOCKED;
 
     @Override
-    public String getSerializedName() {
+    public @NotNull String getSerializedName() {
       return switch (this) {
         case LOCKED -> "locked";
         case UNLOCKED -> "unlocked";
         case CREATIVE_LOCKED -> "creative_locked";
+        case CREATIVE_UNLOCKED -> "creative_unlocked";
       };
+    }
+
+    public boolean isCreative() {
+      return this == CREATIVE_LOCKED || this == CREATIVE_UNLOCKED;
+    }
+
+    public boolean isUnlocked() {
+      return this == UNLOCKED || this == CREATIVE_UNLOCKED;
+    }
+
+    public boolean isLocked() {
+      return this == LOCKED || this == CREATIVE_LOCKED;
     }
   }
 
@@ -50,7 +66,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
   public AltarOfTheAccursed(Properties properties) {
     super(properties);
 
-    registerDefaultState(defaultBlockState().setValue(STATE, State.LOCKED));
+    registerDefaultState(defaultBlockState().setValue(STATE, State.CREATIVE_UNLOCKED));
   }
 
   @Override
@@ -74,18 +90,20 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
 
 
   //? = 1.20.1
-  @SuppressWarnings("deprecation")
+  //@SuppressWarnings("deprecation")
   @Override
   public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
     return SHAPE;
   }
+
+
   //? > 1.21 {
-/*
+
   @Override
   public @NotNull MapCodec<? extends BaseEntityBlock> codec() {
     return simpleCodec(AltarOfTheAccursed::new);
   }
-  *///? } else {
+  //? } else {
 
   //? }
 
