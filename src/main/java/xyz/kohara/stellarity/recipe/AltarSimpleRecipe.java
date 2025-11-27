@@ -1,7 +1,7 @@
 package xyz.kohara.stellarity.recipe;
 
 
-import net.minecraft.core.RegistryAccess;
+import com.mojang.serialization.codecs.ListCodec;
 import net.minecraft.resources.ResourceLocation;
 
 import net.minecraft.world.item.Item;
@@ -15,15 +15,24 @@ import xyz.kohara.stellarity.StellarityRecipeSerializers;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+
+import net.minecraft.network.FriendlyByteBuf;
 
 //? < 1.21 {
 /*import com.google.gson.JsonObject;
 import net.minecraft.util.GsonHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
-import net.minecraft.network.FriendlyByteBuf;
+
 *///? } else {
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.core.HolderLookup;
 //? }
 
@@ -120,7 +129,7 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
 
         int count = 1;
         if (entry.has("count")) count = entry.get("count").getAsInt();
-        Ingredient ingredient = Ingredient.fromJson(entry);
+        Ingredient ingredient = Ingredient.fromJson(entry.get("ingredient"));
         ingredients.put(ingredient, count);
       }
 
@@ -152,8 +161,29 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
       buf.writeItem(recipe.result);
 
     }
-    *///? } else {
 
+    *///? } else {
+    private static class IngredientCount {
+      
+    }
+    private static final ListCodec
+
+    private static final MapCodec<AltarSimpleRecipe> CODEC = RecordCodecBuilder.mapCodec(
+      recipe -> recipe.group(ItemStack.CODEC.fieldOf("result").forGetter(AltarRecipe::result)
+      ).apply(recipe, (result) -> {
+
+        return new AltarSimpleRecipe(null, new HashMap<>(), result);
+      }));
+
+    @Override
+    public @NotNull MapCodec<AltarSimpleRecipe> codec() {
+      return CODEC;
+    }
+
+    @Override
+    public @NotNull StreamCodec<RegistryFriendlyByteBuf, AltarSimpleRecipe> streamCodec() {
+      return null;
+    }
 
     //? }
   }

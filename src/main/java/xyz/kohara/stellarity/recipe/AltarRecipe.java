@@ -3,6 +3,7 @@ package xyz.kohara.stellarity.recipe;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -52,6 +53,8 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
 
 
   *///? } else {
+
+
 
   @Override
   default boolean matches(Input recipeInput, Level level) {
