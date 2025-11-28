@@ -69,8 +69,8 @@ public class EnderGrassBlock extends GrassBlock {
       int i = LightEngine.getLightBlockInto(levelReader, state, pos, blockState, blockPos, Direction.UP, blockState.getLightBlock(levelReader, blockPos));
       return i < levelReader.getMaxLightLevel();
       //?} else {
-/*
-            int i = LightEngine.getLightBlockInto(blockState, state, Direction.UP, blockState.getLightBlock());
+
+            /*int i = LightEngine.getLightBlockInto(blockState, state, Direction.UP, blockState.getLightBlock());
             return i < 15;
 
             *///?}

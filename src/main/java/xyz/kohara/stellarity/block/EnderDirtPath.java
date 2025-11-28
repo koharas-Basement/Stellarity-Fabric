@@ -50,8 +50,8 @@ public class EnderDirtPath extends DirtPathBlock {
     return super.updateShape(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2);
   }
   //? } else {
-/*
-  @Override
+
+  /*@Override
   protected @NotNull BlockState updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource) {
     if (direction == Direction.UP && !blockState.canSurvive(levelReader, blockPos)) {
       return StellarityBlocks.ENDER_DIRT.defaultBlockState();

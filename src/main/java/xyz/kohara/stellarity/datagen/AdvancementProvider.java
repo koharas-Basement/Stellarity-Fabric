@@ -31,15 +31,14 @@ import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
 
   //?}
 
-public class AdvancementsProvider extends FabricAdvancementProvider {
-
+public class AdvancementProvider extends FabricAdvancementProvider {
 
   //? >= 1.21.1 {
   /*public AdvancementType TASK = AdvancementType.TASK;
   public AdvancementType GOAL = AdvancementType.GOAL;
   public AdvancementType CHALLENGE = AdvancementType.CHALLENGE;
 
-  public AdvancementsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+  public AdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
     super(output, registryLookup);
   }
 
@@ -49,7 +48,7 @@ public class AdvancementsProvider extends FabricAdvancementProvider {
   public FrameType GOAL = FrameType.GOAL;
   public FrameType CHALLENGE = FrameType.CHALLENGE;
 
-  public AdvancementsProvider(FabricDataOutput output) {
+  public AdvancementProvider(FabricDataOutput output) {
     super(output);
   }
 

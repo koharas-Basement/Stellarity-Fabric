@@ -71,8 +71,8 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
         double dz = Mth.sin(angle);
 
         //? >= 1.21.9 {
-        /*
-        var purpleParticle = new DustColorTransitionOptions(12255487, 1769509, 1.4f);
+        
+        /*var purpleParticle = new DustColorTransitionOptions(12255487, 1769509, 1.4f);
         *///?} else {
         var purpleParticle = new DustColorTransitionOptions(new Vector3f(0.733f, 0.0f, 1.0f), new Vector3f(0.106f, 0.0f, 0.145f), 1.4f);
         //? }
@@ -179,11 +179,17 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     AltarRecipe.Output output = null;
     AltarRecipe hitRecipe = null;
 
-    if (itemMode == ExtItemEntity.ItemMode.CRAFTING)
-      //? < 1.21 {
+
+    if (itemMode == ExtItemEntity.ItemMode.CRAFTING) {
+      //? = 1.21.1 {
+      /*var allRecipes = serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE);
+      *///? } > 1.21.9 {
+      /*var allRecipes = serverLevel.getServer().getRecipeManager().getAllOfType(StellarityRecipeTypes.ALTAR_RECIPE);
+      *///? }
+      //? = 1.20.1 {
       for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
        //? } else {
-      /*for (var recipeHolder : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
+      /*for (var recipeHolder : allRecipes) {
         var recipe = recipeHolder.value();
         *///? }
 
@@ -194,7 +200,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
         }
         ;
       }
-
+    }
 
     if (output == null) return;
 
