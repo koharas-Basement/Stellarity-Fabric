@@ -68,18 +68,19 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
         Integer requiredCount = required.get(requirement);
 
         if (!requirement.test(itemStack)) continue;
-
         exists = true;
+        if (requiredCount == 0) break;
         if (availableCount == requiredCount) {
-          required.remove(requirement);
+          required.put(requirement, 0);
           available.remove(itemStack);
-          continue;
+          break;
         }
 
         if (availableCount > requiredCount) {
+          required.put(requirement, 0);
           available.put(itemStack, availableCount - requiredCount);
-          required.remove(requirement);
-          continue;
+
+          break;
         }
 
         required.put(requirement, requiredCount - availableCount);
@@ -88,7 +89,9 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
       if (!exists) return null;
     }
 
-    if (!required.isEmpty()) return null;
+    for (var counts : required.values()) {
+      if (counts > 0) return null;
+    }
 
     return new Output(available, result.copy());
 
