@@ -176,19 +176,19 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     if (itemEntities.size() < 2) return;
 
 
-    HashMap<ItemStack, Integer> remainder = null;
+    AltarRecipe.Output output = null;
     AltarRecipe hitRecipe = null;
 
     if (itemMode == ExtItemEntity.ItemMode.CRAFTING)
       //? < 1.21 {
-      /*for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
-       *///? } else {
-      for (var recipeHolder : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
+      for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
+       //? } else {
+      /*for (var recipeHolder : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
         var recipe = recipeHolder.value();
-        //? }
+        *///? }
 
-        remainder = recipe.recipeRemainder(itemStacks);
-        if (remainder != null) {
+        output = recipe.craft(itemStacks);
+        if (output != null) {
           hitRecipe = recipe;
           break;
         }
@@ -196,15 +196,15 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
       }
 
 
-    if (remainder == null) return;
+    if (output == null) return;
 
     for (
       var entity : itemEntities) {
       ExtItemEntity itemEntity = (ExtItemEntity) entity;
-      itemEntity.stellarity$updateResults(remainder);
+      itemEntity.stellarity$updateResults(output.remainders());
     }
 
-    ItemEntity resultItem = new ItemEntity(serverLevel, x, y + 0.75, z, hitRecipe.result().copy());
+    ItemEntity resultItem = new ItemEntity(serverLevel, x, y + 0.75, z, output.result());
     ((ExtItemEntity) resultItem).
 
       stellarity$setItemMode(ExtItemEntity.ItemMode.RESULT);

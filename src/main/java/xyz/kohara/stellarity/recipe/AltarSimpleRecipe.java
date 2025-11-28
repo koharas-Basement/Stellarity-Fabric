@@ -1,7 +1,7 @@
 package xyz.kohara.stellarity.recipe;
 
 
-import com.mojang.serialization.codecs.ListCodec;
+
 import net.minecraft.resources.ResourceLocation;
 
 import net.minecraft.world.item.Item;
@@ -12,21 +12,18 @@ import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityRecipeSerializers;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import net.minecraft.network.FriendlyByteBuf;
 
 //? < 1.21 {
-/*import com.google.gson.JsonObject;
+import com.google.gson.JsonObject;
 import net.minecraft.util.GsonHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
 
-*///? } else {
-
+//? } else {
+/*import net.fabricmc.fabric.impl.transfer.context.CreativeInteractionContainerItemContext;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -34,7 +31,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.core.HolderLookup;
-//? }
+*///? }
 
 
 public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer> ingredients,
@@ -56,7 +53,7 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
     }
   }
 
-  public HashMap<ItemStack, Integer> recipeRemainder(List<ItemStack> itemStacks) {
+  public Output craft(List<ItemStack> itemStacks) {
     HashMap<Ingredient, Integer> required = new HashMap<>(ingredients);
     HashMap<ItemStack, Integer> available = new HashMap<>();
 
@@ -93,12 +90,12 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
 
     if (!required.isEmpty()) return null;
 
-    return available;
+    return new Output(available, result.copy());
 
   }
 
   //? < 1.21
-  //@Override
+  @Override
   public ResourceLocation getId() {
     return id;
   }
@@ -110,7 +107,7 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
 
   public static class Serializer implements RecipeSerializer<AltarSimpleRecipe> {
     //? < 1.21 {
-    /*@Override
+    @Override
     public AltarSimpleRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
       HashMap<Ingredient, Integer> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(jsonObject, "ingredients"));
       ItemStack itemStack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
@@ -159,21 +156,35 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
       }
 
       buf.writeItem(recipe.result);
-
     }
 
-    *///? } else {
-    private static class IngredientCount {
-      
-    }
-    private static final ListCodec
+    //? } else {
+    /*private static final MapCodec<Map.Entry<Ingredient, Integer>> INGREDIENT_CODEC = RecordCodecBuilder.mapCodec(
+      instance -> instance.group(
+        Ingredient.CODEC.fieldOf("ingredient").forGetter(Map.Entry::getKey),
+        Codec.INT.fieldOf("count").forGetter(Map.Entry::getValue)
+      ).apply(instance, Map::entry)
+    );
 
-    private static final MapCodec<AltarSimpleRecipe> CODEC = RecordCodecBuilder.mapCodec(
-      recipe -> recipe.group(ItemStack.CODEC.fieldOf("result").forGetter(AltarRecipe::result)
-      ).apply(recipe, (result) -> {
+    public static final MapCodec<AltarSimpleRecipe> CODEC = RecordCodecBuilder.mapCodec(
 
-        return new AltarSimpleRecipe(null, new HashMap<>(), result);
+      instance -> instance.group(
+        INGREDIENT_CODEC.codec().listOf().fieldOf("ingredients").forGetter((recipe) ->
+          recipe.ingredients.entrySet().stream().toList()
+        ),
+        ItemStack.CODEC.fieldOf("result").forGetter(AltarRecipe::result)
+
+      ).apply(instance, (ingredients, result) -> {
+        HashMap<Ingredient, Integer> ingredientMap = new HashMap<>();
+
+        for (var ingredient : ingredients) {
+          ingredientMap.put(ingredient.getKey(), ingredient.getValue());
+        }
+        return new AltarSimpleRecipe(null, ingredientMap, result);
       }));
+
+
+
 
     @Override
     public @NotNull MapCodec<AltarSimpleRecipe> codec() {
@@ -185,14 +196,14 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
       return null;
     }
 
-    //? }
+    *///? }
   }
 
   //? < 1.21 {
 
   //? } else {
 
-  @Override
+  /*@Override
   public @NotNull ItemStack assemble(Input recipeInput, HolderLookup.Provider provider) {
     return getResultItem(provider);
   }
@@ -202,5 +213,5 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
     return result.copy();
   }
 
-  //? }
+  *///? }
 }

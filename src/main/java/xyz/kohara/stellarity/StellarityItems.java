@@ -111,20 +111,20 @@ public class StellarityItems {
     foodProperties = foodProperties
       .nutrition(nutrition)
       //? < 1.21.1 {
-      /*.saturationMod(saturation);
+      .saturationMod(saturation);
 
 for (EffectChance ec : effectChances) {
   foodProperties.effect(ec.effect, ec.chance);
 }
-*///?} else {
-      .saturationModifier(saturation);
-    //?}
+//?} else {
+      /*.saturationModifier(saturation);
+    *///?}
     if (alwaysEat) {
       foodProperties =
         //? = 1.20.1
-        //foodProperties.alwaysEat();
+        foodProperties.alwaysEat();
         //? >= 1.21.1
-        foodProperties.alwaysEdible();
+        //foodProperties.alwaysEdible();
     }
 
     //? >= 1.21.9 {
