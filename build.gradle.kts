@@ -1,6 +1,7 @@
 plugins {
     id("fabric-loom")
     id("dev.kikugie.fletching-table.fabric") version "0.1.0-alpha.22"
+    id("me.modmuss50.mod-publish-plugin") version "1.1.0"
 
     // `maven-publish`
     // id("me.modmuss50.mod-publish-plugin")
@@ -117,13 +118,10 @@ tasks {
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
         dependsOn("build")
     }
-
-
 }
 
 
-/*
-// Publishes builds to Modrinth and Curseforge with changelog from the CHANGELOG.md file
+// Publishes builds to Modrinth and Curseforge with changelog from the CHANGELOG.md fileg
 publishMods {
     file = tasks.remapJar.map { it.archiveFile.get() }
     additionalFiles.from(tasks.remapSourcesJar.map { it.archiveFile.get() })
@@ -134,7 +132,7 @@ publishMods {
     modLoaders.add("fabric")
 
     dryRun = providers.environmentVariable("MODRINTH_TOKEN").getOrNull() == null
-        || providers.environmentVariable("CURSEFORGE_TOKEN").getOrNull() == null
+            || providers.environmentVariable("CURSEFORGE_TOKEN").getOrNull() == null
 
     modrinth {
         projectId = property("publish.modrinth") as String
@@ -154,7 +152,6 @@ publishMods {
         }
     }
 }
- */
 /*
 // Publishes builds to a maven repository under `com.example:template:0.1.0+mc`
 publishing {
@@ -180,5 +177,5 @@ publishing {
         }
     }
 }
- */
+*/
 

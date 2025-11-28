@@ -1,5 +1,5 @@
 # Stellarity Enlightened (UNOFFICIAL)
-Stellarity Enlightened is the mod sequel to Stellarity the datapack. 
+Stellarity Enlightened is the mod sequel to the [Stellarity Datapack](https://modrinth.com/datapack/stellarity/versions). 
 However, due to constant issues with forge and absolutely no progress being made, 
 I have decided to take a stab by dropping the (Neo)Forge loader.
 
