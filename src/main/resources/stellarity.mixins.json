@@ -5,6 +5,8 @@
   "mixins": [
     "altar_of_the_accursed.ItemEntityMixin",
     "dragon_fight.EndDragonFightMixin",
+    "potions.CreativeModeTabsMixin",
+    "potions.PotionUtilsMixin",
     "void_fishing.FishingHookMixin",
     "void_fishing.FishingRodItemMixin"
   ],

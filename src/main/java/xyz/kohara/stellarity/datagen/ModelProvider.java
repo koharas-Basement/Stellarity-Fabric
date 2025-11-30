@@ -59,6 +59,9 @@ public class ModelProvider extends FabricModelProvider {
     StellarityItems.PRISMITE,
     StellarityItems.OVERGROWN_COD,
     StellarityItems.PRISMATIC_SUSHI,
+    StellarityItems.SHEPHERDS_PIE,
+    StellarityItems.CHORUS_PIE,
+    StellarityItems.PHO,
   };
 
   @Override

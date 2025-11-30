@@ -8,7 +8,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
+
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import xyz.kohara.stellarity.item.*;
 //? >= 1.21.9 {
@@ -16,6 +18,10 @@ import xyz.kohara.stellarity.item.*;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.component.Consumable;
 *///?}
+
+//? < 1.21 {
+import net.minecraft.world.item.BowlFoodItem;
+//? }
 
 
 import java.util.function.Function;
@@ -39,18 +45,18 @@ public class StellarityItems {
   public static final Item ENDERMAN_FLESH = register("enderman_flesh", EndermanFlesh::new, EndermanFlesh.properties());
   public static final Item CRYSTAL_HEARTFISH = register("crystal_heartfish", CrystalHeartfish::new, CrystalHeartfish.properties());
   public static final Item GRILLED_ENDERMAN_FLESH = register("grilled_enderman_flesh", Item::new, basicFood(6, 9.6f));
-  public static final Item FLAREFIN_KOI = register("flarefin_koi", Item::new, foodProperties(4, 0.8f, new EffectChance(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 16 * 20), 1.0f)));
+  public static final Item FLAREFIN_KOI = register("flarefin_koi", Item::new, foodProperties(4, 0.8f, new EffectChance(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 16 * 20))));
   public static final Item AMETHYST_BUDFISH = register("amethyst_budfish", Item::new, new Item.Properties());
   public static final Item CRIMSON_TIGERFISH = register("crimson_tigerfish", Item::new, foodProperties(1, 0.2f,
-    new EffectChance(new MobEffectInstance(MobEffects.HUNGER, 30 * 20), 1.0f),
-    new EffectChance(new MobEffectInstance(MobEffects.POISON, 20 * 20), 1.0f)));
+    new EffectChance(new MobEffectInstance(MobEffects.HUNGER, 30 * 20)),
+    new EffectChance(new MobEffectInstance(MobEffects.POISON, 20 * 20))));
   public static final Item ENDER_KOI = register("ender_koi", Item::new, basicFood(1, 0.6f));
   public static final Item FLESHY_PIRANHA = register("fleshy_piranha", Item::new, foodProperties(1, 0.2f,
-    new EffectChance(new MobEffectInstance(MobEffects.HUNGER, 30 * 20), 1.0f),
-    new EffectChance(new MobEffectInstance(MobEffects.POISON, 20 * 20), 1.0f))
+    new EffectChance(new MobEffectInstance(MobEffects.HUNGER, 30 * 20)),
+    new EffectChance(new MobEffectInstance(MobEffects.POISON, 20 * 20)))
   );
-  public static final Item BUBBLEFISH = register("bubblefish", Item::new, foodProperties(0, 0, new EffectChance(new MobEffectInstance(MobEffects.WATER_BREATHING, 20 * 20), 1.0f)));
-  public static final Item PRISMITE = register("prismite", Item::new, foodProperties(3, 1.8f, new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 5 * 20), 1.0f)));
+  public static final Item BUBBLEFISH = register("bubblefish", Item::new, foodProperties(0, 0, new EffectChance(new MobEffectInstance(MobEffects.WATER_BREATHING, 20 * 20))));
+  public static final Item PRISMITE = register("prismite", Item::new, foodProperties(3, 1.8f, new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 5 * 20))));
   public static final Item OVERGROWN_COD = register("overgrown_cod", Item::new,
     foodProperties(1, 0.2f, new EffectChance(new MobEffectInstance(
       //? >= 1.21.9 {
@@ -58,10 +64,49 @@ public class StellarityItems {
        *///?} else {
       MobEffects.MOVEMENT_SLOWDOWN
       //?}
-      , 3 * 20, 2), 1.0f)));
+      , 3 * 20, 2))));
   public static final Item SHULKER_BODY = register("shulker_body", ShulkerBody::new, ShulkerBody.properties());
   public static final Item PRISMATIC_SUSHI = register("prismatic_sushi", Item::new, foodProperties(4, 2.4f, true, new EffectChance(new MobEffectInstance(MobEffects.HEALTH_BOOST, 40 * 20))));
+  public static final Item SHEPHERDS_PIE = register("shepherds_pie", Item::new,
+    foodProperties(20, 20f, true,
+      new EffectChance(new MobEffectInstance(
+        //? >= 1.21.9 {
+        /*MobEffects.HEALTH_BOOST
+         *///? } else {
+        MobEffects.HEAL
+        //?}
+        , 20, 2)),
+      new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 64 * 20, 1))
+    ));
+  public static final Item CHORUS_PIE = register("chorus_pie", Item::new, foodProperties(8, 4.8f));
 
+  public static final Item PHO = register("pho",
+    //? >= 1.21 {
+    /*Item::new,
+     *///? } else {
+    BowlFoodItem::new,
+    //? }
+    foodProperties(new Item.Properties().stacksTo(1).craftRemainder(Items.BOWL), new FoodProperties.Builder()
+      //? = 1.21.1 {
+        /*.usingConvertsTo(Items.BOWL)
+      *///? } >= 1.21.9 {
+      /*, Consumables.defaultFood()
+      *///? }
+      , 13, 20f, true,
+      new EffectChance(new MobEffectInstance(MobEffects.ABSORPTION, 150 * 20)),
+      new EffectChance(new MobEffectInstance(
+        //? >= 1.21.9 {
+        /*MobEffects.STRENGTH
+         *///? } else {
+        MobEffects.DAMAGE_BOOST
+        //?}
+        , 150 * 20)),
+      new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 32 * 20 ))
+    )
+    //? >= 1.21.9 {
+      /*.usingConvertsTo(Items.BOWL)
+    *///? }
+  );
 
 
   public static Item registerBlock(String name, Block block) {
@@ -113,18 +158,18 @@ public class StellarityItems {
       //? < 1.21.1 {
       .saturationMod(saturation);
 
-for (EffectChance ec : effectChances) {
-  foodProperties.effect(ec.effect, ec.chance);
-}
+    for (EffectChance ec : effectChances) {
+      foodProperties.effect(ec.effect, ec.chance);
+    }
 //?} else {
-      /*.saturationModifier(saturation);
-    *///?}
+    /*.saturationModifier(saturation);
+     *///?}
     if (alwaysEat) {
       foodProperties =
         //? = 1.20.1
         foodProperties.alwaysEat();
-        //? >= 1.21.1
-        //foodProperties.alwaysEdible();
+      //? >= 1.21.1
+      //foodProperties.alwaysEdible();
     }
 
     //? >= 1.21.9 {

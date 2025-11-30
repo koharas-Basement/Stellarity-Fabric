@@ -3,8 +3,8 @@ plugins {
     id("dev.kikugie.fletching-table.fabric") version "0.1.0-alpha.22"
     id("me.modmuss50.mod-publish-plugin") version "1.1.0"
 
+
     // `maven-publish`
-    // id("me.modmuss50.mod-publish-plugin")
 }
 
 version = "${property("mod.version")}+${stonecutter.current.version}"
@@ -131,12 +131,12 @@ publishMods {
     type = STABLE
     modLoaders.add("fabric")
 
-    dryRun = providers.environmentVariable("MODRINTH_TOKEN").getOrNull() == null
-            || providers.environmentVariable("CURSEFORGE_TOKEN").getOrNull() == null
+    dryRun = env.MODRINTH_TOKEN.orNull() == null
+            || env.CURSEFORGE_TOKEN.orNull() == null
 
     modrinth {
         projectId = property("publish.modrinth") as String
-        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        accessToken = env.MODRINTH_TOKEN.value
         minecraftVersions.addAll(property("mod.mc_targets").toString().split(' '))
         requires {
             slug = "fabric-api"
@@ -145,7 +145,7 @@ publishMods {
 
     curseforge {
         projectId = property("publish.curseforge") as String
-        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        accessToken = env.CURSEFORGE_TOKEN.value
         minecraftVersions.addAll(property("mod.mc_targets").toString().split(' '))
         requires {
             slug = "fabric-api"

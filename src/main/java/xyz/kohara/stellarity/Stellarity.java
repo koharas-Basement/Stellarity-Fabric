@@ -42,6 +42,7 @@ public class Stellarity implements ModInitializer {
     LOGGER.info("Fabric API is old on this version");
 
     StellarityItems.init();
+    StellarityPotions.init();
     StellarityBlocks.init();
     StellarityBlockEntityTypes.init();
     StellarityCriteriaTriggers.init();

@@ -12,6 +12,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 
+import java.util.Arrays;
+
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
 @Environment(EnvType.CLIENT)
@@ -43,7 +45,9 @@ public class StellarityCreativeModeTabs {
     StellarityItems.OVERGROWN_COD,
     StellarityItems.SHULKER_BODY,
     StellarityItems.PRISMATIC_SUSHI,
-
+    StellarityItems.SHEPHERDS_PIE,
+    StellarityItems.CHORUS_PIE,
+    StellarityItems.PHO
   };
 
   public static final Item[] EQUIPMENT_ITEMS = new Item[]{
