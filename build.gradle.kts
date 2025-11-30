@@ -86,13 +86,7 @@ java {
 
 fletchingTable {
     mixins.create("main") {
-        mixin("default", "stellarity.mixins.json") {
-            // Makes all mixins be registered in the "client" block by default.
-            env("MAIN")
-
-            // Makes mixins in the provided packages be registered in the "server" block.
-            env("CLIENT", "xyz.kohara.stellarity.client.mixin")
-        }
+        mixin("default", "stellarity.mixins.json")
     }
     j52j.register("main") {
         if (stonecutter.eval(stonecutter.current.version, "< 1.21")) {

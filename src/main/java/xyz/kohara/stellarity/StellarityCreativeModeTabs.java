@@ -13,7 +13,9 @@ import net.minecraft.world.item.Items;
 
 //? 1.20.1 {
 import net.minecraft.world.item.alchemy.PotionUtils;
-//?}
+//?} else {
+/*import net.minecraft.world.item.alchemy.PotionContents;
+*///?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
@@ -79,9 +81,13 @@ public class StellarityCreativeModeTabs {
         itemGroup.accept(item);
       }
 
-      //? 1.20.1 {
-      itemGroup.accept(PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE));
-      //?}
+      itemGroup.accept(
+        //? 1.20.1 {
+        PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
+        //?} else {
+        /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
+        *///?}
+      );
     });
 
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BLOCKS_KEY, BLOCKS);
