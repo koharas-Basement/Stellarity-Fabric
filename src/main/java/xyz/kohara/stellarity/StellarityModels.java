@@ -12,11 +12,9 @@ import net.minecraft.world.item.Item;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import xyz.kohara.stellarity.item.FisherOfVoids;
-
+import xyz.kohara.stellarity.Stellarity;
+import xyz.kohara.stellarity.StellarityBlocks;
+import xyz.kohara.stellarity.StellarityItems;
 //?} else {
 /*import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;

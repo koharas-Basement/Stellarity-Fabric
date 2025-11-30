@@ -1,5 +1,6 @@
 package xyz.kohara.stellarity.block;
 
+import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -18,6 +19,7 @@ import xyz.kohara.stellarity.StellarityBlocks;
 import net.minecraft.util.RandomSource;
 *///? }
 
+@MixinEnvironment
 public class EnderDirtPath extends DirtPathBlock {
   public EnderDirtPath(Properties properties) {
     super(properties);
@@ -63,6 +65,7 @@ public class EnderDirtPath extends DirtPathBlock {
 
   *///? }
 
+  @SuppressWarnings("deprecation")
   @Override
   public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
     BlockState blockState2 = levelReader.getBlockState(blockPos.above());

@@ -1,7 +1,5 @@
 package xyz.kohara.stellarity;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
@@ -11,12 +9,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Items;
 
-import java.util.Arrays;
+//? 1.20.1 {
+import net.minecraft.world.item.alchemy.PotionUtils;
+//?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
-@Environment(EnvType.CLIENT)
 public class StellarityCreativeModeTabs {
   public static final Item[] BLOCKS_ITEMS = new Item[]{
     StellarityItems.ASHEN_FROGLIGHT,
@@ -78,6 +78,10 @@ public class StellarityCreativeModeTabs {
       for (Item item : FOOD_ITEMS) {
         itemGroup.accept(item);
       }
+
+      //? 1.20.1 {
+      itemGroup.accept(PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE));
+      //?}
     });
 
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BLOCKS_KEY, BLOCKS);

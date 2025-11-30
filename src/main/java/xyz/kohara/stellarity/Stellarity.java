@@ -44,10 +44,12 @@ public class Stellarity implements ModInitializer {
     StellarityItems.init();
     StellarityPotions.init();
     StellarityBlocks.init();
+    StellarityCreativeModeTabs.init();
     StellarityBlockEntityTypes.init();
     StellarityCriteriaTriggers.init();
     StellarityRecipeTypes.init();
     StellarityRecipeSerializers.init();
+
   }
 
   /**

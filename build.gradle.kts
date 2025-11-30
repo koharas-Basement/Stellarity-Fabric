@@ -1,9 +1,12 @@
+import dev.kikugie.fletching_table.annotation.MixinEnvironment
+
 plugins {
     id("fabric-loom")
     id("dev.kikugie.fletching-table.fabric") version "0.1.0-alpha.22"
     id("me.modmuss50.mod-publish-plugin") version "1.1.0"
 
-
+    kotlin("jvm") version "2.2.10"
+    id("com.google.devtools.ksp") version "2.2.10-2.0.2"
     // `maven-publish`
 }
 
@@ -82,6 +85,15 @@ java {
 }
 
 fletchingTable {
+    mixins.create("main") {
+        mixin("default", "stellarity.mixins.json") {
+            // Makes all mixins be registered in the "client" block by default.
+            env("MAIN")
+
+            // Makes mixins in the provided packages be registered in the "server" block.
+            env("CLIENT", "xyz.kohara.stellarity.client.mixin")
+        }
+    }
     j52j.register("main") {
         if (stonecutter.eval(stonecutter.current.version, "< 1.21")) {
             extension("json", "data/stellarity/loot_table/void_fishing/* -> /data/stellarity/loot_tables/void_fishing/")
