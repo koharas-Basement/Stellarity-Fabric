@@ -7,10 +7,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.*;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import xyz.kohara.stellarity.item.*;
 //? >= 1.21.9 {
@@ -20,7 +18,6 @@ import net.minecraft.world.item.component.Consumable;
 *///?}
 
 //? < 1.21 {
-import net.minecraft.world.item.BowlFoodItem;
 //? }
 
 
@@ -79,6 +76,7 @@ public class StellarityItems {
       new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 64 * 20, 1))
     ));
   public static final Item CHORUS_PIE = register("chorus_pie", Item::new, foodProperties(8, 4.8f));
+  public static final Item PHANTOM_ITEM_FRAME = register("phantom_item_frame", PhantomItemFrameItem::new, new Item.Properties().stacksTo(16));
 
   public static final Item PHO = register("pho",
     //? >= 1.21 {

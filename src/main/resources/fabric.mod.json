@@ -19,7 +19,7 @@
       "xyz.kohara.stellarity.Stellarity"
     ],
     "client": [
-      "xyz.kohara.stellarity.StellarityClient"
+      "xyz.kohara.stellarity.client.StellarityClient"
     ],
     "fabric-datagen": [
       "xyz.kohara.stellarity.StellarityDatagen"

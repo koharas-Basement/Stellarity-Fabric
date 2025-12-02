@@ -27,6 +27,7 @@ public class StellarityCreativeModeTabs {
     StellarityItems.ROOTED_ENDER_DIRT,
     StellarityItems.ENDER_DIRT_PATH,
     StellarityItems.ALTAR_OF_THE_ACCURSED,
+    StellarityItems.PHANTOM_ITEM_FRAME
   };
 
   public static final Item[] FOOD_ITEMS = new Item[]{

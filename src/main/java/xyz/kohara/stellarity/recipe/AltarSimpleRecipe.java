@@ -21,7 +21,6 @@ import net.minecraft.util.GsonHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.level.Level;
 //? } else {
 /*import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

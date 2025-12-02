@@ -85,8 +85,11 @@ java {
 }
 
 fletchingTable {
-    mixins.create("main") {
+    mixins.register("main") {
         mixin("default", "stellarity.mixins.json")
+        mixin("client", "stellarity.client.mixins.json") {
+            environment = MixinEnvironment.Env.CLIENT
+        }
     }
     j52j.register("main") {
         if (stonecutter.eval(stonecutter.current.version, "< 1.21")) {

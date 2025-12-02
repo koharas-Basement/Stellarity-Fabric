@@ -62,6 +62,7 @@ public class ModelProvider extends FabricModelProvider {
     StellarityItems.SHEPHERDS_PIE,
     StellarityItems.CHORUS_PIE,
     StellarityItems.PHO,
+    StellarityItems.PHANTOM_ITEM_FRAME
   };
 
   @Override

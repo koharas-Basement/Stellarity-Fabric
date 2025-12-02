@@ -36,20 +36,15 @@ public class Stellarity implements ModInitializer {
     // However, some things (like resources) may still be uninitialized.
     // Proceed with mild caution.
 
-    LOGGER.info("Hello Fabric world!");
-
-    //? if fapi: <0.100
-    LOGGER.info("Fabric API is old on this version");
-
     StellarityItems.init();
     StellarityPotions.init();
     StellarityBlocks.init();
     StellarityCreativeModeTabs.init();
+    StellarityEntities.init();
     StellarityBlockEntityTypes.init();
     StellarityCriteriaTriggers.init();
     StellarityRecipeTypes.init();
     StellarityRecipeSerializers.init();
-
   }
 
   /**

@@ -1,4 +1,4 @@
-package xyz.kohara.stellarity;
+package xyz.kohara.stellarity.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -15,5 +15,7 @@ public class StellarityClient implements ClientModInitializer {
     Stellarity.LOGGER.info("Stellarity Client Initializing");
 
     StellarityModels.init();
+    StellarityEntityRenderers.init();
+
   }
 }

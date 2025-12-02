@@ -1,5 +1,5 @@
 //? <= 1.21.1 {
-package xyz.kohara.stellarity.mixin.void_fishing;
+package xyz.kohara.stellarity.client.mixin.void_fishing;
 
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import net.minecraft.client.renderer.entity.FishingHookRenderer;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import xyz.kohara.stellarity.StellarityItems;
 
 @Mixin(FishingHookRenderer.class)
-@MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
+@MixinEnvironment("client")
 public class FishingHookRendererMixin {
 
   //? = 1.20.1

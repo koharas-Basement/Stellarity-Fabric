@@ -1,0 +1,18 @@
+package xyz.kohara.stellarity.client;
+
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.renderer.entity.ItemFrameRenderer;
+import xyz.kohara.stellarity.Stellarity;
+import xyz.kohara.stellarity.StellarityEntities;
+
+@Environment(EnvType.CLIENT)
+public class StellarityEntityRenderers {
+
+  public static void init() {
+    Stellarity.LOGGER.info("Registering Stellarity Entity Renderers");
+    EntityRendererRegistry.register(StellarityEntities.PHANTOM_ITEM_FRAME, ItemFrameRenderer::new);
+  }
+
+}

@@ -1,4 +1,4 @@
-package xyz.kohara.stellarity;
+package xyz.kohara.stellarity.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -7,14 +7,14 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.Item;
+import xyz.kohara.stellarity.Stellarity;
+import xyz.kohara.stellarity.StellarityBlocks;
+import xyz.kohara.stellarity.StellarityItems;
 
 //? <= 1.21.1 {
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
-import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityBlocks;
-import xyz.kohara.stellarity.StellarityItems;
 //?} else {
 /*import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
