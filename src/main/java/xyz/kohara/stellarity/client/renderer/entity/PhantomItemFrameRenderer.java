@@ -1,0 +1,47 @@
+package xyz.kohara.stellarity.client.renderer.entity;
+
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemFrameRenderer;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.Property;
+import xyz.kohara.stellarity.entity.PhantomItemFrame;
+
+//? < 1.21.9 {
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemFrameRenderer;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
+import xyz.kohara.stellarity.Stellarity;
+import xyz.kohara.stellarity.entity.PhantomItemFrame;
+//? }
+
+public class PhantomItemFrameRenderer extends ItemFrameRenderer<PhantomItemFrame> {
+  public static StateDefinition<Block, BlockState> FAKE_STATE_DEFINITION = (new StateDefinition.Builder<Block, BlockState>(Blocks.AIR)).add(new Property[]{}).create(Block::defaultBlockState, BlockState::new);
+  //? < 1.21.9 {
+  
+
+  private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(Stellarity.of("phantom_item_frame"), "");
+
+  public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
+    super(context);
+  }
+
+  @Override
+  public @NotNull ModelResourceLocation getFrameModelResourceLoc(PhantomItemFrame itemFrame, ItemStack itemStack) {
+    // because the frame turns invis there is no need for a map model cuz it wont be seen anyways
+
+    return MODEL_LOCATION;
+  }
+
+  //? } else {
+
+  /*public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
+    super(context);
+  }
+
+*///? }
+}

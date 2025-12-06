@@ -11,11 +11,10 @@ import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HangingEntityItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemFrameItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.StellarityEntities;
@@ -23,17 +22,13 @@ import xyz.kohara.stellarity.entity.PhantomItemFrame;
 
 import java.util.Optional;
 
-public class PhantomItemFrameItem extends HangingEntityItem {
+public class PhantomItemFrameItem extends ItemFrameItem {
   public PhantomItemFrameItem(EntityType<? extends HangingEntity> entityType, Item.Properties properties) {
     super(entityType, properties);
   }
 
   public PhantomItemFrameItem(Item.Properties properties) {
     this(StellarityEntities.PHANTOM_ITEM_FRAME, properties);
-  }
-
-  protected boolean mayPlace(Player player, Direction direction, ItemStack itemStack, BlockPos blockPos) {
-    return !player.level().isOutsideBuildHeight(blockPos) && player.mayUseItemAt(blockPos, direction, itemStack);
   }
 
   public @NotNull InteractionResult useOn(UseOnContext useOnContext) {

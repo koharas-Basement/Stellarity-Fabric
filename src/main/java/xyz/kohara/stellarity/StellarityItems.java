@@ -76,7 +76,7 @@ public class StellarityItems {
       new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 64 * 20, 1))
     ));
   public static final Item CHORUS_PIE = register("chorus_pie", Item::new, foodProperties(8, 4.8f));
-  public static final Item PHANTOM_ITEM_FRAME = register("phantom_item_frame", PhantomItemFrameItem::new, new Item.Properties().stacksTo(16));
+  public static final Item PHANTOM_ITEM_FRAME = register("phantom_item_frame", PhantomItemFrameItem::new, new ItemFrameItem.Properties().stacksTo(16));
 
   public static final Item PHO = register("pho",
     //? >= 1.21 {

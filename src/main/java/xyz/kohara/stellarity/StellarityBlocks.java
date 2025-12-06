@@ -34,6 +34,7 @@ public class StellarityBlocks {
     .sound(SoundType.ROOTED_DIRT));
   public static final Block ENDER_DIRT_PATH = register("ender_dirt_path", EnderDirtPath::new, EnderDirtPath.blockProperties());
   public static final Block ALTAR_OF_THE_ACCURSED = register("altar_of_the_accursed", AltarOfTheAccursed::new, AltarOfTheAccursed.blockProperties());
+//  public static final Block _PHANTOM_ITEM_FRAME = register("phantom_item_frame", Block::new, BlockBehaviour.Properties.of()); // Placeholder block for registration purposes only
 
 
   public static Block register(String id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings) {
