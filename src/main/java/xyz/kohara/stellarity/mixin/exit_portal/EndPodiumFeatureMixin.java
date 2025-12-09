@@ -46,17 +46,17 @@ public abstract class EndPodiumFeatureMixin extends Feature<NoneFeatureConfigura
   @Inject(method = "place", at = @At("HEAD"), cancellable = true)
   private void stellarityPortal(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext, CallbackInfoReturnable<Boolean> cir) {
     BlockPos blockPos = featurePlaceContext.origin();
-    WorldGenLevel worldGenLevel = featurePlaceContext.level();
+    WorldGenLevel level = featurePlaceContext.level();
 
     for (int dx = -6; dx <= 6; dx++) {
       for (int dz = -6; dz <= 6; dz++) {
-        setBlock(worldGenLevel, blockPos.offset(dx, 0, dz), Blocks.OBSIDIAN.defaultBlockState());
+        setBlock(level, blockPos.offset(dx, 0, dz), Blocks.OBSIDIAN.defaultBlockState());
       }
     }
 
 
     int p = active ? 4 : 0;
-    printRow(worldGenLevel, new BlockState[]{
+    printRow(level, new BlockState[]{
         Blocks.AIR.defaultBlockState(),
         Blocks.OBSIDIAN.defaultBlockState(),
         Blocks.CRYING_OBSIDIAN.defaultBlockState().getBlock().defaultBlockState(),
@@ -88,7 +88,7 @@ public abstract class EndPodiumFeatureMixin extends Feature<NoneFeatureConfigura
     East v
     Make sure the directions on the stairs are opposites because mc views the stairs as the way u walk towards
      */
-    printRow(worldGenLevel, new BlockState[]{
+    printRow(level, new BlockState[]{
         Blocks.AIR.defaultBlockState(),
         Blocks.BEDROCK.defaultBlockState(),
         Blocks.REINFORCED_DEEPSLATE.defaultBlockState(),
@@ -114,6 +114,38 @@ public abstract class EndPodiumFeatureMixin extends Feature<NoneFeatureConfigura
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       }, blockPos.offset(-6, 2, -6)
     );
+
+    for (int dy = 3; dy <= 6; dy++)
+      for (int dx = -6; dx <= 6; dx++) {
+        for (int dz = -6; dz <= 6; dz++) {
+          setBlock(level, blockPos.offset(dx, dy, dz), Blocks.AIR.defaultBlockState());
+        }
+      }
+
+    printRow(level, new BlockState[]{
+      Blocks.BEDROCK.defaultBlockState(),
+      Blocks.REINFORCED_DEEPSLATE.defaultBlockState(),
+    }, new int[][]{
+      {1, 0, 1},
+      {0, 0, 0},
+      {1, 0, 1}
+    }, blockPos.offset(-1, 3, -1));
+
+    printRow(level, new BlockState[]{
+      Blocks.BEDROCK.defaultBlockState(),
+      Blocks.AIR.defaultBlockState(),
+      Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH),
+      Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH),
+      Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST),
+      Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST),
+    }, new int[][]{
+      {1, 4, 1},
+      {3, 0, 2},
+      {1, 5, 1}
+    }, blockPos.offset(-1, 4, -1));
+
+    setBlock(level, blockPos.above(5), Blocks.BEDROCK.defaultBlockState());
+    setBlock(level, blockPos.above(6), Blocks.BEDROCK.defaultBlockState());
 
 
     cir.setReturnValue(true);

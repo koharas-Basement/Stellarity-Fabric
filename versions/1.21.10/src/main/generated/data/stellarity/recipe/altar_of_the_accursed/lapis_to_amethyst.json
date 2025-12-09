@@ -2,10 +2,10 @@
   "type": "stellarity:altar_of_the_accursed_simple",
   "ingredients": [
     {
-      "ingredient": "minecraft:diamond"
+      "ingredient": "minecraft:lapis_lazuli"
     },
     {
-      "ingredient": "minecraft:lapis_lazuli"
+      "ingredient": "minecraft:diamond"
     }
   ],
   "result": {
