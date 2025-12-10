@@ -53,4 +53,8 @@ public class EntityMixin implements ExtEntity {
     cir.cancel();
   }
 
+  @Override
+  public SynchedEntityData stellarity$entityData() {
+    return entityData;
+  }
 }

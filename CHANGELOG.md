@@ -1,12 +1,48 @@
-# 0.1.0
-Initial release with pretty basic functionality.
+# 0.2.0
 
-## Changes
-- Blocks like Ashen Froglight, Ender Dirt/Grasses have been added
-- Foods have been added as well as item models for them
-- Altar of the Accursed has been implemented for Simple recipes and end fight activation states
-- Void Fishing has been implemented, however loot table remains to be done
-- The Fisher of Voids gives you Lure 5 effects when enchanted with Lure 3
+This update emphaizes on working on the dragon fight with a few other additions
 
-## Developers Note
+# Changes
+
+Unless annotated, all changes are considered to be up to date with
+the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](https://modrinth.com/datapack/stellarity)
+
+## Blocks
+
+**[+] Phantom Item Frame**
+
+## Mechanics
+
+**[*] End Crystals**
+
+- Respawn crystals will now break instead of exploding
+- Respawn crystals now glow purple instead of white
+
+**[*] Altar of The Accursed**
+
+- Dropped items now glow purple instead of white
+
+**[*] Dragon Fight**
+
+- Ender dragon will no longer perch if there exists at least 1 tower crystal
+- The number of End Crystals will now show up
+
+## Items
+
+**[+] Shepherd's Pie**
+
+**[+] Chorus Pie**
+
+**[+] Pho**
+
+**[+] Blind Rage Potion**
+
+## Structures
+
+**[*] Exit Portal**
+
+- Replaced with the Stellarity exit portal
+
+# Developers Note
+
 fabric is better hehe :3

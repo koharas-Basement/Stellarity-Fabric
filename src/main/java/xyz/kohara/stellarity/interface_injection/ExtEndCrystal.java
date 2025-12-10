@@ -4,16 +4,16 @@ public interface ExtEndCrystal {
   enum Type {
     NORMAL,
     RESPAWN,
-    VAULT,
+    END_CITY,
   }
 
   default Type stellarity$getType() {
-    return null;
+    throw new AssertionError("Not transformed!");
   }
 
 
   default void stellarity$setType(Type type) {
-
+    throw new AssertionError("Not transformed!");
   }
 
 

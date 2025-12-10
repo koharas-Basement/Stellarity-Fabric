@@ -4,10 +4,10 @@ import net.minecraft.core.BlockPos;
 
 public interface ExtEndDragonFight {
   default boolean stellarity$dragonKilled() {
-    return false;
+    throw new AssertionError("Not transformed!");
   }
 
   default BlockPos stellarity$getPortalLocation() {
-    return null;
+    throw new AssertionError("Not transformed!");
   }
 }

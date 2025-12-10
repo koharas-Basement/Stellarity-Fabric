@@ -10,14 +10,18 @@ public interface ExtEntity {
    * ⚠️ any negative number means the color is not overriden
    */
   default void stellarity$setGlowColor(int color) {
+    throw new AssertionError("Not transformed!");
+  }
 
+  default SynchedEntityData stellarity$entityData() {
+    throw new AssertionError("Not transformed!");
   }
 
   /**
    * ⚠️ any negative number means the color is not overriden
    */
   default int stellarity$getGlowColor() {
-    return -1;
+    throw new AssertionError("Not transformed!");
   }
 
   EntityDataAccessor<Integer> DATA_GLOW_COLOR = SynchedEntityData.defineId(Entity.class, EntityDataSerializers.INT);

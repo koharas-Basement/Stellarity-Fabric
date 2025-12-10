@@ -10,12 +10,16 @@ public interface ExtItemEntity {
     PICKUP,
     RESULT
   }
+
   default ItemMode stellarity$getItemMode() {
-    return null;
+    throw new AssertionError("Not transformed!");
   }
+
   default void stellarity$setItemMode(ItemMode mode) {
+    throw new AssertionError("Not transformed!");
   }
 
   default void stellarity$updateResults(HashMap<ItemStack, Integer> results) {
+    throw new AssertionError("Not transformed!");
   }
 }
