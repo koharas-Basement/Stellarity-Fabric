@@ -5,6 +5,8 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 
+import java.util.ArrayList;
+
 public interface ExtEntity {
   /**
    * ⚠️ any negative number means the color is not overriden
@@ -25,12 +27,18 @@ public interface ExtEntity {
   }
 
 
+  /**
+   * When defining synched data, make sure the accessors are indexed correctly with parent class offsets if needed
+   */
   default void stellarity$defineSynchedData(
     //? > 1.21
-    //SynchedEntityData.Builder builder
+    //ArrayList<SynchedEntityData.DataItem<?>> dataItems
   ) {
 
   }
 
-  EntityDataAccessor<Integer> DATA_GLOW_COLOR = SynchedEntityData.defineId(Entity.class, EntityDataSerializers.INT);
+  // change this accordingly! when subclassing, find the first entity that declares this
+  int stellarity$DATA_SIZE = 1;
+
+  EntityDataAccessor<Integer> DATA_GLOW_COLOR = new EntityDataAccessor<>(0, EntityDataSerializers.INT);
 }

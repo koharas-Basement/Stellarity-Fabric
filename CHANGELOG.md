@@ -45,4 +45,4 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 # Developers Note
 
-fabric is better hehe :3
+reworked a bunch of entity storage and syncing methods, let me know if you encounter any bugs!

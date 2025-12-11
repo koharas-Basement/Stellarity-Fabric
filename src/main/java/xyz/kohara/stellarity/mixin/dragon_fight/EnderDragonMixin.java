@@ -1,6 +1,7 @@
 package xyz.kohara.stellarity.mixin.dragon_fight;
 
 import com.llamalad7.mixinextras.expression.Expression;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -39,11 +40,17 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
     *///? }
     // squash - ender dragon doesn't take damage from crystals
     return false;
+
   }
 
 
+  //? < 1.21.9 {
   @Inject(method = "hurt(Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("HEAD"), cancellable = true)
   private void invulnerable(EnderDragonPart enderDragonPart, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+    //? } else {
+  /*@Inject(method = "hurt(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("HEAD"), cancellable = true)
+  private void invulnerable(ServerLevel serverLevel, EnderDragonPart enderDragonPart, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+    *///? }
     if (dragonFight != null && dragonFight.getCrystalsAlive() != 0) {
       cir.setReturnValue(false);
       cir.cancel();
