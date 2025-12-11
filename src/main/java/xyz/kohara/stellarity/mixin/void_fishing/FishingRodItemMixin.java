@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import xyz.kohara.stellarity.StellarityItems;
-import xyz.kohara.stellarity.interface_injection.ExtFishingHook;
 
 @Mixin(FishingRodItem.class)
 public class FishingRodItemMixin {
@@ -20,7 +19,7 @@ public class FishingRodItemMixin {
 
     if (itemStack.is(StellarityItems.FISHER_OF_VOIDS)) {
 
-      ((ExtFishingHook) hook).stellarity$buffVoidFishing(true);
+      hook.stellarity$buffVoidFishing(true);
     }
 
     return hook;

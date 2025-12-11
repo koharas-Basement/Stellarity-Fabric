@@ -91,9 +91,9 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
   private boolean isEnd() {
     //? <= 1.20.1 {
     return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
-     //?} else {
+    //?} else {
     /*return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
-    *///?}
+     *///?}
   }
 
   @Unique
@@ -181,7 +181,6 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
   }
 
 
-
   @Redirect(method = "catchingFish", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"))
   private boolean addVoidVishingToWaterCheck(BlockState instance, Block block) {
     return isVoidFishing || instance.is(block);
@@ -204,7 +203,7 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     instance.playSound(soundEvent, evalVoidFishing() ? 1.5f : v, p);
   }
 
-  @Redirect(method="shouldStopFishing", at = @At(value="INVOKE", target="Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+  @Redirect(method = "shouldStopFishing", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
   public boolean dontStopFisherOfVoids(ItemStack instance, Item item) {
     return instance.is(StellarityItems.FISHER_OF_VOIDS) || instance.is(item);
   }
@@ -220,7 +219,7 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     return this.lureSpeed + 2;
     //? } else {
     /*return this.lureSpeed + 200;
-    *///? }
+     *///? }
   }
 
   @Unique

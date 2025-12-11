@@ -3,6 +3,7 @@ package xyz.kohara.stellarity.mixin.extend_classes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -57,7 +58,7 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     this.itemMode = mode;
     boolean crafting = mode == ItemMode.CRAFTING;
     setGlowingTag(crafting);
-    ((ExtEntity) this).stellarity$setGlowColor(crafting ? ChatFormatting.DARK_PURPLE.getColor() : -1);
+    this.stellarity$setGlowColor(crafting ? ChatFormatting.DARK_PURPLE.getColor() : -1);
     setPickUpDelay(crafting ? Short.MAX_VALUE : 0);
   }
 
@@ -125,6 +126,4 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
       if (itemMode == ItemMode.CRAFTING) stellarity$setItemMode(ItemMode.PICKUP);
     }
   }
-
-
 }

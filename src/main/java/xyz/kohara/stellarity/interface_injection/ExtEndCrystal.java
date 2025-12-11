@@ -16,5 +16,4 @@ public interface ExtEndCrystal {
     throw new AssertionError("Not transformed!");
   }
 
-
 }

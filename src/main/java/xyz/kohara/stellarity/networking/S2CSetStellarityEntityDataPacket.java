@@ -1,0 +1,64 @@
+package xyz.kohara.stellarity.networking;
+
+
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
+import xyz.kohara.stellarity.Stellarity;
+
+import java.util.ArrayList;
+
+//? 1.20.1 {
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.minecraft.network.FriendlyByteBuf;
+
+  //? } else {
+/*import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import org.jetbrains.annotations.NotNull;
+*///? }
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.DataValue<?>> list)
+//? > 1.21 {
+  /*implements CustomPacketPayload
+   *///? }
+{
+  public static final ResourceLocation ID = Stellarity.of("set_entity_data");
+
+  //? 1.20.1 {
+  public FriendlyByteBuf pack() {
+    var buf = PacketByteBufs.create();
+    buf.writeVarInt(id);
+    for (SynchedEntityData.DataValue<?> dataValue : list) {
+      dataValue.write(buf);
+    }
+
+    buf.writeByte(255);
+
+    return buf;
+  }
+
+  public static S2CSetStellarityEntityDataPacket unpack(FriendlyByteBuf friendlyByteBuf) {
+    int id = friendlyByteBuf.readVarInt();
+    List<SynchedEntityData.DataValue<?>> list = new ArrayList<>();
+
+    int i;
+    while ((i = friendlyByteBuf.readUnsignedByte()) != 255) {
+      list.add(SynchedEntityData.DataValue.read(friendlyByteBuf, i));
+    }
+
+    return new S2CSetStellarityEntityDataPacket(id, list);
+  }
+  //? } else {
+  /*public static final Type<S2CSetStellarityEntityDataPacket> TYPE = new Type<>(ID);
+
+  @Override
+  public @NotNull Type<? extends CustomPacketPayload> type() {
+    return TYPE;
+  }
+
+  *///? }
+}

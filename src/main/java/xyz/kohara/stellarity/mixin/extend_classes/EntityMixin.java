@@ -1,24 +1,28 @@
 package xyz.kohara.stellarity.mixin.extend_classes;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.kohara.stellarity.interface_injection.ExtEntity;
+//? > 1.21 {
+/*import net.minecraft.network.syncher.SyncedDataHolder;
+ *///? }
 
 @Mixin(Entity.class)
-public class EntityMixin implements ExtEntity {
+public abstract class EntityMixin implements ExtEntity
+  //? > 1.21 {
+  /*, SyncedDataHolder
+   *///? }
+{
 
-  @Shadow
-  @Final
+  @Unique
+  @Mutable
   protected SynchedEntityData entityData;
 
   @Override
@@ -32,17 +36,33 @@ public class EntityMixin implements ExtEntity {
   }
 
   //? 1.20.1 {
-  @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/syncher/SynchedEntityData;define(Lnet/minecraft/network/syncher/EntityDataAccessor;Ljava/lang/Object;)V", ordinal = 0))
+  @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData()V", ordinal = 0))
   private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
+    entityData = new SynchedEntityData((Entity) (Object) this);
+    stellarity$defineSynchedData();
+  }
+
+  @Override
+  public void stellarity$defineSynchedData() {
     entityData.define(DATA_GLOW_COLOR, -1);
   }
 
+
   //?} else {
-  /*@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/syncher/SynchedEntityData$Builder;define(Lnet/minecraft/network/syncher/EntityDataAccessor;Ljava/lang/Object;)Lnet/minecraft/network/syncher/SynchedEntityData$Builder;", ordinal = 0))
-  private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci, @Local SynchedEntityData.Builder builder) {
+  /*@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData(Lnet/minecraft/network/syncher/SynchedEntityData$Builder;)V", ordinal = 0))
+  private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
+    SynchedEntityData.Builder builder = new SynchedEntityData.Builder(this);
+    stellarity$defineSynchedData(builder);
+    entityData = builder.build();
+  }
+
+  @Override
+  public void stellarity$defineSynchedData(SynchedEntityData.Builder builder) {
     builder.define(DATA_GLOW_COLOR, -1);
   }
+
   *///?}
+
 
   @Inject(method = "getTeamColor", at = @At("HEAD"), cancellable = true)
   private void customGlowColor(CallbackInfoReturnable<Integer> cir) {

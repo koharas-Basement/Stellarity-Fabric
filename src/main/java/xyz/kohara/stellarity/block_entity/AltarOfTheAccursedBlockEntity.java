@@ -71,9 +71,9 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
         double dz = Mth.sin(angle);
 
         //? >= 1.21.9 {
-        
+
         /*var purpleParticle = new DustColorTransitionOptions(12255487, 1769509, 1.4f);
-        *///?} else {
+         *///?} else {
         var purpleParticle = new DustColorTransitionOptions(new Vector3f(0.733f, 0.0f, 1.0f), new Vector3f(0.106f, 0.0f, 0.145f), 1.4f);
         //? }
 
@@ -130,7 +130,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
           EndDragonFight dragonFight = end == null ? null : end.getDragonFight();
 
 
-          AltarOfTheAccursed.State newState = dragonFight != null && dragonFight.hasPreviouslyKilledDragon() && ((ExtEndDragonFight) dragonFight).stellarity$dragonKilled() ?
+          AltarOfTheAccursed.State newState = dragonFight != null && dragonFight.hasPreviouslyKilledDragon() && dragonFight.stellarity$dragonKilled() ?
             AltarOfTheAccursed.State.UNLOCKED : AltarOfTheAccursed.State.LOCKED;
           if (state != newState) {
             serverLevel.setBlockAndUpdate(blockPos, blockState.setValue(AltarOfTheAccursed.STATE, newState));
@@ -149,7 +149,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     List<ItemEntity> itemEntities = serverLevel.getEntitiesOfClass(ItemEntity.class, new AABB(
       x - 0.5, y + 0.75d - 0.5, z - 0.5,
       x + 0.5, y + 0.75d + 0.5, z + 0.5
-    ), entity -> ((ExtItemEntity) entity).stellarity$getItemMode() != ExtItemEntity.ItemMode.RESULT);
+    ), entity -> entity.stellarity$getItemMode() != ExtItemEntity.ItemMode.RESULT);
 
     Player player = serverLevel.getNearestPlayer(x, y, z, 10, false);
 
@@ -183,12 +183,12 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     if (itemMode == ExtItemEntity.ItemMode.CRAFTING) {
       //? = 1.21.1 {
       /*var allRecipes = serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE);
-      *///? } > 1.21.9 {
+       *///? } > 1.21.9 {
       /*var allRecipes = serverLevel.getServer().getRecipeManager().getAllOfType(StellarityRecipeTypes.ALTAR_RECIPE);
-      *///? }
+       *///? }
       //? = 1.20.1 {
       for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
-       //? } else {
+        //? } else {
       /*for (var recipeHolder : allRecipes) {
         var recipe = recipeHolder.value();
         *///? }
@@ -211,7 +211,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     }
 
     ItemEntity resultItem = new ItemEntity(serverLevel, x, y + 0.75, z, output.result());
-    ((ExtItemEntity) resultItem).
+    resultItem.
 
       stellarity$setItemMode(ExtItemEntity.ItemMode.RESULT);
     serverLevel.addFreshEntity(resultItem);

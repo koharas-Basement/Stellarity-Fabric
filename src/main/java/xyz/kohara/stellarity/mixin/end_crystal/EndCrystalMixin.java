@@ -12,7 +12,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EndCrystal;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -28,8 +27,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.interface_injection.ExtEndCrystal;
-import xyz.kohara.stellarity.interface_injection.ExtEndDragonFight;
-import xyz.kohara.stellarity.interface_injection.ExtEntity;
 
 @Mixin(EndCrystal.class)
 public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
@@ -45,7 +42,7 @@ public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
     this.type = type;
     boolean glow = type != Type.NORMAL;
     setGlowingTag(glow);
-    ((ExtEntity) this).stellarity$setGlowColor(glow ? ChatFormatting.DARK_PURPLE.getColor() : -1);
+    this.stellarity$setGlowColor(glow ? ChatFormatting.DARK_PURPLE.getColor() : -1);
   }
 
   @Override
@@ -89,7 +86,7 @@ public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
     ServerLevel level = (ServerLevel) level();
     EndDragonFight dragonFight = level.getDragonFight();
     BlockPos blockPos = blockPosition();
-    BlockPos portalLocation = dragonFight instanceof ExtEndDragonFight d ? d.stellarity$getPortalLocation() : null;
+    BlockPos portalLocation = dragonFight == null ? null : dragonFight.stellarity$getPortalLocation();
     if (type == Type.RESPAWN) {
       if (portalLocation == null) {
         stellarity$setType(Type.NORMAL);

@@ -24,5 +24,13 @@ public interface ExtEntity {
     throw new AssertionError("Not transformed!");
   }
 
+
+  default void stellarity$defineSynchedData(
+    //? > 1.21
+    //SynchedEntityData.Builder builder
+  ) {
+
+  }
+
   EntityDataAccessor<Integer> DATA_GLOW_COLOR = SynchedEntityData.defineId(Entity.class, EntityDataSerializers.INT);
 }
