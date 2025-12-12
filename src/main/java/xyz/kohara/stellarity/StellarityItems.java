@@ -86,10 +86,10 @@ public class StellarityItems {
     //? }
     foodProperties(new Item.Properties().stacksTo(1).craftRemainder(Items.BOWL), new FoodProperties.Builder()
       //? = 1.21.1 {
-        /*.usingConvertsTo(Items.BOWL)
-      *///? } >= 1.21.9 {
+      /*.usingConvertsTo(Items.BOWL)
+       *///? } >= 1.21.9 {
       /*, Consumables.defaultFood()
-      *///? }
+       *///? }
       , 13, 20f, true,
       new EffectChance(new MobEffectInstance(MobEffects.ABSORPTION, 150 * 20)),
       new EffectChance(new MobEffectInstance(
@@ -99,11 +99,11 @@ public class StellarityItems {
         MobEffects.DAMAGE_BOOST
         //?}
         , 150 * 20)),
-      new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 32 * 20 ))
+      new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 32 * 20))
     )
     //? >= 1.21.9 {
-      /*.usingConvertsTo(Items.BOWL)
-    *///? }
+    /*.usingConvertsTo(Items.BOWL)
+     *///? }
   );
 
 

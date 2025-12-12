@@ -87,6 +87,7 @@ fabricApi {
 
 
 
+
 java {
     withSourcesJar()
     targetCompatibility = requiredJava
@@ -142,7 +143,6 @@ tasks {
 // Publishes builds to Modrinth and Curseforge with changelog from the CHANGELOG.md fileg
 publishMods {
     file = tasks.remapJar.map { it.archiveFile.get() }
-    additionalFiles.from(tasks.remapSourcesJar.map { it.archiveFile.get() })
     displayName = "${property("mod.name")} ${property("mod.version")} for ${property("mod.mc_title")}"
     version = property("mod.version") as String
     changelog = rootProject.file("CHANGELOG.md").readText()

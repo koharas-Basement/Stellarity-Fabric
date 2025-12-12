@@ -47,6 +47,7 @@ public class Stellarity implements ModInitializer {
     StellarityRecipeTypes.init();
     StellarityRecipeSerializers.init();
     StellarityPaintings.init();
+    StellarityTooltips.init();
   }
 
   /**
