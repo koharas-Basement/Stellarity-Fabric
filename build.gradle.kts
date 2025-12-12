@@ -60,6 +60,9 @@ dependencies {
 loom {
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json") // Useful for interface injection
     accessWidenerPath = rootProject.file("src/main/resources/stellarity.accesswidener")
+    file("build/generated/stonecutter/main/resources/stellarity.accesswidener").let {
+        if (it.exists()) accessWidenerPath = it
+    }
 
     decompilerOptions.named("vineflower") {
         options.put("mark-corresponding-synthetics", "1") // Adds names to lambdas - useful for mixins
