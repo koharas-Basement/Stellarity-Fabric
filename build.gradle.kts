@@ -65,6 +65,10 @@ loom {
         options.put("mark-corresponding-synthetics", "1") // Adds names to lambdas - useful for mixins
     }
 
+    runConfigs["client"].apply {
+        programArgs("--username=Coder2195", "--uuid=12f1e56e-9fad-4371-9d1f-a18bf67f6f13")
+    }
+
     runConfigs.all {
         ideConfigGenerated(true)
         vmArgs("-Dmixin.debug.export=true -XX:+AllowEnhancedClassRedefinition") // Exports transformed classes for debugging
@@ -77,6 +81,8 @@ fabricApi {
         client = true
     }
 }
+
+
 
 java {
     withSourcesJar()

@@ -37,6 +37,28 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Blind Rage Potion**
 
+## Paintings
+
+**[+] Shepherd's Feast**
+
+**[+] Dragonblade**
+
+**[+] End**
+
+**[+] Hourglass**
+
+**[+] Scheme**
+
+**[+] Snare**
+
+**[+] The Obsidian Reliquary**
+
+**[+] Majestical Brew**
+
+**[+] A Hop and a Skip Away**
+
+**[+] End Blossom**
+
 ## Structures
 
 **[*] Exit Portal**

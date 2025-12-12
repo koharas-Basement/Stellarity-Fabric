@@ -17,17 +17,17 @@ public class Stellarity implements ModInitializer {
   public static ResourceLocation of(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(MOD_ID, path);
-     //?} else {
+    //?} else {
     /*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-    *///?}
+     *///?}
   }
 
   public static ResourceLocation mcOf(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(path);
-     //?} else {
+    //?} else {
     /*return ResourceLocation.withDefaultNamespace(path);
-    *///?}
+     *///?}
   }
 
   @Override
@@ -46,6 +46,7 @@ public class Stellarity implements ModInitializer {
     StellarityCriteriaTriggers.init();
     StellarityRecipeTypes.init();
     StellarityRecipeSerializers.init();
+    StellarityPaintings.init();
   }
 
   /**
@@ -54,7 +55,7 @@ public class Stellarity implements ModInitializer {
   public static ResourceLocation id(String namespace, String path) {
     //? if <1.21 {
     return new ResourceLocation(namespace, path);
-     //?} else
+    //?} else
     //return ResourceLocation.fromNamespaceAndPath(namespace, path);
   }
 }
