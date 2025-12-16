@@ -3,12 +3,12 @@
   "ingredients": [
     {
       "ingredient": {
-        "item": "minecraft:lapis_lazuli"
+        "item": "minecraft:diamond"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:diamond"
+        "item": "minecraft:lapis_lazuli"
       }
     }
   ],

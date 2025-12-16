@@ -15,7 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 //?} else {
 /*import net.minecraft.world.item.alchemy.PotionContents;
-*///?}
+ *///?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
@@ -55,7 +55,8 @@ public class StellarityCreativeModeTabs {
 
   public static final Item[] EQUIPMENT_ITEMS = new Item[]{
     StellarityItems.CALL_OF_THE_VOID,
-    StellarityItems.FISHER_OF_VOIDS
+    StellarityItems.FISHER_OF_VOIDS,
+    StellarityItems.TAMARIS
   };
 
   public static final ResourceKey<CreativeModeTab> FOOD_KEY = ResourceKey.create(CREATIVE_MODE_TAB.key(), Stellarity.of("food"));
@@ -87,7 +88,7 @@ public class StellarityCreativeModeTabs {
         PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
         //?} else {
         /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
-        *///?}
+         *///?}
       );
     });
 

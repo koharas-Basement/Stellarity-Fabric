@@ -86,8 +86,6 @@ fabricApi {
 }
 
 
-
-
 java {
     withSourcesJar()
     targetCompatibility = requiredJava
@@ -136,6 +134,14 @@ tasks {
         from(remapJar.map { it.archiveFile }, remapSourcesJar.map { it.archiveFile })
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
         dependsOn("build")
+    }
+
+    build {
+        dependsOn("validateAccessWidener")
+    }
+
+    stonecutterGenerate {
+        dependsOn("validateAccessWidener")
     }
 }
 

@@ -106,6 +106,7 @@ public class StellarityItems {
      *///? }
   );
 
+  public static final Item TAMARIS = register("tamaris", Tamaris::new, Tamaris.properties());
 
   public static Item registerBlock(String name, Block block) {
     return registerBlock(name, block, new Item.Properties());

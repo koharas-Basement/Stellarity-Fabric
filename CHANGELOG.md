@@ -27,6 +27,10 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 - Ender dragon will no longer perch if there exists at least 1 tower crystal
 - The number of End Crystals will now show up
 
+**[+] Item Tooltips**
+
+- Basic Stellarity tooltip have been added to all Stellarity items
+
 ## Items
 
 **[+] Shepherd's Pie**
@@ -36,6 +40,8 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 **[+] Pho**
 
 **[+] Blind Rage Potion**
+
+**[+] Tamaris**
 
 ## Paintings
 
