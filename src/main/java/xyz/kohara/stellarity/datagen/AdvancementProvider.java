@@ -5,10 +5,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.advancements.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
-
-import net.minecraft.advancements.critereon.*;
 import net.minecraft.network.chat.Component;
+//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.critereon.*;
+  //? } else {
+/*import net.minecraft.advancements.criterion.*;
+  *///? }
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 
@@ -19,9 +22,11 @@ import java.util.function.Consumer;
 /*import net.minecraft.core.HolderLookup;
 import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
 import net.minecraft.world.item.Item;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.List;
 import java.util.Optional;
+
 import net.minecraft.core.registries.Registries;
 *///?} else {
 
@@ -68,31 +73,29 @@ public class AdvancementProvider extends FabricAdvancementProvider {
   public void generateAdvancement(
     //? >= 1.21.1 {
     /*HolderLookup.Provider registryLookup, Consumer<AdvancementHolder> consumer
-     *///?} else {
+    *///?} else {
     Consumer<Advancement> consumer
-    //?}
+     //?}
   ) {
     //? >= 1.21.1 {
-    /*final HolderLookup.RegistryLookup<Item> itemLookup =registryLookup.lookupOrThrow(Registries.ITEM);
-     *///?} else {
-    var ENTER_END_GATEWAY = dummy(Stellarity.mcOf("end/enter_end_gateway"));
-    //?}
-
-
+    /*final HolderLookup.RegistryLookup<Item> itemLookup = registryLookup.lookupOrThrow(Registries.ITEM);
+    *///?} else {
+    var ENTER_END_GATEWAY = dummy(Stellarity.mcId("end/enter_end_gateway"));
+     //?}
 
 
     var VOID_REELS = Advancement.Builder.advancement()
       .display(StellarityItems.FISHER_OF_VOIDS,
         Component.translatable("advancements.stellarity.void_reels"),
         Component.translatable("advancements.stellarity.void_reels.description"),
-        Stellarity.mcOf("textures/gui/advancements/backgrounds/adventure.png"),
+        Stellarity.mcId("textures/gui/advancements/backgrounds/adventure.png"),
         TASK,
         true,
         true,
         false
       )
       //? >= 1.21.1 {
-      /*.parent(new AdvancementHolder(Stellarity.mcOf("end/enter_end_gateway"), null))
+      /*.parent(new AdvancementHolder(Stellarity.mcId("end/enter_end_gateway"), null))
       .addCriterion("fishing", VoidFishedTrigger.TriggerInstance.fishedItem(Optional.empty(), Optional.empty(), Optional.empty()))
       .requirements(new AdvancementRequirements(List.of(List.of("fishing"))))
       *///? }else {
@@ -102,14 +105,14 @@ public class AdvancementProvider extends FabricAdvancementProvider {
       ))
       .requirements(new String[][]{{"fishing"}})
       //?}
-      .build(Stellarity.of("void_fishing/void_reels"));
+      .build(Stellarity.id("void_fishing/void_reels"));
 
     var TOPPED_OFF = Advancement.Builder.advancement()
       .display(
         StellarityItems.CRYSTAL_HEARTFISH,
         Component.translatable("advancements.stellarity.topped_off"),
         Component.translatable("advancements.stellarity.topped_off.description"),
-        Stellarity.mcOf("textures/gui/advancements/backgrounds/adventure.png"),
+        Stellarity.mcId("textures/gui/advancements/backgrounds/adventure.png"),
         TASK,
         true,
         true,
@@ -117,7 +120,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
       )
       .parent(VOID_REELS)
       .addCriterion("impossible", impossible())
-      .build(Stellarity.of("void_fishing/topped_off"));
+      .build(Stellarity.id("void_fishing/topped_off"));
 
 
     consumer.accept(TOPPED_OFF);

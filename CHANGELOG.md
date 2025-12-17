@@ -7,6 +7,10 @@ This update emphaizes on working on the dragon fight with a few other additions
 Unless annotated, all changes are considered to be up to date with
 the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](https://modrinth.com/datapack/stellarity)
 
+## Versions
+
+**[*] 1.21.10 → 1.21.11**
+
 ## Blocks
 
 **[+] Phantom Item Frame**
@@ -73,4 +77,5 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 # Developers Note
 
-reworked a bunch of entity storage and syncing methods, let me know if you encounter any bugs!
+reworked a bunch of entity storage and syncing methods, let me know if you encounter any bugs! also 1.21.11 is hell at
+the mininum tbh, proceed with caution as this is a version update

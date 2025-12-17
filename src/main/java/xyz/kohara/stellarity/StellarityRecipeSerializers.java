@@ -10,7 +10,7 @@ public class StellarityRecipeSerializers {
   public static RecipeSerializer<AltarSimpleRecipe> ALTAR_SIMPLE = registerSerializer("altar_of_the_accursed_simple", new AltarSimpleRecipe.Serializer());
 
   private static <T extends Recipe<?>> RecipeSerializer<T> registerSerializer(final String id, RecipeSerializer<T> serializer) {
-    return Registry.register(BuiltInRegistries.RECIPE_SERIALIZER,  Stellarity.of(id), serializer);
+    return Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Stellarity.id(id), serializer);
   }
 
   public static void init() {

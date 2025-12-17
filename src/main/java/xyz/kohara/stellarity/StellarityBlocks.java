@@ -38,10 +38,10 @@ public class StellarityBlocks {
 
 
   public static Block register(String id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings) {
-    ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, Stellarity.of(id));
+    ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, Stellarity.id(id));
     //? >= 1.21.9 {
     /*settings = settings.setId(blockKey);
-     *///?}
+    *///?}
 
     Block block = blockFactory.apply(settings);
     Registry.register(BuiltInRegistries.BLOCK, blockKey, block);

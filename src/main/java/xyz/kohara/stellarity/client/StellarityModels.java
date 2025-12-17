@@ -24,7 +24,7 @@ import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 public class StellarityModels {
   //? <= 1.21.4 {
   private static void registerBowModel(Item bow) {
-    ItemProperties.register(bow, Stellarity.mcOf("pull"), (itemStack, clientWorld, entity, seed) -> {
+    ItemProperties.register(bow, Stellarity.mcId("pull"), (itemStack, clientWorld, entity, seed) -> {
       if (entity == null) {
         return 0.0F;
       }
@@ -34,7 +34,7 @@ public class StellarityModels {
       //return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
     });
 
-    ItemProperties.register(bow, Stellarity.mcOf("pulling"), (itemStack, clientWorld, entity, seed) -> {
+    ItemProperties.register(bow, Stellarity.mcId("pulling"), (itemStack, clientWorld, entity, seed) -> {
       if (entity == null) {
         return 0.0F;
       }
@@ -44,7 +44,7 @@ public class StellarityModels {
 
   private static void registerFishingRodModel(Item fishingRod) {
 
-    ItemProperties.register(fishingRod, Stellarity.mcOf("cast"), (itemStack, clientWorld, livingEntity, seed) -> {
+    ItemProperties.register(fishingRod, Stellarity.mcId("cast"), (itemStack, clientWorld, livingEntity, seed) -> {
       if (livingEntity == null) {
         return 0.0F;
       } else {
@@ -84,9 +84,9 @@ public class StellarityModels {
 
     //? <= 1.21.1 {
     BlockRenderLayerMap.INSTANCE.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, RenderType.cutout());
-    //?} else {
+     //?} else {
     /*BlockRenderLayerMap.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, ChunkSectionLayer.CUTOUT);
-     *///?}
+    *///?}
 
     Stellarity.LOGGER.info("Initialized Block Model Colors");
   }

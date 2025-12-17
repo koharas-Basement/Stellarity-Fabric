@@ -76,7 +76,7 @@ public class RecipeProvider extends FabricRecipeProvider {
   /*public void buildRecipes(HolderLookup.Provider provider, RecipeOutput output) {
     *///? }
     altarOfTheAccursed(output, new AltarSimpleRecipe(
-      Stellarity.of("altar_of_the_accursed/lapis_to_amethyst"),
+      Stellarity.id("altar_of_the_accursed/lapis_to_amethyst"),
       new HashMap<>() {{
         put(Ingredient.of(Items.DIAMOND), 1);
         put(Ingredient.of(Items.LAPIS_LAZULI), 1);

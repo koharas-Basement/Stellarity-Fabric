@@ -1,7 +1,11 @@
 package xyz.kohara.stellarity;
 
 import net.fabricmc.api.ModInitializer;
+//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
+ //? } else {
+/*import net.minecraft.resources.Identifier;
+*///? }
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,20 +18,21 @@ public class Stellarity implements ModInitializer {
   public static final String VERSION = /*$ mod_version*/ "0.1.0";
   public static final String MINECRAFT = /*$ minecraft*/ "1.20.1";
 
-  public static ResourceLocation of(String path) {
+  public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ id(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(MOD_ID, path);
-    //?} else {
-    /*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-     *///?}
+     //?} else {
+    /*return /^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/.fromNamespaceAndPath(MOD_ID, path);
+
+    *///?}
   }
 
-  public static ResourceLocation mcOf(String path) {
+  public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ mcId(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(path);
-    //?} else {
-    /*return ResourceLocation.withDefaultNamespace(path);
-     *///?}
+     //?} else {
+    /*return /^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/.withDefaultNamespace(path);
+    *///?}
   }
 
   @Override
@@ -48,15 +53,5 @@ public class Stellarity implements ModInitializer {
     StellarityRecipeSerializers.init();
     StellarityPaintings.init();
     StellarityTooltips.init();
-  }
-
-  /**
-   * Adapts to the {@link ResourceLocation} changes introduced in 1.21.
-   */
-  public static ResourceLocation id(String namespace, String path) {
-    //? if <1.21 {
-    return new ResourceLocation(namespace, path);
-    //?} else
-    //return ResourceLocation.fromNamespaceAndPath(namespace, path);
   }
 }

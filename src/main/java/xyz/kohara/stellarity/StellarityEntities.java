@@ -17,11 +17,11 @@ public class StellarityEntities {
   public static final EntityType<PhantomItemFrame> PHANTOM_ITEM_FRAME = register("phantom_item_frame", EntityType.Builder.of(PhantomItemFrame::new, MobCategory.MISC));
 
   public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder) {
-    var location = Stellarity.of(id);
+    var location = Stellarity.id(id);
     return Registry.register(BuiltInRegistries.ENTITY_TYPE, location, builder.build(
       //? <= 1.21.1 {
       location.toString()
-      //? } else {
+       //? } else {
       /*ResourceKey.create(Registries.ENTITY_TYPE, location)
       *///? }
     ));

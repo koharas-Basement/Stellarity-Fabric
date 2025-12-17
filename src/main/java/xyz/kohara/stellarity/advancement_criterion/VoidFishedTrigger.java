@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.Stellarity;
 
 public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.TriggerInstance> {
-  static final ResourceLocation ID = Stellarity.of("void_fished");
+  static final ResourceLocation ID = Stellarity.id("void_fished");
 
   @NotNull
   public ResourceLocation getId() {
@@ -93,12 +93,19 @@ public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.
   }
 }
 //? } else {
+
 /*import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import java.util.Collection;
 import java.util.Optional;
+
 import net.minecraft.advancements.Criterion;
+//? <= 1.21.10 {
 import net.minecraft.advancements.critereon.*;
+ //? } else {
+/^import net.minecraft.advancements.criterion.*;
+  ^///? }
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -109,17 +116,19 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.StellarityCriteriaTriggers;
 
-public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.TriggerInstance> {
+public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.@NotNull TriggerInstance> {
   public @NotNull Codec<TriggerInstance> codec() {
     return TriggerInstance.CODEC;
   }
 
   public void trigger(ServerPlayer serverPlayer, ItemStack itemStack, FishingHook fishingHook, Collection<ItemStack> collection) {
-    LootContext lootContext = EntityPredicate.createContext(serverPlayer, (Entity)(fishingHook.getHookedIn() != null ? fishingHook.getHookedIn() : fishingHook));
+    LootContext lootContext = EntityPredicate.createContext(serverPlayer, (Entity) (fishingHook.getHookedIn() != null ? fishingHook.getHookedIn() : fishingHook));
     this.trigger(serverPlayer, (triggerInstance) -> triggerInstance.matches(itemStack, lootContext, collection));
   }
 
-  public static record TriggerInstance(Optional<ContextAwarePredicate> player, Optional<ItemPredicate> rod, Optional<ContextAwarePredicate> entity, Optional<ItemPredicate> item) implements SimpleCriterionTrigger.SimpleInstance {
+  public record TriggerInstance(Optional<ContextAwarePredicate> player, Optional<ItemPredicate> rod,
+                                Optional<ContextAwarePredicate> entity,
+                                Optional<ItemPredicate> item) implements SimpleCriterionTrigger.SimpleInstance {
     public static final Codec<TriggerInstance> CODEC = RecordCodecBuilder.create((instance) -> instance.group(EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(TriggerInstance::player), ItemPredicate.CODEC.optionalFieldOf("rod").forGetter(TriggerInstance::rod), EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("entity").forGetter(TriggerInstance::entity), ItemPredicate.CODEC.optionalFieldOf("item").forGetter(TriggerInstance::item)).apply(instance, TriggerInstance::new));
 
     public static Criterion<TriggerInstance> fishedItem(Optional<ItemPredicate> optional, Optional<EntityPredicate> optional2, Optional<ItemPredicate> optional3) {
@@ -127,9 +136,9 @@ public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.
     }
 
     public boolean matches(ItemStack itemStack, LootContext lootContext, Collection<ItemStack> collection) {
-      if (this.rod.isPresent() && !((ItemPredicate)this.rod.get()).test(itemStack)) {
+      if (this.rod.isPresent() && !((ItemPredicate) this.rod.get()).test(itemStack)) {
         return false;
-      } else if (this.entity.isPresent() && !((ContextAwarePredicate)this.entity.get()).matches(lootContext)) {
+      } else if (this.entity.isPresent() && !((ContextAwarePredicate) this.entity.get()).matches(lootContext)) {
         return false;
       } else {
         if (this.item.isPresent()) {
@@ -137,7 +146,7 @@ public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.
           //? < 1.21.9
           Entity entity = (Entity)lootContext.getParamOrNull(LootContextParams.THIS_ENTITY);
           //? >= 1.21.9
-          //Entity entity = (Entity)lootContext.getOptionalParameter(LootContextParams.THIS_ENTITY);
+          //Entity entity = (Entity) lootContext.getOptionalParameter(LootContextParams.THIS_ENTITY);
 
           if (entity instanceof ItemEntity itemEntity) {
             if (this.item.get().test(itemEntity.getItem())) {
@@ -145,7 +154,7 @@ public class VoidFishedTrigger extends SimpleCriterionTrigger<VoidFishedTrigger.
             }
           }
 
-          for(ItemStack itemStack2 : collection) {
+          for (ItemStack itemStack2 : collection) {
             if (this.item.get().test(itemStack2)) {
               bl = true;
               break;

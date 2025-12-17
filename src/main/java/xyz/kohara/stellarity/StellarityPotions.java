@@ -17,7 +17,7 @@ public class StellarityPotions {
     new MobEffectInstance(
       //? < 1.21.9 {
       MobEffects.DAMAGE_BOOST
-      //? } else {
+       //? } else {
       /*MobEffects.STRENGTH
       *///? }
       , 15 * 20, 2));
@@ -29,7 +29,7 @@ public class StellarityPotions {
 
 
   private static Potion register(String id, String name, MobEffectInstance... effects) {
-    return Registry.register(BuiltInRegistries.POTION, Stellarity.of(id), new Potion("stellarity." + name, effects));
+    return Registry.register(BuiltInRegistries.POTION, Stellarity.id(id), new Potion("stellarity." + name, effects));
   }
 
   public static void init() {

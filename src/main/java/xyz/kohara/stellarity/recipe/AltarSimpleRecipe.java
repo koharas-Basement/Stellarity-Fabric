@@ -1,8 +1,12 @@
 package xyz.kohara.stellarity.recipe;
 
 
-
+//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
+ //? } else {
+
+/*import net.minecraft.resources.Identifier;
+*///? }
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
@@ -12,7 +16,6 @@ import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityRecipeSerializers;
 
 import java.util.*;
-
 
 
 //? < 1.21 {
@@ -32,12 +35,13 @@ import net.minecraft.core.HolderLookup;
 
 //? < 1.21.9 {
 import net.minecraft.world.item.Item;
-//? }
+ //? }
 
-public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer> ingredients,
+public record AltarSimpleRecipe(/*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ id,
+                                HashMap<Ingredient, Integer> ingredients,
                                 ItemStack result) implements AltarRecipe {
 
-  public AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer> ingredients,
+  public AltarSimpleRecipe(/*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ id, HashMap<Ingredient, Integer> ingredients,
                            ItemStack result) {
     this.id = id;
     this.ingredients = ingredients;
@@ -185,8 +189,6 @@ public record AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer
         }
         return new AltarSimpleRecipe(null, ingredientMap, result);
       }));
-
-
 
 
     @Override

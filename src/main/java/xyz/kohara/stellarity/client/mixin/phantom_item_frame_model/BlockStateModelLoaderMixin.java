@@ -31,7 +31,7 @@ public abstract class BlockStateModelLoaderMixin {
 
   @Inject(method = "loadAllBlockStates", at = @At("HEAD"))
   private void addStellarityBlockStates(CallbackInfo ci) {
-    loadBlockStateDefinitions(Stellarity.of("phantom_item_frame"), FAKE_STATE_DEFINITION);
+    loadBlockStateDefinitions(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
   }
 }
 *///? }

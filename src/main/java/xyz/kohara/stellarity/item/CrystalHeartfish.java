@@ -1,6 +1,11 @@
 package xyz.kohara.stellarity.item;
 
+//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
+ //? } else {
+
+/*import net.minecraft.resources.Identifier;
+*///? }
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.commands.AdvancementCommands;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,14 +22,14 @@ import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 //? < 1.21.1 {
 import net.minecraft.advancements.Advancement;
-  //?} else {
+ //?} else {
 /*import net.minecraft.advancements.AdvancementHolder;
- *///?}
+  *///?}
 
 
 //? >= 1.21.9 {
 /*import net.minecraft.world.item.component.Consumables;
- *///?}
+  *///?}
 
 import java.util.List;
 import java.util.Objects;
@@ -76,7 +81,7 @@ public class CrystalHeartfish extends Item {
 
     double amount = oldModifier == null ? 0.0 : oldModifier.getAmount();
     //?} else {
-    /*AttributeModifier oldModifier = maxHPAttribute.getModifier(Stellarity.of("crystal_heartfish_health_bonus"));
+    /*AttributeModifier oldModifier = maxHPAttribute.getModifier(Stellarity.id("crystal_heartfish_health_bonus"));
 
     double amount = oldModifier == null ? 0.0 : oldModifier.amount();
     *///?}
@@ -84,19 +89,19 @@ public class CrystalHeartfish extends Item {
     if (amount >= 9) {
       if (entity instanceof ServerPlayer player) {
         MinecraftServer server = Objects.requireNonNull(player.level().getServer());
-        ResourceLocation location = Stellarity.of("void_fishing/topped_off");
+        var location = Stellarity.id("void_fishing/topped_off");
 
         //? if >= 1.21.1 {
         /*AdvancementHolder advancement = Objects.requireNonNull(server.getAdvancements().get(location));
-         *///?} else {
+        *///?} else {
         Advancement advancement = Objects.requireNonNull(server.getAdvancements().getAdvancement(location));
-        //?}
+         //?}
 
         //? if <= 1.21.1 {
         AdvancementCommands.Action.GRANT.perform(player, List.of(advancement));
-        //?} else {
+         //?} else {
         /*AdvancementCommands.Action.GRANT.perform(player, List.of(advancement), true);
-         *///?}
+        *///?}
       }
 
       if (amount >= 10) return;
@@ -114,7 +119,7 @@ public class CrystalHeartfish extends Item {
 
     //?} else {
     /*AttributeModifier newModifier = new AttributeModifier(
-      Stellarity.of("crystal_heartfish_health_bonus"),
+      Stellarity.id("crystal_heartfish_health_bonus"),
       amount,
       AttributeModifier.Operation.ADD_VALUE
     );

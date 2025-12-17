@@ -34,7 +34,7 @@ public abstract class ModelBakeryMixin {
 
   @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Ljava/util/Map;forEach(Ljava/util/function/BiConsumer;)V", ordinal = 0))
   private void addStellarityModels(CallbackInfo ci) {
-    FAKE_STATE_DEFINITION.getPossibleStates().forEach((blockState) -> this.loadTopLevel(BlockModelShaper.stateToModelLocation(Stellarity.of("phantom_item_frame"), blockState)));
+    FAKE_STATE_DEFINITION.getPossibleStates().forEach((blockState) -> this.loadTopLevel(BlockModelShaper.stateToModelLocation(Stellarity.id("phantom_item_frame"), blockState)));
   }
 
 }

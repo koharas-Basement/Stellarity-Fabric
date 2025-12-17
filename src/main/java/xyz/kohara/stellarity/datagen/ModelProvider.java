@@ -74,17 +74,17 @@ public class ModelProvider extends FabricModelProvider {
 
     //? <= 1.21.1 {
     generators.createAxisAlignedPillarBlock(StellarityBlocks.ASHEN_FROGLIGHT, TexturedModel.COLUMN);
-    generators.createGrassLikeBlock(StellarityBlocks.ENDER_GRASS_BLOCK, Stellarity.of("block/ender_grass_block"), new Variant().with(VariantProperties.MODEL, Stellarity.of("block/ender_grass_block_snowy")));
+    generators.createGrassLikeBlock(StellarityBlocks.ENDER_GRASS_BLOCK, Stellarity.id("block/ender_grass_block"), new Variant().with(VariantProperties.MODEL, Stellarity.id("block/ender_grass_block_snowy")));
     //?} else {
     /*generators.createAxisAlignedPillarBlock(StellarityBlocks.ASHEN_FROGLIGHT, TexturedModel.COLUMN);
-    generators.registerSimpleItemModel(StellarityBlocks.ASHEN_FROGLIGHT, Stellarity.of("block/ashen_froglight"));
+    generators.registerSimpleItemModel(StellarityBlocks.ASHEN_FROGLIGHT, Stellarity.id("block/ashen_froglight"));
     generators.createGrassLikeBlock(StellarityBlocks.ENDER_GRASS_BLOCK, new MultiVariant(WeightedList.<Variant>builder()
-      .add(new Variant(Stellarity.of("block/ender_grass_block")))
-      .add(new Variant(Stellarity.of("block/ender_grass_block")), 90)
-      .add(new Variant(Stellarity.of("block/ender_grass_block")), 180)
-      .add(new Variant(Stellarity.of("block/ender_grass_block")), 270)
-      .build()), new MultiVariant(WeightedList.<Variant>builder().add(new Variant(Stellarity.of("block/ender_grass_block_snowy"))).build()));
-    generators.registerSimpleTintedItemModel(StellarityBlocks.ENDER_GRASS_BLOCK, Stellarity.of("block/ender_grass_block"), new GrassColorSource(1.0f, 0.5f));
+      .add(new Variant(Stellarity.id("block/ender_grass_block")))
+      .add(new Variant(Stellarity.id("block/ender_grass_block")), 90)
+      .add(new Variant(Stellarity.id("block/ender_grass_block")), 180)
+      .add(new Variant(Stellarity.id("block/ender_grass_block")), 270)
+      .build()), new MultiVariant(WeightedList.<Variant>builder().add(new Variant(Stellarity.id("block/ender_grass_block_snowy"))).build()));
+    generators.registerSimpleTintedItemModel(StellarityBlocks.ENDER_GRASS_BLOCK, Stellarity.id("block/ender_grass_block"), new GrassColorSource(1.0f, 0.5f));
     *///?}
 
   }
@@ -93,11 +93,11 @@ public class ModelProvider extends FabricModelProvider {
   public void generateItemModels(ItemModelGenerators generators) {
     //? >= 1.21.4 {
     /*generators.generateBow(StellarityItems.CALL_OF_THE_VOID);
-    generators.itemModelOutput.accept(StellarityItems.SHULKER_BODY, new BlockModelWrapper.Unbaked(Stellarity.of("item/shulker_body"), List.of()));
+    generators.itemModelOutput.accept(StellarityItems.SHULKER_BODY, new BlockModelWrapper.Unbaked(Stellarity.id("item/shulker_body"), List.of()));
     generators.generateFishingRod(StellarityItems.FISHER_OF_VOIDS);
-     *///?} else {
+    *///?} else {
     generators.generateFlatItem(StellarityItems.FISHER_OF_VOIDS, "_cast", ModelTemplates.FLAT_HANDHELD_ROD_ITEM);
-    //?}
+     //?}
 
     generators.generateFlatItem(StellarityItems.TAMARIS, ModelTemplates.FLAT_HANDHELD_ITEM);
 

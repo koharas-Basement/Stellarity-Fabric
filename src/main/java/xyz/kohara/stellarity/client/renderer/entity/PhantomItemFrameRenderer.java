@@ -24,7 +24,7 @@ public class PhantomItemFrameRenderer extends ItemFrameRenderer<PhantomItemFrame
   //? < 1.21.9 {
   
 
-  private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(Stellarity.of("phantom_item_frame"), "");
+  private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(Stellarity.id("phantom_item_frame"), "");
 
   public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
     super(context);

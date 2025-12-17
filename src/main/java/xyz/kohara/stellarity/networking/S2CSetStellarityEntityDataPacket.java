@@ -1,7 +1,11 @@
 package xyz.kohara.stellarity.networking;
 
 import net.minecraft.network.syncher.SynchedEntityData;
+//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
+ //? } else {
+/*import net.minecraft.resources.Identifier;
+*///? }
 import xyz.kohara.stellarity.Stellarity;
 
 import java.util.ArrayList;
@@ -26,7 +30,7 @@ public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.Da
   /*implements CustomPacketPayload
   *///? }
 {
-  public static final ResourceLocation ID = Stellarity.of("set_entity_data");
+  public static final /*? <1.21.11 {*/ ResourceLocation/*?} else {*/ /*Identifier *//*? }*/ ID = Stellarity.id("set_entity_data");
 
   //? 1.20.1 {
   public FriendlyByteBuf pack() {

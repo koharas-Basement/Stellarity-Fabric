@@ -12,5 +12,5 @@ import java.util.Optional;
 
 
 public class StellarityDamageTypes {
-  public static final ResourceKey<DamageType> TAMARIS_EXECUTE = ResourceKey.create(Registries.DAMAGE_TYPE, Stellarity.of("tamaris_execute"));
+  public static final ResourceKey<DamageType> TAMARIS_EXECUTE = ResourceKey.create(Registries.DAMAGE_TYPE, Stellarity.id("tamaris_execute"));
 }
