@@ -155,12 +155,12 @@ publishMods {
     type = STABLE
     modLoaders.add("fabric")
 
-    dryRun = env.MODRINTH_TOKEN.orNull() == null
-            || env.CURSEFORGE_TOKEN.orNull() == null
+    dryRun = !env.isPresent("MODRINTH_TOKEN")
+            || !env.isPresent("CURSEFORGE_TOKEN")
 
     modrinth {
         projectId = property("publish.modrinth") as String
-        accessToken = env.MODRINTH_TOKEN.value
+        accessToken = env.fetch("MODRINTH_TOKEN", "")
         minecraftVersions.addAll(property("mod.mc_targets").toString().split(' '))
         requires {
             slug = "fabric-api"
@@ -169,7 +169,7 @@ publishMods {
 
     curseforge {
         projectId = property("publish.curseforge") as String
-        accessToken = env.CURSEFORGE_TOKEN.value
+        accessToken = env.fetch("CURSEFORGE_TOKEN", "")
         minecraftVersions.addAll(property("mod.mc_targets").toString().split(' '))
         requires {
             slug = "fabric-api"

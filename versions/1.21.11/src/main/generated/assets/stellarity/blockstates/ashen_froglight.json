@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "stellarity:block/ashen_froglight",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "stellarity:block/ashen_froglight"
+    },
+    "axis=z": {
+      "model": "stellarity:block/ashen_froglight",
+      "x": 90
+    }
+  }
+}

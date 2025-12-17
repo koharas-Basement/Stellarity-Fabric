@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "stellarity:item/call_of_the_void_pulling_0"
+  }
+}
