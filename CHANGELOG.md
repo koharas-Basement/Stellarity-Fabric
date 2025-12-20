@@ -47,6 +47,8 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Tamaris**
 
+- Very basic implementation, damage mechanic have to be sorted out.
+
 ## Paintings
 
 **[+] Shepherd's Feast**

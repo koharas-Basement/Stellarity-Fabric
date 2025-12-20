@@ -8,7 +8,7 @@ import xyz.kohara.stellarity.recipe.AltarRecipe;
 import xyz.kohara.stellarity.recipe.AltarSimpleRecipe;
 
 public class StellarityRecipeTypes {
-  public static RecipeType<AltarRecipe> ALTAR_RECIPE = register("altar_of_the_accursed");
+  public static final RecipeType<AltarRecipe> ALTAR_RECIPE = register("altar_of_the_accursed");
 
 
   private static <T extends Recipe<?>> RecipeType<T> register(final String id) {

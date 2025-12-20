@@ -1,5 +1,7 @@
 package xyz.kohara.stellarity.mixin.void_fishing;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
@@ -13,12 +15,11 @@ import xyz.kohara.stellarity.StellarityItems;
 
 @Mixin(FishingRodItem.class)
 public class FishingRodItemMixin {
-  @Redirect(method = "use", at = @At(value = "NEW", target = "(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;II)Lnet/minecraft/world/entity/projectile/FishingHook;"))
-  private FishingHook markVoidFishing(Player player, Level level, int i, int j, @Local ItemStack itemStack) {
-    FishingHook hook = new FishingHook(player, level, i, j);
+  @WrapOperation(method = "use", at = @At(value = "NEW", target = "(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;II)Lnet/minecraft/world/entity/projectile/FishingHook;"))
+  private FishingHook markVoidFishing(Player player, Level level, int i, int j, Operation<FishingHook> original, @Local ItemStack itemStack) {
+    FishingHook hook = original.call(player, level, i, j);
 
     if (itemStack.is(StellarityItems.FISHER_OF_VOIDS)) {
-
       hook.stellarity$buffVoidFishing(true);
     }
 

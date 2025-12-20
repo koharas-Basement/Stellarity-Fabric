@@ -1,6 +1,8 @@
 //? 1.20.1 {
 package xyz.kohara.stellarity.mixin.potions;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
@@ -33,15 +35,15 @@ public abstract class PotionUtilsMixin {
     cir.cancel();
   }
 
-  @Redirect(method = "getColor(Lnet/minecraft/world/item/ItemStack;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionUtils;getColor(Ljava/util/Collection;)I"))
-  private static int getColorItemStack(Collection<MobEffectInstance> collection, @Local(argsOnly = true) ItemStack itemStack) {
+  @WrapOperation(method = "getColor(Lnet/minecraft/world/item/ItemStack;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionUtils;getColor(Ljava/util/Collection;)I"))
+  private static int getColorItemStack(Collection<MobEffectInstance> collection, Operation<Integer> original, @Local(argsOnly = true) ItemStack itemStack) {
     Potion potion = PotionUtils.getPotion(itemStack);
     Integer color = StellarityPotions.COLORS.get(potion);
     if (color != null) {
       return color;
     }
 
-    return getColor(collection);
+    return original.call(collection);
   }
 }
 //? }

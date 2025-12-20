@@ -1,6 +1,8 @@
 //? >= 1.21 {
 /*package xyz.kohara.stellarity.mixin.potions;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.Potion;
@@ -35,7 +37,7 @@ public abstract class PotionContentsMixin {
     return 0;
   }
 
-  @Inject(method = "getColor(Lnet/minecraft/core/Holder;)I", at=@At("HEAD"), cancellable = true)
+  @Inject(method = "getColor(Lnet/minecraft/core/Holder;)I", at = @At("HEAD"), cancellable = true)
   private static void getColorPotion(Holder<Potion> holder, CallbackInfoReturnable<Integer> cir) {
     Integer color = StellarityPotions.COLORS.get(holder.value());
     if (color == null) return;
@@ -44,31 +46,27 @@ public abstract class PotionContentsMixin {
     cir.cancel();
   }
 
-  @Redirect(method = "getColor()I", at= @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionContents;getColor(Ljava/lang/Iterable;)I"))
-  private int getColorThis(Iterable<MobEffectInstance> iterable) {
+  @WrapOperation(method = "getColor()I", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionContents;getColor(Ljava/lang/Iterable;)I"))
+  private int getColorThis(Iterable<MobEffectInstance> iterable, Operation<Integer> original) {
     if (potion.isPresent()) {
       Integer color = StellarityPotions.COLORS.get(potion.get().value());
       if (color != null) return color;
     }
 
-    return getColor(iterable);
+    return original.call(iterable);
   }
 
   //? } else {
 
-  /^@Shadow
-  public static OptionalInt getColorOptional(Iterable<MobEffectInstance> iterable) {
-    return OptionalInt.empty();
-  }
 
-  @Redirect(method = "getColorOr", at= @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionContents;getColorOptional(Ljava/lang/Iterable;)Ljava/util/OptionalInt;"))
-  private OptionalInt getColorThis(Iterable<MobEffectInstance> iterable) {
+  /^@WrapOperation(method = "getColorOr", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionContents;getColorOptional(Ljava/lang/Iterable;)Ljava/util/OptionalInt;"))
+  private OptionalInt getColorThis(Iterable<MobEffectInstance> iterable, Operation<OptionalInt> original) {
     if (potion.isPresent()) {
       Integer color = StellarityPotions.COLORS.get(potion.get().value());
       if (color != null) return OptionalInt.of(color);
     }
 
-    return getColorOptional(iterable);
+    return original.call(iterable);
   }
 
   ^///? }

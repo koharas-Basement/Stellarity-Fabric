@@ -1,6 +1,7 @@
 package xyz.kohara.stellarity.mixin.dragon_fight;
 
-import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -21,9 +22,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 //? < 1.21.10 {
 import net.minecraft.world.entity.boss.EnderDragonPart;
- //? } else {
+  //? } else {
 /*import net.minecraft.world.entity.boss.enderdragon.EnderDragonPart;
-*///? }
+ *///? }
 
 @Mixin(EnderDragon.class)
 public abstract class EnderDragonMixin extends Mob implements Enemy {
@@ -37,11 +38,11 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
 
 
   //? < 1.21.9 {
-  @Redirect(method = "onCrystalDestroyed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
-  private boolean blockDamage(EnderDragon instance, EnderDragonPart enderDragonPart, DamageSource damageSource, float f) {
+  @WrapOperation(method = "onCrystalDestroyed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+  private boolean blockDamage(EnderDragon instance, EnderDragonPart enderDragonPart, DamageSource damageSource, float f, Operation<Boolean> original) {
     //? } else {
-  /*@Redirect(method = "onCrystalDestroyed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/boss/enderdragon/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
-  private boolean blockDamage(EnderDragon instance, ServerLevel serverLevel, net.minecraft.world.entity.boss.enderdragon.EnderDragonPart enderDragonPart, DamageSource damageSource, float v) {
+  /*@WrapOperation(method = "onCrystalDestroyed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/boss/enderdragon/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+  private boolean blockDamage(EnderDragon instance, ServerLevel serverLevel, EnderDragonPart enderDragonPart, DamageSource damageSource, float v, Operation<Boolean> original) {
     *///? }
     // squash - ender dragon doesn't take damage from crystals
     return false;

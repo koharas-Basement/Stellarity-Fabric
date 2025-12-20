@@ -1,5 +1,7 @@
 package xyz.kohara.stellarity.mixin.end_crystal;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -52,13 +54,13 @@ public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
 
 
   //? < 1.21.9 {
-  @Redirect(method = "hurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;is(Lnet/minecraft/tags/TagKey;)Z"))
+  @WrapOperation(method = "hurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;is(Lnet/minecraft/tags/TagKey;)Z"))
     //? } else {
-  /*@Redirect(method = "hurtServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;is(Lnet/minecraft/tags/TagKey;)Z"))
+  /*@WrapOperation(method = "hurtServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;is(Lnet/minecraft/tags/TagKey;)Z"))
    *///? }
-  public boolean explodeOnlyNormal(DamageSource damageSource, TagKey<DamageType> tagKey) {
+  public boolean explodeOnlyNormal(DamageSource instance, TagKey<DamageType> tagKey, Operation<Boolean> original) {
     // kinda weird cuz there is a negation there and we use demorgan law to ensure damageSource isnt explosion AND is normal
-    return damageSource.is(tagKey) || type != Type.NORMAL;
+    return original.call(instance, tagKey) || type != Type.NORMAL;
   }
 
   //? < 1.21.9 {

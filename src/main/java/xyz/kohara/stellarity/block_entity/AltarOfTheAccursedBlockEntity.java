@@ -169,8 +169,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     ExtItemEntity.ItemMode itemMode = player != null && player.isCrouching() ? ExtItemEntity.ItemMode.PICKUP : ExtItemEntity.ItemMode.CRAFTING;
 
     for (var entity : itemEntities) {
-      ExtItemEntity itemEntity = (ExtItemEntity) entity;
-      itemEntity.stellarity$setItemMode(itemMode);
+      entity.stellarity$setItemMode(itemMode);
     }
 
     if (itemEntities.size() < 2) return;
@@ -198,7 +197,6 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
           hitRecipe = recipe;
           break;
         }
-        ;
       }
     }
 
@@ -206,8 +204,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
 
     for (
       var entity : itemEntities) {
-      ExtItemEntity itemEntity = (ExtItemEntity) entity;
-      itemEntity.stellarity$updateResults(output.remainders());
+      entity.stellarity$updateResults(output.remainders());
     }
 
     ItemEntity resultItem = new ItemEntity(serverLevel, x, y + 0.75, z, output.result());

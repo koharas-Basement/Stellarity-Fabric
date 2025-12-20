@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.advancements.critereon.*;
   //? } else {
 /*import net.minecraft.advancements.criterion.*;
-  *///? }
+ *///? }
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 
@@ -49,9 +49,9 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
   *///?} else {
 
-  public FrameType TASK = FrameType.TASK;
-  public FrameType GOAL = FrameType.GOAL;
-  public FrameType CHALLENGE = FrameType.CHALLENGE;
+  public final FrameType TASK = FrameType.TASK;
+  public final FrameType GOAL = FrameType.GOAL;
+  public final FrameType CHALLENGE = FrameType.CHALLENGE;
 
   public AdvancementProvider(FabricDataOutput output) {
     super(output);
@@ -73,15 +73,15 @@ public class AdvancementProvider extends FabricAdvancementProvider {
   public void generateAdvancement(
     //? >= 1.21.1 {
     /*HolderLookup.Provider registryLookup, Consumer<AdvancementHolder> consumer
-    *///?} else {
+     *///?} else {
     Consumer<Advancement> consumer
-     //?}
+    //?}
   ) {
     //? >= 1.21.1 {
     /*final HolderLookup.RegistryLookup<Item> itemLookup = registryLookup.lookupOrThrow(Registries.ITEM);
-    *///?} else {
+     *///?} else {
     var ENTER_END_GATEWAY = dummy(Stellarity.mcId("end/enter_end_gateway"));
-     //?}
+    //?}
 
 
     var VOID_REELS = Advancement.Builder.advancement()
