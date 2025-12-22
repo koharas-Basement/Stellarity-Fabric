@@ -51,10 +51,10 @@ public abstract class ServerEntityMixin {
       ServerPlayNetworking.send(
         serverPlayer,
         //? 1.20.1 {
-        S2CSetStellarityEntityDataPacket.ID, packet.pack()
-        //? } else {
-        /*packet
-         *///? }
+        /*S2CSetStellarityEntityDataPacket.ID, packet.pack()
+        *///? } else {
+        packet
+         //? }
       );
 
     }
@@ -68,10 +68,10 @@ public abstract class ServerEntityMixin {
       ServerPlayNetworking.send(
         serverPlayer,
         //? 1.20.1 {
-        S2CSetStellarityEntityDataPacket.ID, packet.pack()
-        //? } else {
-        /*packet
-         *///? }
+        /*S2CSetStellarityEntityDataPacket.ID, packet.pack()
+        *///? } else {
+        packet
+         //? }
       );
 
     }

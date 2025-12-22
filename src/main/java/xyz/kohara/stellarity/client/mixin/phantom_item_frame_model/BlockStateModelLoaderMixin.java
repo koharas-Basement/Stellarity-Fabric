@@ -1,5 +1,5 @@
 //? 1.21.1 {
-/*package xyz.kohara.stellarity.client.mixin.phantom_item_frame_model;
+package xyz.kohara.stellarity.client.mixin.phantom_item_frame_model;
 
 import com.google.common.collect.ImmutableMap;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
@@ -34,4 +34,4 @@ public abstract class BlockStateModelLoaderMixin {
     loadBlockStateDefinitions(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
   }
 }
-*///? }
+//? }

@@ -62,7 +62,16 @@ public class ModelProvider extends FabricModelProvider {
     StellarityItems.SHEPHERDS_PIE,
     StellarityItems.CHORUS_PIE,
     StellarityItems.PHO,
-    StellarityItems.PHANTOM_ITEM_FRAME
+    StellarityItems.PHANTOM_ITEM_FRAME,
+    StellarityItems.CHORUS_PLATING,
+    StellarityItems.ENDERITE_SHARD,
+    StellarityItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE,
+    StellarityItems.HALLOWED_INGOT,
+    StellarityItems.SAND_RUNE,
+    StellarityItems.STARLIGHT_SOOT,
+    StellarityItems.GILDED_PURPUR_KEY,
+    StellarityItems.PURPUR_KEY,
+    StellarityItems.WINGED_KEY
   };
 
   @Override

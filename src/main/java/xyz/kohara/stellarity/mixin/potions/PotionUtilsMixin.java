@@ -1,5 +1,5 @@
 //? 1.20.1 {
-package xyz.kohara.stellarity.mixin.potions;
+/*package xyz.kohara.stellarity.mixin.potions;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -45,4 +45,4 @@ public abstract class PotionUtilsMixin {
     return original.call(collection);
   }
 }
-//? }
+*///? }

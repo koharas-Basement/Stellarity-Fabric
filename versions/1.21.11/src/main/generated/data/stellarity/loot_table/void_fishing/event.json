@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "quality": -2,
+          "value": "stellarity:void_fishing/junk",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:loot_table",
+          "quality": 2,
+          "value": "stellarity:void_fishing/treasure",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:loot_table",
+          "quality": -1,
+          "value": "stellarity:void_fishing/fish",
+          "weight": 70
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

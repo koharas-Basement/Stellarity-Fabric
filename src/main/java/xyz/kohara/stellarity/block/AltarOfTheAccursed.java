@@ -90,7 +90,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
 
 
   //? = 1.20.1
-  @SuppressWarnings("deprecation")
+  //@SuppressWarnings("deprecation")
   @Override
   public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
     return SHAPE;
@@ -99,11 +99,11 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
 
   //? > 1.21 {
 
-  /*@Override
+  @Override
   public @NotNull MapCodec<? extends BaseEntityBlock> codec() {
     return simpleCodec(AltarOfTheAccursed::new);
   }
-  *///? } else {
+  //? } else {
 
   //? }
 

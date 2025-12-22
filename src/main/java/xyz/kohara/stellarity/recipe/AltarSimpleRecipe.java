@@ -19,19 +19,19 @@ import java.util.*;
 
 
 //? < 1.21 {
-import com.google.gson.JsonObject;
+/*import com.google.gson.JsonObject;
 import net.minecraft.util.GsonHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
 import net.minecraft.network.FriendlyByteBuf;
-//? } else {
-/*import com.mojang.serialization.Codec;
+*///? } else {
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.core.HolderLookup;
-*///? }
+//? }
 
 //? < 1.21.9 {
 import net.minecraft.world.item.Item;
@@ -112,7 +112,7 @@ public record AltarSimpleRecipe(/*? <1.21.11 {*/ ResourceLocation/*?} else {*//*
 
   public static class Serializer implements RecipeSerializer<AltarSimpleRecipe> {
     //? < 1.21 {
-    @Override
+    /*@Override
     public AltarSimpleRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
       HashMap<Ingredient, Integer> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(jsonObject, "ingredients"));
       ItemStack itemStack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
@@ -163,8 +163,8 @@ public record AltarSimpleRecipe(/*? <1.21.11 {*/ ResourceLocation/*?} else {*//*
       buf.writeItem(recipe.result);
     }
 
-    //? } else {
-    /*private static final MapCodec<Map.Entry<Ingredient, Integer>> INGREDIENT_CODEC = RecordCodecBuilder.mapCodec(
+    *///? } else {
+    private static final MapCodec<Map.Entry<Ingredient, Integer>> INGREDIENT_CODEC = RecordCodecBuilder.mapCodec(
       instance -> instance.group(
         Ingredient.CODEC.fieldOf("ingredient").forGetter(Map.Entry::getKey),
         Codec.INT.optionalFieldOf("count", 1).forGetter(Map.Entry::getValue)
@@ -223,16 +223,16 @@ public record AltarSimpleRecipe(/*? <1.21.11 {*/ ResourceLocation/*?} else {*//*
 
       ItemStack.STREAM_CODEC.encode(buf, recipe.result);
     }
-    *///? }
+    //? }
   }
 
   //? < 1.21 {
   //? } else {
 
-  /*@Override
+  @Override
   public @NotNull ItemStack assemble(Input recipeInput, HolderLookup.Provider provider) {
     return getResultItem(provider);
   }
 
-  *///? }
+  //? }
 }

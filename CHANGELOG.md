@@ -36,13 +36,33 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 - Added loot table
 
+**[+] Enderite Shard**
+
+**[+] Enderite Smithing Template**
+
+**[+] Hallowed Ingot**
+
+**[+] Sand Rune**
+
+**[+] Starlight Soot**
+
+**[+] Gilded Purpur Key**
+
+**[+] Purpur Key**
+
+**[+] Winged Key**
+
+## Creative Mode Tabs
+
+**[+] Ingredients**
+
 ## Mechanics
 
 **[*] Void Fishing**
 
-- Added loot table
+- Most of the loot table is implemented
+- Missing biome dependent loot
 
 # Developers Note
 
-reworked a bunch of entity storage and syncing methods, let me know if you encounter any bugs! also 1.21.11 is hell at
-the mininum tbh, proceed with caution as this is a version update
+so much new content :3

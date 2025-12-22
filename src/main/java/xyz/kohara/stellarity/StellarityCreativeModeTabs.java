@@ -12,10 +12,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
 
 //? 1.20.1 {
-import net.minecraft.world.item.alchemy.PotionUtils;
-  //?} else {
-/*import net.minecraft.world.item.alchemy.PotionContents;
- *///?}
+/*import net.minecraft.world.item.alchemy.PotionUtils;
+  *///?} else {
+import net.minecraft.world.item.alchemy.PotionContents;
+ //?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
@@ -59,9 +59,22 @@ public class StellarityCreativeModeTabs {
     StellarityItems.TAMARIS
   };
 
+  public static final Item[] INGREDIENT_ITEMS = new Item[]{
+    StellarityItems.CHORUS_PLATING,
+    StellarityItems.ENDERITE_SHARD,
+    StellarityItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE,
+    StellarityItems.HALLOWED_INGOT,
+    StellarityItems.SAND_RUNE,
+    StellarityItems.STARLIGHT_SOOT,
+    StellarityItems.GILDED_PURPUR_KEY,
+    StellarityItems.PURPUR_KEY,
+    StellarityItems.WINGED_KEY
+  };
+
   public static final ResourceKey<CreativeModeTab> FOOD_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "food");
   public static final ResourceKey<CreativeModeTab> BLOCKS_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "building_blocks");
   public static final ResourceKey<CreativeModeTab> EQUIPMENT_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "equipment");
+  public static final ResourceKey<CreativeModeTab> INGREDIENTS_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "ingredients");
 
   public static final CreativeModeTab FOOD = FabricItemGroup.builder()
     .icon(() -> new ItemStack(StellarityItems.SUSHI))
@@ -76,6 +89,11 @@ public class StellarityCreativeModeTabs {
     .title(Component.translatable("itemGroup.stellarity.equipment"))
     .build();
 
+  public static final CreativeModeTab INGREDIENTS = FabricItemGroup.builder()
+    .icon(() -> new ItemStack(StellarityItems.ENDERITE_SHARD))
+    .title(Component.translatable("itemGroup.stellarity.ingredients"))
+    .build();
+
   public static void init() {
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, FOOD_KEY, FOOD);
     ItemGroupEvents.modifyEntriesEvent(FOOD_KEY).register(itemGroup -> {
@@ -85,10 +103,10 @@ public class StellarityCreativeModeTabs {
 
       itemGroup.accept(
         //? 1.20.1 {
-        PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
-        //?} else {
-        /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
-         *///?}
+        /*PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
+        *///?} else {
+        PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
+         //?}
       );
     });
 
@@ -102,6 +120,13 @@ public class StellarityCreativeModeTabs {
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, EQUIPMENT_KEY, EQUIPMENT);
     ItemGroupEvents.modifyEntriesEvent(EQUIPMENT_KEY).register(itemGroup -> {
       for (Item item : EQUIPMENT_ITEMS) {
+        itemGroup.accept(item);
+      }
+    });
+
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, INGREDIENTS_KEY, INGREDIENTS);
+    ItemGroupEvents.modifyEntriesEvent(INGREDIENTS_KEY).register(itemGroup -> {
+      for (Item item : INGREDIENT_ITEMS) {
         itemGroup.accept(item);
       }
     });

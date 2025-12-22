@@ -1,15 +1,15 @@
 package xyz.kohara.stellarity;
 
 //? 1.20.1 {
-import net.minecraft.core.Registry;
+/*import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.decoration.PaintingVariant;
-//? }
+*///? }
 
 
 public class StellarityPaintings {
   //? 1.20.1 {
-  public static final PaintingVariant A_HOP_AND_A_SKIP_AWAY = register("a_hop_and_a_skip_away", 4, 4);
+  /*public static final PaintingVariant A_HOP_AND_A_SKIP_AWAY = register("a_hop_and_a_skip_away", 4, 4);
   public static final PaintingVariant DRAGONBLADE = register("dragonblade", 2, 2);
   public static final PaintingVariant END = register("end", 5, 5);
   public static final PaintingVariant END_BLOSSOM = register("end_blossom", 4, 4);
@@ -27,7 +27,7 @@ public class StellarityPaintings {
     return Registry.register(BuiltInRegistries.PAINTING_VARIANT, Stellarity.id(id), new PaintingVariant(width * 16, height * 16));
 
   }
-  //? }
+  *///? }
 
   public static void init() {
     Stellarity.LOGGER.info("Registering Stellarity Paintings");

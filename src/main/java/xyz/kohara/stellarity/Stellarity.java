@@ -19,23 +19,23 @@ public class Stellarity implements ModInitializer {
   public static final String MOD_ID = "stellarity";
   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
   public static final String VERSION = /*$ mod_version*/ "0.2.0";
-  public static final String MINECRAFT = /*$ minecraft*/ "1.20.1";
+  public static final String MINECRAFT = /*$ minecraft*/ "1.21.1";
 
   public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ id(String path) {
     //? if = 1.20.1 {
-    return new ResourceLocation(MOD_ID, path);
-    //?} else {
-    /*return /^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/.fromNamespaceAndPath(MOD_ID, path);
+    /*return new ResourceLocation(MOD_ID, path);
+    *///?} else {
+    return /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/.fromNamespaceAndPath(MOD_ID, path);
 
-     *///?}
+     //?}
   }
 
   public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ mcId(String path) {
     //? if = 1.20.1 {
-    return new ResourceLocation(path);
-    //?} else {
-    /*return /^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/.withDefaultNamespace(path);
-     *///?}
+    /*return new ResourceLocation(path);
+    *///?} else {
+    return /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/.withDefaultNamespace(path);
+     //?}
   }
 
   public static <T extends Registry<U>, U> ResourceKey<U> key(ResourceKey<T> registry, String path) {

@@ -14,4 +14,4 @@ accessible class net/minecraft/world/entity/projectile/FishingHook$FishHookState
 extendable method net/minecraft/client/renderer/entity/ItemFrameRenderer getFrameModelResourceLoc (Lnet/minecraft/world/entity/decoration/ItemFrame;Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/client/resources/model/ModelResourceLocation;
 
 #? > 1.21
-#accessible method net/minecraft/network/syncher/SynchedEntityData <init> (Lnet/minecraft/network/syncher/SyncedDataHolder;[Lnet/minecraft/network/syncher/SynchedEntityData$DataItem;)V
+accessible method net/minecraft/network/syncher/SynchedEntityData <init> (Lnet/minecraft/network/syncher/SyncedDataHolder;[Lnet/minecraft/network/syncher/SynchedEntityData$DataItem;)V

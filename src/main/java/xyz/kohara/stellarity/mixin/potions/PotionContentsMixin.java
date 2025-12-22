@@ -1,5 +1,5 @@
 //? >= 1.21 {
-/*package xyz.kohara.stellarity.mixin.potions;
+package xyz.kohara.stellarity.mixin.potions;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -20,8 +20,8 @@ import java.util.Optional;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.Inject;
 //? } else {
-/^import java.util.OptionalInt;
-^///? }
+/*import java.util.OptionalInt;
+*///? }
 
 @Mixin(PotionContents.class)
 public abstract class PotionContentsMixin {
@@ -59,7 +59,7 @@ public abstract class PotionContentsMixin {
   //? } else {
 
 
-  /^@WrapOperation(method = "getColorOr", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionContents;getColorOptional(Ljava/lang/Iterable;)Ljava/util/OptionalInt;"))
+  /*@WrapOperation(method = "getColorOr", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionContents;getColorOptional(Ljava/lang/Iterable;)Ljava/util/OptionalInt;"))
   private OptionalInt getColorThis(Iterable<MobEffectInstance> iterable, Operation<OptionalInt> original) {
     if (potion.isPresent()) {
       Integer color = StellarityPotions.COLORS.get(potion.get().value());
@@ -69,6 +69,6 @@ public abstract class PotionContentsMixin {
     return original.call(iterable);
   }
 
-  ^///? }
+  *///? }
 }
-*///? }
+//? }

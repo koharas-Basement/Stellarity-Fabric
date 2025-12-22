@@ -19,7 +19,7 @@ import xyz.kohara.stellarity.StellarityItems;
 import java.util.HashMap;
 import java.util.function.Consumer;
 //? >= 1.21.1 {
-/*import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup;
 import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
 import net.minecraft.world.item.Item;
 
@@ -28,18 +28,18 @@ import java.util.List;
 import java.util.Optional;
 
 import net.minecraft.core.registries.Registries;
-*///?} else {
+//?} else {
 
-import net.minecraft.advancements.FrameType;
+/*import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
 
-  //?}
+  *///?}
 
 public class AdvancementProvider extends FabricAdvancementProvider {
 
   //? >= 1.21.1 {
-  /*public AdvancementType TASK = AdvancementType.TASK;
+  public AdvancementType TASK = AdvancementType.TASK;
   public AdvancementType GOAL = AdvancementType.GOAL;
   public AdvancementType CHALLENGE = AdvancementType.CHALLENGE;
 
@@ -47,9 +47,9 @@ public class AdvancementProvider extends FabricAdvancementProvider {
     super(output, registryLookup);
   }
 
-  *///?} else {
+  //?} else {
 
-  public final FrameType TASK = FrameType.TASK;
+  /*public final FrameType TASK = FrameType.TASK;
   public final FrameType GOAL = FrameType.GOAL;
   public final FrameType CHALLENGE = FrameType.CHALLENGE;
 
@@ -67,21 +67,21 @@ public class AdvancementProvider extends FabricAdvancementProvider {
       true
     );
   }
-  //?}
+  *///?}
 
   @Override
   public void generateAdvancement(
     //? >= 1.21.1 {
-    /*HolderLookup.Provider registryLookup, Consumer<AdvancementHolder> consumer
-     *///?} else {
-    Consumer<Advancement> consumer
-    //?}
+    HolderLookup.Provider registryLookup, Consumer<AdvancementHolder> consumer
+     //?} else {
+    /*Consumer<Advancement> consumer
+    *///?}
   ) {
     //? >= 1.21.1 {
-    /*final HolderLookup.RegistryLookup<Item> itemLookup = registryLookup.lookupOrThrow(Registries.ITEM);
-     *///?} else {
-    var ENTER_END_GATEWAY = dummy(Stellarity.mcId("end/enter_end_gateway"));
-    //?}
+    final HolderLookup.RegistryLookup<Item> itemLookup = registryLookup.lookupOrThrow(Registries.ITEM);
+     //?} else {
+    /*var ENTER_END_GATEWAY = dummy(Stellarity.mcId("end/enter_end_gateway"));
+    *///?}
 
 
     var VOID_REELS = Advancement.Builder.advancement()
@@ -95,16 +95,16 @@ public class AdvancementProvider extends FabricAdvancementProvider {
         false
       )
       //? >= 1.21.1 {
-      /*.parent(new AdvancementHolder(Stellarity.mcId("end/enter_end_gateway"), null))
+      .parent(new AdvancementHolder(Stellarity.mcId("end/enter_end_gateway"), null))
       .addCriterion("fishing", VoidFishedTrigger.TriggerInstance.fishedItem(Optional.empty(), Optional.empty(), Optional.empty()))
       .requirements(new AdvancementRequirements(List.of(List.of("fishing"))))
-      *///? }else {
-      .parent(ENTER_END_GATEWAY)
+      //? }else {
+      /*.parent(ENTER_END_GATEWAY)
       .addCriterion("fishing", VoidFishedTrigger.TriggerInstance.fishedItem(
         ItemPredicate.ANY, EntityPredicate.ANY, ItemPredicate.ANY
       ))
       .requirements(new String[][]{{"fishing"}})
-      //?}
+      *///?}
       .build(Stellarity.id("void_fishing/void_reels"));
 
     var TOPPED_OFF = Advancement.Builder.advancement()
@@ -129,15 +129,15 @@ public class AdvancementProvider extends FabricAdvancementProvider {
   }
 
   //? < 1.21.1 {
-  private CriterionTriggerInstance impossible() {
+  /*private CriterionTriggerInstance impossible() {
     return new ImpossibleTrigger.TriggerInstance();
   }
 
-  //?} else {
-  /*private Criterion<ImpossibleTrigger.TriggerInstance> impossible() {
+  *///?} else {
+  private Criterion<ImpossibleTrigger.TriggerInstance> impossible() {
     return CriteriaTriggers.IMPOSSIBLE.createCriterion(new ImpossibleTrigger.TriggerInstance());
   }
-  *///?}
+  //?}
 
 
 }

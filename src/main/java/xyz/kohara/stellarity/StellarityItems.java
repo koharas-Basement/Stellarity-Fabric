@@ -1,13 +1,17 @@
 package xyz.kohara.stellarity;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+
 
 import net.minecraft.world.level.block.Block;
 import xyz.kohara.stellarity.item.*;
@@ -15,12 +19,16 @@ import xyz.kohara.stellarity.item.*;
 /*import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.component.Consumable;
-*///?}
+import net.minecraft.world.item.component.TooltipDisplay;
 
-//? < 1.21 {
+import org.jetbrains.annotations.NotNull;
+*///?} else {
+import net.minecraft.world.level.Level;
 //? }
 
 
+import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class StellarityItems {
@@ -80,14 +88,14 @@ public class StellarityItems {
 
   public static final Item PHO = register("pho",
     //? >= 1.21 {
-    /*Item::new,
-     *///? } else {
-    BowlFoodItem::new,
-    //? }
+    Item::new,
+     //? } else {
+    /*BowlFoodItem::new,
+    *///? }
     foodProperties(new Item.Properties().stacksTo(1).craftRemainder(Items.BOWL), new FoodProperties.Builder()
       //? = 1.21.1 {
-      /*.usingConvertsTo(Items.BOWL)
-       *///? } >= 1.21.9 {
+      .usingConvertsTo(Items.BOWL)
+       //? } >= 1.21.9 {
       /*, Consumables.defaultFood()
        *///? }
       , 13, 20f, true,
@@ -107,6 +115,49 @@ public class StellarityItems {
   );
 
   public static final Item TAMARIS = register("tamaris", Tamaris::new, Tamaris.properties());
+
+  public static final Item CHORUS_PLATING = register("chorus_plating", Item::new, new Item.Properties());
+  public static final Item ENDERITE_SHARD = register("enderite_shard", Item::new, new Item.Properties());
+  public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = register("enderite_upgrade_smithing_template", (properties) -> new SmithingTemplateItem(
+    Component.translatable("item.stellarity.enderite_upgrade_smithing_template.applies_to").withStyle(ChatFormatting.BLUE),
+    Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.stellarity.hallowed_ingot")).withStyle(ChatFormatting.BLUE),
+    Component.translatable("item.stellarity.enderite_upgrade_smithing_template.upgrade").withStyle(ChatFormatting.GRAY),
+    Component.empty(),
+    //? < 1.21.9
+    Component.empty(),
+    List.of(),
+    List.of()
+    //? >= 1.21.9
+    //, properties
+  ) {
+    //? < 1.21.9 {
+    @Override
+    public void appendHoverText(ItemStack itemStack, /*? 1.20.1 { */  /*Level level *//*? } else { */ TooltipContext context /*? } */, List<Component> list, TooltipFlag tooltipFlag) {
+      super.appendHoverText(itemStack, /*? 1.20.1 { */ /*level *//*? } else { */ context /*? }*/, list, tooltipFlag);
+      list.add(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.stellarity.chorus_plating")).withStyle(ChatFormatting.BLUE)));
+      list.add(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.minecraft.shulker_shell")).withStyle(ChatFormatting.BLUE)));
+      list.add(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.8"), Component.translatable("block.minecraft.cherry_leaves")).withStyle(ChatFormatting.BLUE)));
+    }
+    //? } else {
+
+    /*@Override
+    public void appendHoverText(@NotNull ItemStack itemStack, @NotNull TooltipContext tooltipContext, @NotNull TooltipDisplay tooltipDisplay, @NotNull Consumer<Component> consumer, @NotNull TooltipFlag tooltipFlag) {
+      super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
+      consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.stellarity.chorus_plating")).withStyle(ChatFormatting.BLUE)));
+      consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.minecraft.shulker_shell")).withStyle(ChatFormatting.BLUE)));
+      consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.8"), Component.translatable("block.minecraft.cherry_leaves")).withStyle(ChatFormatting.BLUE)));
+    }
+
+    *///? }
+  }, new Item.Properties());
+
+  public static final Item HALLOWED_INGOT = register("hallowed_ingot", Item::new, new Item.Properties());
+  public static final Item SAND_RUNE = register("sand_rune", Item::new, new Item.Properties());
+  public static final Item STARLIGHT_SOOT = register("starlight_soot", Item::new, new Item.Properties());
+  public static final Item GILDED_PURPUR_KEY = register("gilded_purpur_key", Item::new, new Item.Properties());
+  public static final Item PURPUR_KEY = register("purpur_key", Item::new, new Item.Properties());
+  public static final Item WINGED_KEY = register("winged_key", Item::new, new Item.Properties());
+
 
   public static Item registerBlock(String name, Block block) {
     return registerBlock(name, block, new Item.Properties());
@@ -155,20 +206,20 @@ public class StellarityItems {
     foodProperties = foodProperties
       .nutrition(nutrition)
       //? < 1.21.1 {
-      .saturationMod(saturation);
+      /*.saturationMod(saturation);
 
     for (EffectChance ec : effectChances) {
       foodProperties.effect(ec.effect, ec.chance);
     }
-//?} else {
-    /*.saturationModifier(saturation);
-     *///?}
+*///?} else {
+    .saturationModifier(saturation);
+     //?}
     if (alwaysEat) {
       foodProperties =
         //? = 1.20.1
-        foodProperties.alwaysEat();
+        //foodProperties.alwaysEat();
       //? >= 1.21.1
-      //foodProperties.alwaysEdible();
+      foodProperties.alwaysEdible();
     }
 
     //? >= 1.21.9 {

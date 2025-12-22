@@ -4,10 +4,10 @@ from natsort import natsorted
 
 translations = {}
 
-# in translations/stellarity
-for file in os.listdir("translations/stellarity"):
+# in translations/enlightened
+for file in os.listdir("translations/enlightened"):
   print(file)
-  with open(f"translations/stellarity/{file}", "r", encoding="utf-8") as f:
+  with open(f"translations/enlightened/{file}", "r", encoding="utf-8") as f:
     data = json.load(f)
     translations[file] = data
 done = False
@@ -46,12 +46,12 @@ while not done:
 
 for lang in translations:
   final = dict(natsorted(translations[lang].items()))
-  with open(f"translations/stellarity/{lang}", "w", encoding="utf-8") as f:
+  with open(f"translations/enlightened/{lang}", "w", encoding="utf-8") as f:
     json.dump(final, f, ensure_ascii=False, indent=2)
 
   # final["LEGACY_TRANSLATIONS_THIS_IS_NOT_A_KEY"] = "ALL LEGACY TRANSLATIONS BELOW, TRY NOT TO EDIT."
 
-  # with open(f"translations/stellarity_legacy/{lang}", "r", encoding="utf-8") as f:
+  # with open(f"translations/enlightened_legacy/{lang}", "r", encoding="utf-8") as f:
   #   data = json.load(f)
   #   for key in data:
   #     if key not in final:

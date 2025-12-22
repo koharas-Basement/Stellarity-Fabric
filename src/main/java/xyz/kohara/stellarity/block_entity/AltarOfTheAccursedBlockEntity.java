@@ -181,16 +181,16 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
 
     if (itemMode == ExtItemEntity.ItemMode.CRAFTING) {
       //? = 1.21.1 {
-      /*var allRecipes = serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE);
-       *///? } > 1.21.9 {
+      var allRecipes = serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE);
+       //? } > 1.21.9 {
       /*var allRecipes = serverLevel.getServer().getRecipeManager().getAllOfType(StellarityRecipeTypes.ALTAR_RECIPE);
        *///? }
       //? = 1.20.1 {
-      for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
-        //? } else {
-      /*for (var recipeHolder : allRecipes) {
+      /*for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
+        *///? } else {
+      for (var recipeHolder : allRecipes) {
         var recipe = recipeHolder.value();
-        *///? }
+        //? }
 
         output = recipe.craft(itemStacks);
         if (output != null) {

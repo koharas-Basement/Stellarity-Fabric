@@ -23,9 +23,9 @@ public class StellarityPotions {
       , 15 * 20, 2));
 
   //? > 1.21 {
-  /*public static final Holder<Potion> BLIND_RAGE_HOLDER = BuiltInRegistries.POTION.wrapAsHolder(BLIND_RAGE);
+  public static final Holder<Potion> BLIND_RAGE_HOLDER = BuiltInRegistries.POTION.wrapAsHolder(BLIND_RAGE);
 
-  *///? }
+  //? }
 
 
   private static Potion register(String id, String name, MobEffectInstance... effects) {

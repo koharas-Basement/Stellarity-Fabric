@@ -9,10 +9,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PotionItem;
 //? 1.20.1 {
-import net.minecraft.world.item.alchemy.PotionUtils;
- //? } else{
-/*import net.minecraft.core.component.DataComponents;
-*///? }
+/*import net.minecraft.world.item.alchemy.PotionUtils;
+ *///? } else{
+import net.minecraft.core.component.DataComponents;
+//? }
 
 public class StellarityTooltips {
   public static final Component EMPTY_LINE = Component.literal("");
@@ -24,18 +24,18 @@ public class StellarityTooltips {
 
     ItemTooltipCallback.EVENT.register((
       //? 1.20.1 {
-      itemStack, unused, list
-       //? } else {
-      /*itemStack, unused, unused2, list
-      *///? }
+      /*itemStack, unused, list
+       *///? } else {
+      itemStack, unused, unused2, list
+      //? }
     ) -> {
       Item item = itemStack.getItem();
       boolean isStellarityPotion = item instanceof PotionItem &&
         //? 1.20.1 {
-        BuiltInRegistries.POTION.getKey(PotionUtils.getPotion(itemStack)).getNamespace().equals(Stellarity.MOD_ID);
-         //?} else {
-        /*itemStack.get(DataComponents.POTION_CONTENTS).potion().map(holder -> BuiltInRegistries.POTION.getKey(holder.value()).getNamespace().equals(Stellarity.MOD_ID)).orElse(false);
-      *///? }
+        /*BuiltInRegistries.POTION.getKey(PotionUtils.getPotion(itemStack)).getNamespace().equals(Stellarity.MOD_ID);
+         *///?} else {
+        itemStack.get(DataComponents.POTION_CONTENTS).potion().map(holder -> BuiltInRegistries.POTION.getKey(holder.value()).getNamespace().equals(Stellarity.MOD_ID)).orElse(false);
+      //? }
       if (!(BuiltInRegistries.ITEM.getKey(item).getNamespace().equals(Stellarity.MOD_ID) || isStellarityPotion)) {
         return;
       }

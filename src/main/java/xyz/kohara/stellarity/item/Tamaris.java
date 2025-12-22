@@ -36,10 +36,10 @@ public class Tamaris extends
 {
   public Tamaris(Properties properties) {
     //? 1.20.1 {
-    super(Tiers.NETHERITE, 2, -2.4f, properties);
-     //? } 1.21.1 {
-    /*super(Tiers.NETHERITE, properties.attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2.4F)));
-     *///? } else {
+    /*super(Tiers.NETHERITE, 2, -2.4f, properties);
+     *///? } 1.21.1 {
+    super(Tiers.NETHERITE, properties.attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2.4F)));
+     //? } else {
     /*super(properties.sword(ToolMaterial.NETHERITE, 2, -2.4F));
     *///? }
   }
@@ -100,10 +100,10 @@ public class Tamaris extends
       player.teleportTo(nearestPos.x, nearestPos.y, nearestPos.z);
       itemStack.hurtAndBreak(1, player,
         //? 1.20.1 {
-        (livingEntityx) -> livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND)
-         //? } else {
-        /*EquipmentSlot.MAINHAND
-        *///? }
+        /*(livingEntityx) -> livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND)
+         *///? } else {
+        EquipmentSlot.MAINHAND
+        //? }
       );
 
       nearest./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer(level, *//*? } */ nearest.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE), 999f);
