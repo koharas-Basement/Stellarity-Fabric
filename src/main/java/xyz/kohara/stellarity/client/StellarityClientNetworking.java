@@ -17,7 +17,6 @@ public class StellarityClientNetworking {
         Entity entity = client.level.getEntity(packet.id());
         if (entity == null) return;
         entity.stellarity$entityData().assignValues(packet.list());
-
       });
     });
     //? } else {

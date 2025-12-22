@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public abstract class EntityMixin implements ExtEntity
   //? > 1.21 {
   /*, SyncedDataHolder
-  *///? }
+   *///? }
 {
 
   @Unique

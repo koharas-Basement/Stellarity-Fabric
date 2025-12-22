@@ -1,11 +1,14 @@
 package xyz.kohara.stellarity;
 
 import net.fabricmc.api.ModInitializer;
+
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 //? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
- //? } else {
+  //? } else {
 /*import net.minecraft.resources.Identifier;
-*///? }
+ *///? }
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,18 +24,22 @@ public class Stellarity implements ModInitializer {
   public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ id(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(MOD_ID, path);
-     //?} else {
+    //?} else {
     /*return /^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/.fromNamespaceAndPath(MOD_ID, path);
 
-    *///?}
+     *///?}
   }
 
   public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ mcId(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(path);
-     //?} else {
+    //?} else {
     /*return /^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/.withDefaultNamespace(path);
-    *///?}
+     *///?}
+  }
+
+  public static <T extends Registry<U>, U> ResourceKey<U> key(ResourceKey<T> registry, String path) {
+    return ResourceKey.create(registry, id(path));
   }
 
   @Override

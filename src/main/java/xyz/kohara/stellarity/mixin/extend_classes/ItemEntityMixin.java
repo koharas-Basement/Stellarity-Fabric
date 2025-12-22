@@ -3,7 +3,6 @@ package xyz.kohara.stellarity.mixin.extend_classes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -18,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityBlocks;
-import xyz.kohara.stellarity.interface_injection.ExtEntity;
 import xyz.kohara.stellarity.interface_injection.ExtItemEntity;
 
 //? < 1.21.9 {

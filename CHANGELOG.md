@@ -1,81 +1,46 @@
-# 0.2.0
+# 0.3.0
 
-This update emphaizes on working on the dragon fight with a few other additions
+This update addresses loot tables and adds more items (they depend on each other)
 
 # Changes
 
 Unless annotated, all changes are considered to be up to date with
 the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](https://modrinth.com/datapack/stellarity)
 
-## Versions
-
-**[*] 1.21.10 → 1.21.11**
-
 ## Blocks
 
-**[+] Phantom Item Frame**
+**[*] Rooted Ender Dirt**
+
+- Now hoeable into Ender Dirt and Hanging Roots
+- Added loot table
+- Speed is now affected by use of shovels
+
+**[*] Ender Dirt**
+
+- Can be flattened into Ender Dirt Path
+- Added loot table
+- Speed is now affected by use of shovels
+
+**[*] Ender Grass Block**
+
+- Can be flattened into Ender Dirt Path
+- Added loot table
+- Speed is now affected by use of shovels
+
+**[*] Ender Dirt Path**
+
+- Added loot table
+- Speed is now affected by use of shovels
+
+**[*] Ashen Froglight**
+
+- Added loot table
 
 ## Mechanics
 
-**[*] End Crystals**
+**[*] Void Fishing**
 
-- Respawn crystals will now break instead of exploding
-- Respawn crystals now glow purple instead of white
-
-**[*] Altar of The Accursed**
-
-- Dropped items now glow purple instead of white
-
-**[*] Dragon Fight**
-
-- Ender dragon will no longer perch if there exists at least 1 tower crystal
-- The number of End Crystals will now show up
-
-**[+] Item Tooltips**
-
-- Basic Stellarity tooltip have been added to all Stellarity items
-
-## Items
-
-**[+] Shepherd's Pie**
-
-**[+] Chorus Pie**
-
-**[+] Pho**
-
-**[+] Blind Rage Potion**
-
-**[+] Tamaris**
-
-- Very basic implementation, damage mechanic have to be sorted out.
-
-## Paintings
-
-**[+] Shepherd's Feast**
-
-**[+] Dragonblade**
-
-**[+] End**
-
-**[+] Hourglass**
-
-**[+] Scheme**
-
-**[+] Snare**
-
-**[+] The Obsidian Reliquary**
-
-**[+] Majestical Brew**
-
-**[+] A Hop and a Skip Away**
-
-**[+] End Blossom**
-
-## Structures
-
-**[*] Exit Portal**
-
-- Replaced with the Stellarity exit portal
+- Added loot table
 
 # Developers Note
 

@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.StellarityItemTags;
 import xyz.kohara.stellarity.StellarityItems;
@@ -13,7 +14,7 @@ import xyz.kohara.stellarity.StellarityItems;
 import java.util.concurrent.CompletableFuture;
 //? >= 1.21.9 {
 /*import net.minecraft.data.tags.TagAppender;
- *///?}
+  *///?}
 
 public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
   public ItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable BlockTagProvider blockTagProvider) {
@@ -25,14 +26,14 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
   }
 
   //? >= 1.21.9 {
-  /*public TagAppender<Item, Item> getOrCreateTagBuilder(TagKey<Item> tagKey) {
+  /*public TagAppender<@NotNull Item, @NotNull Item> getOrCreateTagBuilder(TagKey<@NotNull Item> tagKey) {
     return this.valueLookupBuilder(tagKey);
   }
   *///?}
 
 
   @Override
-  public void addTags(HolderLookup.Provider provider) {
+  public void addTags(HolderLookup.@NotNull Provider provider) {
     getOrCreateTagBuilder(StellarityItemTags.FISHES).add(
       StellarityItems.AMETHYST_BUDFISH,
       StellarityItems.BUBBLEFISH,

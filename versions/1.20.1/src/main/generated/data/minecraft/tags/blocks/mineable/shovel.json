@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "stellarity:ender_dirt_path",
+    "stellarity:ender_dirt",
+    "stellarity:ender_grass_block",
+    "stellarity:rooted_ender_dirt"
+  ]
+}

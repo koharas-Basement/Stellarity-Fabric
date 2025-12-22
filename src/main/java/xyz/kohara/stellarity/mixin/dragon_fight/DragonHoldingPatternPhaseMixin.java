@@ -7,7 +7,6 @@ import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.enderdragon.phases.AbstractDragonPhaseInstance;
 import net.minecraft.world.entity.boss.enderdragon.phases.DragonHoldingPatternPhase;
-import net.minecraft.world.level.dimension.end.EndDragonFight;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 

@@ -13,9 +13,9 @@ import net.minecraft.world.item.Items;
 
 //? 1.20.1 {
 import net.minecraft.world.item.alchemy.PotionUtils;
- //?} else {
+  //?} else {
 /*import net.minecraft.world.item.alchemy.PotionContents;
-  *///?}
+ *///?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
@@ -59,9 +59,9 @@ public class StellarityCreativeModeTabs {
     StellarityItems.TAMARIS
   };
 
-  public static final ResourceKey<CreativeModeTab> FOOD_KEY = ResourceKey.create(CREATIVE_MODE_TAB.key(), Stellarity.id("food"));
-  public static final ResourceKey<CreativeModeTab> BLOCKS_KEY = ResourceKey.create(CREATIVE_MODE_TAB.key(), Stellarity.id("building_blocks"));
-  public static final ResourceKey<CreativeModeTab> EQUIPMENT_KEY = ResourceKey.create(CREATIVE_MODE_TAB.key(), Stellarity.id("equipment"));
+  public static final ResourceKey<CreativeModeTab> FOOD_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "food");
+  public static final ResourceKey<CreativeModeTab> BLOCKS_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "building_blocks");
+  public static final ResourceKey<CreativeModeTab> EQUIPMENT_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "equipment");
 
   public static final CreativeModeTab FOOD = FabricItemGroup.builder()
     .icon(() -> new ItemStack(StellarityItems.SUSHI))
@@ -86,9 +86,9 @@ public class StellarityCreativeModeTabs {
       itemGroup.accept(
         //? 1.20.1 {
         PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
-         //?} else {
+        //?} else {
         /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
-        *///?}
+         *///?}
       );
     });
 

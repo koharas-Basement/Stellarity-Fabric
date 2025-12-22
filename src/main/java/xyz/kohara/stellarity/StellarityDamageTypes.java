@@ -4,7 +4,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageType;
 
+import static net.minecraft.core.registries.Registries.DAMAGE_TYPE;
+
 
 public class StellarityDamageTypes {
-  public static final ResourceKey<DamageType> TAMARIS_EXECUTE = ResourceKey.create(Registries.DAMAGE_TYPE, Stellarity.id("tamaris_execute"));
+  public static final ResourceKey<DamageType> TAMARIS_EXECUTE = Stellarity.key(DAMAGE_TYPE, "tamaris_execute");
 }

@@ -21,9 +21,9 @@ public class StellarityEntities {
     return Registry.register(BuiltInRegistries.ENTITY_TYPE, location, builder.build(
       //? <= 1.21.1 {
       location.toString()
-       //? } else {
-      /*ResourceKey.create(Registries.ENTITY_TYPE, location)
-      *///? }
+      //? } else {
+      /*Stellarity.key(Registries.ENTITY_TYPE, id)
+       *///? }
     ));
   }
 

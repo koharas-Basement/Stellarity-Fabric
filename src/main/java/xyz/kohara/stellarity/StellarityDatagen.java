@@ -4,10 +4,9 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import xyz.kohara.stellarity.datagen.AdvancementProvider;
-import xyz.kohara.stellarity.datagen.ItemTagProvider;
-import xyz.kohara.stellarity.datagen.ModelProvider;
-import xyz.kohara.stellarity.datagen.RecipeProvider;
+import xyz.kohara.stellarity.datagen.*;
+import xyz.kohara.stellarity.datagen.loot_table.BlockLootTableProvider;
+import xyz.kohara.stellarity.datagen.loot_table.FishingLootTableProvider;
 
 @Environment(EnvType.CLIENT)
 public class StellarityDatagen implements DataGeneratorEntrypoint {
@@ -20,5 +19,8 @@ public class StellarityDatagen implements DataGeneratorEntrypoint {
     pack.addProvider(AdvancementProvider::new);
     pack.addProvider(ItemTagProvider::new);
     pack.addProvider(RecipeProvider::new);
+    pack.addProvider(BlockLootTableProvider::new);
+    pack.addProvider(BlockTagProvider::new);
+    pack.addProvider(FishingLootTableProvider::new);
   }
 }
