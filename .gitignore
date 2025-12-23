@@ -38,7 +38,7 @@ replay_*.log
 *.hprof
 *.jfr
 
-/src/main/generated
+src/main/generated
 
 .cache/
 

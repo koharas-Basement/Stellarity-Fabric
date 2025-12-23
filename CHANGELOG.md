@@ -56,6 +56,12 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Ingredients**
 
+## Mob Effects
+
+**[+] Voided**
+
+**[+] Jinx**
+
 ## Mechanics
 
 **[*] Void Fishing**

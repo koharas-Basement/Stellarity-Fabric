@@ -191,6 +191,8 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s was publicly executed by %2$s",
   "death.attack.stellarity.tamaris_execute.2": "%1$s was forced to see what 999 damage is like by %2$s",
   "death.attack.stellarity.tamaris_execute.3": "%1$s had their remaning health taken away by %2$s",
+  "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Embuscade",
   "enchantment.stellarity.ambush.description": "Inflige des dégâts supplémentaires aux monstres qui ne vous ciblent pas activement",
   "enchantment.stellarity.critical_strike": "Coup Critique",
@@ -607,5 +609,6 @@
   "subtitles.stellarity.item.fluffy_hammer.return": "Fluffy Hammer returns",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoscope charges",
-  "subtitles.stellarity.item.living_flesh.boost": "Living Flesh hurts"
+  "subtitles.stellarity.item.living_flesh.boost": "Living Flesh hurts",
+  "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

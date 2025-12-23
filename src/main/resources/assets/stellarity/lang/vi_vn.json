@@ -191,6 +191,8 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s đã bị hành quyết công khai bởi %2$s",
   "death.attack.stellarity.tamaris_execute.2": "%1$s đã bị %2$s bắt phải trải qua cảm giác nhận 999 sát thương",
   "death.attack.stellarity.tamaris_execute.3": "%1$s đã bị %2$s lấy đi chút sinh lực còn lại",
+  "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Phục kích",
   "enchantment.stellarity.ambush.description": "Gây thêm sát thương cho sinh vật đang không nhắm vào bạn",
   "enchantment.stellarity.critical_strike": "Nhát chém chí mạng",
@@ -607,5 +609,6 @@
   "subtitles.stellarity.item.fluffy_hammer.return": "Búa mềm mại trở về",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Búa mềm mại bị ném",
   "subtitles.stellarity.item.kaleidoscope.ready": "Rìu Vạn hoa nạp năng lượng",
-  "subtitles.stellarity.item.living_flesh.boost": "Máu thịt tươi sống nhận sát thương"
+  "subtitles.stellarity.item.living_flesh.boost": "Máu thịt tươi sống nhận sát thương",
+  "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

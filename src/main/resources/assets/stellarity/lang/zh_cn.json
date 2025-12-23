@@ -191,6 +191,8 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s 被 %2$s 公开处刑（待更新源文本）",
   "death.attack.stellarity.tamaris_execute.2": "%1$s 被迫因 %2$s 看到999伤害是什么样的（待更新源文本）",
   "death.attack.stellarity.tamaris_execute.3": "%1$s 的血被 %2$s 吸干了（待更新源文本）",
+  "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "埋伏",
   "enchantment.stellarity.ambush.description": "对没有对你产生仇恨的怪物造成额外伤害",
   "enchantment.stellarity.critical_strike": "暴击之刃",
@@ -607,5 +609,6 @@
   "subtitles.stellarity.item.fluffy_hammer.return": "毛绒绒锤子返回",
   "subtitles.stellarity.item.fluffy_hammer.throw": "毛绒绒锤子丢出",
   "subtitles.stellarity.item.kaleidoscope.ready": "炽金狂斧蓄力",
-  "subtitles.stellarity.item.living_flesh.boost": "生肌犹痛"
+  "subtitles.stellarity.item.living_flesh.boost": "生肌犹痛",
+  "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

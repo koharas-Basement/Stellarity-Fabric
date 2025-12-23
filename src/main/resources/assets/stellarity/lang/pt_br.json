@@ -191,6 +191,8 @@
   "death.attack.stellarity.tamaris_execute.1": "TEXTO A SER ADICIONADO! IGNORE POR ENQUANTO",
   "death.attack.stellarity.tamaris_execute.2": "TEXTO A SER ADICIONADO! IGNORE POR ENQUANTO",
   "death.attack.stellarity.tamaris_execute.3": "TEXTO A SER ADICIONADO! IGNORE POR ENQUANTO",
+  "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Emboscada",
   "enchantment.stellarity.ambush.description": "Causa dano extra à criaturas que não estão perseguindo você",
   "enchantment.stellarity.critical_strike": "Ataque Crítico",
@@ -607,5 +609,6 @@
   "subtitles.stellarity.item.fluffy_hammer.return": "Fluffy Hammer returns",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Martelo fofo da justiça lança",
   "subtitles.stellarity.item.kaleidoscope.ready": "Caleidoscópio carrega",
-  "subtitles.stellarity.item.living_flesh.boost": "Carne viva ferida"
+  "subtitles.stellarity.item.living_flesh.boost": "Carne viva ferida",
+  "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

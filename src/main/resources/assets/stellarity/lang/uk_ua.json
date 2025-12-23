@@ -191,6 +191,8 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s був прилюдно страчений %2$s",
   "death.attack.stellarity.tamaris_execute.2": "%1$s узяв на себе 999 шкоди від катувань %2$s",
   "death.attack.stellarity.tamaris_execute.3": "%1$s втратив залишки свого здоровʼя, втікаючи від %2$s",
+  "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Напад",
   "enchantment.stellarity.ambush.description": "Завдає додаткової шкоди мобам, які не націлені на носія",
   "enchantment.stellarity.critical_strike": "Critical Strike",
@@ -607,5 +609,6 @@
   "subtitles.stellarity.item.fluffy_hammer.return": "Fluffy Hammer returns",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoscope charges",
-  "subtitles.stellarity.item.living_flesh.boost": "Living Flesh hurts"
+  "subtitles.stellarity.item.living_flesh.boost": "Living Flesh hurts",
+  "tag.item.stellarity.fishes": "Stellarity Fishes"
 }
