@@ -4,11 +4,7 @@
 import com.llamalad7.mixinextras.sugar.Local;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
-//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
- //? } else {
-/^import net.minecraft.resources.Identifier;
-^///? }
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -28,7 +24,7 @@ import java.util.function.Function;
 @MixinEnvironment("client")
 public class BlockStateDefinitionsMixin {
   @Inject(method = "definitionLocationToBlockStateMapper", at = @At(value = "INVOKE", target = "Ljava/util/Objects;requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;"))
-  private static void addStellarityBlockStates(CallbackInfoReturnable<Function</^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/, StateDefinition<Block, BlockState>>> cir, @Local Map</^? <1.21.11 {^/ ResourceLocation/^?} else {^//^Identifier ^//^? }^/, StateDefinition<Block, BlockState>> map) {
+  private static void addStellarityBlockStates(CallbackInfoReturnable<Function<ResourceLocation, StateDefinition<Block, BlockState>>> cir, @Local Map<ResourceLocation, StateDefinition<Block, BlockState>> map) {
     map.put(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
   }
 }

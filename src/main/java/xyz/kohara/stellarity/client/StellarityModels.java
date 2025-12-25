@@ -29,9 +29,9 @@ public class StellarityModels {
         return 0.0F;
       }
       //? = 1.20.1
-      //return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
+      return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
       //? = 1.21.1
-      return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
+      //return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
     });
 
     ItemProperties.register(bow, Stellarity.mcId("pulling"), (itemStack, clientWorld, entity, seed) -> {

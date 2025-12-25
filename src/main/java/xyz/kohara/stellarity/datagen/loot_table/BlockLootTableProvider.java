@@ -11,25 +11,25 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import xyz.kohara.stellarity.StellarityBlocks;
 
 //? > 1.21 {
-import net.minecraft.core.HolderLookup;
+/*import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
-//? }
+*///? }
 
 import static xyz.kohara.stellarity.datagen.loot_table.LootTableUtils.*;
 
 public class BlockLootTableProvider extends FabricBlockLootTableProvider {
 
   //? 1.20.1 {
-  /*public BlockLootTableProvider(FabricDataOutput dataOutput) {
+  public BlockLootTableProvider(FabricDataOutput dataOutput) {
     super(dataOutput);
   }
-  *///? } else {
+  //? } else {
 
-  public BlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+  /*public BlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
     super(dataOutput, registryLookup);
   }
-  //? }
+  *///? }
 
 
   private static final Block[] DROP_SELF = {
@@ -50,7 +50,7 @@ public class BlockLootTableProvider extends FabricBlockLootTableProvider {
 
     add(StellarityBlocks.ENDER_GRASS_BLOCK, new LootTable.Builder().withPool(new LootPool.Builder().add(
       AlternativesEntry.alternatives(
-        LootItem.lootTableItem(StellarityBlocks.ENDER_GRASS_BLOCK).when(/*? 1.20.1 {*//*HAS_SILK_TOUCH*//*? } else { */hasSilkTouch()/*? }*/),
+        LootItem.lootTableItem(StellarityBlocks.ENDER_GRASS_BLOCK).when(/*? 1.20.1 {*/HAS_SILK_TOUCH/*? } else { *//*hasSilkTouch()*//*? }*/),
         applyExplosionCondition(StellarityBlocks.ENDER_DIRT, item(StellarityBlocks.ENDER_DIRT))
       )
     )));

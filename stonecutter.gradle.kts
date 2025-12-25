@@ -5,7 +5,7 @@ plugins {
     id("co.uzzu.dotenv.gradle") version "4.0.0"
 }
 
-stonecutter active "1.21.1"
+stonecutter active "1.20.1"
 
 /*
 // Make newer versions be published last
@@ -22,3 +22,4 @@ stonecutter parameters {
     constants["release"] = property("mod.id") != "template"
     dependencies["fapi"] = node.project.property("deps.fabric_api") as String
 }
+

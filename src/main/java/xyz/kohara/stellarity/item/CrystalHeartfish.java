@@ -1,11 +1,5 @@
 package xyz.kohara.stellarity.item;
 
-//? <= 1.21.10 {
-import net.minecraft.resources.ResourceLocation;
- //? } else {
-
-/*import net.minecraft.resources.Identifier;
-*///? }
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.commands.AdvancementCommands;
 import net.minecraft.server.level.ServerPlayer;
@@ -21,15 +15,15 @@ import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 //? < 1.21.1 {
-/*import net.minecraft.advancements.Advancement;
- *///?} else {
-import net.minecraft.advancements.AdvancementHolder;
-  //?}
+import net.minecraft.advancements.Advancement;
+ //?} else {
+/*import net.minecraft.advancements.AdvancementHolder;
+  *///?}
 
 
 //? >= 1.21.9 {
 /*import net.minecraft.world.item.component.Consumables;
-  *///?}
+ *///?}
 
 import java.util.List;
 import java.util.Objects;
@@ -44,7 +38,7 @@ public class CrystalHeartfish extends Item {
   @Override
   public int getUseDuration(ItemStack itemStack
                             //? = 1.21.1
-    , LivingEntity livingEntity
+    //, LivingEntity livingEntity
   ) {
     return 100;
   }
@@ -76,15 +70,15 @@ public class CrystalHeartfish extends Item {
 
 
     //? if < 1.21.1 {
-    /*UUID uuid = UUID.fromString("019a9cd4-c40f-7032-a01f-273d3b1ed9b1");
+    UUID uuid = UUID.fromString("019a9cd4-c40f-7032-a01f-273d3b1ed9b1");
     AttributeModifier oldModifier = maxHPAttribute.getModifier(uuid);
 
     double amount = oldModifier == null ? 0.0 : oldModifier.getAmount();
-    *///?} else {
-    AttributeModifier oldModifier = maxHPAttribute.getModifier(Stellarity.id("crystal_heartfish_health_bonus"));
+    //?} else {
+    /*AttributeModifier oldModifier = maxHPAttribute.getModifier(Stellarity.id("crystal_heartfish_health_bonus"));
 
     double amount = oldModifier == null ? 0.0 : oldModifier.amount();
-    //?}
+    *///?}
 
     if (amount >= 9) {
       if (entity instanceof ServerPlayer player) {
@@ -92,16 +86,16 @@ public class CrystalHeartfish extends Item {
         var location = Stellarity.id("void_fishing/topped_off");
 
         //? if >= 1.21.1 {
-        AdvancementHolder advancement = Objects.requireNonNull(server.getAdvancements().get(location));
-        //?} else {
-        /*Advancement advancement = Objects.requireNonNull(server.getAdvancements().getAdvancement(location));
-         *///?}
+        /*AdvancementHolder advancement = Objects.requireNonNull(server.getAdvancements().get(location));
+        *///?} else {
+        Advancement advancement = Objects.requireNonNull(server.getAdvancements().getAdvancement(location));
+         //?}
 
         //? if <= 1.21.1 {
         AdvancementCommands.Action.GRANT.perform(player, List.of(advancement));
-         //?} else {
+        //?} else {
         /*AdvancementCommands.Action.GRANT.perform(player, List.of(advancement), true);
-        *///?}
+         *///?}
       }
 
       if (amount >= 10) return;
@@ -112,19 +106,19 @@ public class CrystalHeartfish extends Item {
 
 
     //? if < 1.21.1 {
-    /*AttributeModifier newModifier = new AttributeModifier(uuid, "stellarity:crystal_heartfish_health_bonus",
+    AttributeModifier newModifier = new AttributeModifier(uuid, "stellarity:crystal_heartfish_health_bonus",
       amount,
       AttributeModifier.Operation.ADDITION
     );
 
-    *///?} else {
-    AttributeModifier newModifier = new AttributeModifier(
+    //?} else {
+    /*AttributeModifier newModifier = new AttributeModifier(
       Stellarity.id("crystal_heartfish_health_bonus"),
       amount,
       AttributeModifier.Operation.ADD_VALUE
     );
 
-    //?}
+    *///?}
 
 
     if (oldModifier != null) {

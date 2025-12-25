@@ -1,25 +1,21 @@
 package xyz.kohara.stellarity.networking;
 
 import net.minecraft.network.syncher.SynchedEntityData;
-//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
- //? } else {
-/*import net.minecraft.resources.Identifier;
-*///? }
 import xyz.kohara.stellarity.Stellarity;
 
 import java.util.ArrayList;
 
 //? 1.20.1 {
-/*import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.network.FriendlyByteBuf;
 
-  *///? } else {
-import net.minecraft.network.RegistryFriendlyByteBuf;
+  //? } else {
+/*import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import org.jetbrains.annotations.NotNull;
 import net.minecraft.network.codec.StreamCodec;
-//? }
+*///? }
 
 
 import java.util.ArrayList;
@@ -27,13 +23,13 @@ import java.util.List;
 
 public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.DataValue<?>> list)
 //? > 1.21 {
-  implements CustomPacketPayload
-  //? }
+  /*implements CustomPacketPayload
+  *///? }
 {
-  public static final /*? <1.21.11 {*/ ResourceLocation/*?} else {*/ /*Identifier *//*? }*/ ID = Stellarity.id("set_entity_data");
+  public static final ResourceLocation ID = Stellarity.id("set_entity_data");
 
   //? 1.20.1 {
-  /*public FriendlyByteBuf pack() {
+  public FriendlyByteBuf pack() {
     var buf = PacketByteBufs.create();
     buf.writeVarInt(id);
     for (SynchedEntityData.DataValue<?> dataValue : list) {
@@ -56,8 +52,8 @@ public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.Da
 
     return new S2CSetStellarityEntityDataPacket(id, list);
   }
-  *///? } else {
-  public static final Type<S2CSetStellarityEntityDataPacket> TYPE = new Type<>(ID);
+  //? } else {
+  /*public static final Type<S2CSetStellarityEntityDataPacket> TYPE = new Type<>(ID);
 
   @Override
   public @NotNull Type<? extends CustomPacketPayload> type() {
@@ -89,5 +85,5 @@ public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.Da
     }
   };
 
-  //? }
+  *///? }
 }

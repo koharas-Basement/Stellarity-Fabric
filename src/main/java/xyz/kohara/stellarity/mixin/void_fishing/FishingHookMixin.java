@@ -93,10 +93,10 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
   @Unique
   private boolean isEnd() {
     //? <= 1.20.1 {
-    /*return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
-     *///?} else {
-    return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
-    //?}
+    return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
+     //?} else {
+    /*return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
+    *///?}
   }
 
   @Unique
@@ -220,10 +220,10 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     }
 
     //? < 1.21 {
-    /*return lure + 2;
-     *///? } else {
-    return lure + 200;
-    //? }
+    return lure + 2;
+     //? } else {
+    /*return lure + 200;
+    *///? }
   }
 
   @Unique
@@ -235,10 +235,10 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
   private ObjectArrayList<ItemStack> voidFishingRetrieve(LootTable instance, LootParams lootParams, Operation<ObjectArrayList<ItemStack>> original, @Local Player player, @Local(argsOnly = true) ItemStack itemStack) {
     if (isVoidFishing) {
       //? 1.20.1 {
-      /*instance = level().getServer().getLootData().getLootTable(Stellarity.id("void_fishing/event"));
-       *///? } else {
-      instance = level().getServer().reloadableRegistries().getLootTable(Stellarity.key(Registries.LOOT_TABLE, "void_fishing/event"));
-      //? }
+      instance = level().getServer().getLootData().getLootTable(Stellarity.id("void_fishing/event"));
+       //? } else {
+      /*instance = level().getServer().reloadableRegistries().getLootTable(Stellarity.key(Registries.LOOT_TABLE, "void_fishing/event"));
+      *///? }
     }
     ObjectArrayList<ItemStack> list = original.call(instance, lootParams);
     if (isVoidFishing) {

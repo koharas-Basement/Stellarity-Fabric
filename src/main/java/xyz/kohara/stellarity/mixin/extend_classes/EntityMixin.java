@@ -11,16 +11,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.kohara.stellarity.interface_injection.ExtEntity;
 //? > 1.21 {
-import net.minecraft.network.syncher.SyncedDataHolder;
+/*import net.minecraft.network.syncher.SyncedDataHolder;
 
 import java.util.ArrayList;
-  //? }
+  *///? }
 
 @Mixin(Entity.class)
 public abstract class EntityMixin implements ExtEntity
   //? > 1.21 {
-  , SyncedDataHolder
-   //? }
+  /*, SyncedDataHolder
+   *///? }
 {
 
   @Unique
@@ -38,7 +38,7 @@ public abstract class EntityMixin implements ExtEntity
   }
 
   //? 1.20.1 {
-  /*@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData()V", ordinal = 0))
+  @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData()V", ordinal = 0))
   private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
     entityData = new SynchedEntityData((Entity) (Object) this);
     stellarity$defineSynchedData();
@@ -50,8 +50,8 @@ public abstract class EntityMixin implements ExtEntity
   }
 
 
-  *///?} else {
-  @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData(Lnet/minecraft/network/syncher/SynchedEntityData$Builder;)V", ordinal = 0))
+  //?} else {
+  /*@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData(Lnet/minecraft/network/syncher/SynchedEntityData$Builder;)V", ordinal = 0))
   private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
     ArrayList<SynchedEntityData.DataItem<?>> dataItems = new ArrayList<>();
     stellarity$defineSynchedData(dataItems);
@@ -65,7 +65,7 @@ public abstract class EntityMixin implements ExtEntity
 
   }
 
-  //?}
+  *///?}
 
 
   @Inject(method = "getTeamColor", at = @At("HEAD"), cancellable = true)

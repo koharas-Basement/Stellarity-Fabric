@@ -32,7 +32,7 @@ public interface ExtEntity {
    */
   default void stellarity$defineSynchedData(
     //? > 1.21
-    ArrayList<SynchedEntityData.DataItem<?>> dataItems
+    //ArrayList<SynchedEntityData.DataItem<?>> dataItems
   ) {
 
   }

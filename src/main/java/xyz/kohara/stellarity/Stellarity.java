@@ -4,11 +4,8 @@ import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-//? <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
-  //? } else {
-/*import net.minecraft.resources.Identifier;
- *///? }
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,23 +16,23 @@ public class Stellarity implements ModInitializer {
   public static final String MOD_ID = "stellarity";
   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
   public static final String VERSION = /*$ mod_version*/ "0.2.0";
-  public static final String MINECRAFT = /*$ minecraft*/ "1.21.1";
+  public static final String MINECRAFT = /*$ minecraft*/ "1.20.1";
 
-  public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ id(String path) {
+  public static ResourceLocation id(String path) {
     //? if = 1.20.1 {
-    /*return new ResourceLocation(MOD_ID, path);
-    *///?} else {
-    return /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/.fromNamespaceAndPath(MOD_ID, path);
+    return new ResourceLocation(MOD_ID, path);
+     //?} else {
+    /*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 
-     //?}
+    *///?}
   }
 
-  public static /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/ mcId(String path) {
+  public static ResourceLocation mcId(String path) {
     //? if = 1.20.1 {
-    /*return new ResourceLocation(path);
-    *///?} else {
-    return /*? <1.21.11 {*/ ResourceLocation/*?} else {*//*Identifier *//*? }*/.withDefaultNamespace(path);
-     //?}
+    return new ResourceLocation(path);
+     //?} else {
+    /*return ResourceLocation.withDefaultNamespace(path);
+    *///?}
   }
 
   public static <T extends Registry<U>, U> ResourceKey<U> key(ResourceKey<T> registry, String path) {

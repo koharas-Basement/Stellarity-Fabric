@@ -9,7 +9,7 @@ pluginManagement {
 }
 
 plugins {
-    id("dev.kikugie.stonecutter") version "0.8-beta.3"
+    id("dev.kikugie.stonecutter") version "0.8.1-beta.1"
 }
 
 stonecutter {

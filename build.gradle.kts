@@ -176,6 +176,15 @@ publishMods {
         }
     }
 }
+
+
+stonecutter {
+    replacements.string(current.parsed.matches(">=1.21.11")) {
+        replace("ResourceLocation", "Identifier")
+    }
+}
+
+
 /*
 // Publishes builds to a maven repository under `com.example:template:0.1.0+mc`
 publishing {
