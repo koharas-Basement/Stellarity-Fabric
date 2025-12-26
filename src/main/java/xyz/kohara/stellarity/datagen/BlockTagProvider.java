@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
 import xyz.kohara.stellarity.StellarityBlocks;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 //? >= 1.21.9 {
@@ -20,14 +19,14 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
   }
 
   //? >= 1.21.9 {
-  /*public TagAppender<@NotNull Block, @NotNull Block> getOrCreateTagBuilder(TagKey<@NotNull Block> tagKey) {
+  /*public TagAppender<Block, Block> getOrCreateTagBuilder(TagKey<Block> tagKey) {
     return this.valueLookupBuilder(tagKey);
   }
   *///?}
 
 
   @Override
-  protected void addTags(HolderLookup.@NotNull Provider provider) {
+  protected void addTags(HolderLookup.Provider provider) {
     getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).add(StellarityBlocks.ENDER_DIRT_PATH, StellarityBlocks.ENDER_DIRT, StellarityBlocks.ENDER_GRASS_BLOCK, StellarityBlocks.ROOTED_ENDER_DIRT);
   }
 }

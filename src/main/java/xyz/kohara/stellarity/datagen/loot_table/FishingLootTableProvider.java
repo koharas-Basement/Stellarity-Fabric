@@ -7,10 +7,6 @@ import net.minecraft.world.item.Items;
 
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntry;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import xyz.kohara.stellarity.Stellarity;
@@ -25,7 +21,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.HolderLookup;
-import org.jetbrains.annotations.NotNull;
 import net.minecraft.resources.ResourceKey;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
@@ -162,7 +157,7 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
 
   //? } else {
   /*@Override
-  public void generate(@NotNull BiConsumer<ResourceKey<@NotNull LootTable>, LootTable.Builder> consumer) {
+  public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
 
     define(registryLookup.join());
 

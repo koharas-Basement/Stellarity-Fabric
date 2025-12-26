@@ -71,7 +71,8 @@ public class ModelProvider extends FabricModelProvider {
     StellarityItems.STARLIGHT_SOOT,
     StellarityItems.GILDED_PURPUR_KEY,
     StellarityItems.PURPUR_KEY,
-    StellarityItems.WINGED_KEY
+    StellarityItems.WINGED_KEY,
+    StellarityItems.PRISMATIC_PEARL
   };
 
   @Override

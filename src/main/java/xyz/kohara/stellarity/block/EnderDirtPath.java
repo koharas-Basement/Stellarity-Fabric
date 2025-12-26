@@ -4,7 +4,6 @@ import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DirtPathBlock;
@@ -14,10 +13,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.StellarityBlocks;
-//? > 1.21.1 {
+//? > 1.21.9 {
 /*import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.util.RandomSource;
-*///? }
+*///? } else {
+import net.minecraft.world.level.LevelAccessor;
+  //? }
+
 
 @MixinEnvironment
 public class EnderDirtPath extends DirtPathBlock {
@@ -54,7 +56,7 @@ public class EnderDirtPath extends DirtPathBlock {
   //? } else {
 
   /*@Override
-  protected @NotNull BlockState updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource) {
+  protected BlockState updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource) {
     if (direction == Direction.UP && !blockState.canSurvive(levelReader, blockPos)) {
       return StellarityBlocks.ENDER_DIRT.defaultBlockState();
     }

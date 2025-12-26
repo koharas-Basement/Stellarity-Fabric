@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 import xyz.kohara.stellarity.recipe.AltarRecipe;
@@ -23,6 +22,7 @@ import java.util.function.Consumer;
 /*import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
+
 import net.minecraft.resources.ResourceKey;
 
 import net.minecraft.core.registries.Registries;
@@ -74,8 +74,8 @@ public class RecipeProvider extends FabricRecipeProvider {
   /*@Override
   public void buildRecipes(RecipeOutput output) {
     *///? } else {
-    /*public void buildRecipes(HolderLookup.Provider provider, RecipeOutput output) {
-     *///? }
+  /*public void buildRecipes(HolderLookup.Provider provider, RecipeOutput output) {
+    *///? }
     altarOfTheAccursed(output, new AltarSimpleRecipe(
       Stellarity.id("altar_of_the_accursed/lapis_to_amethyst"),
       new LinkedHashMap<>() {{
@@ -106,7 +106,7 @@ public class RecipeProvider extends FabricRecipeProvider {
   }
 
   @Override
-  public @NotNull String getName() {
+  public String getName() {
     return "stellarity";
   }
 }

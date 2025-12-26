@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.advancements.critereon.*;
   //? } else {
 /*import net.minecraft.advancements.criterion.*;
- *///? }
+  *///? }
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 
@@ -39,9 +39,9 @@ import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
 public class AdvancementProvider extends FabricAdvancementProvider {
 
   //? >= 1.21.1 {
-  /*public AdvancementType TASK = AdvancementType.TASK;
-  public AdvancementType GOAL = AdvancementType.GOAL;
-  public AdvancementType CHALLENGE = AdvancementType.CHALLENGE;
+  /*public final AdvancementType TASK = AdvancementType.TASK;
+  public final AdvancementType GOAL = AdvancementType.GOAL;
+  public final AdvancementType CHALLENGE = AdvancementType.CHALLENGE;
 
   public AdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
     super(output, registryLookup);
@@ -73,15 +73,15 @@ public class AdvancementProvider extends FabricAdvancementProvider {
   public void generateAdvancement(
     //? >= 1.21.1 {
     /*HolderLookup.Provider registryLookup, Consumer<AdvancementHolder> consumer
-     *///?} else {
+    *///?} else {
     Consumer<Advancement> consumer
-    //?}
+     //?}
   ) {
     //? >= 1.21.1 {
     /*final HolderLookup.RegistryLookup<Item> itemLookup = registryLookup.lookupOrThrow(Registries.ITEM);
-     *///?} else {
+    *///?} else {
     var ENTER_END_GATEWAY = dummy(Stellarity.mcId("end/enter_end_gateway"));
-    //?}
+     //?}
 
 
     var VOID_REELS = Advancement.Builder.advancement()
@@ -96,7 +96,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
       )
       //? >= 1.21.1 {
       /*.parent(new AdvancementHolder(Stellarity.mcId("end/enter_end_gateway"), null))
-      .addCriterion("fishing", VoidFishedTrigger.TriggerInstance.fishedItem(Optional.empty(), Optional.empty(), Optional.empty()))
+      .addCriterion("fishing", VoidFishedTrigger.TriggerInstance.fishedItem(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty()))
       .requirements(new AdvancementRequirements(List.of(List.of("fishing"))))
       *///? }else {
       .parent(ENTER_END_GATEWAY)

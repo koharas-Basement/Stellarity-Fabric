@@ -11,7 +11,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityItems;
 //? < 1.21.1 {
@@ -23,11 +22,14 @@ import net.minecraft.advancements.Advancement;
 
 //? >= 1.21.9 {
 /*import net.minecraft.world.item.component.Consumables;
- *///?}
+  *///?}
 
 import java.util.List;
 import java.util.Objects;
+
+//? 1.20.1 {
 import java.util.UUID;
+ //? }
 
 public class CrystalHeartfish extends Item {
   public CrystalHeartfish(Properties properties) {
@@ -38,7 +40,7 @@ public class CrystalHeartfish extends Item {
   @Override
   public int getUseDuration(ItemStack itemStack
                             //? = 1.21.1
-    //, LivingEntity livingEntity
+                            //, LivingEntity livingEntity
   ) {
     return 100;
   }
@@ -55,7 +57,6 @@ public class CrystalHeartfish extends Item {
   }
 
   @Override
-  @NotNull
   public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
     if (!level.isClientSide()) {
       this.addHealth(livingEntity);
@@ -93,9 +94,9 @@ public class CrystalHeartfish extends Item {
 
         //? if <= 1.21.1 {
         AdvancementCommands.Action.GRANT.perform(player, List.of(advancement));
-        //?} else {
+         //?} else {
         /*AdvancementCommands.Action.GRANT.perform(player, List.of(advancement), true);
-         *///?}
+        *///?}
       }
 
       if (amount >= 10) return;

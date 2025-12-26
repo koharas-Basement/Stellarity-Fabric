@@ -1,6 +1,5 @@
 package xyz.kohara.stellarity.mixin.dragon_fight;
 
-import org.jetbrains.annotations.NotNull;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 
@@ -20,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 //? < 1.21.9 {
 import net.minecraft.world.entity.boss.EnderDragonPart;
-  //? } else {
+ //? } else {
 /*import net.minecraft.world.entity.boss.enderdragon.EnderDragonPart;
 import net.minecraft.server.level.ServerLevel;
 
@@ -33,7 +32,7 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
   @Nullable
   private EndDragonFight dragonFight;
 
-  protected EnderDragonMixin(EntityType<? extends @NotNull Mob> entityType, Level level) {
+  protected EnderDragonMixin(EntityType<? extends Mob> entityType, Level level) {
     super(entityType, level);
   }
 

@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.StellarityRecipeSerializers;
 
@@ -29,13 +29,13 @@ import net.minecraft.core.HolderLookup;
 
 //? < 1.21.9 {
 import net.minecraft.world.item.Item;
-  //? }
+ //? }
 
-public record AltarSimpleRecipe(ResourceLocation id,
+public record AltarSimpleRecipe(@Nullable ResourceLocation id,
                                 HashMap<Ingredient, Integer> ingredients,
                                 ItemStack result) implements AltarRecipe {
 
-  public AltarSimpleRecipe(ResourceLocation id, HashMap<Ingredient, Integer> ingredients,
+  public AltarSimpleRecipe(@Nullable ResourceLocation id, HashMap<Ingredient, Integer> ingredients,
                            ItemStack result) {
     this.id = id;
     this.ingredients = ingredients;
@@ -52,7 +52,7 @@ public record AltarSimpleRecipe(ResourceLocation id,
     }
     //? } else {
     /*Stellarity.LOGGER.info("For the sake of convience, recipe validation is skipped. Please confirm on older versions!");
-     *///? }
+    *///? }
   }
 
   public Output craft(List<ItemStack> itemStacks) {
@@ -100,7 +100,7 @@ public record AltarSimpleRecipe(ResourceLocation id,
   }
 
   @Override
-  public @NotNull RecipeSerializer<? extends Recipe<Input>> getSerializer() {
+  public RecipeSerializer<? extends Recipe<Input>> getSerializer() {
     return StellarityRecipeSerializers.ALTAR_SIMPLE;
   }
 
@@ -186,12 +186,12 @@ public record AltarSimpleRecipe(ResourceLocation id,
 
 
     @Override
-    public @NotNull MapCodec<AltarSimpleRecipe> codec() {
+    public MapCodec<AltarSimpleRecipe> codec() {
       return CODEC;
     }
 
     @Override
-    public @NotNull StreamCodec<RegistryFriendlyByteBuf, AltarSimpleRecipe> streamCodec() {
+    public StreamCodec<RegistryFriendlyByteBuf, AltarSimpleRecipe> streamCodec() {
       return STREAM_CODEC;
     }
 
@@ -224,7 +224,7 @@ public record AltarSimpleRecipe(ResourceLocation id,
   //? } else {
 
   /*@Override
-  public @NotNull ItemStack assemble(Input recipeInput, HolderLookup.Provider provider) {
+  public ItemStack assemble(Input recipeInput, HolderLookup.Provider provider) {
     return getResultItem(provider);
   }
 

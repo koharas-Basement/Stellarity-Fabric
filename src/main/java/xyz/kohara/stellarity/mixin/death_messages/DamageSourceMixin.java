@@ -1,8 +1,9 @@
 package xyz.kohara.stellarity.mixin.death_messages;
 
-import com.llamalad7.mixinextras.expression.Expression;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,15 +20,14 @@ public abstract class DamageSourceMixin {
   @Shadow
   public abstract String getMsgId();
 
-  @Expression("? + '.player'")
-  @ModifyExpressionValue(method = "getLocalizedDeathMessage", at = @At("MIXINEXTRAS:EXPRESSION"))
-  private String specialStellarityDeathMessages(String original, @Local(ordinal = 1) LivingEntity livingEntity) {
+  @WrapOperation(method = "getLocalizedDeathMessage", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;"))
+  private MutableComponent specialStellarityDeathMessages(String string, Object[] objects, Operation<MutableComponent> original) {
     String id = getMsgId();
     if (id.equals("stellarity.tamaris_execute")) {
-      return "death.attack.stellarity.tamaris_execute." + random.nextInt(1, 4);
+      string += "." + random.nextInt(1, 4);
     }
 
-    return original;
+    return original.call(string, objects);
   }
 
 }

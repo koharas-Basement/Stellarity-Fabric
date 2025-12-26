@@ -32,14 +32,18 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 - Added loot table
 - Speed is now affected by use of shovels
 
-**[*] Tamaris**
-
-- Implemented execution disabling
--
-
 **[*] Ashen Froglight**
 
 - Added loot table
+
+## Items
+
+**[*] Tamaris**
+
+- Implemented execution disabling
+- Made better implemented death messages
+
+**[+] Prismatic Pearl**
 
 **[+] Enderite Shard**
 

@@ -8,7 +8,6 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.StellarityRecipeTypes;
 //? 1.20.1 {
@@ -128,7 +127,7 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
   //? } else {
   /*//? = 1.21.1
   //@Override
-  default @NotNull ItemStack getResultItem(HolderLookup.Provider provider) {
+  default ItemStack getResultItem(HolderLookup.Provider provider) {
     return result().copy();
   }
 
@@ -136,14 +135,12 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
 
   //? > 1.21.9 {
   /*@Override
-  default @NotNull PlacementInfo placementInfo() {
+  default PlacementInfo placementInfo() {
     return PlacementInfo.NOT_PLACEABLE;
   }
 
-  ;
-
   @Override
-  default @NotNull RecipeBookCategory recipeBookCategory() {
+  default RecipeBookCategory recipeBookCategory() {
     return RecipeBookCategories.CRAFTING_MISC;
   }
 
@@ -157,7 +154,7 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
 
 
   @Override
-  default @NotNull RecipeType<? extends Recipe<Input>> getType() {
+  default RecipeType<? extends Recipe<Input>> getType() {
     return StellarityRecipeTypes.ALTAR_RECIPE;
   }
 

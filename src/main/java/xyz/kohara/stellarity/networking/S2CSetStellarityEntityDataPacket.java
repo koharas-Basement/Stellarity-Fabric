@@ -13,12 +13,10 @@ import net.minecraft.network.FriendlyByteBuf;
   //? } else {
 /*import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import org.jetbrains.annotations.NotNull;
 import net.minecraft.network.codec.StreamCodec;
 *///? }
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.DataValue<?>> list)
@@ -56,7 +54,7 @@ public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.Da
   /*public static final Type<S2CSetStellarityEntityDataPacket> TYPE = new Type<>(ID);
 
   @Override
-  public @NotNull Type<? extends CustomPacketPayload> type() {
+  public Type<? extends CustomPacketPayload> type() {
     return TYPE;
   }
 
@@ -72,7 +70,7 @@ public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.Da
     }
 
     @Override
-    public @NotNull S2CSetStellarityEntityDataPacket decode(RegistryFriendlyByteBuf buf) {
+    public S2CSetStellarityEntityDataPacket decode(RegistryFriendlyByteBuf buf) {
       int id = buf.readVarInt();
       List<SynchedEntityData.DataValue<?>> list = new ArrayList<>();
 

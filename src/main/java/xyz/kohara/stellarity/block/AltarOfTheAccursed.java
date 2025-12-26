@@ -1,7 +1,6 @@
 package xyz.kohara.stellarity.block;
 
 
-
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
@@ -21,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.block_entity.AltarOfTheAccursedBlockEntity;
 import xyz.kohara.stellarity.StellarityBlockEntityTypes;
@@ -40,7 +38,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
     CREATIVE_UNLOCKED;
 
     @Override
-    public @NotNull String getSerializedName() {
+    public String getSerializedName() {
       return switch (this) {
         case LOCKED -> "locked";
         case UNLOCKED -> "unlocked";
@@ -63,6 +61,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
   }
 
   public static final EnumProperty<State> STATE = EnumProperty.create("state", State.class);
+
   public AltarOfTheAccursed(Properties properties) {
     super(properties);
 
@@ -73,7 +72,6 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
     builder.add(STATE);
   }
-
 
 
   public static final VoxelShape SHAPE = Block.box(0.0F, 0.0F, 0.0F, 16.0F, 13.0F, 16.0F);
@@ -92,7 +90,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
   //? = 1.20.1
   @SuppressWarnings("deprecation")
   @Override
-  public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+  public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
     return SHAPE;
   }
 
@@ -100,7 +98,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
   //? > 1.21 {
 
   /*@Override
-  public @NotNull MapCodec<? extends BaseEntityBlock> codec() {
+  public MapCodec<? extends BaseEntityBlock> codec() {
     return simpleCodec(AltarOfTheAccursed::new);
   }
   *///? } else {
@@ -109,7 +107,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
 
 
   @Override
-  public @NotNull RenderShape getRenderShape(BlockState blockState) {
+  public RenderShape getRenderShape(BlockState blockState) {
     return RenderShape.MODEL;
   }
 

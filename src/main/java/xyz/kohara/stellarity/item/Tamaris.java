@@ -12,16 +12,17 @@ import net.minecraft.world.item.*;
 
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.Level;
 
 import xyz.kohara.stellarity.StellaritySounds;
 //? < 1.21.9 {
 
 import xyz.kohara.stellarity.StellarityItems;
-import net.minecraft.world.level.Level;
+
  //? } else {
 /*import net.minecraft.world.item.ToolMaterial;
+
+import org.jetbrains.annotations.Nullable;
   *///? }
 
 import java.util.Comparator;
@@ -48,20 +49,28 @@ public class Tamaris extends
     return new Item.Properties().stacksTo(1).durability(1561);
   }
 
-
   @Override
+    //? > 1.21.9 {
+
+  /*public void inventoryTick(ItemStack itemStack, ServerLevel level, Entity entity, @Nullable EquipmentSlot equipmentSlot) {
+    super.inventoryTick(itemStack, level, entity, equipmentSlot);
+
+    inventoryTick(itemStack, (Level) level, entity, equipmentSlot);
+  }
+  *///? }
+
   public void inventoryTick(
     //? < 1.21.9 {
     ItemStack itemStack, Level level, Entity entity, int i, boolean bl
      //? } else {
-    /*@NotNull ItemStack itemStack, @NotNull ServerLevel level, @NotNull Entity entity, @Nullable EquipmentSlot equipmentSlot
+    /*ItemStack itemStack, Level level, Entity entity, @Nullable EquipmentSlot equipmentSlot
     *///? }
   ) {
     //? < 1.21.9 {
     super.inventoryTick(itemStack, level, entity, i, bl);
      //? } else {
-    /*super.inventoryTick(itemStack, level, entity, equipmentSlot);
-    *///? }
+
+    //? }
 
     boolean isClient = level.isClientSide();
     Vec3 position = entity.position();
@@ -95,7 +104,7 @@ public class Tamaris extends
             }
           }
 
-          if (!nearby./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer(level, *//*? } */ nearby.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE, player), 999f))
+          if (!nearby./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer((ServerLevel) level, *//*? } */ nearby.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE, player), 999f))
             continue;
 
 
