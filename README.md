@@ -1,17 +1,22 @@
-# Stellarity Enlightened (UNOFFICIAL)
-Stellarity Enlightened is a mod version of the total rehaul of The End including biome and structure overhauls, new items, weapons, mechanics, mobs and more. 
+# Stellarity Enlightened
 
-Explore new end cities, fight enhanced ender dragons, fish in the void, and explore new biomes and structures, now available as a Fabric mod!
+[![Discord](https://img.shields.io/discord/727033287343734885?color=7289DA&logo=discord&style=for-the-badge&logoColor=7289DA)](https://discord.gg/yXQBaWr96C)
+[![Wiki](https://img.shields.io/badge/wiki-Work_in_progress!-orange?style=for-the-badge&logo=ReadMe&logoColor=white)](https://koharasbasement.wiki.gg/wiki/Stellarity)
+[![Modrinth](https://img.shields.io/modrinth/dt/stellarity-enlightened?label=Modrinth&logo=modrinth&style=for-the-badge)](https://modrinth.com/mod/stellarity-enlightened)
+[![CurseForge](https://img.shields.io/curseforge/dt/1393906?style=for-the-badge&logo=curseforge&logoColor=FF5103&label=CurseForge&color=FF5103)](https://www.curseforge.com/minecraft/mc-mods/stellarity-enlightened)
+[![Forks](https://img.shields.io/github/forks/koharas-Basement/stellarity-fabric?style=for-the-badge&logo=github&color=green)](https://github.com/koharas-Basement/stellarity-fabric/members)
+[![Stars](https://img.shields.io/github/stars/koharas-Basement/stellarity-fabric?style=for-the-badge&logo=github&color=yellow)](https://github.com/koharas-Basement/stellarity-fabric/stargazers)
+[![Code Size](https://img.shields.io/github/languages/code-size/koharas-Basement/stellarity-fabric?style=for-the-badge&color=purple&logoColor=white)](https://github.com/koharas-Basement/stellarity-fabric)
+[![Repo Size](https://img.shields.io/github/repo-size/koharas-Basement/stellarity-fabric?logo=dropbox&style=for-the-badge&color=red)](https://github.com/koharas-Basement/stellarity-fabric)
 
-The original version you can find as [Stellarity Datapack](https://modrinth.com/datapack/stellarity/versions). 
+Stellarity Enlightened is a mod version of the total rehaul of The End including biome and structure overhauls, new
+items, weapons, mechanics, mobs and more.
 
-However, due to constant issues with forge and absolutely no progress being made, 
-I have decided to take a stab by dropping the (Neo)Forge loader. Hence this is why this is an unofficial version.
+Explore new end cities, fight enhanced ender dragons, fish in the void, and explore new biomes and structures, now
+available as a Fabric mod!
 
-## ⚠️ Here is what this means:
-- This mod is **UNOFFICIAL** until explicitly approved by kohara to be official.
-- This project and all mod distribution pages may be swapped out and transferred to kohara's dev team if multiloader support stablizes and kohara approved
-- This mod does **NOT** have a ETA for when it will be finished
-- Kohara is **NOT** involved in the development of this mod until further notice, so please don't bother him about it
-- There is no guarantee for stability or compatibility with other mods
-- This is a purely hobby project, and the creator, she has college and other responsibilities, so please don't bother her too much about stuff
+The original version you can find as [Stellarity Datapack](https://modrinth.com/datapack/stellarity/versions).
+
+Due to unresolveable technical difficulties with integrating Forge with Fabric, the Forge port has been dropped. There
+is talk about making this a Forge and Fabric split where we just steal each others code, but that is not a high priority
+right now due to the lack of devs on the team.
