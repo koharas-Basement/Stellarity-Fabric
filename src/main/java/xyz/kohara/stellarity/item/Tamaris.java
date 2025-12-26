@@ -1,27 +1,26 @@
 package xyz.kohara.stellarity.item;
 
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageEffects;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.InteractionHand;
+import xyz.kohara.stellarity.StellarityDamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.*;
+
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import xyz.kohara.stellarity.StellarityDamageTypes;
+
+import xyz.kohara.stellarity.StellaritySounds;
 //? < 1.21.9 {
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
-//? } else {
+
+import xyz.kohara.stellarity.StellarityItems;
+import net.minecraft.world.level.Level;
+ //? } else {
 /*import net.minecraft.world.item.ToolMaterial;
   *///? }
 
@@ -70,43 +69,56 @@ public class Tamaris extends
     if (entity instanceof Player player) {
       if (player.getCooldowns().isOnCooldown(itemStack/*? < 1.21.9 {*/.getItem() /*?}*/) || !player.isHolding(itemStack::equals))
         return;
-      if (isClient) return;
+
       var nearbyEntities = level.getEntitiesOfClass(
         LivingEntity.class,
         new AABB(position.subtract(10, 10, 10), position.add(10, 10, 10)),
         e -> !e.is(player) && e.isAlive() && e.getHealth() / e.getMaxHealth() < 0.25f
       );
 
-      LivingEntity nearest = null;
-
-      for (var nearbyEntity : nearbyEntities) {
-        var particlePos = nearbyEntity.position().add(0, nearbyEntity.getBbHeight() + 0.5, 0);
-        ((ServerLevel) level).sendParticles(ParticleTypes.SMOKE, particlePos.x, particlePos.y, particlePos.z, 1, 0, 0, 0, 0);
-        if (nearest == null) {
-          nearest = nearbyEntity;
-          continue;
+      if (isClient) {
+        for (var nearbyEntity : nearbyEntities) {
+          var particlePos = nearbyEntity.position().add(0, nearbyEntity.getBbHeight() + 0.5, 0);
+          level.addParticle(ParticleTypes.SMOKE, particlePos.x, particlePos.y, particlePos.z, 0, 0, 0);
         }
+      } else {
+        if (!player.isCrouching()) return;
+        nearbyEntities.sort(Comparator.comparingDouble((e) -> e.distanceTo(player)));
 
-        if (player.closerThan(nearbyEntity, player.distanceTo(nearest))) {
-          nearest = nearbyEntity;
+        for (var nearby : nearbyEntities) {
+          boolean failed = false;
+          for (InteractionHand interactionHand : InteractionHand.values()) {
+            ItemStack itemStack2 = nearby.getItemInHand(interactionHand);
+            if (itemStack2.is(Items.TOTEM_OF_UNDYING)) {
+              failed = true;
+              break;
+            }
+          }
+
+          if (!nearby./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer(level, *//*? } */ nearby.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE, player), 999f))
+            continue;
+
+
+          var nearestPos = nearby.position();
+
+          player.teleportTo(nearestPos.x, nearestPos.y, nearestPos.z);
+          itemStack.hurtAndBreak(1, player,
+            //? 1.20.1 {
+            (livingEntityx) -> livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND)
+             //? } else {
+            /*EquipmentSlot.MAINHAND
+            *///? }
+          );
+
+          nearby.playSound(StellaritySounds.TAMARIS_EXECUTE);
+
+          if (failed) {
+            player.getCooldowns().addCooldown(/*? < 1.21.10 { */StellarityItems.TAMARIS /*? } else { */ /*itemStack *//*? } */, 11 * 20);
+          }
+
+          break;
         }
       }
-
-      if (nearest == null || !player.isCrouching()) return;
-
-      var nearestPos = nearest.position();
-
-
-      player.teleportTo(nearestPos.x, nearestPos.y, nearestPos.z);
-      itemStack.hurtAndBreak(1, player,
-        //? 1.20.1 {
-        (livingEntityx) -> livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND)
-         //? } else {
-        /*EquipmentSlot.MAINHAND
-        *///? }
-      );
-
-      nearest./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer(level, *//*? } */ nearest.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE), 999f);
 
 
     }

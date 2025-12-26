@@ -32,6 +32,11 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 - Added loot table
 - Speed is now affected by use of shovels
 
+**[*] Tamaris**
+
+- Implemented execution disabling
+-
+
 **[*] Ashen Froglight**
 
 - Added loot table
@@ -68,6 +73,14 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 - Most of the loot table is implemented
 - Missing biome dependent loot
+
+## Recipes
+
+### AOTA
+
+**[+] Iron Ingot + 2 Popped Chorus Fruit = Chorus Plating**
+
+**[+] Enderite Upgrade + 9 Purpur Block + 5 Enderite Shard = 2 Enderite Upgrade**
 
 # Developers Note
 

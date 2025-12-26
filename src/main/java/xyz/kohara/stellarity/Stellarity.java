@@ -21,18 +21,18 @@ public class Stellarity implements ModInitializer {
   public static ResourceLocation id(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(MOD_ID, path);
-     //?} else {
+    //?} else {
     /*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 
-    *///?}
+     *///?}
   }
 
   public static ResourceLocation mcId(String path) {
     //? if = 1.20.1 {
     return new ResourceLocation(path);
-     //?} else {
+    //?} else {
     /*return ResourceLocation.withDefaultNamespace(path);
-    *///?}
+     *///?}
   }
 
   public static <T extends Registry<U>, U> ResourceKey<U> key(ResourceKey<T> registry, String path) {
@@ -58,5 +58,6 @@ public class Stellarity implements ModInitializer {
     StellarityPaintings.init();
     StellarityTooltips.init();
     StellarityMobEffects.init();
+    StellaritySounds.init();
   }
 }

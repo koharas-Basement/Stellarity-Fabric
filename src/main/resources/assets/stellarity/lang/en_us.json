@@ -610,5 +610,6 @@
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoscope charges",
   "subtitles.stellarity.item.living_flesh.boost": "Living Flesh hurts",
+  "subtitles.entity.player.teleport": "Player teleports",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }
