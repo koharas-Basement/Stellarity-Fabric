@@ -191,7 +191,11 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s был прилюдно казнён %2$s",
   "death.attack.stellarity.tamaris_execute.2": "%2$s заставил %1$s почувствовать, что значит 999 урона",
   "death.attack.stellarity.tamaris_execute.3": "%2$s забрал остатки здоровья %1$s",
+  "effect.stellarity.brittle": "Brittle",
+  "effect.stellarity.creative_shock": "Creative Shock",
+  "effect.stellarity.frostburn": "Frostburn",
   "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.prismatic_inferno": "Prismatic Inferno",
   "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Засада",
   "enchantment.stellarity.ambush.description": "Наносит дополнительный урон мобам, которые не нацелены на вас.",
@@ -610,5 +614,6 @@
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Калейдоскоп заряжен",
   "subtitles.stellarity.item.living_flesh.boost": "Живая плоть изнывает",
+  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

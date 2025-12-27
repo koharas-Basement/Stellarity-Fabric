@@ -12,6 +12,9 @@ public class StellaritySounds {
     public static final SoundEvent TAMARIS_EXECUTE_BG = register("item.tamaris.execute_bg");
     public static final SoundEvent TAMARIS_RAVE = register("item.tamaris.rave");
 
+
+    public static final SoundEvent PRISMATIC_PEARL_THROW = register("item.prismatic_pearl.throw");
+
     private static SoundEvent register(String id) {
         var location = Stellarity.id(id);
         return Registry.register(BuiltInRegistries.SOUND_EVENT, location, SoundEvent.createVariableRangeEvent(location));

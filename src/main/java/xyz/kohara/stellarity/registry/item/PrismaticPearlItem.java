@@ -1,6 +1,7 @@
 package xyz.kohara.stellarity.registry.item;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 
 import net.minecraft.world.entity.player.Player;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 //? < 1.21.9 {
 
 import net.minecraft.world.InteractionResultHolder;
+import xyz.kohara.stellarity.registry.StellaritySounds;
 import xyz.kohara.stellarity.registry.entity.ThrownPrismaticPearl;
 
 //? } else {
@@ -39,13 +41,15 @@ public class PrismaticPearlItem extends Item {
             pearl.setItem(itemStack);
             pearl.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F * 1.25F, 1.0F);
             level.addFreshEntity(pearl);
+
+            serverLevel.playSound(null, player.blockPosition(), StellaritySounds.PRISMATIC_PEARL_THROW, SoundSource.NEUTRAL);
         }
 
         //? < 1.21.9 {
 
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
-         //? } else {
+        //? } else {
         /*return InteractionResult.SUCCESS;
-        *///? }
+         *///? }
     }
 }

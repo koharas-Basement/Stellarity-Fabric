@@ -191,7 +191,11 @@
   "death.attack.stellarity.tamaris_execute.1": "TEXTO A SER ADICIONADO! IGNORE POR ENQUANTO",
   "death.attack.stellarity.tamaris_execute.2": "TEXTO A SER ADICIONADO! IGNORE POR ENQUANTO",
   "death.attack.stellarity.tamaris_execute.3": "TEXTO A SER ADICIONADO! IGNORE POR ENQUANTO",
+  "effect.stellarity.brittle": "Brittle",
+  "effect.stellarity.creative_shock": "Creative Shock",
+  "effect.stellarity.frostburn": "Frostburn",
   "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.prismatic_inferno": "Prismatic Inferno",
   "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Emboscada",
   "enchantment.stellarity.ambush.description": "Causa dano extra à criaturas que não estão perseguindo você",
@@ -610,5 +614,6 @@
   "subtitles.stellarity.item.fluffy_hammer.throw": "Martelo fofo da justiça lança",
   "subtitles.stellarity.item.kaleidoscope.ready": "Caleidoscópio carrega",
   "subtitles.stellarity.item.living_flesh.boost": "Carne viva ferida",
+  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

@@ -191,7 +191,11 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s wurde öffentlich von %2$s hingerichtet",
   "death.attack.stellarity.tamaris_execute.2": "%1$s wurde von %2$s gezwungen zu sehen, wie sich 999 Schaden anfühlen",
   "death.attack.stellarity.tamaris_execute.3": "%1$s wurde die verbleibende Gesundheit von %2$s genommen",
+  "effect.stellarity.brittle": "Brittle",
+  "effect.stellarity.creative_shock": "Creative Shock",
+  "effect.stellarity.frostburn": "Frostburn",
   "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.prismatic_inferno": "Prismatic Inferno",
   "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Hinterhalt",
   "enchantment.stellarity.ambush.description": "Fügt Kreaturen, die dich nicht aktiv angreifen, zusätzlichen Schaden zu",
@@ -610,5 +614,6 @@
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoskop lädt auf",
   "subtitles.stellarity.item.living_flesh.boost": "Lebendes Fleisch schmerzt",
+  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

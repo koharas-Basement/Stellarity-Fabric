@@ -39,7 +39,7 @@ public class StellarityDamageTypes {
     public static final ResourceKey<DamageType> PRISMEMBER = create("prismember");
     public static final ResourceKey<DamageType> SIMULATED_EXPLOSION = create("simulated_explosion");
     public static final ResourceKey<DamageType> TAMARIS_EXECUTE = create("tamaris_execute");
-    
+
     private static ResourceKey<DamageType> create(String string) {
         return ResourceKey.create(Registries.DAMAGE_TYPE, Stellarity.id(string));
     }

@@ -191,7 +191,11 @@
   "death.attack.stellarity.tamaris_execute.1": "%1$s è stato giustiziato da %2$s",
   "death.attack.stellarity.tamaris_execute.2": "%2$s ha mostrato quanto sia 999 di danno a %1$s",
   "death.attack.stellarity.tamaris_execute.3": "%2$s ha prosciugato la vita a %1$s",
+  "effect.stellarity.brittle": "Brittle",
+  "effect.stellarity.creative_shock": "Creative Shock",
+  "effect.stellarity.frostburn": "Frostburn",
   "effect.stellarity.jinx": "Jinx",
+  "effect.stellarity.prismatic_inferno": "Prismatic Inferno",
   "effect.stellarity.voided": "Voided",
   "enchantment.stellarity.ambush": "Imboscata",
   "enchantment.stellarity.ambush.description": "Infligge danni extra ai mob che non ti stanno prendendo di mira attivamente",
@@ -610,5 +614,6 @@
   "subtitles.stellarity.item.fluffy_hammer.throw": "Martello morbidoso lanciato",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoscopio si carica",
   "subtitles.stellarity.item.living_flesh.boost": "Carne vivente soffre",
+  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }
