@@ -2,4 +2,4 @@
 //@org.jspecify.annotations.NullMarked
 //? < 1.21.9
 @net.minecraft.MethodsReturnNonnullByDefault
-package xyz.kohara.stellarity.mixin.death_messages;
+package xyz.kohara.stellarity.client.gui;

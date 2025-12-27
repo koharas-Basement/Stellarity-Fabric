@@ -3,7 +3,8 @@ package xyz.kohara.stellarity.registry;
 import net.fabricmc.fabric.api.registry.FlattenableBlockRegistry;
 import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+
+
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -15,7 +16,12 @@ import net.minecraft.world.level.material.MapColor;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.registry.block.AltarOfTheAccursed;
 import xyz.kohara.stellarity.registry.block.EnderDirtPath;
+import net.minecraft.core.registries.BuiltInRegistries;
 import xyz.kohara.stellarity.registry.block.EnderGrassBlock;
+//? > 1.21.9 {
+/*import net.minecraft.core.registries.Registries;
+*///? } else {
+//? }
 
 import java.util.function.Function;
 
@@ -46,7 +52,7 @@ public class StellarityBlocks {
         settings = settings.setId(location);
         *///?} else {
         var location = Stellarity.id(id);
-        //? }
+         //? }
 
 
         Block block = blockFactory.apply(settings);

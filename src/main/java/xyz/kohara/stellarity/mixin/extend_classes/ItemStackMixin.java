@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import xyz.kohara.stellarity.item.Tamaris;
+import xyz.kohara.stellarity.registry.item.Tamaris;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {

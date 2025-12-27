@@ -21,8 +21,9 @@ import xyz.kohara.stellarity.registry.StellarityItems;
  //? } else {
 /*import net.minecraft.world.item.ToolMaterial;
 
+import net.minecraft.server.level.ServerLevel;
 import org.jetbrains.annotations.Nullable;
-    *///? }
+*///? }
 
 import java.util.Comparator;
 
@@ -49,7 +50,7 @@ public class Tamaris extends
     }
 
     @Override
-    //? > 1.21.9 {
+        //? > 1.21.9 {
     /*public void inventoryTick(ItemStack itemStack, ServerLevel level, Entity entity, @Nullable EquipmentSlot equipmentSlot) {
         super.inventoryTick(itemStack, level, entity, equipmentSlot);
 
@@ -66,7 +67,7 @@ public class Tamaris extends
     ) {
         //? < 1.21.9 {
         super.inventoryTick(itemStack, level, entity, i, bl);
-        //? } else {
+         //? } else {
 
         //? }
 
@@ -114,7 +115,7 @@ public class Tamaris extends
                         (livingEntityx) -> livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND)
                          //? } else {
                         /*EquipmentSlot.MAINHAND
-                    *///? }
+                        *///? }
                     );
 
                     nearby.playSound(StellaritySounds.TAMARIS_EXECUTE);

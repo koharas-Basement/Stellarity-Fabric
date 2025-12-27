@@ -10,13 +10,14 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
+import xyz.kohara.stellarity.Stellarity;
 
 //? 1.20.1 {
 import net.minecraft.world.item.alchemy.PotionUtils;
-import xyz.kohara.stellarity.Stellarity;
-                //?} else {
+
+ //?} else {
 /*import net.minecraft.world.item.alchemy.PotionContents;
- *///?}
+    *///?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
@@ -105,9 +106,9 @@ public class StellarityCreativeModeTabs {
             itemGroup.accept(
                 //? 1.20.1 {
                 PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
-                //?} else {
+                 //?} else {
                 /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
-                 *///?}
+                *///?}
             );
         });
 

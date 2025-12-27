@@ -7,10 +7,11 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PotionItem;
+import xyz.kohara.stellarity.Stellarity;
 //? 1.20.1 {
 import net.minecraft.world.item.alchemy.PotionUtils;
-import xyz.kohara.stellarity.Stellarity;
-                //? } else{
+
+ //? } else{
 /*import net.minecraft.core.component.DataComponents;
 *///? }
 

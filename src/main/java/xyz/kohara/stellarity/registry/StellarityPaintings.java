@@ -1,10 +1,12 @@
 package xyz.kohara.stellarity.registry;
 
+import xyz.kohara.stellarity.Stellarity;
+
 //? 1.20.1 {
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.decoration.PaintingVariant;
-import xyz.kohara.stellarity.Stellarity;
+
 //? }
 
 

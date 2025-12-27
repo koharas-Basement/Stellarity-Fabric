@@ -3,12 +3,15 @@ package xyz.kohara.stellarity.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.tags.ItemTags;
+
 import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.registry.StellarityItemTags;
 import xyz.kohara.stellarity.registry.StellarityItems;
 
 import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.tags.ItemTags;
+
 //? >= 1.21.9 {
 /*import net.minecraft.data.tags.TagAppender;
 import net.minecraft.tags.TagKey;
