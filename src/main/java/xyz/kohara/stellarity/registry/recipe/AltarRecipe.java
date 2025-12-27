@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 
 //? > 1.21 {
-import net.minecraft.core.HolderLookup;
-//? } else {
+/*import net.minecraft.core.HolderLookup;
+*///? } else {
 import net.minecraft.data.recipes.FinishedRecipe;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
