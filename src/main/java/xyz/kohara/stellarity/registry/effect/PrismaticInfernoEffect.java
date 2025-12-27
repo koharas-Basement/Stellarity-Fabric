@@ -11,7 +11,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
-import xyz.kohara.stellarity.utils.CastingUtil;
+import xyz.kohara.stellarity.registry.StellarityDamageTypes;
 
 public class PrismaticInfernoEffect extends MobEffect {
     public PrismaticInfernoEffect(int color) {
@@ -37,7 +37,7 @@ public class PrismaticInfernoEffect extends MobEffect {
         float damage = 1f;
         if (isUndead) damage *= 2;
         if (isInDaylight) damage *= 2;
-        livingEntity.hurt(CastingUtil.damageSources(livingEntity.damageSources()).stellarity$stellaritySources().prismaticInferno(), damage);
+        livingEntity.hurt(livingEntity.damageSources().source(StellarityDamageTypes.PRISMATIC_INFERNO), damage);
         /*? if >= 1.21.1 {*//*return true; *//*?}*/
     }
     

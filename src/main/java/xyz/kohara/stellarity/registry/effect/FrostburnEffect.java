@@ -7,7 +7,7 @@ import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import xyz.kohara.stellarity.utils.CastingUtil;
+import xyz.kohara.stellarity.registry.StellarityDamageTypes;
 
 public class FrostburnEffect extends MobEffect {
     public FrostburnEffect(int color) {
@@ -23,7 +23,7 @@ public class FrostburnEffect extends MobEffect {
         if (livingEntity.level().isClientSide) return /*? if >= 1.21.1 {*//*false *//*?}*/;
         float damage = 1f;
         if (livingEntity.getType().is(EntityTypeTags.FREEZE_HURTS_EXTRA_TYPES)) damage *= 2;
-        livingEntity.hurt(CastingUtil.damageSources(livingEntity.damageSources()).stellarity$stellaritySources().frostburn(), damage);
+        livingEntity.hurt(livingEntity.damageSources().source(StellarityDamageTypes.FROSTBURN), damage);
         /*? if >= 1.21.1 {*//*return true; *//*?}*/
     }
     

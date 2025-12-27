@@ -7,6 +7,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -32,6 +33,19 @@ public final class DamageUtility {
         apRatio = other.apRatio;
         damageBoostEfficiency = other.damageBoostEfficiency;
         noop = true;//cloned
+    }
+    
+    /**
+     * convenience method
+     */
+    public static void damageEntity(LivingEntity entity, float damage, float apRatio, float damageBoostEfficiency, DamageSource damageSource, @Nullable DamageSource apDamageSource) {
+        DamageUtility.builder()
+            .setApDamageSource(apDamageSource)
+            .setDamageSource(damageSource)
+            .setApRatio(apRatio)
+            .setDamageBoostEfficiency(damageBoostEfficiency)
+            .build()
+            .damageEntity(entity, damage);
     }
     
     public void damageEntity(LivingEntity entity, float damage) {
