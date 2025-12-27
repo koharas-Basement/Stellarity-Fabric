@@ -5,11 +5,12 @@ pluginManagement {
         gradlePluginPortal()
         maven("https://maven.fabricmc.net/")
         maven("https://maven.kikugie.dev/snapshots") { name = "KikuGie Snapshots" }
+        maven("https://maven.kikugie.dev/releases")
     }
 }
 
 plugins {
-    id("dev.kikugie.stonecutter") version "0.8.1-beta.1"
+    id("dev.kikugie.stonecutter") version "0.8.1-beta.2"
 }
 
 stonecutter {

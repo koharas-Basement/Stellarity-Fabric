@@ -59,7 +59,7 @@ dependencies {
 
 loom {
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json") // Useful for interface injection
-    accessWidenerPath = rootProject.file("src/main/resources/stellarity.accesswidener")
+    accessWidenerPath = sc.process(rootProject.file("src/main/resources/stellarity.accesswidener"), "build/dev.aw")
     file("build/generated/stonecutter/main/resources/stellarity.accesswidener").let {
         if (it.exists()) accessWidenerPath = it
     }
@@ -69,7 +69,7 @@ loom {
     }
 
     runConfigs["client"].apply {
-        programArgs("--username=Coder2195", "--uuid=12f1e56e-9fad-4371-9d1f-a18bf67f6f13")
+        programArgs("--username=StellarityDev")
     }
 
     runConfigs.all {
@@ -80,7 +80,7 @@ loom {
 }
 
 fabricApi {
-    configureDataGeneration() {
+    configureDataGeneration {
         client = true
     }
 }
