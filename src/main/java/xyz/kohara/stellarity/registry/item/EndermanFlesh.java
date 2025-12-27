@@ -12,13 +12,13 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 *///?}
 
 public class EndermanFlesh extends TeleportingFood {
-  private static final int TELEPORT_DIAMETER = 16;
+	private static final int TELEPORT_DIAMETER = 16;
 
-  public EndermanFlesh(Properties properties) {
-    super(properties, TELEPORT_DIAMETER);
-  }
+	public EndermanFlesh(Properties properties) {
+		super(properties, TELEPORT_DIAMETER);
+	}
 
-  public static Properties properties() {
-    return TeleportingFood.foodProperties(4, 0.8f, TELEPORT_DIAMETER, new StellarityItems.EffectChance(new MobEffectInstance(MobEffects.HUNGER, 40 * 20, 0), 0.8f));
-  }
+	public static Properties properties() {
+		return TeleportingFood.foodProperties(4, 0.8f, TELEPORT_DIAMETER, new StellarityItems.EffectChance(new MobEffectInstance(MobEffects.HUNGER, 40 * 20, 0), 0.8f));
+	}
 }

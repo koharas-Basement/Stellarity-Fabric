@@ -12,15 +12,15 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 *///?}
 
 public class ShulkerBody extends TeleportingFood {
-  private static final int TELEPORT_DIAMETER = 16;
+	private static final int TELEPORT_DIAMETER = 16;
 
-  public ShulkerBody(Properties properties) {
-    super(properties, TELEPORT_DIAMETER);
-  }
+	public ShulkerBody(Properties properties) {
+		super(properties, TELEPORT_DIAMETER);
+	}
 
-  public static Properties properties() {
-    var hunger = new MobEffectInstance(MobEffects.HUNGER, 40 * 20, 0);
+	public static Properties properties() {
+		var hunger = new MobEffectInstance(MobEffects.HUNGER, 40 * 20, 0);
 
-    return TeleportingFood.foodProperties(4, 0.8f, true, TELEPORT_DIAMETER, new StellarityItems.EffectChance(new MobEffectInstance(MobEffects.HUNGER, 40 * 20, 0), 0.3f));
-  }
+		return TeleportingFood.foodProperties(4, 0.8f, true, TELEPORT_DIAMETER, new StellarityItems.EffectChance(new MobEffectInstance(MobEffects.HUNGER, 40 * 20, 0), 0.3f));
+	}
 }

@@ -20,29 +20,29 @@ import java.util.Collection;
 @Mixin(PotionUtils.class)
 public abstract class PotionUtilsMixin {
 
-  @Shadow
-  public static int getColor(Collection<MobEffectInstance> collection) {
-    return 0;
-  }
+	@Shadow
+	public static int getColor(Collection<MobEffectInstance> collection) {
+		return 0;
+	}
 
-  @Inject(method = "getColor(Lnet/minecraft/world/item/alchemy/Potion;)I", at = @At("HEAD"), cancellable = true)
-  private static void getColorPotion(Potion potion, CallbackInfoReturnable<Integer> cir) {
-    Integer color = StellarityPotions.COLORS.get(potion);
-    if (color == null) return;
+	@Inject(method = "getColor(Lnet/minecraft/world/item/alchemy/Potion;)I", at = @At("HEAD"), cancellable = true)
+	private static void getColorPotion(Potion potion, CallbackInfoReturnable<Integer> cir) {
+		Integer color = StellarityPotions.COLORS.get(potion);
+		if (color == null) return;
 
-    cir.setReturnValue(color);
-    cir.cancel();
-  }
+		cir.setReturnValue(color);
+		cir.cancel();
+	}
 
-  @WrapOperation(method = "getColor(Lnet/minecraft/world/item/ItemStack;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionUtils;getColor(Ljava/util/Collection;)I"))
-  private static int getColorItemStack(Collection<MobEffectInstance> collection, Operation<Integer> original, @Local(argsOnly = true) ItemStack itemStack) {
-    Potion potion = PotionUtils.getPotion(itemStack);
-    Integer color = StellarityPotions.COLORS.get(potion);
-    if (color != null) {
-      return color;
-    }
+	@WrapOperation(method = "getColor(Lnet/minecraft/world/item/ItemStack;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionUtils;getColor(Ljava/util/Collection;)I"))
+	private static int getColorItemStack(Collection<MobEffectInstance> collection, Operation<Integer> original, @Local(argsOnly = true) ItemStack itemStack) {
+		Potion potion = PotionUtils.getPotion(itemStack);
+		Integer color = StellarityPotions.COLORS.get(potion);
+		if (color != null) {
+			return color;
+		}
 
-    return original.call(collection);
-  }
+		return original.call(collection);
+	}
 }
 //? }

@@ -26,12 +26,12 @@ import static xyz.kohara.stellarity.client.renderer.entity.PhantomItemFrameRende
 @MixinEnvironment("client")
 public abstract class BlockStateModelLoaderMixin {
 
-  @Shadow
-  protected abstract void loadBlockStateDefinitions(ResourceLocation resourceLocation, StateDefinition<Block, BlockState> stateDefinition);
+	@Shadow
+	protected abstract void loadBlockStateDefinitions(ResourceLocation resourceLocation, StateDefinition<Block, BlockState> stateDefinition);
 
-  @Inject(method = "loadAllBlockStates", at = @At("HEAD"))
-  private void addStellarityBlockStates(CallbackInfo ci) {
-    loadBlockStateDefinitions(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
-  }
+	@Inject(method = "loadAllBlockStates", at = @At("HEAD"))
+	private void addStellarityBlockStates(CallbackInfo ci) {
+		loadBlockStateDefinitions(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
+	}
 }
 *///? }

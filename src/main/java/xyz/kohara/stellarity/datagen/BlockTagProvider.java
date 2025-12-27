@@ -14,19 +14,19 @@ import net.minecraft.world.level.block.Block;
 *///? }
 
 public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
-  public BlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-    super(output, registriesFuture);
-  }
+	public BlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		super(output, registriesFuture);
+	}
 
-  //? >= 1.21.9 {
-  /*public TagAppender<Block, Block> getOrCreateTagBuilder(TagKey<Block> tagKey) {
-    return this.valueLookupBuilder(tagKey);
-  }
-  *///?}
+	//? >= 1.21.9 {
+	/*public TagAppender<Block, Block> getOrCreateTagBuilder(TagKey<Block> tagKey) {
+		return this.valueLookupBuilder(tagKey);
+	}
+	*///?}
 
 
-  @Override
-  protected void addTags(HolderLookup.Provider provider) {
-    getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).add(StellarityBlocks.ENDER_DIRT_PATH, StellarityBlocks.ENDER_DIRT, StellarityBlocks.ENDER_GRASS_BLOCK, StellarityBlocks.ROOTED_ENDER_DIRT);
-  }
+	@Override
+	protected void addTags(HolderLookup.Provider provider) {
+		getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).add(StellarityBlocks.ENDER_DIRT_PATH, StellarityBlocks.ENDER_DIRT, StellarityBlocks.ENDER_GRASS_BLOCK, StellarityBlocks.ROOTED_ENDER_DIRT);
+	}
 }

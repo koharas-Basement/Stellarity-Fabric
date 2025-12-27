@@ -14,20 +14,20 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(DamageSource.class)
 public abstract class DamageSourceMixin {
-  @Unique
-  private final RandomSource random = RandomSource.create();
+	@Unique
+	private final RandomSource random = RandomSource.create();
 
-  @Shadow
-  public abstract String getMsgId();
+	@Shadow
+	public abstract String getMsgId();
 
-  @WrapOperation(method = "getLocalizedDeathMessage", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;"))
-  private MutableComponent specialStellarityDeathMessages(String string, Object[] objects, Operation<MutableComponent> original) {
-    String id = getMsgId();
-    if (id.equals("stellarity.tamaris_execute")) {
-      string += "." + random.nextInt(1, 4);
-    }
+	@WrapOperation(method = "getLocalizedDeathMessage", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;"))
+	private MutableComponent specialStellarityDeathMessages(String string, Object[] objects, Operation<MutableComponent> original) {
+		String id = getMsgId();
+		if (id.equals("stellarity.tamaris_execute")) {
+			string += "." + random.nextInt(1, 4);
+		}
 
-    return original.call(string, objects);
-  }
+		return original.call(string, objects);
+	}
 
 }

@@ -11,27 +11,27 @@ import xyz.kohara.stellarity.Stellarity;
 *///? }
 
 public class VoidedEffect extends MobEffect {
-  public VoidedEffect() {
-    super(MobEffectCategory.HARMFUL, 3801170);
-    addAttributeModifier(Attributes.MAX_HEALTH, /*? 1.20.1 {*/ "715179ff-98e5-4d18-8bf5-363e524fff76" /*? } else { */ /*Stellarity.id("voided_effect") *//*? } */, -0.2, AttributeModifier.Operation./*? 1.20.1 {*/ MULTIPLY_TOTAL /*? } else { */ /*ADD_MULTIPLIED_TOTAL *//*? } */);
-  }
+	public VoidedEffect() {
+		super(MobEffectCategory.HARMFUL, 3801170);
+		addAttributeModifier(Attributes.MAX_HEALTH, /*? 1.20.1 {*/ "715179ff-98e5-4d18-8bf5-363e524fff76" /*? } else { */ /*Stellarity.id("voided_effect") *//*? } */, -0.2, AttributeModifier.Operation./*? 1.20.1 {*/ MULTIPLY_TOTAL /*? } else { */ /*ADD_MULTIPLIED_TOTAL *//*? } */);
+	}
 
 
-  @Override
-  public boolean /*? 1.20.1 {*/ isDurationEffectTick /*? } else { */ /*shouldApplyEffectTickThisTick *//*? } */(int i, int j) {
-    return true;
-  }
+	@Override
+	public boolean /*? 1.20.1 {*/ isDurationEffectTick /*? } else { */ /*shouldApplyEffectTickThisTick *//*? } */(int i, int j) {
+		return true;
+	}
 
 
-  @Override
-  public /*? 1.20.1 {*/ void /*? } else { */ /*boolean *//*? } */ applyEffectTick(/*? > 1.21.10 {*/ /*ServerLevel level, *//*? } */ LivingEntity livingEntity, int i) {
-    if (livingEntity.getHealth() > livingEntity.getMaxHealth()) {
-      livingEntity.setHealth(livingEntity.getMaxHealth());
-    }
+	@Override
+	public /*? 1.20.1 {*/ void /*? } else { */ /*boolean *//*? } */ applyEffectTick(/*? > 1.21.10 {*/ /*ServerLevel level, *//*? } */ LivingEntity livingEntity, int i) {
+		if (livingEntity.getHealth() > livingEntity.getMaxHealth()) {
+			livingEntity.setHealth(livingEntity.getMaxHealth());
+		}
 
-    /*? > 1.21 {*/
-    /*return *//*? } */
-      super.applyEffectTick(/*? > 1.21.10 {*/ /*level, *//*? } */livingEntity, i);
-  }
+		/*? > 1.21 {*/
+		/*return *//*? } */
+			super.applyEffectTick(/*? > 1.21.10 {*/ /*level, *//*? } */livingEntity, i);
+	}
 
 }

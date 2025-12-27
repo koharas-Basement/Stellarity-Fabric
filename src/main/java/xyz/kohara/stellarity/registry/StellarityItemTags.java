@@ -6,11 +6,11 @@ import net.minecraft.world.item.Item;
 import xyz.kohara.stellarity.Stellarity;
 
 public class StellarityItemTags {
-  public static final TagKey<Item> FISHES = bind("fishes");
+	public static final TagKey<Item> FISHES = bind("fishes");
 
 
-  private static TagKey<Item> bind(String id) {
-    return TagKey.create(Registries.ITEM, Stellarity.id(id));
-  }
+	private static TagKey<Item> bind(String id) {
+		return TagKey.create(Registries.ITEM, Stellarity.id(id));
+	}
 
 }

@@ -8,5 +8,5 @@ import static net.minecraft.core.registries.Registries.DAMAGE_TYPE;
 
 
 public class StellarityDamageTypes {
-  public static final ResourceKey<DamageType> TAMARIS_EXECUTE = Stellarity.key(DAMAGE_TYPE, "tamaris_execute");
+	public static final ResourceKey<DamageType> TAMARIS_EXECUTE = Stellarity.key(DAMAGE_TYPE, "tamaris_execute");
 }

@@ -23,10 +23,10 @@ import java.util.function.Function;
 @Mixin(BlockStateDefinitions.class)
 @MixinEnvironment("client")
 public class BlockStateDefinitionsMixin {
-  @Inject(method = "definitionLocationToBlockStateMapper", at = @At(value = "INVOKE", target = "Ljava/util/Objects;requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;"))
-  private static void addStellarityBlockStates(CallbackInfoReturnable<Function<ResourceLocation, StateDefinition<Block, BlockState>>> cir, @Local Map<ResourceLocation, StateDefinition<Block, BlockState>> map) {
-    map.put(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
-  }
+	@Inject(method = "definitionLocationToBlockStateMapper", at = @At(value = "INVOKE", target = "Ljava/util/Objects;requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;"))
+	private static void addStellarityBlockStates(CallbackInfoReturnable<Function<ResourceLocation, StateDefinition<Block, BlockState>>> cir, @Local Map<ResourceLocation, StateDefinition<Block, BlockState>> map) {
+		map.put(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
+	}
 }
 
 

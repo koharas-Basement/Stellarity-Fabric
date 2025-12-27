@@ -17,28 +17,28 @@ import xyz.kohara.stellarity.Stellarity;
 //? }
 
 public class PhantomItemFrameRenderer extends ItemFrameRenderer<PhantomItemFrame> {
-  public static final StateDefinition<Block, BlockState> FAKE_STATE_DEFINITION = (new StateDefinition.Builder<Block, BlockState>(Blocks.AIR)).add(new Property[]{}).create(Block::defaultBlockState, BlockState::new);
-  //? < 1.21.9 {
+	public static final StateDefinition<Block, BlockState> FAKE_STATE_DEFINITION = (new StateDefinition.Builder<Block, BlockState>(Blocks.AIR)).add(new Property[]{}).create(Block::defaultBlockState, BlockState::new);
+	//? < 1.21.9 {
 
 
-  private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(Stellarity.id("phantom_item_frame"), "");
+	private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(Stellarity.id("phantom_item_frame"), "");
 
-  public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
-    super(context);
-  }
+	public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
+		super(context);
+	}
 
-  @Override
-  public @NotNull ModelResourceLocation getFrameModelResourceLoc(PhantomItemFrame itemFrame, ItemStack itemStack) {
-    // because the frame turns invis there is no need for a map model cuz it wont be seen anyways
+	@Override
+	public @NotNull ModelResourceLocation getFrameModelResourceLoc(PhantomItemFrame itemFrame, ItemStack itemStack) {
+		// because the frame turns invis there is no need for a map model cuz it wont be seen anyways
 
-    return MODEL_LOCATION;
-  }
+		return MODEL_LOCATION;
+	}
 
-  //? } else {
+	//? } else {
 
-  /*public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
-    super(context);
-  }
+	/*public PhantomItemFrameRenderer(EntityRendererProvider.Context context) {
+		super(context);
+	}
 
 *///? }
 }

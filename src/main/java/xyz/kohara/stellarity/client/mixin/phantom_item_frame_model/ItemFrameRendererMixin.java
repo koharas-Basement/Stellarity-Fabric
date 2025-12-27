@@ -16,14 +16,14 @@ import static xyz.kohara.stellarity.client.renderer.entity.PhantomItemFrameRende
 @Mixin(ItemFrameRenderer.class)
 @MixinEnvironment("client")
 public class ItemFrameRendererMixin {
-  @ModifyVariable(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
-  at= @At(value = "STORE"))
-  private BlockState phantomItemFrameState(BlockState blockState, ItemFrameRenderState itemFrameRenderState) {
-    if (itemFrameRenderState.entityType == StellarityEntities.PHANTOM_ITEM_FRAME) {
-      return FAKE_STATE_DEFINITION.any();
-    }
-    return blockState;
-  }
+	@ModifyVariable(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemFrameRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
+	at= @At(value = "STORE"))
+	private BlockState phantomItemFrameState(BlockState blockState, ItemFrameRenderState itemFrameRenderState) {
+		if (itemFrameRenderState.entityType == StellarityEntities.PHANTOM_ITEM_FRAME) {
+			return FAKE_STATE_DEFINITION.any();
+		}
+		return blockState;
+	}
 }
 
 *///? }

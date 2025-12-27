@@ -30,98 +30,98 @@ import java.util.HashMap;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
-  @Shadow
-  public abstract ItemStack getItem();
+	@Shadow
+	public abstract ItemStack getItem();
 
-  @Shadow
-  public abstract void setItem(ItemStack itemStack);
+	@Shadow
+	public abstract void setItem(ItemStack itemStack);
 
-  @Shadow
-  public abstract void setPickUpDelay(int i);
+	@Shadow
+	public abstract void setPickUpDelay(int i);
 
-  @Unique
-  private ItemMode itemMode = ItemMode.PICKUP;
+	@Unique
+	private ItemMode itemMode = ItemMode.PICKUP;
 
-  public ItemEntityMixin(EntityType<?> entityType, Level level) {
-    super(entityType, level);
-  }
+	public ItemEntityMixin(EntityType<?> entityType, Level level) {
+		super(entityType, level);
+	}
 
-  @Override
-  public ItemMode stellarity$getItemMode() {
-    return itemMode;
-  }
+	@Override
+	public ItemMode stellarity$getItemMode() {
+		return itemMode;
+	}
 
-  @Override
-  public void stellarity$setItemMode(ItemMode mode) {
-    this.itemMode = mode;
-    boolean crafting = mode == ItemMode.CRAFTING;
-    setGlowingTag(crafting);
-    this.stellarity$setGlowColor(crafting ? ChatFormatting.DARK_PURPLE.getColor() : -1);
-    setPickUpDelay(crafting ? Short.MAX_VALUE : 0);
-  }
+	@Override
+	public void stellarity$setItemMode(ItemMode mode) {
+		this.itemMode = mode;
+		boolean crafting = mode == ItemMode.CRAFTING;
+		setGlowingTag(crafting);
+		this.stellarity$setGlowColor(crafting ? ChatFormatting.DARK_PURPLE.getColor() : -1);
+		setPickUpDelay(crafting ? Short.MAX_VALUE : 0);
+	}
 
-  @Override
-  public void stellarity$updateResults(HashMap<ItemStack, Integer> results) {
-    if (this.itemMode != ItemMode.CRAFTING) return;
-    ItemStack stack = this.getItem();
-    Integer count = results.get(stack);
+	@Override
+	public void stellarity$updateResults(HashMap<ItemStack, Integer> results) {
+		if (this.itemMode != ItemMode.CRAFTING) return;
+		ItemStack stack = this.getItem();
+		Integer count = results.get(stack);
 
-    if (count == null || count == 0) {
-      this.discard();
-      return;
-    }
+		if (count == null || count == 0) {
+			this.discard();
+			return;
+		}
 
-    setItem(stack.copyWithCount(count));
-  }
+		setItem(stack.copyWithCount(count));
+	}
 
-  @Inject(method = "addAdditionalSaveData", at = @At("HEAD"))
-  public void saveData(
-    //? < 1.21.9 {
+	@Inject(method = "addAdditionalSaveData", at = @At("HEAD"))
+	public void saveData(
+		//? < 1.21.9 {
 
-    CompoundTag tag, CallbackInfo ci
-    //? } else {
-    /*ValueOutput tag, CallbackInfo ci
-     *///? }
+		CompoundTag tag, CallbackInfo ci
+		//? } else {
+		/*ValueOutput tag, CallbackInfo ci
+		 *///? }
 
-  ) {
+	) {
 
-    tag.putString("stellarity:mode", itemMode.toString());
-  }
+		tag.putString("stellarity:mode", itemMode.toString());
+	}
 
-  //? > 1.21.9
-  //@SuppressWarnings("OptionalGetWithoutIsPresent")
-  @Inject(method = "readAdditionalSaveData", at = @At("HEAD"))
-  public void readData(
-    //? < 1.21.9 {
+	//? > 1.21.9
+	//@SuppressWarnings("OptionalGetWithoutIsPresent")
+	@Inject(method = "readAdditionalSaveData", at = @At("HEAD"))
+	public void readData(
+		//? < 1.21.9 {
 
-    CompoundTag tag, CallbackInfo ci
-    //? } else {
-    /*ValueInput tag, CallbackInfo ci
-     *///? }
-  ) {
-    if (tag.contains("stellarity:mode")) {
+		CompoundTag tag, CallbackInfo ci
+		//? } else {
+		/*ValueInput tag, CallbackInfo ci
+		 *///? }
+	) {
+		if (tag.contains("stellarity:mode")) {
 
-      try {
-
-
-        stellarity$setItemMode(ItemMode.valueOf(tag.getString("stellarity:mode")
-          //? > 1.21.9 {
-          /*.get()
-           *///? }
-        ));
-      } catch (Exception e) {
-        Stellarity.LOGGER.info("Detected invalid itemmode, ignoring");
-      }
-    }
-  }
+			try {
 
 
-  @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;tick()V", shift = At.Shift.AFTER))
-  public void movedOffRecipeBlock(CallbackInfo ci) {
-    if (level() instanceof ServerLevel level) {
-      if (level.getBlockState(BlockPos.containing(this.position().add(0, -0.5, 0))).is(StellarityBlocks.ALTAR_OF_THE_ACCURSED))
-        return;
-      if (itemMode == ItemMode.CRAFTING) stellarity$setItemMode(ItemMode.PICKUP);
-    }
-  }
+				stellarity$setItemMode(ItemMode.valueOf(tag.getString("stellarity:mode")
+					//? > 1.21.9 {
+					/*.get()
+					 *///? }
+				));
+			} catch (Exception e) {
+				Stellarity.LOGGER.info("Detected invalid itemmode, ignoring");
+			}
+		}
+	}
+
+
+	@Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;tick()V", shift = At.Shift.AFTER))
+	public void movedOffRecipeBlock(CallbackInfo ci) {
+		if (level() instanceof ServerLevel level) {
+			if (level.getBlockState(BlockPos.containing(this.position().add(0, -0.5, 0))).is(StellarityBlocks.ALTAR_OF_THE_ACCURSED))
+				return;
+			if (itemMode == ItemMode.CRAFTING) stellarity$setItemMode(ItemMode.PICKUP);
+		}
+	}
 }
