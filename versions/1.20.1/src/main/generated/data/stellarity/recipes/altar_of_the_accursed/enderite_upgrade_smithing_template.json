@@ -1,0 +1,26 @@
+{
+  "type": "stellarity:altar_of_the_accursed_simple",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "stellarity:enderite_upgrade_smithing_template"
+      }
+    },
+    {
+      "count": 5,
+      "ingredient": {
+        "item": "stellarity:enderite_shard"
+      }
+    },
+    {
+      "count": 9,
+      "ingredient": {
+        "item": "minecraft:purpur_block"
+      }
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "stellarity:enderite_upgrade_smithing_template"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "stellarity:altar_of_the_accursed_simple",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    {
+      "count": 2,
+      "ingredient": {
+        "item": "minecraft:popped_chorus_fruit"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stellarity:chorus_plating"
+  }
+}

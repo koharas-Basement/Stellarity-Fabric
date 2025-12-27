@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:end/enter_end_gateway",
+  "criteria": {
+    "fishing": {
+      "trigger": "stellarity:void_fished"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.stellarity.void_reels.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "stellarity:fisher_of_voids"
+    },
+    "title": {
+      "translate": "advancements.stellarity.void_reels"
+    }
+  },
+  "requirements": [
+    [
+      "fishing"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "stellarity:amethyst_budfish",
+    "stellarity:bubblefish",
+    "stellarity:crimson_tigerfish",
+    "stellarity:ender_koi",
+    "stellarity:flarefin_koi",
+    "stellarity:crystal_heartfish"
+  ]
+}
