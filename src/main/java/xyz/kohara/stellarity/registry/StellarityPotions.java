@@ -7,6 +7,10 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 import xyz.kohara.stellarity.Stellarity;
 
+//? > 1.21 {
+/*import net.minecraft.core.Holder;
+*///? }
+
 import java.util.HashMap;
 
 public class StellarityPotions {

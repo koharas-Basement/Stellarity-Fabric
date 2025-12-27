@@ -1,7 +1,7 @@
 package xyz.kohara.stellarity.registry.entity;
 
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.nbt.CompoundTag;
+
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.server.level.ServerLevel;
@@ -17,9 +17,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.registry.StellarityEntities;
 import xyz.kohara.stellarity.registry.StellarityItems;
+//? > 1.21.9 {
+/*import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+*///? } else {
+import net.minecraft.nbt.CompoundTag;
+ //? }
 
 import java.util.Set;
 
@@ -33,7 +38,7 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
     public ThrownPrismaticPearl(Level level, LivingEntity livingEntity, ItemStack itemStack) {
         //? > 1.21.9 {
         /*super(StellarityEntities.PRISMATIC_PEARL, livingEntity, level, itemStack);
-         *///? } else {
+        *///? } else {
         super(StellarityEntities.PRISMATIC_PEARL, livingEntity, level);
         setItem(itemStack);
 
@@ -45,7 +50,7 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
     public void shootFromRotation(Entity entity, float f, float g, float h, float i, float j) {
         super.shootFromRotation(entity, f, g, h, i, j);
         if (!level().isClientSide()) {
-            setBisexualTrail(entity instanceof Player player && player.getGameProfile().getName().equalsIgnoreCase("bush_moss"));
+            setBisexualTrail(entity instanceof Player player && player.getGameProfile()./*?> 1.21.9 {*/ /*name() *//*? } else {*/ getName() /*? } */.equalsIgnoreCase("bush_moss"));
         }
     }
 
@@ -69,6 +74,7 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
         stellarity$entityData().set(DATA_BISEXUAL_TRAIL, mode);
     }
 
+    //? < 1.21.9 {
     @Override
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
@@ -82,6 +88,21 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
         super.addAdditionalSaveData(compoundTag);
         compoundTag.putBoolean("stellarity:bisexual_trail", hasBisexualTrail());
     }
+    //? } else {
+
+    /*@Override
+    protected void readAdditionalSaveData(ValueInput valueInput) {
+        super.readAdditionalSaveData(valueInput);
+        setBisexualTrail(valueInput.getBooleanOr("stellarity:bisexual_trail", false));
+    }
+
+    @Override
+    protected void addAdditionalSaveData(ValueOutput valueOutput) {
+        super.addAdditionalSaveData(valueOutput);
+        valueOutput.putBoolean("stellarity:bisexual_trail", hasBisexualTrail());
+    }
+
+    *///? }
 
 
     public static final int[] RAINBOW_COLORS = new int[]{
@@ -146,54 +167,56 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
         var zStep = dz / steps;
 
         for (int i = 0; i < steps; i++) {
-        var color = list[colorIndex];
+            var color = list[colorIndex];
 
-        stellarity$setGlowColor(color);
-        level.addParticle(new DustParticleOptions(/*? > 1.21.9 { *//*color*//*? } else { */Vec3.fromRGB24(color).toVector3f()/*? }*/, 1.5f), x + i * xStep, y + i * yStep, z + i * zStep, 0, 0, 0);
-    }
-    if (++colorIndex >= list.length) {
-        colorIndex = 0;
-    }
+            stellarity$setGlowColor(color);
+            level.addParticle(new DustParticleOptions(/*? > 1.21.9 { *//*color*//*? } else { */Vec3.fromRGB24(color).toVector3f()/*? }*/, 1.5f), x + i * xStep, y + i * yStep, z + i * zStep, 0, 0, 0);
+        }
+        if (++colorIndex >= list.length) {
+            colorIndex = 0;
+        }
 
-    oldPos = new Vec3(x, y, z);
+        oldPos = new Vec3(x, y, z);
 
     }
 
     public ThrownPrismaticPearl(Level level, LivingEntity livingEntity) {
-    super(StellarityEntities.PRISMATIC_PEARL, livingEntity, level);
+        super(StellarityEntities.PRISMATIC_PEARL, livingEntity, level /*? > 1.21.9 {*//*, new ItemStack(StellarityItems.PRISMATIC_PEARL)*//*? } */);
     }
 
     @Override
-    protected @NotNull Item getDefaultItem() {
-    return StellarityItems.PRISMATIC_PEARL;
+    protected Item getDefaultItem() {
+        return StellarityItems.PRISMATIC_PEARL;
     }
 
     @Override
     protected void onHit(HitResult hitResult) {
-    super.onHit(hitResult);
+        super.onHit(hitResult);
 
-    var level = level();
-    var position = position();
+        var level = level();
+        var position = position();
 
 
-    if (level instanceof ServerLevel serverLevel && !isRemoved()) {
-        var owner = getOwner();
-        if (owner != null) {
-        owner.teleportTo(serverLevel, position.x, position.y, position.z, Set.of(), owner.getYHeadRot(), owner.getXRot());
+        if (level instanceof ServerLevel serverLevel && !isRemoved()) {
+            var owner = getOwner();
+            if (owner != null) {
+                owner.teleportTo(serverLevel, position.x, position.y, position.z, Set.of(), owner.getYHeadRot(), owner.getXRot() /*? > 1.21.9 {*//*, true *//*? }*/);
+            }
+
+            this.discard();
         }
-
-        this.discard();
-    }
     }
 
     @Override
     public void syncPacketPositionCodec(double d, double e, double f) {
-    super.syncPacketPositionCodec(d, e, f);
+        super.syncPacketPositionCodec(d, e, f);
     }
 
     protected void onHitEntity(EntityHitResult entityHitResult) {
-    super.onHitEntity(entityHitResult);
-    entityHitResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.0F);
+        super.onHitEntity(entityHitResult);
+        var level = level();
+        if (level.isClientSide()) return;
+        entityHitResult.getEntity()./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer((ServerLevel) level(), *//*? } */this.damageSources().thrown(this, this.getOwner()), 0.0F);
     }
 
 

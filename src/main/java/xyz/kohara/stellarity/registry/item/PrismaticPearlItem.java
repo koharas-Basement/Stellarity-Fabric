@@ -15,6 +15,7 @@ import xyz.kohara.stellarity.registry.entity.ThrownPrismaticPearl;
 
 //? } else {
 /*import net.minecraft.world.InteractionResult;
+import xyz.kohara.stellarity.registry.entity.ThrownPrismaticPearl;
 *///? }
 
 public class PrismaticPearlItem extends Item {
@@ -43,7 +44,7 @@ public class PrismaticPearlItem extends Item {
         //? < 1.21.9 {
 
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
-        //? } else {
+         //? } else {
         /*return InteractionResult.SUCCESS;
         *///? }
     }

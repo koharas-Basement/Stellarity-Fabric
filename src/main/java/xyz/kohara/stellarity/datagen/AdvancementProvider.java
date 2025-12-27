@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 //? >= 1.21.1 {
 /*import net.minecraft.core.HolderLookup;
-import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
+import xyz.kohara.stellarity.registry.advancement_criterion.VoidFishedTrigger;
 import net.minecraft.world.item.Item;
 
 import java.util.concurrent.CompletableFuture;

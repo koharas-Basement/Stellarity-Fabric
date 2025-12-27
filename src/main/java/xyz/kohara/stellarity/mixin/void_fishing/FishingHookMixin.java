@@ -48,15 +48,20 @@ import xyz.kohara.stellarity.interface_injection.ExtFishingHook;
 
 //?}
 
+//? >= 1.21 {
+
+/*import net.minecraft.core.registries.Registries;
+*///? }
+
 @Mixin(FishingHook.class)
 public abstract class FishingHookMixin extends Projectile implements ExtFishingHook {
     @Unique
     private static final ParticleOptions DRAGON_BREATH =
         //? >= 1.21.9 {
         /*PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1f);
-        *///?} else {
-        ParticleTypes.DRAGON_BREATH;
-        //?}
+    *///?} else {
+    ParticleTypes.DRAGON_BREATH;
+     //?}
 
     @Unique
     private boolean buffVoidFishing = false;
@@ -92,7 +97,7 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     private boolean isEnd() {
         //? <= 1.20.1 {
         return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
-        //?} else {
+         //?} else {
         /*return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
         *///?}
     }
@@ -219,7 +224,7 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
 
         //? < 1.21 {
         return lure + 2;
-        //? } else {
+         //? } else {
         /*return lure + 200;
         *///? }
     }
@@ -234,7 +239,7 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
         if (isVoidFishing) {
             //? 1.20.1 {
             instance = level().getServer().getLootData().getLootTable(Stellarity.id("void_fishing/event"));
-            //? } else {
+             //? } else {
             /*instance = level().getServer().reloadableRegistries().getLootTable(Stellarity.key(Registries.LOOT_TABLE, "void_fishing/event"));
             *///? }
         }

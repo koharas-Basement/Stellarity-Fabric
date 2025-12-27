@@ -24,8 +24,8 @@ import xyz.kohara.stellarity.registry.block_entity.AltarOfTheAccursedBlockEntity
 import xyz.kohara.stellarity.registry.StellarityBlockEntityTypes;
 
 //? > 1.21 {
-
-//? } else {
+/*import com.mojang.serialization.MapCodec;
+*///? } else {
 
 //? }
 
@@ -37,6 +37,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
         CREATIVE_UNLOCKED;
 
         @Override
+
         public String getSerializedName() {
             return switch (this) {
                 case LOCKED -> "locked";

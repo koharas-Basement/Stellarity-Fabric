@@ -11,6 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import xyz.kohara.stellarity.registry.item.*;
 
 
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,8 @@ import xyz.kohara.stellarity.Stellarity;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.TooltipDisplay;
+
+import java.util.function.Consumer;
 
 *///?} else {
 import net.minecraft.world.level.Level;
@@ -147,7 +150,7 @@ public class StellarityItems {
             consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.8"), Component.translatable("block.minecraft.cherry_leaves")).withStyle(ChatFormatting.BLUE)));
         }
 
-    *///? }
+        *///? }
     }, new Item.Properties());
 
     public static final Item HALLOWED_INGOT = register("hallowed_ingot", Item::new, new Item.Properties());
@@ -194,8 +197,8 @@ public class StellarityItems {
 
     public record EffectChance(MobEffectInstance effect, float chance) {
         public EffectChance(MobEffectInstance effect) {
-        this(effect, 1.0f);
-    }
+            this(effect, 1.0f);
+        }
     }
 
 
@@ -213,25 +216,25 @@ public class StellarityItems {
             foodProperties.effect(ec.effect, ec.chance);
         }
     //?} else {
-        /*.saturationModifier(saturation);
-    *///?}
-    if (alwaysEat) {
-        foodProperties =
-        //? = 1.20.1
-        foodProperties.alwaysEat();
-        //? >= 1.21.1
-        //foodProperties.alwaysEdible();
-    }
+            /*.saturationModifier(saturation);
+        *///?}
+        if (alwaysEat) {
+            foodProperties =
+                //? = 1.20.1
+                foodProperties.alwaysEat();
+                //? >= 1.21.1
+                //foodProperties.alwaysEdible();
+        }
 
-    //? >= 1.21.9 {
-    /*for (EffectChance ec : effectChances) {
-        consumable = consumable.onConsume(new ApplyStatusEffectsConsumeEffect(ec.effect, ec.chance));
-    }
-    return properties.food(foodProperties.build(), consumable.build());
-    *///?} else {
+        //? >= 1.21.9 {
+        /*for (EffectChance ec : effectChances) {
+            consumable = consumable.onConsume(new ApplyStatusEffectsConsumeEffect(ec.effect, ec.chance));
+        }
+        return properties.food(foodProperties.build(), consumable.build());
+        *///?} else {
 
-    return properties.food(foodProperties.build());
-     //?}
+        return properties.food(foodProperties.build());
+         //?}
 
     }
 

@@ -37,7 +37,7 @@ public class EnderDirtPath extends DirtPathBlock {
     }
 
     @Override
-    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return
             !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ?
                 Block.pushEntitiesUp(this.defaultBlockState(), StellarityBlocks.ENDER_DIRT.defaultBlockState(), context.getLevel(), context.getClickedPos()) :
@@ -46,7 +46,7 @@ public class EnderDirtPath extends DirtPathBlock {
 
     //? <= 1.21.1 {
     @Override
-    public @NotNull BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
+    public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
         if (direction == Direction.UP && !blockState.canSurvive(levelAccessor, blockPos)) {
             return StellarityBlocks.ENDER_DIRT.defaultBlockState();
         }

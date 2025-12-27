@@ -28,7 +28,7 @@ public class PhantomItemFrameRenderer extends ItemFrameRenderer<PhantomItemFrame
     }
 
     @Override
-    public @NotNull ModelResourceLocation getFrameModelResourceLoc(PhantomItemFrame itemFrame, ItemStack itemStack) {
+    public ModelResourceLocation getFrameModelResourceLoc(PhantomItemFrame itemFrame, ItemStack itemStack) {
         // because the frame turns invis there is no need for a map model cuz it wont be seen anyways
 
         return MODEL_LOCATION;

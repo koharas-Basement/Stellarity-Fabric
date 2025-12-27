@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 
 //? > 1.21 {
-
-//? } else {
+/*import net.minecraft.core.HolderLookup;
+*///? } else {
 import net.minecraft.data.recipes.FinishedRecipe;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
@@ -153,12 +153,12 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
 
     @Override
     default RecipeType<? extends Recipe<Input>> getType() {
-    return StellarityRecipeTypes.ALTAR_RECIPE;
+        return StellarityRecipeTypes.ALTAR_RECIPE;
     }
 
 
     @Override
     default boolean matches(Input container, Level level) {
-    return craft(container.items) == null;
+        return craft(container.items) == null;
     }
 }
