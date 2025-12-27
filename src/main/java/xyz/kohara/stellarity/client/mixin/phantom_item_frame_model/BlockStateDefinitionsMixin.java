@@ -28,6 +28,4 @@ public class BlockStateDefinitionsMixin {
         map.put(Stellarity.id("phantom_item_frame"), FAKE_STATE_DEFINITION);
     }
 }
-
-
 *///? }

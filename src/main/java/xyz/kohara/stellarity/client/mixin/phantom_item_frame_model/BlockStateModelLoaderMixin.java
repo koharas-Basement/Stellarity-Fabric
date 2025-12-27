@@ -25,7 +25,6 @@ import static xyz.kohara.stellarity.client.renderer.entity.PhantomItemFrameRende
 @Mixin(BlockStateModelLoader.class)
 @MixinEnvironment("client")
 public abstract class BlockStateModelLoaderMixin {
-
     @Shadow
     protected abstract void loadBlockStateDefinitions(ResourceLocation resourceLocation, StateDefinition<Block, BlockState> stateDefinition);
 

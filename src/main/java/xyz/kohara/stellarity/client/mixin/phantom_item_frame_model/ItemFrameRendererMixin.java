@@ -1,4 +1,3 @@
-
 //? > 1.21.9 {
 /*package xyz.kohara.stellarity.client.mixin.phantom_item_frame_model;
 
@@ -25,5 +24,4 @@ public class ItemFrameRendererMixin {
         return blockState;
     }
 }
-
 *///? }

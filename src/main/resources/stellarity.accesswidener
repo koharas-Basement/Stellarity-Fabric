@@ -5,6 +5,7 @@ inject-interface net/minecraft/world/level/dimension/end/EndDragonFight xyz/koha
 inject-interface net/minecraft/world/entity/Entity xyz/kohara/stellarity/interface_injection/ExtEntity
 inject-interface net/minecraft/world/entity/projectile/FishingHook xyz/kohara/stellarity/interface_injection/ExtFishingHook
 inject-interface net/minecraft/world/entity/item/ItemEntity xyz/kohara/stellarity/interface_injection/ExtItemEntity
+inject-interface net/minecraft/world/damagesource/DamageSources xyz/kohara/stellarity/interface_injection/ExtDamageSources
 
 extendable method net/minecraft/world/entity/decoration/ItemFrame onItemChanged (Lnet/minecraft/world/item/ItemStack;)V
 accessible class net/minecraft/server/commands/AdvancementCommands$Action

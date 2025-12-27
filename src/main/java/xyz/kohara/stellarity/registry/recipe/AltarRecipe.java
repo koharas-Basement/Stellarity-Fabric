@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 //? > 1.21 {
-
+import net.minecraft.core.HolderLookup;
 //? } else {
 import net.minecraft.data.recipes.FinishedRecipe;
 import com.google.gson.JsonObject;
@@ -29,10 +29,10 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
     class Input extends SimpleContainer
         //? < 1.21 {
         {
-         //? } else {
+        //? } else {
         /*implements RecipeInput {
         @Override
-            *///? }
+        *///? }
         public int size() {
             return this.items.size();
         }
@@ -147,18 +147,17 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
     default boolean canCraftInDimensions(int i, int j) {
         return true;
     }
-
     //? }
 
 
     @Override
     default RecipeType<? extends Recipe<Input>> getType() {
-    return StellarityRecipeTypes.ALTAR_RECIPE;
+        return StellarityRecipeTypes.ALTAR_RECIPE;
     }
 
 
     @Override
     default boolean matches(Input container, Level level) {
-    return craft(container.items) == null;
+        return craft(container.items) == null;
     }
 }

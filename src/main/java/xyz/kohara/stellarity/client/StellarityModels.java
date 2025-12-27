@@ -84,7 +84,7 @@ public class StellarityModels {
 
         //? <= 1.21.1 {
         BlockRenderLayerMap.INSTANCE.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, RenderType.cutout());
-         //?} else {
+        //?} else {
         /*BlockRenderLayerMap.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, ChunkSectionLayer.CUTOUT);
         *///?}
 
@@ -93,9 +93,7 @@ public class StellarityModels {
 
     public static void initItemColors() {
         //? <= 1.21.1 {
-        ColorProviderRegistry.ITEM.register(((itemStack, i) -> {
-            return 0x91BD59;
-        }), StellarityItems.ENDER_GRASS_BLOCK);
+        ColorProviderRegistry.ITEM.register((itemStack, i) -> 0x91BD59, StellarityItems.ENDER_GRASS_BLOCK);
         //?}
 
         Stellarity.LOGGER.info("Initialized Item Model Colors");

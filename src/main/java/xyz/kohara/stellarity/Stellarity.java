@@ -24,8 +24,7 @@ public class Stellarity implements ModInitializer {
         return new ResourceLocation(MOD_ID, path);
         //?} else {
         /*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-         
-         *///?}
+        *///?}
     }
     
     public static ResourceLocation mcId(String path) {
@@ -33,7 +32,7 @@ public class Stellarity implements ModInitializer {
         return new ResourceLocation(path);
         //?} else {
         /*return ResourceLocation.withDefaultNamespace(path);
-         *///?}
+        *///?}
     }
     
     public static <T extends Registry<U>, U> ResourceKey<U> key(ResourceKey<T> registry, String path) {

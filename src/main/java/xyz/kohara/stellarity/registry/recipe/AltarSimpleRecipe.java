@@ -29,7 +29,7 @@ import net.minecraft.core.HolderLookup;
 
 //? < 1.21.9 {
 import net.minecraft.world.item.Item;
- //? }
+//? }
 
 public record AltarSimpleRecipe(@Nullable ResourceLocation id,
                                                                 HashMap<Ingredient, Integer> ingredients,

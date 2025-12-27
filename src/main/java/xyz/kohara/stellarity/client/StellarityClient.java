@@ -7,16 +7,12 @@ import xyz.kohara.stellarity.Stellarity;
 
 @Environment(EnvType.CLIENT)
 public class StellarityClient implements ClientModInitializer {
-
-
     @Override
     public void onInitializeClient() {
-
         Stellarity.LOGGER.info("Stellarity Client Initializing");
-
+        
         StellarityModels.init();
         StellarityEntityRenderers.init();
         StellarityClientNetworking.init();
-
     }
 }
