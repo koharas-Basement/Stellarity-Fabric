@@ -24,7 +24,7 @@ import xyz.kohara.stellarity.registry.StellarityItems;
 import net.minecraft.world.level.storage.ValueOutput;
 *///? } else {
 import net.minecraft.nbt.CompoundTag;
- //? }
+    //? }
 
 import java.util.Set;
 
@@ -38,7 +38,7 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
     public ThrownPrismaticPearl(Level level, LivingEntity livingEntity, ItemStack itemStack) {
         //? > 1.21.9 {
         /*super(StellarityEntities.PRISMATIC_PEARL, livingEntity, level, itemStack);
-        *///? } else {
+         *///? } else {
         super(StellarityEntities.PRISMATIC_PEARL, livingEntity, level);
         setItem(itemStack);
 
@@ -160,13 +160,13 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
         var dy = y - oldPos.y;
         var dz = z - oldPos.z;
 
-        long steps = (int) (Math.max(Math.max(Math.abs(dx), Math.abs(dy)), Math.abs(dz)) / 0.1) + 1;
+        long steps = (int) (Math.max(Math.max(Math.abs(dx), Math.abs(dy)), Math.abs(dz)) / 0.1);
 
         var xStep = dx / steps;
         var yStep = dy / steps;
         var zStep = dz / steps;
 
-        for (int i = 0; i < steps; i++) {
+        for (int i = 0; i <= steps + 1; i++) {
             var color = list[colorIndex];
 
             stellarity$setGlowColor(color);

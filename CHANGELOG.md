@@ -71,6 +71,14 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Jinx**
 
+**[+] Brittle**
+
+**[+] Creative Shock**
+
+**[+] Frostburn**
+
+**[+] Prismatic Inferno**
+
 ## Mechanics
 
 **[*] Void Fishing**

@@ -40,7 +40,7 @@ public class CrystalHeartfish extends Item {
     @Override
     public int getUseDuration(ItemStack itemStack
                               //? = 1.21.1
-                              // , LivingEntity livingEntity
+                               //, LivingEntity livingEntity
     ) {
         return 100;
     }

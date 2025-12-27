@@ -12,7 +12,7 @@ import xyz.kohara.stellarity.Stellarity;
 
 public class JinxEffect extends MobEffect {
     public JinxEffect() {
-        super(MobEffectCategory.HARMFUL, 3801170);
+        super(MobEffectCategory.HARMFUL, 0x3A0052);
         addAttributeModifier(Attributes.ARMOR, /*? 1.20.1 {*/ "0674fc9f-43fa-4249-bc43-6a4fcf414620" /*? } else { */ /*Stellarity.id("jinx_effect") *//*? } */, -0.2, AttributeModifier.Operation./*? 1.20.1 {*/ MULTIPLY_TOTAL /*? } else { */ /*ADD_MULTIPLIED_TOTAL *//*? } */);
     }
 

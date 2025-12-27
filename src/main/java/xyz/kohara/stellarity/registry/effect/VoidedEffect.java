@@ -12,7 +12,7 @@ import xyz.kohara.stellarity.Stellarity;
 
 public class VoidedEffect extends MobEffect {
     public VoidedEffect() {
-        super(MobEffectCategory.HARMFUL, 3801170);
+        super(MobEffectCategory.HARMFUL, 0x6a3885);
         addAttributeModifier(Attributes.MAX_HEALTH, /*? 1.20.1 {*/ "715179ff-98e5-4d18-8bf5-363e524fff76" /*? } else { */ /*Stellarity.id("voided_effect") *//*? } */, -0.2, AttributeModifier.Operation./*? 1.20.1 {*/ MULTIPLY_TOTAL /*? } else { */ /*ADD_MULTIPLIED_TOTAL *//*? } */);
     }
 
