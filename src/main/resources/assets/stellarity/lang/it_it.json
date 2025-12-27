@@ -610,10 +610,10 @@
   "stellarity.resource_pack": "Risorse richieste per Stellarity",
   "subtitles.stellarity.entity.enderman.attack": "Enderman attacca",
   "subtitles.stellarity.entity.endermite.attack": "Endermite attacca",
+  "subtitles.stellarity.entity.prismatic_pearl.throw": "Prismatic Pearl flies",
   "subtitles.stellarity.item.fluffy_hammer.return": "Martello morbidoso torna",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Martello morbidoso lanciato",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoscopio si carica",
   "subtitles.stellarity.item.living_flesh.boost": "Carne vivente soffre",
-  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

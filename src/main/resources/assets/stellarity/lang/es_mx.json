@@ -610,10 +610,10 @@
   "stellarity.resource_pack": "Required resources for Stellarity",
   "subtitles.stellarity.entity.enderman.attack": "Enderman ataca",
   "subtitles.stellarity.entity.endermite.attack": "Endermite ataca",
+  "subtitles.stellarity.entity.prismatic_pearl.throw": "Prismatic Pearl flies",
   "subtitles.stellarity.item.fluffy_hammer.return": "Fluffy Hammer returns",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Caleidoscopio se carga",
   "subtitles.stellarity.item.living_flesh.boost": "Carne Viviente se lastima",
-  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }

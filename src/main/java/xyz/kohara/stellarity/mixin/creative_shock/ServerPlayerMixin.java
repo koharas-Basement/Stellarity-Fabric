@@ -24,9 +24,9 @@ import java.util.Collection;
 //? < 1.21.9 {
 import net.minecraft.core.BlockPos;
 
- //? } else {
+    //? } else {
 /*import com.llamalad7.mixinextras.sugar.Local;
-    *///? }
+ *///? }
 
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player {
@@ -58,7 +58,7 @@ public abstract class ServerPlayerMixin extends Player {
     private void effectAdded(MobEffectInstance effectInstance, Entity entity, CallbackInfo ci) {
         var type = gameMode.getGameModeForPlayer();
 
-        if (!(effectInstance.getEffect()/*? > 1.21.9 {*//*.value()*//*? } */ instanceof CreativeShockEffect effect))
+        if (!(effectInstance.getEffect()/*? > 1.21 {*//*.value()*//*? } */ instanceof CreativeShockEffect effect))
             return;
 
 
@@ -78,7 +78,8 @@ public abstract class ServerPlayerMixin extends Player {
     *///? }
     {
 
-        if (!(effectInstance.getEffect()/*? > 1.21.9 {*//*.value()*//*? } */ instanceof CreativeShockEffect effect)) return;
+        if (!(effectInstance.getEffect()/*? > 1.21 {*//*.value()*//*? } */ instanceof CreativeShockEffect effect))
+            return;
 
         setGameMode(initialGameType);
         initialGameType = null;

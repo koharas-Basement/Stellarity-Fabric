@@ -610,10 +610,10 @@
   "stellarity.resource_pack": "Required resources for Stellarity",
   "subtitles.stellarity.entity.enderman.attack": "serangan Enderman",
   "subtitles.stellarity.entity.endermite.attack": "serangan Endermite",
+  "subtitles.stellarity.entity.prismatic_pearl.throw": "Prismatic Pearl flies",
   "subtitles.stellarity.item.fluffy_hammer.return": "Fluffy Hammer returns",
   "subtitles.stellarity.item.fluffy_hammer.throw": "Fluffy Hammer throws",
   "subtitles.stellarity.item.kaleidoscope.ready": "Kaleidoskop mengecas",
   "subtitles.stellarity.item.living_flesh.boost": "Daging Hidup menyakiti",
-  "subtitles.stellarity.item.prismatic_pearl.throw": "Prismatic Pearl flies",
   "tag.item.stellarity.fishes": "Stellarity Fishes"
 }
