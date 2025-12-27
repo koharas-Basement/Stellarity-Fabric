@@ -20,3 +20,18 @@ The original version you can find as [Stellarity Datapack](https://modrinth.com/
 Due to unresolveable technical difficulties with integrating Forge with Fabric, the Forge port has been dropped. There
 is talk about making this a Forge and Fabric split where we just steal each others code, but that is not a high priority
 right now due to the lack of devs on the team.
+
+toRgb(0.99, 0.47, 0.47)
+toRgb(0.99, 0.58, 0.47)
+toRgb(0.99, 0.68, 0.47)
+toRgb(0.99, 0.74, 0.47)
+toRgb(0.99, 0.82, 0.47)
+toRgb(0.80, 0.99, 0.47)
+toRgb(0.48, 0.99, 0.47)
+toRgb(0.47, 0.82, 0.99)
+toRgb(0.47, 0.66, 0.99)
+toRgb(0.58, 0.47, 0.99)
+toRgb(0.74, 0.47, 0.99)
+toRgb(0.80, 0.47, 0.99)
+toRgb(0.99, 0.47, 0.80)
+toRgb(0.99, 0.47, 0.60)

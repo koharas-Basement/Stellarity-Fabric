@@ -1,5 +1,6 @@
 package xyz.kohara.stellarity.mixin.extend_classes;
 
+import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public abstract class EntityMixin implements ExtEntity
   //? > 1.21 {
   /*, SyncedDataHolder
-   *///? }
+  *///? }
 {
 
   @Unique
@@ -37,32 +38,38 @@ public abstract class EntityMixin implements ExtEntity
     entityData.set(DATA_GLOW_COLOR, color);
   }
 
+  @Override
+  public void stellarity$defineSynchedData() {
+    stellarity$addSynchedData(DATA_GLOW_COLOR, -1);
+  }
+
   //? 1.20.1 {
   @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData()V", ordinal = 0))
-  private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
+private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
     entityData = new SynchedEntityData((Entity) (Object) this);
     stellarity$defineSynchedData();
   }
 
   @Override
-  public void stellarity$defineSynchedData() {
-    entityData.define(DATA_GLOW_COLOR, -1);
+  public <T> void stellarity$addSynchedData(EntityDataAccessor<T> accessor, T initialValue) {
+    entityData.define(accessor, initialValue);
   }
 
-
   //?} else {
-  /*@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData(Lnet/minecraft/network/syncher/SynchedEntityData$Builder;)V", ordinal = 0))
+
+  /*@Unique
+  ArrayList<SynchedEntityData.DataItem<?>> dataItems = new ArrayList<>();
+
+  @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData(Lnet/minecraft/network/syncher/SynchedEntityData$Builder;)V", ordinal = 0, shift = At.Shift.AFTER))
   private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
-    ArrayList<SynchedEntityData.DataItem<?>> dataItems = new ArrayList<>();
-    stellarity$defineSynchedData(dataItems);
+    stellarity$defineSynchedData();
 
     entityData = new SynchedEntityData(this, dataItems.toArray(new SynchedEntityData.DataItem<?>[0]));
   }
 
   @Override
-  public void stellarity$defineSynchedData(ArrayList<SynchedEntityData.DataItem<?>> dataItems) {
-    dataItems.add(new SynchedEntityData.DataItem<>(DATA_GLOW_COLOR, -1));
-
+  public <T> void stellarity$addSynchedData(EntityDataAccessor<T> accessor, T initialValue) {
+    dataItems.add(new SynchedEntityData.DataItem<>(accessor, initialValue));
   }
 
   *///?}

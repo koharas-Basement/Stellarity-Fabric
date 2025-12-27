@@ -26,16 +26,20 @@ public interface ExtEntity {
     throw new AssertionError("Not transformed!");
   }
 
+  default void stellarity$defineSynchedData() {
+    throw new AssertionError("Not transformed!");
+  }
+
+  ;
 
   /**
    * When defining synched data, make sure the accessors are indexed correctly with parent class offsets if needed
    */
-  default void stellarity$defineSynchedData(
-    //? > 1.21
-    //ArrayList<SynchedEntityData.DataItem<?>> dataItems
-  ) {
 
+  default <T> void stellarity$addSynchedData(EntityDataAccessor<T> accessor, T initialValue) {
+    throw new AssertionError("Not transformed!");
   }
+
 
   // change this accordingly! when subclassing, find the first entity that declares this
   int stellarity$DATA_SIZE = 1;

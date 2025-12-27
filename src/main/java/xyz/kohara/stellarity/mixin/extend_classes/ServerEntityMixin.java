@@ -1,5 +1,7 @@
 package xyz.kohara.stellarity.mixin.extend_classes;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerEntity;
@@ -39,6 +41,11 @@ public abstract class ServerEntityMixin {
     trackedDataValues = entity.stellarity$entityData().getNonDefaultValues();
   }
 
+  @WrapOperation(method = "sendChanges", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/syncher/SynchedEntityData;isDirty()Z"))
+  private boolean stellarityDirty(SynchedEntityData instance, Operation<Boolean> original) {
+    return original.call(instance) || entity.stellarity$entityData().isDirty();
+  }
+
   @Inject(method = "sendDirtyEntityData", at = @At("HEAD"))
   private void sendDirtyStellarityData(CallbackInfo ci) {
     SynchedEntityData synchedEntityData = entity.stellarity$entityData();
@@ -52,9 +59,9 @@ public abstract class ServerEntityMixin {
         serverPlayer,
         //? 1.20.1 {
         S2CSetStellarityEntityDataPacket.ID, packet.pack()
-        //? } else {
+         //? } else {
         /*packet
-         *///? }
+        *///? }
       );
 
     }
@@ -69,9 +76,9 @@ public abstract class ServerEntityMixin {
         serverPlayer,
         //? 1.20.1 {
         S2CSetStellarityEntityDataPacket.ID, packet.pack()
-        //? } else {
+         //? } else {
         /*packet
-         *///? }
+        *///? }
       );
 
     }
