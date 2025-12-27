@@ -20,10 +20,12 @@ while not done:
   print("5. Exit")
   action = input("Input action (1/2/3/4/5): ")
 
-  if action == "1":
+  if action == "1" or action == "4":
     key = input("Enter new key: ")
+    value = input("Enter value for the new key: ")
     for lang in translations:
-      translations[lang][key] = key
+      translations[lang][key] = value
+
   elif action == "2":
     key = input("Enter key to remove: ")
     for lang in translations:
@@ -35,11 +37,7 @@ while not done:
     for lang in translations:
       if old_key in translations[lang]:
         translations[lang][new_key] = translations[lang].pop(old_key)
-  elif action == "4":
-    key = input("Enter new key: ")
-    value = input("Enter value for the new key: ")
-    for lang in translations:
-      translations[lang][key] = value
+
   elif action == "5":
     done = True
 
