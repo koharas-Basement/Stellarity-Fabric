@@ -1,21 +1,14 @@
 package xyz.kohara.stellarity.registry.effect;
 
-//? if >= 1.21.1 {
-
-/*import net.minecraft.server.level.ServerLevel;
- *///?}
-
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.level.GameType;
-import org.jetbrains.annotations.Nullable;
+
 
 public class CreativeShockEffect extends MobEffect {
     //TODO maybe use a config for it or something
-    private static final boolean extremeCreativeShock = false;
+    public boolean extremeCreativeShock() {
+        return true;
+    }
 
     public CreativeShockEffect() {
         super(MobEffectCategory.HARMFUL, 0xFD3DB5);
