@@ -7,16 +7,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import xyz.kohara.stellarity.entity.PhantomItemFrame;
+import xyz.kohara.stellarity.registry.entity.PhantomItemFrame;
 
 //? < 1.21.9 {
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.ItemFrameRenderer;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.entity.PhantomItemFrame;
 //? }
 
 public class PhantomItemFrameRenderer extends ItemFrameRenderer<PhantomItemFrame> {

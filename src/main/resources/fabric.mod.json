@@ -22,7 +22,7 @@
       "xyz.kohara.stellarity.client.StellarityClient"
     ],
     "fabric-datagen": [
-      "xyz.kohara.stellarity.StellarityDatagen"
+      "xyz.kohara.stellarity.registry.StellarityDatagen"
     ]
   },
   "mixins": [

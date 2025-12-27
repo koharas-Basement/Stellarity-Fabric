@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
-import xyz.kohara.stellarity.StellarityBlocks;
+import xyz.kohara.stellarity.registry.StellarityBlocks;
 
 import java.util.concurrent.CompletableFuture;
 //? >= 1.21.9 {

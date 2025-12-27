@@ -5,7 +5,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityEntities;
+import xyz.kohara.stellarity.registry.StellarityEntities;
 import xyz.kohara.stellarity.client.renderer.entity.PhantomItemFrameRenderer;
 
 @Environment(EnvType.CLIENT)

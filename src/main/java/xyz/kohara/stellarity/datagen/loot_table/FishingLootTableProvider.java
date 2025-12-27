@@ -10,7 +10,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityItems;
+import xyz.kohara.stellarity.registry.StellarityItems;
 
 import java.util.function.BiConsumer;
 

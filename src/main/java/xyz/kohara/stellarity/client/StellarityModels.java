@@ -8,8 +8,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.Item;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityBlocks;
-import xyz.kohara.stellarity.StellarityItems;
+import xyz.kohara.stellarity.registry.StellarityBlocks;
+import xyz.kohara.stellarity.registry.StellarityItems;
 
 //? <= 1.21.1 {
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;

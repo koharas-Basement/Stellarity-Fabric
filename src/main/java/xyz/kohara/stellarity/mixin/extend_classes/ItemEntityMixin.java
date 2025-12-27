@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityBlocks;
+import xyz.kohara.stellarity.registry.StellarityBlocks;
 import xyz.kohara.stellarity.interface_injection.ExtItemEntity;
 
 //? < 1.21.9 {

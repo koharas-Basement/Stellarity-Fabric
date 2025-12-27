@@ -8,7 +8,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import xyz.kohara.stellarity.StellarityBlocks;
+import xyz.kohara.stellarity.registry.StellarityBlocks;
 
 //? > 1.21 {
 /*import net.minecraft.core.HolderLookup;

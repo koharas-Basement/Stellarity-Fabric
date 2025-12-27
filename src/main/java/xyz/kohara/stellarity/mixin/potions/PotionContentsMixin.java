@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import xyz.kohara.stellarity.StellarityPotions;
+import xyz.kohara.stellarity.registry.StellarityPotions;
 
 import java.util.Optional;
 //? < 1.21.9 {

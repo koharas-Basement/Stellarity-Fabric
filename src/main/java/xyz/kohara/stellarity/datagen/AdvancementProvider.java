@@ -13,7 +13,7 @@ import net.minecraft.advancements.critereon.*;
 /*import net.minecraft.advancements.criterion.*;
   *///? }
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityItems;
+import xyz.kohara.stellarity.registry.StellarityItems;
 
 
 import java.util.HashMap;
@@ -32,7 +32,7 @@ import net.minecraft.core.registries.Registries;
 
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.CriterionTriggerInstance;
-import xyz.kohara.stellarity.advancement_criterion.VoidFishedTrigger;
+import xyz.kohara.stellarity.registry.advancement_criterion.VoidFishedTrigger;
 
   //?}
 

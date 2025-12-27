@@ -8,9 +8,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityItems;
-import xyz.kohara.stellarity.recipe.AltarRecipe;
-import xyz.kohara.stellarity.recipe.AltarSimpleRecipe;
+import xyz.kohara.stellarity.registry.StellarityItems;
+import xyz.kohara.stellarity.registry.recipe.AltarRecipe;
+import xyz.kohara.stellarity.registry.recipe.AltarSimpleRecipe;
 
 import java.util.LinkedHashMap;
 

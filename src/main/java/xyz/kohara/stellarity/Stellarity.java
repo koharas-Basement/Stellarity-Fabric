@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import xyz.kohara.stellarity.registry.*;
 
 public class Stellarity implements ModInitializer {
   // This logger is used to write text to the console and the log file.

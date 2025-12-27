@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 
 import net.minecraft.world.item.Item;
 import xyz.kohara.stellarity.Stellarity;
-import xyz.kohara.stellarity.StellarityBlocks;
+import xyz.kohara.stellarity.registry.StellarityBlocks;
 //? <= 1.21.1 {
 import net.minecraft.data.models.BlockModelGenerators;
 
@@ -14,11 +14,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.blockstates.VariantProperties;
 import net.minecraft.data.models.blockstates.Variant;
 import net.minecraft.data.models.model.TexturedModel;
-import xyz.kohara.stellarity.StellarityItems;
-
-import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
+import xyz.kohara.stellarity.registry.StellarityItems;
 //?} else {
 
 /*import net.minecraft.client.renderer.item.BlockModelWrapper;
@@ -31,7 +27,7 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.client.color.item.GrassColorSource;
-import xyz.kohara.stellarity.StellarityItems;
+import xyz.kohara.stellarity.registry.StellarityItems;
 
 import java.util.List;
 *///?}
