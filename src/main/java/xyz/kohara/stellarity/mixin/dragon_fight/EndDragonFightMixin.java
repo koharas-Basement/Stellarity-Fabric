@@ -23,50 +23,50 @@ import java.util.List;
 
 @Mixin(EndDragonFight.class)
 public abstract class EndDragonFightMixin implements ExtEndDragonFight {
-	@Shadow
-	private boolean dragonKilled;
+    @Shadow
+    private boolean dragonKilled;
 
-	@Shadow
-	@Nullable
-	private List<EndCrystal> respawnCrystals;
-	@Shadow
-	private int crystalsAlive;
+    @Shadow
+    @Nullable
+    private List<EndCrystal> respawnCrystals;
+    @Shadow
+    private int crystalsAlive;
 
-	@Shadow
-	protected abstract void findOrCreateDragon();
+    @Shadow
+    protected abstract void findOrCreateDragon();
 
-	@Unique
-	private final ServerBossEvent crystalsRemaining = new ServerBossEvent(Component.translatable("bossbar.stellarity.crystals_left", crystalsAlive).withStyle(ChatFormatting.DARK_PURPLE), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.NOTCHED_20);
+    @Unique
+    private final ServerBossEvent crystalsRemaining = new ServerBossEvent(Component.translatable("bossbar.stellarity.crystals_left", crystalsAlive).withStyle(ChatFormatting.DARK_PURPLE), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.NOTCHED_20);
 
-	@Override
-	public boolean stellarity$dragonKilled() {
-		return dragonKilled;
-	}
+    @Override
+    public boolean stellarity$dragonKilled() {
+        return dragonKilled;
+    }
 
-	@Inject(method = "resetSpikeCrystals", at = @At("HEAD"))
-	private void resetRespawnCrystals(CallbackInfo ci) {
-		for (EndCrystal endCrystal : respawnCrystals) {
-			endCrystal.setInvulnerable(false);
-			endCrystal.setBeamTarget((BlockPos) null);
-		}
-	}
+    @Inject(method = "resetSpikeCrystals", at = @At("HEAD"))
+    private void resetRespawnCrystals(CallbackInfo ci) {
+        for (EndCrystal endCrystal : respawnCrystals) {
+            endCrystal.setInvulnerable(false);
+            endCrystal.setBeamTarget((BlockPos) null);
+        }
+    }
 
-	@Inject(method = "tick", at = @At("TAIL"))
-	private void tick(CallbackInfo ci) {
-		crystalsRemaining.setVisible(!dragonKilled);
-		if (!dragonKilled) {
-			crystalsRemaining.setProgress(Math.min((float) crystalsAlive / SpikeFeature.NUMBER_OF_SPIKES, 1.0f));
-			crystalsRemaining.setName(Component.translatable("bossbar.stellarity.crystals_left", crystalsAlive).withStyle(ChatFormatting.DARK_PURPLE));
-		}
-	}
+    @Inject(method = "tick", at = @At("TAIL"))
+    private void tick(CallbackInfo ci) {
+        crystalsRemaining.setVisible(!dragonKilled);
+        if (!dragonKilled) {
+            crystalsRemaining.setProgress(Math.min((float) crystalsAlive / SpikeFeature.NUMBER_OF_SPIKES, 1.0f));
+            crystalsRemaining.setName(Component.translatable("bossbar.stellarity.crystals_left", crystalsAlive).withStyle(ChatFormatting.DARK_PURPLE));
+        }
+    }
 
-	@Inject(method = "updatePlayers", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerBossEvent;addPlayer(Lnet/minecraft/server/level/ServerPlayer;)V"))
-	private void addPlayerBossBar(CallbackInfo ci, @Local ServerPlayer player) {
-		crystalsRemaining.addPlayer(player);
-	}
+    @Inject(method = "updatePlayers", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerBossEvent;addPlayer(Lnet/minecraft/server/level/ServerPlayer;)V"))
+    private void addPlayerBossBar(CallbackInfo ci, @Local ServerPlayer player) {
+        crystalsRemaining.addPlayer(player);
+    }
 
-	@Inject(method = "updatePlayers", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerBossEvent;removePlayer(Lnet/minecraft/server/level/ServerPlayer;)V"))
-	private void removePlayerBossBar(CallbackInfo ci, @Local ServerPlayer player) {
-		crystalsRemaining.removePlayer(player);
-	}
+    @Inject(method = "updatePlayers", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerBossEvent;removePlayer(Lnet/minecraft/server/level/ServerPlayer;)V"))
+    private void removePlayerBossBar(CallbackInfo ci, @Local ServerPlayer player) {
+        crystalsRemaining.removePlayer(player);
+    }
 }

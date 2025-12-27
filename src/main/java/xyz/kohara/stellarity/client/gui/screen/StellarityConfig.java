@@ -8,11 +8,11 @@ import net.minecraft.network.chat.Component;
 @Environment(EnvType.CLIENT)
 public class StellarityConfig extends Screen {
 
-	public StellarityConfig(Screen screen) {
-		super(Component.translatable("stellarity.config.title"));
-	}
+    public StellarityConfig(Screen screen) {
+        super(Component.translatable("stellarity.config.title"));
+    }
 
-	@Override
-	protected void init() {
-	}
+    @Override
+    protected void init() {
+    }
 }

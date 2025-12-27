@@ -15,15 +15,15 @@ import xyz.kohara.stellarity.registry.StellarityItems;
 @MixinEnvironment("client")
 public class FishingHookRendererMixin {
 
-	//? = 1.20.1
-	@WrapOperation(method = "render(Lnet/minecraft/world/entity/projectile/FishingHook;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
-	/**/
-	//? = 1.21.1
-	//@WrapOperation(method = "getPlayerHandPos",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+    //? = 1.20.1
+    @WrapOperation(method = "render(Lnet/minecraft/world/entity/projectile/FishingHook;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
+    /**/
+    //? = 1.21.1
+    //@WrapOperation(method = "getPlayerHandPos",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
 
-	private boolean addFisherOfVoids(ItemStack instance, Item item, Operation<Boolean> original) {
-		return instance.is(StellarityItems.FISHER_OF_VOIDS) || original.call(instance, item);
-	}
+    private boolean addFisherOfVoids(ItemStack instance, Item item, Operation<Boolean> original) {
+        return instance.is(StellarityItems.FISHER_OF_VOIDS) || original.call(instance, item);
+    }
 }
 //?}

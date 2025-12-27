@@ -16,16 +16,16 @@ import xyz.kohara.stellarity.item.Tamaris;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
-	@Shadow
-	public abstract Item getItem();
+    @Shadow
+    public abstract Item getItem();
 
-	@Inject(method = "inventoryTick", at = @At("TAIL"))
-	private void addStellarityClientTicks(Level level, Entity entity, EquipmentSlot equipmentSlot, CallbackInfo ci) {
-		var item = this.getItem();
-		if (level instanceof ClientLevel clientLevel && item instanceof Tamaris tamaris) {
-			tamaris.inventoryTick((ItemStack) (Object) this, clientLevel, entity, equipmentSlot);
-		}
-	}
+    @Inject(method = "inventoryTick", at = @At("TAIL"))
+    private void addStellarityClientTicks(Level level, Entity entity, EquipmentSlot equipmentSlot, CallbackInfo ci) {
+        var item = this.getItem();
+        if (level instanceof ClientLevel clientLevel && item instanceof Tamaris tamaris) {
+            tamaris.inventoryTick((ItemStack) (Object) this, clientLevel, entity, equipmentSlot);
+        }
+    }
 }
 
 *///? }

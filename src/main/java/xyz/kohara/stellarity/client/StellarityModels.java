@@ -22,89 +22,89 @@ import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 
 @Environment(EnvType.CLIENT)
 public class StellarityModels {
-	//? <= 1.21.4 {
-	private static void registerBowModel(Item bow) {
-		ItemProperties.register(bow, Stellarity.mcId("pull"), (itemStack, clientWorld, entity, seed) -> {
-			if (entity == null) {
-				return 0.0F;
-			}
-			//? = 1.20.1
-			return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
-			//? = 1.21.1
-			//return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
-		});
+    //? <= 1.21.4 {
+    private static void registerBowModel(Item bow) {
+        ItemProperties.register(bow, Stellarity.mcId("pull"), (itemStack, clientWorld, entity, seed) -> {
+            if (entity == null) {
+                return 0.0F;
+            }
+            //? = 1.20.1
+            return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
+            //? = 1.21.1
+            //return entity.getUseItem() != itemStack ? 0.0F : (itemStack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
+        });
 
-		ItemProperties.register(bow, Stellarity.mcId("pulling"), (itemStack, clientWorld, entity, seed) -> {
-			if (entity == null) {
-				return 0.0F;
-			}
-			return entity.isUsingItem() && entity.getUseItem() == itemStack ? 1.0F : 0.0F;
-		});
-	}
+        ItemProperties.register(bow, Stellarity.mcId("pulling"), (itemStack, clientWorld, entity, seed) -> {
+            if (entity == null) {
+                return 0.0F;
+            }
+            return entity.isUsingItem() && entity.getUseItem() == itemStack ? 1.0F : 0.0F;
+        });
+    }
 
-	private static void registerFishingRodModel(Item fishingRod) {
+    private static void registerFishingRodModel(Item fishingRod) {
 
-		ItemProperties.register(fishingRod, Stellarity.mcId("cast"), (itemStack, clientWorld, livingEntity, seed) -> {
-			if (livingEntity == null) {
-				return 0.0F;
-			} else {
-				boolean bl = livingEntity.getMainHandItem() == itemStack;
-				boolean bl2 = livingEntity.getOffhandItem() == itemStack;
-				if (livingEntity.getMainHandItem().getItem() instanceof FishingRodItem) {
-					bl2 = false;
-				}
+        ItemProperties.register(fishingRod, Stellarity.mcId("cast"), (itemStack, clientWorld, livingEntity, seed) -> {
+            if (livingEntity == null) {
+                return 0.0F;
+            } else {
+                boolean bl = livingEntity.getMainHandItem() == itemStack;
+                boolean bl2 = livingEntity.getOffhandItem() == itemStack;
+                if (livingEntity.getMainHandItem().getItem() instanceof FishingRodItem) {
+                    bl2 = false;
+                }
 
-				return (bl || bl2) && livingEntity instanceof Player player && player.fishing != null ? 1.0F : 0.0F;
-			}
-		});
+                return (bl || bl2) && livingEntity instanceof Player player && player.fishing != null ? 1.0F : 0.0F;
+            }
+        });
 
 
-	}
+    }
 
-	//?}
+    //?}
 
-	public static void initModelPredicates() {
-		//? <= 1.21.4 {
-		registerBowModel(StellarityItems.CALL_OF_THE_VOID);
-		registerFishingRodModel(StellarityItems.FISHER_OF_VOIDS);
-		Stellarity.LOGGER.info("Stellarity Model Predicates Initialized!");
-		//?}
+    public static void initModelPredicates() {
+        //? <= 1.21.4 {
+        registerBowModel(StellarityItems.CALL_OF_THE_VOID);
+        registerFishingRodModel(StellarityItems.FISHER_OF_VOIDS);
+        Stellarity.LOGGER.info("Stellarity Model Predicates Initialized!");
+        //?}
 
-	}
+    }
 
-	public static void initBlockColors() {
+    public static void initBlockColors() {
 
-		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
-			if (world != null && pos != null) {
-				return BiomeColors.getAverageGrassColor(world, pos);
-			}
-			// fallback tint
-			return 0x91BD59;
-		}, StellarityBlocks.ENDER_GRASS_BLOCK);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
+            if (world != null && pos != null) {
+                return BiomeColors.getAverageGrassColor(world, pos);
+            }
+            // fallback tint
+            return 0x91BD59;
+        }, StellarityBlocks.ENDER_GRASS_BLOCK);
 
-		//? <= 1.21.1 {
-		BlockRenderLayerMap.INSTANCE.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, RenderType.cutout());
-		 //?} else {
-		/*BlockRenderLayerMap.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, ChunkSectionLayer.CUTOUT);
-		*///?}
+        //? <= 1.21.1 {
+        BlockRenderLayerMap.INSTANCE.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, RenderType.cutout());
+         //?} else {
+        /*BlockRenderLayerMap.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, ChunkSectionLayer.CUTOUT);
+        *///?}
 
-		Stellarity.LOGGER.info("Initialized Block Model Colors");
-	}
+        Stellarity.LOGGER.info("Initialized Block Model Colors");
+    }
 
-	public static void initItemColors() {
-		//? <= 1.21.1 {
-		ColorProviderRegistry.ITEM.register(((itemStack, i) -> {
-			return 0x91BD59;
-		}), StellarityItems.ENDER_GRASS_BLOCK);
-		//?}
+    public static void initItemColors() {
+        //? <= 1.21.1 {
+        ColorProviderRegistry.ITEM.register(((itemStack, i) -> {
+            return 0x91BD59;
+        }), StellarityItems.ENDER_GRASS_BLOCK);
+        //?}
 
-		Stellarity.LOGGER.info("Initialized Item Model Colors");
+        Stellarity.LOGGER.info("Initialized Item Model Colors");
 
-	}
+    }
 
-	public static void init() {
-		initModelPredicates();
-		initBlockColors();
-		initItemColors();
-	}
+    public static void init() {
+        initModelPredicates();
+        initBlockColors();
+        initItemColors();
+    }
 }
