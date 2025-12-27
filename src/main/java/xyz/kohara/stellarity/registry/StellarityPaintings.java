@@ -24,9 +24,7 @@ public class StellarityPaintings {
 
 
     public static PaintingVariant register(String id, int width, int height) {
-
         return Registry.register(BuiltInRegistries.PAINTING_VARIANT, Stellarity.id(id), new PaintingVariant(width * 16, height * 16));
-
     }
     //? }
 

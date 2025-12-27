@@ -11,7 +11,7 @@ import xyz.kohara.stellarity.registry.StellarityItems;
 import java.util.concurrent.CompletableFuture;
 //? >= 1.21.9 {
 /*import net.minecraft.data.tags.TagAppender;
-    *///?}
+*///?}
 
 public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public ItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable BlockTagProvider blockTagProvider) {

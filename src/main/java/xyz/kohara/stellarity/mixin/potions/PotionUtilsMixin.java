@@ -19,7 +19,6 @@ import java.util.Collection;
 
 @Mixin(PotionUtils.class)
 public abstract class PotionUtilsMixin {
-
     @Shadow
     public static int getColor(Collection<MobEffectInstance> collection) {
         return 0;

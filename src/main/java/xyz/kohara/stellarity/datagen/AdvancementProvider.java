@@ -138,6 +138,4 @@ public class AdvancementProvider extends FabricAdvancementProvider {
         return CriteriaTriggers.IMPOSSIBLE.createCriterion(new ImpossibleTrigger.TriggerInstance());
     }
     *///?}
-
-
 }

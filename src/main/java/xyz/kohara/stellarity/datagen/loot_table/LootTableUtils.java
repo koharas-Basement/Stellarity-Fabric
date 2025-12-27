@@ -74,7 +74,7 @@ class LootTableUtils {
     public static LootPoolSingletonContainer.Builder<?> lootTable(ResourceLocation location) {
         //? 1.20.1 {
         return LootTableReference.lootTableReference(location);
-         //? } else {
+        //? } else {
         /*return NestedLootTable.lootTableReference(ResourceKey.create(Registries.LOOT_TABLE, location));
         *///? }
     }

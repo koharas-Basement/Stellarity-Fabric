@@ -1,36 +1,36 @@
 {
-  "schemaVersion": 1,
-  "id": "${id}",
-  "version": "${version}",
-  "name": "${name}",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "authors": [
-    "Me!"
-  ],
-  "contact": {
-    "homepage": "https://stonecutter.kikugie.dev/",
-    "sources": "https://codeberg.org/stonecutter/template-fabric"
-  },
-  "license": "CC0-1.0",
-  "icon": "assets/stellarity/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "xyz.kohara.stellarity.Stellarity"
+    "schemaVersion": 1,
+    "id": "${id}",
+    "version": "${version}",
+    "name": "${name}",
+    "description": "This is an example description! Tell everyone what your mod is about!",
+    "authors": [
+        "Me!"
     ],
-    "client": [
-      "xyz.kohara.stellarity.client.StellarityClient"
+    "contact": {
+        "homepage": "https://stonecutter.kikugie.dev/",
+        "sources": "https://codeberg.org/stonecutter/template-fabric"
+    },
+    "license": "CC0-1.0",
+    "icon": "assets/stellarity/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "xyz.kohara.stellarity.Stellarity"
+        ],
+        "client": [
+            "xyz.kohara.stellarity.client.StellarityClient"
+        ],
+        "fabric-datagen": [
+            "xyz.kohara.stellarity.registry.StellarityDatagen"
+        ]
+    },
+    "mixins": [
+        "stellarity.mixins.json"
     ],
-    "fabric-datagen": [
-      "xyz.kohara.stellarity.registry.StellarityDatagen"
-    ]
-  },
-  "mixins": [
-    "stellarity.mixins.json"
-  ],
-  "accessWidener": "stellarity.accesswidener",
-  "depends": {
-    "fabricloader": ">=0.17",
-    "minecraft": "${minecraft}"
-  }
+    "accessWidener": "stellarity.accesswidener",
+    "depends": {
+        "fabricloader": ">=0.17",
+        "minecraft": "${minecraft}"
+    }
 }

@@ -143,9 +143,9 @@ public class StellarityItems {
         public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
             super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
             consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.stellarity.chorus_plating")).withStyle(ChatFormatting.BLUE)));
-        consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.minecraft.shulker_shell")).withStyle(ChatFormatting.BLUE)));
-        consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.8"), Component.translatable("block.minecraft.cherry_leaves")).withStyle(ChatFormatting.BLUE)));
-    }
+            consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.4"), Component.translatable("item.minecraft.shulker_shell")).withStyle(ChatFormatting.BLUE)));
+            consumer.accept(CommonComponents.space().append(Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients", Component.translatable("item.stellarity.enderite_upgrade_smithing_template.ingredients.count.8"), Component.translatable("block.minecraft.cherry_leaves")).withStyle(ChatFormatting.BLUE)));
+        }
 
     *///? }
     }, new Item.Properties());
@@ -161,39 +161,39 @@ public class StellarityItems {
 
 
     public static Item registerBlock(String name, Block block) {
-    return registerBlock(name, block, new Item.Properties());
+        return registerBlock(name, block, new Item.Properties());
     }
 
     public static Item registerBlock(String name, Block block, Item.Properties settings) {
-    ResourceKey<Item> itemKey = Stellarity.key(Registries.ITEM, name);
-    //? if >= 1.21.9 {
-    /*settings = settings.useBlockDescriptionPrefix().setId(itemKey);
-    *///?}
-    Item item = new BlockItem(block, settings);
+        ResourceKey<Item> itemKey = Stellarity.key(Registries.ITEM, name);
+        //? if >= 1.21.9 {
+        /*settings = settings.useBlockDescriptionPrefix().setId(itemKey);
+        *///?}
+        Item item = new BlockItem(block, settings);
 
-    Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+        Registry.register(BuiltInRegistries.ITEM, itemKey, item);
 
-    return item;
+        return item;
     }
 
     public static Item register(String name, Function<Item.Properties, Item> itemFactory) {
-    return register(name, itemFactory, new Item.Properties());
+        return register(name, itemFactory, new Item.Properties());
     }
 
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
-    ResourceKey<Item> itemKey = Stellarity.key(Registries.ITEM, name);
-    //? >= 1.21.10 {
-    /*settings.setId(itemKey);
-    *///?}
+        ResourceKey<Item> itemKey = Stellarity.key(Registries.ITEM, name);
+        //? >= 1.21.10 {
+        /*settings.setId(itemKey);
+        *///?}
 
-    Item item = itemFactory.apply(settings);
-    Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+        Item item = itemFactory.apply(settings);
+        Registry.register(BuiltInRegistries.ITEM, itemKey, item);
 
-    return item;
+        return item;
     }
 
     public record EffectChance(MobEffectInstance effect, float chance) {
-    public EffectChance(MobEffectInstance effect) {
+        public EffectChance(MobEffectInstance effect) {
         this(effect, 1.0f);
     }
     }
@@ -204,15 +204,15 @@ public class StellarityItems {
                                                  /*Consumable.Builder consumable,
                                                  *///?}
                                                  int nutrition, float saturation, boolean alwaysEat, EffectChance... effectChances) {
-    foodProperties = foodProperties
-        .nutrition(nutrition)
-        //? < 1.21.1 {
-        .saturationMod(saturation);
+        foodProperties = foodProperties
+            .nutrition(nutrition)
+            //? < 1.21.1 {
+            .saturationMod(saturation);
 
-    for (EffectChance ec : effectChances) {
-        foodProperties.effect(ec.effect, ec.chance);
-    }
-//?} else {
+        for (EffectChance ec : effectChances) {
+            foodProperties.effect(ec.effect, ec.chance);
+        }
+    //?} else {
         /*.saturationModifier(saturation);
     *///?}
     if (alwaysEat) {
@@ -238,24 +238,24 @@ public class StellarityItems {
     //? >= 1.21.9 {
     /*public static Item.Properties foodProperties(Item.Properties properties, FoodProperties.Builder foodProperties,
                                                  int nutrition, float saturation, boolean alwaysEat, EffectChance... effectChances) {
-    return foodProperties(properties, foodProperties, Consumables.defaultFood(), nutrition, saturation, alwaysEat, effectChances);
+        return foodProperties(properties, foodProperties, Consumables.defaultFood(), nutrition, saturation, alwaysEat, effectChances);
     }
     *///?}
 
     public static Item.Properties foodProperties(int nutrition, float saturation, boolean alwaysEat, EffectChance... effectChances) {
-    return foodProperties(new Item.Properties(), new FoodProperties.Builder(), nutrition, saturation, alwaysEat, effectChances);
+        return foodProperties(new Item.Properties(), new FoodProperties.Builder(), nutrition, saturation, alwaysEat, effectChances);
     }
 
     public static Item.Properties foodProperties(int nutrition, float saturation, EffectChance... effectChances) {
-    return foodProperties(nutrition, saturation, false, effectChances);
+        return foodProperties(nutrition, saturation, false, effectChances);
     }
 
     public static Item.Properties basicFood(int nutrition, float saturation) {
-    return foodProperties(nutrition, saturation, false);
+        return foodProperties(nutrition, saturation, false);
     }
 
 
     public static void init() {
-    Stellarity.LOGGER.info("Registering Stellarity Items");
+        Stellarity.LOGGER.info("Registering Stellarity Items");
     }
 }

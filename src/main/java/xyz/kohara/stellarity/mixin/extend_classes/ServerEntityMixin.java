@@ -33,11 +33,11 @@ public abstract class ServerEntityMixin {
     private List<SynchedEntityData.DataValue<?>> trackedDataValues;
 
     @Inject(method = "<init>", at = @At("TAIL"))
-        //? < 1.21.9 {
+    //? < 1.21.9 {
     private void init(ServerLevel serverLevel, Entity entity, int i, boolean bl, Consumer consumer, CallbackInfo ci) {
-        //? } else {
-        /*private void init(ServerLevel serverLevel, Entity entity, int i, boolean bl, ServerEntity.Synchronizer synchronizer, CallbackInfo ci) {
-         *///? }
+    //? } else {
+    /*private void init(ServerLevel serverLevel, Entity entity, int i, boolean bl, ServerEntity.Synchronizer synchronizer, CallbackInfo ci) {
+    *///? }
         trackedDataValues = entity.stellarity$entityData().getNonDefaultValues();
     }
 
@@ -76,7 +76,7 @@ public abstract class ServerEntityMixin {
                 serverPlayer,
                 //? 1.20.1 {
                 S2CSetStellarityEntityDataPacket.ID, packet.pack()
-                 //? } else {
+                //? } else {
                 /*packet
                 *///? }
             );

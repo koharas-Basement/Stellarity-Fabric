@@ -22,9 +22,7 @@ import net.minecraft.world.entity.boss.EnderDragonPart;
  //? } else {
 /*import net.minecraft.world.entity.boss.enderdragon.EnderDragonPart;
 import net.minecraft.server.level.ServerLevel;
-
-
-    *///? }
+*///? }
 
 @Mixin(EnderDragon.class)
 public abstract class EnderDragonMixin extends Mob implements Enemy {
@@ -36,32 +34,28 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
         super(entityType, level);
     }
 
-
     //? < 1.21.9 {
     @WrapOperation(method = "onCrystalDestroyed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
     private boolean blockDamage(EnderDragon instance, EnderDragonPart enderDragonPart, DamageSource damageSource, float f, Operation<Boolean> original) {
-        //? } else {
+    //? } else {
     /*@WrapOperation(method = "onCrystalDestroyed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/boss/enderdragon/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
     private boolean blockDamage(EnderDragon instance, ServerLevel serverLevel, EnderDragonPart enderDragonPart, DamageSource damageSource, float v, Operation<Boolean> original) {
-        *///? }
+    *///? }
         // squash - ender dragon doesn't take damage from crystals
         return false;
 
     }
 
-
     //? < 1.21.9 {
     @Inject(method = "hurt(Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("HEAD"), cancellable = true)
     private void invulnerable(EnderDragonPart enderDragonPart, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
-        //? } else {
+    //? } else {
     /*@Inject(method = "hurt(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/boss/enderdragon/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("HEAD"), cancellable = true)
     private void invulnerable(ServerLevel serverLevel, EnderDragonPart enderDragonPart, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
-        *///? }
+    *///? }
         if (dragonFight != null && dragonFight.getCrystalsAlive() != 0) {
             cir.setReturnValue(false);
             cir.cancel();
         }
-
     }
-
 }

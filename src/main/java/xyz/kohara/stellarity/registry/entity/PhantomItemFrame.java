@@ -39,55 +39,53 @@ public class PhantomItemFrame extends ItemFrame {
         setInvisible(!empty);
 
         if (empty && this.level() instanceof ClientLevel level) {
-            double x = this.getX();
-            double y = this.getY();
-            double z = this.getZ();
+                double x = this.getX();
+                double y = this.getY();
+                double z = this.getZ();
 
-            double offset = (this.random.nextDouble() - 0.5) * 0.8;
-            double coOffset = (this.random.nextDouble() - 0.5) * 0.8;
+                double offset = (this.random.nextDouble() - 0.5) * 0.8;
+                double coOffset = (this.random.nextDouble() - 0.5) * 0.8;
 
-            switch (this.getDirection()) {
-                case UP:
-                case DOWN:
-                    x += offset;
-                    z += coOffset;
-                    break;
-                case NORTH:
-                case SOUTH:
-                    x += offset;
-                    y += coOffset;
-                    break;
-                case EAST:
-                case WEST:
-                    y += offset;
-                    z += coOffset;
-                    break;
+                switch (this.getDirection()) {
+                    case UP:
+                    case DOWN:
+                        x += offset;
+                        z += coOffset;
+                        break;
+                    case NORTH:
+                    case SOUTH:
+                        x += offset;
+                        y += coOffset;
+                        break;
+                    case EAST:
+                    case WEST:
+                        y += offset;
+                        z += coOffset;
+                        break;
+                }
+
+                switch (this.getDirection()) {
+                    case UP:
+                        y += 0.1;
+                        break;
+                    case DOWN:
+                        y -= 0.1;
+                        break;
+            case NORTH:
+                z -= 0.1;
+                break;
+            case SOUTH:
+                z += 0.1;
+                break;
+            case EAST:
+                x += 0.1;
+                break;
+            case WEST:
+                x -= 0.1;
+                break;
             }
-
-            switch (this.getDirection()) {
-                case UP:
-                    y += 0.1;
-                    break;
-                case DOWN:
-                    y -= 0.1;
-                    break;
-        case NORTH:
-            z -= 0.1;
-            break;
-        case SOUTH:
-            z += 0.1;
-            break;
-        case EAST:
-            x += 0.1;
-            break;
-        case WEST:
-            x -= 0.1;
-            break;
+    
+            level.addParticle(ParticleTypes.MYCELIUM, x, y, z, 0, -0.5, 0);
         }
-
-        level.addParticle(ParticleTypes.MYCELIUM, x, y, z, 0, -0.5, 0);
     }
-
-    }
-
 }

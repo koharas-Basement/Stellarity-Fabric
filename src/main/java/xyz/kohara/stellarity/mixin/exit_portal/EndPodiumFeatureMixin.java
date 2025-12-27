@@ -101,50 +101,50 @@ public abstract class EndPodiumFeatureMixin extends Feature<NoneFeatureConfigura
                 {0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0},
                 {0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0},
                 {0, 0, 6, 0, 0, 2, 1, 2, 0, 0, 6, 0, 0},
-            {0, 5, 1, 4, 3, 1, 1, 1, 3, 5, 1, 4, 0},
-        {0, 0, 7, 0, 0, 2, 1, 2, 0, 0, 7, 0, 0},
-        {0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0},
-        {0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 3, 5, 1, 4, 3, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        }, blockPos.offset(-6, 2, -6)
-    );
+                {0, 5, 1, 4, 3, 1, 1, 1, 3, 5, 1, 4, 0},
+                {0, 0, 7, 0, 0, 2, 1, 2, 0, 0, 7, 0, 0},
+                {0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0},
+                {0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 3, 5, 1, 4, 3, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            }, blockPos.offset(-6, 2, -6)
+        );
 
-    for (int dy = 3; dy <= 6; dy++)
-        for (int dx = -6; dx <= 6; dx++) {
-        for (int dz = -6; dz <= 6; dz++) {
-            setBlock(level, blockPos.offset(dx, dy, dz), Blocks.AIR.defaultBlockState());
-        }
-        }
+        for (int dy = 3; dy <= 6; dy++)
+            for (int dx = -6; dx <= 6; dx++) {
+                for (int dz = -6; dz <= 6; dz++) {
+                    setBlock(level, blockPos.offset(dx, dy, dz), Blocks.AIR.defaultBlockState());
+                }
+            }
 
-    printRow(level, new BlockState[]{
-        Blocks.BEDROCK.defaultBlockState(),
-        Blocks.REINFORCED_DEEPSLATE.defaultBlockState(),
-    }, new int[][]{
-        {1, 0, 1},
-        {0, 0, 0},
-        {1, 0, 1}
-    }, blockPos.offset(-1, 3, -1));
+        printRow(level, new BlockState[]{
+            Blocks.BEDROCK.defaultBlockState(),
+            Blocks.REINFORCED_DEEPSLATE.defaultBlockState(),
+        }, new int[][]{
+            {1, 0, 1},
+            {0, 0, 0},
+            {1, 0, 1}
+        }, blockPos.offset(-1, 3, -1));
 
-    printRow(level, new BlockState[]{
-        Blocks.BEDROCK.defaultBlockState(),
-        Blocks.AIR.defaultBlockState(),
-        Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH),
-        Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH),
-        Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST),
-        Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST),
-    }, new int[][]{
-        {1, 4, 1},
-        {3, 0, 2},
-        {1, 5, 1}
-    }, blockPos.offset(-1, 4, -1));
+        printRow(level, new BlockState[]{
+            Blocks.BEDROCK.defaultBlockState(),
+            Blocks.AIR.defaultBlockState(),
+            Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH),
+            Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH),
+            Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST),
+            Blocks.COBBLED_DEEPSLATE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST),
+        }, new int[][]{
+            {1, 4, 1},
+            {3, 0, 2},
+            {1, 5, 1}
+        }, blockPos.offset(-1, 4, -1));
 
-    setBlock(level, blockPos.above(5), Blocks.BEDROCK.defaultBlockState());
-    setBlock(level, blockPos.above(6), Blocks.BEDROCK.defaultBlockState());
+        setBlock(level, blockPos.above(5), Blocks.BEDROCK.defaultBlockState());
+        setBlock(level, blockPos.above(6), Blocks.BEDROCK.defaultBlockState());
 
 
-    cir.setReturnValue(true);
-    cir.cancel();
+        cir.setReturnValue(true);
+        cir.cancel();
     }
 }

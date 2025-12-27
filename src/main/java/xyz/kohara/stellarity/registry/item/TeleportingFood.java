@@ -37,32 +37,29 @@ public abstract class TeleportingFood extends Item {
     }
 
     //? >=1.21.9 {
+    /*public static Properties foodProperties(int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
+        return foodProperties(
+            Consumables.defaultFood(),
+            nutrition,
+            saturation,
+            alwaysEat,
+            teleportDiameter,
+            effectChances
+        );
+    }
 
-        /*public static Properties foodProperties(int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
-                return foodProperties(
-                                Consumables.defaultFood(),
-                                nutrition,
-                                saturation,
-                                alwaysEat,
-                                teleportDiameter,
-                                effectChances
-                );
-        }
-
-         public static Properties foodProperties(Consumable.Builder consumable, int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
-                return StellarityItems.foodProperties(
-                                new Item.Properties(),
-                                new FoodProperties.Builder(),
-                                consumable.onConsume(new TeleportRandomlyConsumeEffect(teleportDiameter)),
-                                nutrition,
-                                saturation,
-                                alwaysEat,
-                                effectChances
-                );
-        }
-
-
-        *///?}
+    public static Properties foodProperties(Consumable.Builder consumable, int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
+        return StellarityItems.foodProperties(
+            new Item.Properties(),
+            new FoodProperties.Builder(),
+            consumable.onConsume(new TeleportRandomlyConsumeEffect(teleportDiameter)),
+            nutrition,
+            saturation,
+            alwaysEat,
+            effectChances
+        );
+    }
+    *///?}
 
     public static Properties foodProperties(int nutrition, float saturation, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
         return foodProperties(
@@ -75,7 +72,6 @@ public abstract class TeleportingFood extends Item {
     }
 
     //? <= 1.21.1 {
-
     public static Properties foodProperties(int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
         return StellarityItems.foodProperties(
             new Item.Properties(),
@@ -100,38 +96,37 @@ public abstract class TeleportingFood extends Item {
                     (double) level.getMinBuildHeight(),
                     (double) (level.getMinBuildHeight() + ((ServerLevel) level).getLogicalHeight() - 1)
                 );
-            double f = livingEntity.getZ() + (livingEntity.getRandom().nextDouble() - 0.5) * teleportDiameter;
-        if (livingEntity.isPassenger()) {
-            livingEntity.stopRiding();
-        }
+                double f = livingEntity.getZ() + (livingEntity.getRandom().nextDouble() - 0.5) * teleportDiameter;
+                if (livingEntity.isPassenger()) {
+                    livingEntity.stopRiding();
+                }
 
-        Vec3 vec3 = livingEntity.position();
-        if (livingEntity.randomTeleport(d, e, f, true)) {
-            level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(livingEntity));
-            SoundSource soundSource;
-            SoundEvent soundEvent;
-            if (livingEntity instanceof Fox) {
-            soundEvent = SoundEvents.FOX_TELEPORT;
-            soundSource = SoundSource.NEUTRAL;
-            } else {
-            soundEvent = SoundEvents.CHORUS_FRUIT_TELEPORT;
-            soundSource = SoundSource.PLAYERS;
+                Vec3 vec3 = livingEntity.position();
+                if (livingEntity.randomTeleport(d, e, f, true)) {
+                    level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(livingEntity));
+                    SoundSource soundSource;
+                    SoundEvent soundEvent;
+                    if (livingEntity instanceof Fox) {
+                    soundEvent = SoundEvents.FOX_TELEPORT;
+                    soundSource = SoundSource.NEUTRAL;
+                    } else {
+                    soundEvent = SoundEvents.CHORUS_FRUIT_TELEPORT;
+                    soundSource = SoundSource.PLAYERS;
+                    }
+    
+                    level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), soundEvent, soundSource, 1.0f, 1.0f);
+                    livingEntity.resetFallDistance();
+                    break;
+                }
             }
 
-            level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), soundEvent, soundSource, 1.0f, 1.0f);
-            livingEntity.resetFallDistance();
-            break;
+            if (livingEntity instanceof Player player) {
+            //? = 1.21.1
+            //player.resetCurrentImpulseContext();
+            player.getCooldowns().addCooldown(this, 20);
+            }
         }
-        }
-
-        if (livingEntity instanceof Player player) {
-        //? = 1.21.1
-        //player.resetCurrentImpulseContext();
-        player.getCooldowns().addCooldown(this, 20);
-        }
-    }
-
-    return itemStack2;
+        return itemStack2;
     }
     //?}
 }

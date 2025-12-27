@@ -49,8 +49,7 @@ public class Tamaris extends
     }
 
     @Override
-        //? > 1.21.9 {
-
+    //? > 1.21.9 {
     /*public void inventoryTick(ItemStack itemStack, ServerLevel level, Entity entity, @Nullable EquipmentSlot equipmentSlot) {
         super.inventoryTick(itemStack, level, entity, equipmentSlot);
 
@@ -67,7 +66,7 @@ public class Tamaris extends
     ) {
         //? < 1.21.9 {
         super.inventoryTick(itemStack, level, entity, i, bl);
-         //? } else {
+        //? } else {
 
         //? }
 
@@ -116,19 +115,19 @@ public class Tamaris extends
                          //? } else {
                         /*EquipmentSlot.MAINHAND
                     *///? }
-            );
+                    );
 
-            nearby.playSound(StellaritySounds.TAMARIS_EXECUTE);
+                    nearby.playSound(StellaritySounds.TAMARIS_EXECUTE);
 
-            if (failed) {
-            player.getCooldowns().addCooldown(/*? < 1.21.10 { */StellarityItems.TAMARIS /*? } else { */ /*itemStack *//*? } */, 11 * 20);
+                    if (failed) {
+                        player.getCooldowns().addCooldown(/*? < 1.21.10 { */StellarityItems.TAMARIS /*? } else { */ /*itemStack *//*? } */, 11 * 20);
+                    }
+
+                    break;
+                }
             }
 
-            break;
-        }
-        }
 
-
-    }
+        }
     }
 }

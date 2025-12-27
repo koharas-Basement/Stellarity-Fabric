@@ -103,9 +103,9 @@ import java.util.Optional;
 import net.minecraft.advancements.Criterion;
 //? <= 1.21.10 {
 import net.minecraft.advancements.critereon.*;
- //? } else {
+//? } else {
 /^import net.minecraft.advancements.criterion.*;
-    ^///? }
+^///? }
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;

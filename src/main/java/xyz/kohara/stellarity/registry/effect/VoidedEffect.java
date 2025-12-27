@@ -30,8 +30,7 @@ public class VoidedEffect extends MobEffect {
         }
 
         /*? > 1.21 {*/
-        /*return *//*? } */
-            super.applyEffectTick(/*? > 1.21.10 {*/ /*level, *//*? } */livingEntity, i);
+        /*return *//*? } */ super.applyEffectTick(/*? > 1.21.10 {*/ /*level, *//*? } */livingEntity, i);
     }
 
 }

@@ -44,8 +44,7 @@ import xyz.kohara.stellarity.interface_injection.ExtFishingHook;
 
 //? >= 1.21.10 {
 /*import net.minecraft.core.particles.PowerParticleOption;
- *///?} else {
-
+*///?} else {
 
 //?}
 
@@ -55,9 +54,9 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     private static final ParticleOptions DRAGON_BREATH =
         //? >= 1.21.9 {
         /*PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1f);
-         *///?} else {
+        *///?} else {
         ParticleTypes.DRAGON_BREATH;
-    //?}
+        //?}
 
     @Unique
     private boolean buffVoidFishing = false;
@@ -95,7 +94,7 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
         return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
         //?} else {
         /*return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
-         *///?}
+        *///?}
     }
 
     @Unique
@@ -194,55 +193,55 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
             if (particleOptions == ParticleTypes.SPLASH || particleOptions == ParticleTypes.FISHING)
                 particleOptions = ParticleTypes.WITCH;
             if (particleOptions == ParticleTypes.BUBBLE) particleOptions = DRAGON_BREATH;
-    }
+        }
 
-    return original.call(instance, particleOptions, d, e, f, evalVoidFishing() ? i * 2 : i, g, h, j, k);
+        return original.call(instance, particleOptions, d, e, f, evalVoidFishing() ? i * 2 : i, g, h, j, k);
     }
 
 
     @WrapOperation(method = "catchingFish", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/FishingHook;playSound(Lnet/minecraft/sounds/SoundEvent;FF)V"))
     public void louderSplash(FishingHook instance, SoundEvent soundEvent, float v, float p, Operation<Void> original) {
-    original.call(instance, soundEvent, evalVoidFishing() ? 1.5f : v, p);
+        original.call(instance, soundEvent, evalVoidFishing() ? 1.5f : v, p);
     }
 
     @WrapOperation(method = "shouldStopFishing", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
     public boolean dontStopFisherOfVoids(ItemStack instance, Item item, Operation<Boolean> original) {
-    return instance.is(StellarityItems.FISHER_OF_VOIDS) || original.call(instance, item);
+        return instance.is(StellarityItems.FISHER_OF_VOIDS) || original.call(instance, item);
     }
 
     @WrapOperation(method = "catchingFish", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/projectile/FishingHook;lureSpeed:I", opcode = Opcodes.GETFIELD))
     private int increaseLure(FishingHook instance, Operation<Integer> original) {
-    isVoidFishing = evalVoidFishing();
-    int lure = original.call(instance);
-    if (!this.buffVoidFishing || !isVoidFishing) {
-        return lure;
-    }
+        isVoidFishing = evalVoidFishing();
+        int lure = original.call(instance);
+        if (!this.buffVoidFishing || !isVoidFishing) {
+            return lure;
+        }
 
-    //? < 1.21 {
-    return lure + 2;
-    //? } else {
-    /*return lure + 200;
-     *///? }
+        //? < 1.21 {
+        return lure + 2;
+        //? } else {
+        /*return lure + 200;
+        *///? }
     }
 
     @Unique
     public void stellarity$buffVoidFishing(boolean buffVoidFishing) {
-    this.buffVoidFishing = buffVoidFishing;
+        this.buffVoidFishing = buffVoidFishing;
     }
 
     @WrapOperation(method = "retrieve", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/storage/loot/LootTable;getRandomItems(Lnet/minecraft/world/level/storage/loot/LootParams;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;"))
     private ObjectArrayList<ItemStack> voidFishingRetrieve(LootTable instance, LootParams lootParams, Operation<ObjectArrayList<ItemStack>> original, @Local Player player, @Local(argsOnly = true) ItemStack itemStack) {
-    if (isVoidFishing) {
-        //? 1.20.1 {
-        instance = level().getServer().getLootData().getLootTable(Stellarity.id("void_fishing/event"));
-        //? } else {
-        /*instance = level().getServer().reloadableRegistries().getLootTable(Stellarity.key(Registries.LOOT_TABLE, "void_fishing/event"));
-         *///? }
-    }
-    ObjectArrayList<ItemStack> list = original.call(instance, lootParams);
-    if (isVoidFishing) {
-        StellarityCriteriaTriggers.VOID_FISHED.trigger((ServerPlayer) player, itemStack, (FishingHook) (Object) this, list);
-    }
-    return list;
+        if (isVoidFishing) {
+            //? 1.20.1 {
+            instance = level().getServer().getLootData().getLootTable(Stellarity.id("void_fishing/event"));
+            //? } else {
+            /*instance = level().getServer().reloadableRegistries().getLootTable(Stellarity.key(Registries.LOOT_TABLE, "void_fishing/event"));
+            *///? }
+        }
+        ObjectArrayList<ItemStack> list = original.call(instance, lootParams);
+        if (isVoidFishing) {
+            StellarityCriteriaTriggers.VOID_FISHED.trigger((ServerPlayer) player, itemStack, (FishingHook) (Object) this, list);
+        }
+        return list;
     }
 }

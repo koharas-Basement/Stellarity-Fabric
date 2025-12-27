@@ -24,7 +24,6 @@ public class StellarityPotions {
 
     //? > 1.21 {
     /*public static final Holder<Potion> BLIND_RAGE_HOLDER = BuiltInRegistries.POTION.wrapAsHolder(BLIND_RAGE);
-
     *///? }
 
 

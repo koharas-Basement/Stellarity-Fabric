@@ -51,12 +51,11 @@ public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
         return type;
     }
 
-
     //? < 1.21.9 {
     @WrapOperation(method = "hurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;is(Lnet/minecraft/tags/TagKey;)Z"))
-        //? } else {
+    //? } else {
     /*@WrapOperation(method = "hurtServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;is(Lnet/minecraft/tags/TagKey;)Z"))
-     *///? }
+    *///? }
     public boolean explodeOnlyNormal(DamageSource instance, TagKey<DamageType> tagKey, Operation<Boolean> original) {
         // kinda weird cuz there is a negation there and we use demorgan law to ensure damageSource isnt explosion AND is normal
         return original.call(instance, tagKey) || type != Type.NORMAL;
@@ -67,10 +66,10 @@ public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
     private void dropCrystal(DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
         Level level = level();
         if (level.isClientSide()) return;
-        //? } else {
+    //? } else {
     /*@Inject(method = "hurtServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/boss/enderdragon/EndCrystal;onDestroyedBy(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/damagesource/DamageSource;)V"))
     private void dropCrystal(ServerLevel level, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
-        *///? }
+    *///? }
 
         BlockPos pos = blockPosition();
         if (level.getBlockState(pos).is(BlockTags.FIRE)) {
@@ -117,6 +116,4 @@ public abstract class EndCrystalMixin extends Entity implements ExtEndCrystal {
             }
         }
     }
-
-
 }

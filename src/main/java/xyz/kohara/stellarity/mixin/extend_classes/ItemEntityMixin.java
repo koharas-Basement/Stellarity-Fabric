@@ -77,12 +77,10 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     @Inject(method = "addAdditionalSaveData", at = @At("HEAD"))
     public void saveData(
         //? < 1.21.9 {
-
         CompoundTag tag, CallbackInfo ci
         //? } else {
         /*ValueOutput tag, CallbackInfo ci
-         *///? }
-
+        *///? }
     ) {
 
         tag.putString("stellarity:mode", itemMode.toString());
@@ -93,21 +91,17 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     @Inject(method = "readAdditionalSaveData", at = @At("HEAD"))
     public void readData(
         //? < 1.21.9 {
-
         CompoundTag tag, CallbackInfo ci
         //? } else {
         /*ValueInput tag, CallbackInfo ci
-         *///? }
+        *///? }
     ) {
         if (tag.contains("stellarity:mode")) {
-
             try {
-
-
                 stellarity$setItemMode(ItemMode.valueOf(tag.getString("stellarity:mode")
                     //? > 1.21.9 {
                     /*.get()
-                     *///? }
+                    *///? }
                 ));
             } catch (Exception e) {
                 Stellarity.LOGGER.info("Detected invalid itemmode, ignoring");

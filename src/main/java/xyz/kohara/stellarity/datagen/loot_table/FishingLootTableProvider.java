@@ -118,31 +118,31 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
             .add(item(StellarityItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE).setWeight(11))
             .add(item(StellarityItems.WINGED_KEY).setWeight(11))
             .add(item(Items.BOOK).setWeight(2).apply(
-                    //? 1.20.1 {
+                //? 1.20.1 {
                 enchantLevels(30, 40).allowTreasure()
-             //? } else {
-            /*enchantLevels(lookup, 30, 40).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
-            *///? }
-        )
-        ).add(item(Items.BOOK).setWeight(5).apply(
-            //? 1.20.1 {
-            enchantLevels(17, 29).allowTreasure()
-             //? } else {
-            /*enchantLevels(lookup, 17, 29).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
-            *///? }
-        )
-        )
-    ));
+                //? } else {
+                /*enchantLevels(lookup, 30, 40).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
+                *///? }
+                )
+            ).add(item(Items.BOOK).setWeight(5).apply(
+                //? 1.20.1 {
+                enchantLevels(17, 29).allowTreasure()
+                 //? } else {
+                /*enchantLevels(lookup, 17, 29).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
+                *///? }
+                )
+            )
+        ));
 
-    LOOT_TABLES.put("void_fishing/fisher_of_voids", LootTable.lootTable().withPool(new LootPool.Builder().add(item(StellarityItems.FISHER_OF_VOIDS)
-        .apply(damage(0.15f, 0.75f))
-    )));
+        LOOT_TABLES.put("void_fishing/fisher_of_voids", LootTable.lootTable().withPool(new LootPool.Builder().add(item(StellarityItems.FISHER_OF_VOIDS)
+            .apply(damage(0.15f, 0.75f))
+        )));
 
-    LOOT_TABLES.put("void_fishing/event", LootTable.lootTable().withPool(new LootPool.Builder()
-        .add(lootTable(Stellarity.id("void_fishing/junk")).setWeight(15).setQuality(-2))
-        .add(lootTable(Stellarity.id("void_fishing/treasure")).setWeight(4).setQuality(2))
-        .add(lootTable(Stellarity.id("void_fishing/fish")).setWeight(70).setQuality(-1))
-    ));
+        LOOT_TABLES.put("void_fishing/event", LootTable.lootTable().withPool(new LootPool.Builder()
+            .add(lootTable(Stellarity.id("void_fishing/junk")).setWeight(15).setQuality(-2))
+            .add(lootTable(Stellarity.id("void_fishing/treasure")).setWeight(4).setQuality(2))
+            .add(lootTable(Stellarity.id("void_fishing/fish")).setWeight(70).setQuality(-1))
+        ));
     }
 
 

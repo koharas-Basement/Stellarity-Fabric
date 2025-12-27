@@ -70,12 +70,12 @@ public class RecipeProvider extends FabricRecipeProvider {
     //? = 1.20.1 {
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> output) {
-        //? } = 1.21.1 {
+    //? } = 1.21.1 {
     /*@Override
     public void buildRecipes(RecipeOutput output) {
-        *///? } else {
+    *///? } else {
     /*public void buildRecipes(HolderLookup.Provider provider, RecipeOutput output) {
-        *///? }
+    *///? }
         altarOfTheAccursed(output, new AltarSimpleRecipe(
             Stellarity.id("altar_of_the_accursed/lapis_to_amethyst"),
             new LinkedHashMap<>() {{

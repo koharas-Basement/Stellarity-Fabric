@@ -45,7 +45,7 @@ public abstract class EntityMixin implements ExtEntity
 
     //? 1.20.1 {
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;defineSynchedData()V", ordinal = 0))
-private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
+    private void addSynchedData(EntityType<?> entityType, Level level, CallbackInfo ci) {
         entityData = new SynchedEntityData((Entity) (Object) this);
         stellarity$defineSynchedData();
     }

@@ -39,8 +39,8 @@ public class CrystalHeartfish extends Item {
     //? <= 1.21.1 {
     @Override
     public int getUseDuration(ItemStack itemStack
-                                                        //? = 1.21.1
-                                                        //, LivingEntity livingEntity
+                              //? = 1.21.1
+                              // , LivingEntity livingEntity
     ) {
         return 100;
     }
@@ -48,7 +48,6 @@ public class CrystalHeartfish extends Item {
 
 
     public static Properties properties() {
-
         return StellarityItems.foodProperties(new Properties(), new FoodProperties.Builder(),
             //? >= 1.21.9
             //Consumables.defaultFood().consumeSeconds(5f),
@@ -68,8 +67,7 @@ public class CrystalHeartfish extends Item {
     public void addHealth(LivingEntity entity) {
         AttributeInstance maxHPAttribute = entity.getAttributes().getInstance(Attributes.MAX_HEALTH);
         if (maxHPAttribute == null) return;
-
-
+        
         //? if < 1.21.1 {
         UUID uuid = UUID.fromString("019a9cd4-c40f-7032-a01f-273d3b1ed9b1");
         AttributeModifier oldModifier = maxHPAttribute.getModifier(uuid);
