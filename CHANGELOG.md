@@ -65,6 +65,8 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Ingredients**
 
+**[+] Trinkets**
+
 ## Mob Effects
 
 **[+] Voided**

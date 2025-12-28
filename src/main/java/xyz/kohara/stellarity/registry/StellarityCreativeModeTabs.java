@@ -10,19 +10,20 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import xyz.kohara.stellarity.Stellarity;
 
 //? 1.20.1 {
 import net.minecraft.world.item.alchemy.PotionUtils;
 
- //?} else {
+    //?} else {
 /*import net.minecraft.world.item.alchemy.PotionContents;
-    *///?}
+ *///?}
 
 import static net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB;
 
 public class StellarityCreativeModeTabs {
-    public static final Item[] BLOCKS_ITEMS = new Item[]{
+    public static final ItemLike[] BLOCKS_ITEMS = new ItemLike[]{
         StellarityItems.ASHEN_FROGLIGHT,
         StellarityItems.ENDER_DIRT,
         StellarityItems.ENDER_GRASS_BLOCK,
@@ -32,7 +33,7 @@ public class StellarityCreativeModeTabs {
         StellarityItems.PHANTOM_ITEM_FRAME
     };
 
-    public static final Item[] FOOD_ITEMS = new Item[]{
+    public static final ItemLike[] FOOD_ITEMS = new ItemLike[]{
         StellarityItems.CRYSTAL_HEARTFISH,
         StellarityItems.SUSHI,
         StellarityItems.GOLDEN_CHORUS_FRUIT,
@@ -55,13 +56,21 @@ public class StellarityCreativeModeTabs {
         StellarityItems.PHO
     };
 
-    public static final Item[] EQUIPMENT_ITEMS = new Item[]{
+    public static final ItemStack[] FOOD_ITEMSTACKS = new ItemStack[]{
+        //? 1.20.1 {
+        PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
+        //?} else {
+        /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
+         *///?}
+    };
+
+    public static final ItemLike[] EQUIPMENT_ITEMS = new ItemLike[]{
         StellarityItems.CALL_OF_THE_VOID,
         StellarityItems.FISHER_OF_VOIDS,
         StellarityItems.TAMARIS
     };
 
-    public static final Item[] INGREDIENT_ITEMS = new Item[]{
+    public static final ItemLike[] INGREDIENT_ITEMS = new ItemLike[]{
         StellarityItems.CHORUS_PLATING,
         StellarityItems.ENDERITE_SHARD,
         StellarityItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE,
@@ -73,10 +82,15 @@ public class StellarityCreativeModeTabs {
         StellarityItems.WINGED_KEY
     };
 
+    public static final ItemLike[] TRINKET_ITEMS = new ItemLike[]{
+        StellarityItems.PRISMATIC_PEARL
+    };
+
     public static final ResourceKey<CreativeModeTab> FOOD_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "food");
     public static final ResourceKey<CreativeModeTab> BLOCKS_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "building_blocks");
     public static final ResourceKey<CreativeModeTab> EQUIPMENT_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "equipment");
     public static final ResourceKey<CreativeModeTab> INGREDIENTS_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "ingredients");
+    public static final ResourceKey<CreativeModeTab> TRINKETS_KEY = Stellarity.key(CREATIVE_MODE_TAB.key(), "trinkets");
 
     public static final CreativeModeTab FOOD = FabricItemGroup.builder()
         .icon(() -> new ItemStack(StellarityItems.SUSHI))
@@ -96,46 +110,37 @@ public class StellarityCreativeModeTabs {
         .title(Component.translatable("itemGroup.stellarity.ingredients"))
         .build();
 
+    public static final CreativeModeTab TRINKETS = FabricItemGroup.builder()
+        .icon(() -> new ItemStack(StellarityItems.PRISMATIC_PEARL))
+        .title(Component.translatable("itemGroup.stellarity.trinkets"))
+        .build();
+
     public static void init() {
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, FOOD_KEY, FOOD);
-        ItemGroupEvents.modifyEntriesEvent(FOOD_KEY).register(itemGroup -> {
-            for (Item item : FOOD_ITEMS) {
-                itemGroup.accept(item);
-            }
-
-            itemGroup.accept(
-                //? 1.20.1 {
-                PotionUtils.setPotion(new ItemStack(Items.POTION), StellarityPotions.BLIND_RAGE)
-                 //?} else {
-                /*PotionContents.createItemStack(Items.POTION, StellarityPotions.BLIND_RAGE_HOLDER)
-                *///?}
-            );
-        });
-
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BLOCKS_KEY, BLOCKS);
-        ItemGroupEvents.modifyEntriesEvent(BLOCKS_KEY).register(itemGroup -> {
-            for (Item item : BLOCKS_ITEMS) {
-                itemGroup.accept(item);
-            }
-        });
-
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, EQUIPMENT_KEY, EQUIPMENT);
-        ItemGroupEvents.modifyEntriesEvent(EQUIPMENT_KEY).register(itemGroup -> {
-            for (Item item : EQUIPMENT_ITEMS) {
-                itemGroup.accept(item);
-            }
-        });
-
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, INGREDIENTS_KEY, INGREDIENTS);
-        ItemGroupEvents.modifyEntriesEvent(INGREDIENTS_KEY).register(itemGroup -> {
-            for (Item item : INGREDIENT_ITEMS) {
-                itemGroup.accept(item);
-            }
-        });
-
+        register(FOOD_KEY, FOOD, FOOD_ITEMS, FOOD_ITEMSTACKS);
+        register(BLOCKS_KEY, BLOCKS, BLOCKS_ITEMS);
+        register(EQUIPMENT_KEY, EQUIPMENT, EQUIPMENT_ITEMS);
+        register(INGREDIENTS_KEY, INGREDIENTS, INGREDIENT_ITEMS);
+        register(TRINKETS_KEY, TRINKETS, TRINKET_ITEMS);
 
         Stellarity.LOGGER.info("Registering Stellarity Creative Mode Tabs");
 
+    }
+
+    public static void register(ResourceKey<CreativeModeTab> key, CreativeModeTab tab, ItemLike[] items, ItemStack[] stacks) {
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, key, tab);
+        ItemGroupEvents.modifyEntriesEvent(key).register(itemGroup -> {
+            for (ItemLike item : items) {
+                itemGroup.accept(item);
+            }
+
+            for (ItemStack stack : stacks) {
+                itemGroup.accept(stack);
+            }
+        });
+    }
+
+    public static void register(ResourceKey<CreativeModeTab> key, CreativeModeTab tab, ItemLike[] items) {
+        register(key, tab, items, new ItemStack[]{});
     }
 
 }

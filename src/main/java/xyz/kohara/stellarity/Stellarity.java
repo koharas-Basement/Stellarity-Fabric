@@ -26,6 +26,7 @@ public class Stellarity implements ModInitializer {
         //?} else {
         /*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
          *///?}
+
     }
 
     public static ResourceLocation mcId(String path) {

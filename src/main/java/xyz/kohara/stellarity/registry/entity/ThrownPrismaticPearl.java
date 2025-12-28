@@ -2,9 +2,13 @@ package xyz.kohara.stellarity.registry.entity;
 
 import net.minecraft.core.particles.DustParticleOptions;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -139,6 +143,7 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
 
     private int colorIndex = 0;
 
+
     @Override
     public void tick() {
         super.tick();
@@ -189,6 +194,10 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
         return StellarityItems.PRISMATIC_PEARL;
     }
 
+    private static final int[] LAND_COLORS = {
+        0xfa80fc, 0xfa9ce0, 0xfab5c7, 0xfac5b7, 0xfad9a3, 0xcb6448, 0x7a07f6, 0x77e1a3, 0x77b8cc, 0x935118, 0xbbff41, 0xcae150, 0xfa8150, 0xfa811d
+    };
+
     @Override
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
@@ -203,7 +212,13 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
                 owner.teleportTo(serverLevel, position.x, position.y, position.z, Set.of(), owner.getYHeadRot(), owner.getXRot() /*? > 1.21.9 {*//*, true *//*? }*/);
             }
 
+            level.playSound(null, owner.blockPosition(), SoundEvents.ENDER_EYE_DEATH, SoundSource.NEUTRAL);
+
             this.discard();
+        }
+
+        for (int color : LAND_COLORS) {
+            level.addParticle(new DustParticleOptions(/*? > 1.21.9 { *//*color*//*? } else { */Vec3.fromRGB24(color).toVector3f()/*? }*/, 1.5f), position.x + random.nextDouble() * 2 - 1, position.y, position.z + random.nextDouble() * 2 - 1, 0, 0, 0);
         }
     }
 
