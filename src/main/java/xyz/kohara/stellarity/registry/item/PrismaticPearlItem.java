@@ -12,13 +12,15 @@ import net.minecraft.world.item.ItemStack;
 //? < 1.21.9 {
 
 import net.minecraft.world.InteractionResultHolder;
-import xyz.kohara.stellarity.registry.StellaritySounds;
 import xyz.kohara.stellarity.registry.entity.ThrownPrismaticPearl;
 
 //? } else {
 /*import net.minecraft.world.InteractionResult;
 import xyz.kohara.stellarity.registry.entity.ThrownPrismaticPearl;
 *///? }
+
+import xyz.kohara.stellarity.registry.StellaritySounds;
+
 
 public class PrismaticPearlItem extends Item {
     public PrismaticPearlItem(Properties properties) {

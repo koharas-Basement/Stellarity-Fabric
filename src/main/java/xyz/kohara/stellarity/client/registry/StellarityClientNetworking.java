@@ -1,11 +1,16 @@
-package xyz.kohara.stellarity.client;
+package xyz.kohara.stellarity.client.registry;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;
 import xyz.kohara.stellarity.networking.S2CSetStellarityEntityDataPacket;
+//? 1.20.1 {
+
+//? } else {
+
+/*import net.minecraft.client.multiplayer.ClientLevel;
+*///? }
 
 @Environment(EnvType.CLIENT)
 public class StellarityClientNetworking {

@@ -1,4 +1,4 @@
-package xyz.kohara.stellarity.client.gui.screen;
+package xyz.kohara.stellarity.client.registry.gui.screen;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

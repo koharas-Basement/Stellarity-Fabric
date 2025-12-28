@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import xyz.kohara.stellarity.registry.StellarityEntities;
 
-import static xyz.kohara.stellarity.client.renderer.entity.PhantomItemFrameRenderer.FAKE_STATE_DEFINITION;
+import static xyz.kohara.stellarity.client.registry.renderer.entity.PhantomItemFrameRenderer.FAKE_STATE_DEFINITION;
 
 @Mixin(ItemFrameRenderer.class)
 @MixinEnvironment("client")

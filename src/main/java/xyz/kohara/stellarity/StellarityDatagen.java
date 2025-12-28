@@ -1,4 +1,4 @@
-package xyz.kohara.stellarity.registry;
+package xyz.kohara.stellarity;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

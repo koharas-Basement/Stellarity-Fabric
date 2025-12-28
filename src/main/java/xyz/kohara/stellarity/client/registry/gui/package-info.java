@@ -2,4 +2,4 @@
 //@org.jspecify.annotations.NullMarked
 //? < 1.21.9
 @net.minecraft.MethodsReturnNonnullByDefault
-package xyz.kohara.stellarity.client.renderer.entity;
+package xyz.kohara.stellarity.client.registry.gui;

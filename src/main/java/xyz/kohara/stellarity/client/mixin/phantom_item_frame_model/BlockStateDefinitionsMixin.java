@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.kohara.stellarity.Stellarity;
 
-import static xyz.kohara.stellarity.client.renderer.entity.PhantomItemFrameRenderer.FAKE_STATE_DEFINITION;
+import static xyz.kohara.stellarity.client.registry.renderer.entity.PhantomItemFrameRenderer.FAKE_STATE_DEFINITION;
 
 import java.util.HashMap;
 import java.util.Map;

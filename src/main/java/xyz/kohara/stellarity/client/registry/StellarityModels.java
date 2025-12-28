@@ -1,4 +1,4 @@
-package xyz.kohara.stellarity.client;
+package xyz.kohara.stellarity.client.registry;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -86,7 +86,7 @@ public class StellarityModels {
         BlockRenderLayerMap.INSTANCE.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, RenderType.cutout());
         //?} else {
         /*BlockRenderLayerMap.putBlock(StellarityBlocks.ENDER_GRASS_BLOCK, ChunkSectionLayer.CUTOUT);
-        *///?}
+         *///?}
 
         Stellarity.LOGGER.info("Initialized Block Model Colors");
     }
