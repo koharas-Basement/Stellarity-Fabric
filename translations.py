@@ -17,26 +17,24 @@ while not done:
   print("2. Remove key")
   print("3. Rename key")
   print("4. Add new key with custom value")
-  print("5. Exit")
+  print("5. Exit (or just syncing from weblate)")
   action = input("Input action (1/2/3/4/5): ")
 
   if action == "1" or action == "4":
     key = input("Enter new key: ")
     value = input("Enter value for the new key: ")
-    for lang in translations:
-      translations[lang][key] = value
+
+    translations["en_us"][key] = value
 
   elif action == "2":
     key = input("Enter key to remove: ")
-    for lang in translations:
-      if key in translations[lang]:
-        del translations[lang][key]
+
+    del translations["en_us"][key]
   elif action == "3":
     old_key = input("Enter key to rename: ")
     new_key = input("Enter new key name: ")
-    for lang in translations:
-      if old_key in translations[lang]:
-        translations[lang][new_key] = translations[lang].pop(old_key)
+
+    translations["en_us"][new_key] = translations["en_us"].pop(old_key)
 
   elif action == "5":
     done = True

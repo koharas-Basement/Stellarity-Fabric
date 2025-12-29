@@ -205,7 +205,6 @@ public class ThrownPrismaticPearl extends ThrowableItemProjectile {
         var level = level();
         var position = position();
 
-
         if (level instanceof ServerLevel serverLevel && !isRemoved()) {
             var owner = getOwner();
             if (owner != null) {

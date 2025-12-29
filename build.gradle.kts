@@ -31,6 +31,8 @@ repositories {
     }
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+    maven("https://maven.blamejared.com")
+
 }
 
 dependencies {
@@ -47,6 +49,11 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
+    if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
+        modImplementation("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
+
+    }
+
 //    fapi("fabric-lifecycle-events-v1",
 //        "fabric-resource-loader-v0",
 //        "fabric-content-registries-v0",
@@ -54,6 +61,9 @@ dependencies {
 //        "fabric-data-generation-api-v1",
 //        "fabric-rendering-api-v1")
 }
+
+
+
 
 
 
@@ -158,7 +168,7 @@ publishMods {
     modLoaders.add("fabric")
 
     dryRun = !env.isPresent("MODRINTH_TOKEN")
-            || !env.isPresent("CURSEFORGE_TOKEN")
+        || !env.isPresent("CURSEFORGE_TOKEN")
 
     modrinth {
         projectId = property("publish.modrinth") as String
