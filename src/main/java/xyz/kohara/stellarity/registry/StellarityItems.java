@@ -68,9 +68,9 @@ public class StellarityItems {
         foodProperties(1, 0.2f, new EffectChance(new MobEffectInstance(
             //? >= 1.21.9 {
             /*MobEffects.SLOWNESS
-            *///?} else {
+             *///?} else {
             MobEffects.MOVEMENT_SLOWDOWN
-             //?}
+            //?}
             , 3 * 20, 2))));
     public static final Item SHULKER_BODY = register("shulker_body", ShulkerBody::new, ShulkerBody.properties());
     public static final Item PRISMATIC_SUSHI = register("prismatic_sushi", Item::new, foodProperties(4, 2.4f, true, new EffectChance(new MobEffectInstance(MobEffects.HEALTH_BOOST, 40 * 20))));
@@ -79,9 +79,9 @@ public class StellarityItems {
             new EffectChance(new MobEffectInstance(
                 //? >= 1.21.9 {
                 /*MobEffects.HEALTH_BOOST
-                *///? } else {
+                 *///? } else {
                 MobEffects.HEAL
-                 //?}
+                //?}
                 , 20, 2)),
             new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 64 * 20, 1))
         ));
@@ -91,29 +91,29 @@ public class StellarityItems {
     public static final Item PHO = register("pho",
         //? >= 1.21 {
         /*Item::new,
-        *///? } else {
+         *///? } else {
         BowlFoodItem::new,
-         //? }
+        //? }
         foodProperties(new Item.Properties().stacksTo(1).craftRemainder(Items.BOWL), new FoodProperties.Builder()
             //? = 1.21.1 {
             /*.usingConvertsTo(Items.BOWL)
              *///? } >= 1.21.9 {
             /*, Consumables.defaultFood()
-            *///? }
+             *///? }
             , 13, 20f, true,
             new EffectChance(new MobEffectInstance(MobEffects.ABSORPTION, 150 * 20)),
             new EffectChance(new MobEffectInstance(
                 //? >= 1.21.9 {
                 /*MobEffects.STRENGTH
-                *///? } else {
+                 *///? } else {
                 MobEffects.DAMAGE_BOOST
-                 //?}
+                //?}
                 , 150 * 20)),
             new EffectChance(new MobEffectInstance(MobEffects.REGENERATION, 32 * 20))
         )
-            //? >= 1.21.9 {
-            /*.usingConvertsTo(Items.BOWL)
-        *///? }
+        //? >= 1.21.9 {
+        /*.usingConvertsTo(Items.BOWL)
+         *///? }
     );
 
     public static final Item TAMARIS = register("tamaris", Tamaris::new, Tamaris.properties());
@@ -161,7 +161,7 @@ public class StellarityItems {
     public static final Item WINGED_KEY = register("winged_key", Item::new, new Item.Properties());
 
     public static final Item PRISMATIC_PEARL = register("prismatic_pearl", PrismaticPearlItem::new, PrismaticPearlItem.properties());
-
+    public static final Item ENDONOMICON = register("endonomicon", Endonomicon::new, Endonomicon.properties());
 
     public static Item registerBlock(String name, Block block) {
         return registerBlock(name, block, new Item.Properties());
@@ -171,7 +171,7 @@ public class StellarityItems {
         ResourceKey<Item> itemKey = Stellarity.key(Registries.ITEM, name);
         //? if >= 1.21.9 {
         /*settings = settings.useBlockDescriptionPrefix().setId(itemKey);
-        *///?}
+         *///?}
         Item item = new BlockItem(block, settings);
 
         Registry.register(BuiltInRegistries.ITEM, itemKey, item);
@@ -187,7 +187,7 @@ public class StellarityItems {
         ResourceKey<Item> itemKey = Stellarity.key(Registries.ITEM, name);
         //? >= 1.21.10 {
         /*settings.setId(itemKey);
-        *///?}
+         *///?}
 
         Item item = itemFactory.apply(settings);
         Registry.register(BuiltInRegistries.ITEM, itemKey, item);
@@ -204,8 +204,8 @@ public class StellarityItems {
 
     public static Item.Properties foodProperties(Item.Properties properties, FoodProperties.Builder foodProperties,
                                                  //? >= 1.21.9 {
-                                                 /*Consumable.Builder consumable,
-                                                 *///?}
+        /*Consumable.Builder consumable,
+         *///?}
                                                  int nutrition, float saturation, boolean alwaysEat, EffectChance... effectChances) {
         foodProperties = foodProperties
             .nutrition(nutrition)
@@ -215,15 +215,15 @@ public class StellarityItems {
         for (EffectChance ec : effectChances) {
             foodProperties.effect(ec.effect, ec.chance);
         }
-    //?} else {
-            /*.saturationModifier(saturation);
-        *///?}
+        //?} else {
+        /*.saturationModifier(saturation);
+         *///?}
         if (alwaysEat) {
             foodProperties =
                 //? = 1.20.1
                 foodProperties.alwaysEat();
-                //? >= 1.21.1
-                //foodProperties.alwaysEdible();
+            //? >= 1.21.1
+            //foodProperties.alwaysEdible();
         }
 
         //? >= 1.21.9 {
@@ -234,7 +234,7 @@ public class StellarityItems {
         *///?} else {
 
         return properties.food(foodProperties.build());
-         //?}
+        //?}
 
     }
 

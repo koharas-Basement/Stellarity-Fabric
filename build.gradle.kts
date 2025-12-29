@@ -51,7 +51,6 @@ dependencies {
 
     if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
         modImplementation("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
-
     }
 
 //    fapi("fabric-lifecycle-events-v1",

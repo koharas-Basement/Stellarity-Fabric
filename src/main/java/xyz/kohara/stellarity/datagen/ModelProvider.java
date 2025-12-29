@@ -68,7 +68,8 @@ public class ModelProvider extends FabricModelProvider {
         StellarityItems.GILDED_PURPUR_KEY,
         StellarityItems.PURPUR_KEY,
         StellarityItems.WINGED_KEY,
-        StellarityItems.PRISMATIC_PEARL
+        StellarityItems.PRISMATIC_PEARL,
+        StellarityItems.ENDONOMICON
     };
 
     @Override
