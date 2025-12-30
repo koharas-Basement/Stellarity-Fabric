@@ -61,6 +61,8 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Winged Key**
 
+**[+] Endonomicon**
+
 ## Creative Mode Tabs
 
 **[+] Ingredients**

@@ -3,7 +3,6 @@ package xyz.kohara.stellarity.registry.item;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -12,6 +11,7 @@ import net.minecraft.world.level.Level;
 //? < 1.21.9 {
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.item.ItemStack;
+import vazkii.patchouli.api.PatchouliAPI;
 import xyz.kohara.stellarity.Stellarity;
 //? } else {
 /*import net.minecraft.world.InteractionResult;
@@ -29,10 +29,10 @@ public class Endonomicon extends Item {
 
     @Override
     public /*? < 1.21.9 { */InteractionResultHolder<ItemStack>/*? } else { */ /*InteractionResult*//*? }*/ use(Level level, Player player, InteractionHand interactionHand) {
-
-
         var result = super.use(level, player, interactionHand);
 
+
+        //? < 1.21.9 {
         if (!(player instanceof LocalPlayer localPlayer)) return result;
 
 
@@ -46,16 +46,16 @@ public class Endonomicon extends Item {
         }
 
         try {
-            Object apiInstance = Class.forName("vazkii.patchouli.api.PatchouliAPI").getDeclaredMethod("get").invoke(Object.class);
-
-            apiInstance.getClass().getMethod("openBookGUI", ResourceLocation.class).invoke(apiInstance, Stellarity.id("endonomicon"));
-
-
-        } catch (ReflectiveOperationException e) {
+            PatchouliAPI.get().openBookGUI(Stellarity.id("endonomicon"));
+        } catch (Exception e) {
             localPlayer.displayClientMessage(
                 Component.literal(e.toString()), false
             );
         }
+        //? } else {
+        /*// fix later to translation
+        player.displayClientMessage(Component.literal("Blame Patchouli for not supplying modern support"), true);
+        *///? }
 
 
         return result;

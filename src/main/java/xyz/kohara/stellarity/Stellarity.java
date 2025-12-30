@@ -17,7 +17,7 @@ public class Stellarity implements ModInitializer {
     // That way, it's clear which mod wrote info, warnings, and errors.
     public static final String MOD_ID = "stellarity";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static final String VERSION = /*$ mod_version*/ "0.2.0";
+    public static final String VERSION = /*$ mod_version*/ "0.3.0";
     public static final String MINECRAFT = /*$ minecraft*/ "1.20.1";
 
     public static ResourceLocation id(String path) {
