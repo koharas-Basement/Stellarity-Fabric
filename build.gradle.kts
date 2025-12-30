@@ -49,22 +49,16 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
+    // begin mod dependencies
+
+    // those with eval blocks mean dependency is only added for certain MC versions
+    // for non required dependencies, use modCompileOnly. This means ur mod will not be present in the runClient. To use, add to version/<version>/run/mods/
+    // for required dependencies, use modImplementation
     if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
-        modImplementation("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
+        // be sure to declare deps.patchouli in version/<version>/run/mods/ gradle.properties where the mod applies
+        modCompileOnly("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
     }
-
-//    fapi("fabric-lifecycle-events-v1",
-//        "fabric-resource-loader-v0",
-//        "fabric-content-registries-v0",
-//        "fabric-item-group-api-v1",
-//        "fabric-data-generation-api-v1",
-//        "fabric-rendering-api-v1")
 }
-
-
-
-
-
 
 loom {
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json") // Useful for interface injection
@@ -83,8 +77,7 @@ loom {
 
     runConfigs.all {
         ideConfigGenerated(true)
-        vmArgs("-Dmixin.debug.export=true -XX:+AllowEnhancedClassRedefinition") // Exports transformed classes for debugging
-        runDir = "../../run" // Shares the run directory between versions
+        vmArgs("-Dmixin.debug.export=true -XX:+AllowEnhancedClassRedefinition")
     }
 }
 
@@ -124,13 +117,15 @@ tasks {
         inputs.property("name", project.property("mod.name"))
         inputs.property("version", project.property("mod.version"))
         inputs.property("minecraft", project.property("mod.mc_dep"))
+        inputs.property("fabric_api", project.property("deps.fabric_api"))
 
 
         val props = mapOf(
             "id" to project.property("mod.id"),
             "name" to project.property("mod.name"),
             "version" to project.property("mod.version"),
-            "minecraft" to project.property("mod.mc_dep")
+            "minecraft" to project.property("mod.mc_dep"),
+            "fabric_api" to project.property("deps.fabric_api"),
         )
 
         filesMatching("fabric.mod.json") { expand(props) }
@@ -157,7 +152,8 @@ tasks {
 }
 
 
-// Publishes builds to Modrinth and Curseforge with changelog from the CHANGELOG.md fileg
+// Publishes builds to Modrinth and Curseforge with changelog from the CHANGELOG.md file
+// Publishing using publishMods task
 publishMods {
     file = tasks.remapJar.map { it.archiveFile.get() }
     displayName = "${property("mod.name")} ${property("mod.version")} for ${property("mod.mc_title")}"
@@ -173,8 +169,9 @@ publishMods {
         projectId = property("publish.modrinth") as String
         accessToken = env.fetch("MODRINTH_TOKEN", "")
         minecraftVersions.addAll(property("mod.mc_targets").toString().split(' '))
-        requires {
-            slug = "fabric-api"
+        requires("fabric-api")
+        if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
+            optional("patchouli")
         }
     }
 
@@ -182,8 +179,9 @@ publishMods {
         projectId = property("publish.curseforge") as String
         accessToken = env.fetch("CURSEFORGE_TOKEN", "")
         minecraftVersions.addAll(property("mod.mc_targets").toString().split(' '))
-        requires {
-            slug = "fabric-api"
+        requires("fabric-api")
+        if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
+            optional("patchouli")
         }
     }
 }
