@@ -55,7 +55,7 @@ dependencies {
     // for non required dependencies, use modCompileOnly. This means ur mod will not be present in the runClient. To use, add to version/<version>/run/mods/
     // for required dependencies, use modImplementation
     if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
-        // be sure to declare deps.patchouli in version/<version>/run/mods/ gradle.properties where the mod applies
+        // be sure to declare deps.patchouli (or similar) in version/<version>/run/mods/gradle.properties where the mod applies
         modCompileOnly("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
     }
 }
