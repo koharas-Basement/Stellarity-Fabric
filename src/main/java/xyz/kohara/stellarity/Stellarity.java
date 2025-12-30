@@ -29,6 +29,15 @@ public class Stellarity implements ModInitializer {
 
     }
 
+    public static ResourceLocation id(String namespace, String path) {
+        //? if = 1.20.1 {
+        return new ResourceLocation(namespace, path);
+        //?} else {
+        /*return ResourceLocation.fromNamespaceAndPath(namespace, path);
+         *///?}
+
+    }
+
     public static ResourceLocation mcId(String path) {
         //? if = 1.20.1 {
         return new ResourceLocation(path);

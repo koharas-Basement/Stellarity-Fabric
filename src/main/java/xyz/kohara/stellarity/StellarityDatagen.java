@@ -4,6 +4,9 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.SharedConstants;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import xyz.kohara.stellarity.datagen.*;
 import xyz.kohara.stellarity.datagen.loot_table.BlockLootTableProvider;
 import xyz.kohara.stellarity.datagen.loot_table.FishingLootTableProvider;
@@ -11,9 +14,11 @@ import xyz.kohara.stellarity.datagen.loot_table.FishingLootTableProvider;
 @Environment(EnvType.CLIENT)
 public class StellarityDatagen implements DataGeneratorEntrypoint {
 
+
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+
 
         pack.addProvider(ModelProvider::new);
         pack.addProvider(AdvancementProvider::new);
@@ -22,5 +27,10 @@ public class StellarityDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(BlockLootTableProvider::new);
         pack.addProvider(BlockTagProvider::new);
         pack.addProvider(FishingLootTableProvider::new);
+
+
+        //? <= 1.21.1 {
+        pack.addProvider((fabricDataOutput, completableFuture) -> new EndonomiconBookProvider(fabricDataOutput, fabricDataGenerator, completableFuture.join(), "endonomicon"));
+        //? }
     }
 }

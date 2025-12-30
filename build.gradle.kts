@@ -14,11 +14,22 @@ version = "${property("mod.version")}+${stonecutter.current.version}"
 base.archivesName = property("mod.id") as String
 
 val requiredJava = when {
-    stonecutter.eval(stonecutter.current.version, ">=1.20.6") -> JavaVersion.VERSION_21
+    stonecutter.eval(stonecutter.current.version, ">=1.20") -> JavaVersion.VERSION_21
     stonecutter.eval(stonecutter.current.version, ">=1.18") -> JavaVersion.VERSION_17
     stonecutter.eval(stonecutter.current.version, ">=1.17") -> JavaVersion.VERSION_16
     else -> JavaVersion.VERSION_1_8
 }
+
+sourceSets {
+    main {
+        kotlin {
+            if (stonecutter.eval(stonecutter.current.version, "> 1.21.1")) {
+                exclude("dev/aaronhowser/mods/patchoulidatagen/**")
+            }
+        }
+    }
+}
+
 
 repositories {
     /**
@@ -32,6 +43,8 @@ repositories {
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
     maven("https://maven.blamejared.com")
+    maven("https://maven.latvian.dev/releases")
+    maven("https://thedarkcolour.github.io/KotlinForForge/")
 
 }
 
@@ -49,14 +62,18 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
+
     // begin mod dependencies
+
+    // patchouli datagen
 
     // those with eval blocks mean dependency is only added for certain MC versions
     // for non required dependencies, use modCompileOnly. This means ur mod will not be present in the runClient. To use, add to version/<version>/run/mods/
     // for required dependencies, use modImplementation
     if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
         // be sure to declare deps.patchouli (or similar) in version/<version>/run/mods/gradle.properties where the mod applies
-        modCompileOnly("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
+        modImplementation("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
+        implementation("dev.aaronhowser.mods:aaron-1.21.1:1.5.0-build.107")
     }
 }
 
