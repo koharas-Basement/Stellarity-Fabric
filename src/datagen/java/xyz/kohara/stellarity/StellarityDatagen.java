@@ -1,17 +1,10 @@
 package xyz.kohara.stellarity;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.SharedConstants;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import xyz.kohara.stellarity.datagen.*;
-import xyz.kohara.stellarity.datagen.loot_table.BlockLootTableProvider;
-import xyz.kohara.stellarity.datagen.loot_table.FishingLootTableProvider;
+import xyz.kohara.stellarity.datagen.loot_table.*;
 
-@Environment(EnvType.CLIENT)
 public class StellarityDatagen implements DataGeneratorEntrypoint {
 
 

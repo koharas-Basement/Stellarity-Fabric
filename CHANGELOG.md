@@ -1,5 +1,8 @@
 # 0.3.0
 
+⚠️ This update refactors the code so that development code is no longer included in the files you are recieve. Please
+let us know if this causes any bugs.
+
 This update addresses loot tables and adds more items (they depend on each other)
 
 # Changes
@@ -108,3 +111,5 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 # Developers Note
 
 so much new content :3
+
+kohara was here

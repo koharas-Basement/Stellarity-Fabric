@@ -20,15 +20,7 @@ val requiredJava = when {
     else -> JavaVersion.VERSION_1_8
 }
 
-sourceSets {
-    main {
-        kotlin {
-            if (stonecutter.eval(stonecutter.current.version, "> 1.21.1")) {
-                exclude("dev/aaronhowser/mods/patchoulidatagen/**")
-            }
-        }
-    }
-}
+
 
 
 repositories {
@@ -101,9 +93,21 @@ loom {
 fabricApi {
     configureDataGeneration {
         client = true
+        modId = "${project.property("mod.id")}"
+        createSourceSet = true
     }
-}
 
+    sourceSets["datagen"].apply {
+        kotlin {
+            if (stonecutter.eval(stonecutter.current.version, "> 1.21.1")) {
+                exclude("dev/aaronhowser/mods/patchoulidatagen/**")
+            }
+        }
+
+
+    }
+
+}
 
 
 
