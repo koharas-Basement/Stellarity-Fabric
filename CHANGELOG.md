@@ -34,7 +34,8 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[*] Ashen Froglight**
 
-- Added loot table
+- Added mining loot table
+- Adding magma cube being eaten by frog loot table
 
 ## Items
 
@@ -82,6 +83,12 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 **[+] Frostburn**
 
 **[+] Prismatic Inferno**
+
+## Entities
+
+**[*] Frog**
+
+- Added Ender Frog variant
 
 ## Mechanics
 

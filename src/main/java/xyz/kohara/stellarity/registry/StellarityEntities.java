@@ -8,6 +8,7 @@ import net.minecraft.world.entity.MobCategory;
 import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.registry.entity.PhantomItemFrame;
 import xyz.kohara.stellarity.registry.entity.ThrownPrismaticPearl;
+import xyz.kohara.stellarity.registry.entity.variants.StellarityFrogVariants;
 
 //? > 1.21.9 {
 /*import net.minecraft.resources.ResourceKey;
@@ -33,5 +34,6 @@ public class StellarityEntities {
 
     public static void init() {
         Stellarity.LOGGER.info("Registering Stellarity Entities");
+        StellarityFrogVariants.init();
     }
 }

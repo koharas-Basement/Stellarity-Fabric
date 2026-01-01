@@ -207,6 +207,7 @@ publishMods {
 stonecutter {
     replacements.string(current.parsed.matches(">=1.21.11")) {
         replace("ResourceLocation", "Identifier")
+        replace("net.minecraft.advancements.critereon", "net.minecraft.advancements.criterion")
     }
 }
 

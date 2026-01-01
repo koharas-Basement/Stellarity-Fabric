@@ -104,7 +104,7 @@ import net.minecraft.advancements.Criterion;
 //? <= 1.21.10 {
 import net.minecraft.advancements.critereon.*;
 //? } else {
-/^import net.minecraft.advancements.criterion.*;
+/^import net.minecraft.advancements.critereon.*;
 ^///? }
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;

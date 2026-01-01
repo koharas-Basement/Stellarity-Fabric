@@ -28,11 +28,11 @@ import net.minecraft.tags.EnchantmentTags;
 *///? } else {
 import net.minecraft.resources.ResourceLocation;
 
- //? }
+    //? }
 
 import java.util.HashMap;
 
-import static xyz.kohara.stellarity.datagen.loot_table.LootTableUtils.*;
+import static xyz.kohara.stellarity.utils.LootTableUtils.*;
 
 public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
 
@@ -72,7 +72,7 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
             .add(item(Items.SHULKER_SHELL).setWeight(5).apply(count(range(1, 2))))
             .add(item(Items.FIREWORK_STAR).apply(
                 //? 1.20.1 {
-                nbt("""
+                setNbt("""
                     {"Explosion": {Type:0,Flicker:0,Trail:0,Colors:[I;8073150],FadeColors:[I;12801229]}}
                     """)
                 //? } else {
@@ -83,7 +83,7 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
             ))
             .add(item(Items.FIREWORK_STAR).apply(
                 //? 1.20.1 {
-                nbt("""
+                setNbt("""
                     {"Explosion": {Type:0,Flicker:1,Trail:0,Colors:[I;8073150],FadeColors:[I;12801229]}}
                     """)
                 //? } else {
@@ -94,7 +94,7 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
             ))
             .add(item(Items.FIREWORK_STAR).apply(
                 //? 1.20.1 {
-                nbt("""
+                setNbt("""
                     {"Explosion": {Type:0,Flicker:0,Trail:1,Colors:[I;12801229],FadeColors:[I;8073150]}}
                     """)
                 //? } else {
@@ -118,18 +118,18 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
             .add(item(StellarityItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE).setWeight(11))
             .add(item(StellarityItems.WINGED_KEY).setWeight(11))
             .add(item(Items.BOOK).setWeight(2).apply(
-                //? 1.20.1 {
-                enchantLevels(30, 40).allowTreasure()
-                //? } else {
-                /*enchantLevels(lookup, 30, 40).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
-                *///? }
+                    //? 1.20.1 {
+                    enchantLevels(30, 40).allowTreasure()
+                    //? } else {
+                    /*enchantLevels(lookup, 30, 40).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
+                     *///? }
                 )
             ).add(item(Items.BOOK).setWeight(5).apply(
-                //? 1.20.1 {
-                enchantLevels(17, 29).allowTreasure()
-                 //? } else {
-                /*enchantLevels(lookup, 17, 29).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
-                *///? }
+                    //? 1.20.1 {
+                    enchantLevels(17, 29).allowTreasure()
+                    //? } else {
+                    /*enchantLevels(lookup, 17, 29).fromOptions(lookup.lookup(Registries.ENCHANTMENT).orElseThrow().getOrThrow(EnchantmentTags.ON_RANDOM_LOOT))
+                     *///? }
                 )
             )
         ));
@@ -149,21 +149,21 @@ public class FishingLootTableProvider extends SimpleFabricLootTableProvider {
     //? 1.20.1 {
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
-    define();
-    for (var entry : LOOT_TABLES.entrySet()) {
-        consumer.accept(Stellarity.id(entry.getKey()), entry.getValue());
-    }
+        define();
+        for (var entry : LOOT_TABLES.entrySet()) {
+            consumer.accept(Stellarity.id(entry.getKey()), entry.getValue());
+        }
     }
 
     //? } else {
     /*@Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
 
-    define(registryLookup.join());
+        define(registryLookup.join());
 
-    for (var entry : LOOT_TABLES.entrySet()) {
-        consumer.accept(Stellarity.key(Registries.LOOT_TABLE, entry.getKey()), entry.getValue());
-    }
+        for (var entry : LOOT_TABLES.entrySet()) {
+            consumer.accept(Stellarity.key(Registries.LOOT_TABLE, entry.getKey()), entry.getValue());
+        }
     }
     *///? }
 

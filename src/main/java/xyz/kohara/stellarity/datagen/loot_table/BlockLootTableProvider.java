@@ -16,7 +16,7 @@ import xyz.kohara.stellarity.registry.StellarityBlocks;
 import java.util.concurrent.CompletableFuture;
 *///? }
 
-import static xyz.kohara.stellarity.datagen.loot_table.LootTableUtils.*;
+import static xyz.kohara.stellarity.utils.LootTableUtils.*;
 
 public class BlockLootTableProvider extends FabricBlockLootTableProvider {
 
