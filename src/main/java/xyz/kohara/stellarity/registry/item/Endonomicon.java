@@ -1,7 +1,6 @@
 package xyz.kohara.stellarity.registry.item;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -33,12 +32,12 @@ public class Endonomicon extends Item {
 
 
         //? < 1.21.9 {
-        if (!(player instanceof LocalPlayer localPlayer)) return result;
+        if (!(player.level().isClientSide())) return result;
 
 
         boolean patchouliLoaded = FabricLoader.getInstance().isModLoaded("patchouli");
         if (!patchouliLoaded) {
-            localPlayer.displayClientMessage(
+            player.displayClientMessage(
                 Component.translatable("message.stellarity.missing_patchouli"), true
             );
 
@@ -48,7 +47,7 @@ public class Endonomicon extends Item {
         try {
             PatchouliAPI.get().openBookGUI(Stellarity.id("endonomicon"));
         } catch (Exception e) {
-            localPlayer.displayClientMessage(
+            player.displayClientMessage(
                 Component.literal(e.toString()), false
             );
         }

@@ -1,6 +1,5 @@
 package xyz.kohara.stellarity.registry.entity;
 
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -8,7 +7,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.registry.StellarityEntities;
 import xyz.kohara.stellarity.registry.StellarityItems;
 
@@ -26,7 +24,7 @@ public class PhantomItemFrame extends ItemFrame {
     }
 
     @Override
-    public @NotNull ItemStack getFrameItemStack() {
+    public ItemStack getFrameItemStack() {
         return new ItemStack(StellarityItems.PHANTOM_ITEM_FRAME);
     }
 
@@ -38,53 +36,54 @@ public class PhantomItemFrame extends ItemFrame {
         boolean empty = item.isEmpty();
         setInvisible(!empty);
 
-        if (empty && this.level() instanceof ClientLevel level) {
-                double x = this.getX();
-                double y = this.getY();
-                double z = this.getZ();
+        var level = this.level();
+        if (empty && level.isClientSide()) {
+            double x = this.getX();
+            double y = this.getY();
+            double z = this.getZ();
 
-                double offset = (this.random.nextDouble() - 0.5) * 0.8;
-                double coOffset = (this.random.nextDouble() - 0.5) * 0.8;
+            double offset = (this.random.nextDouble() - 0.5) * 0.8;
+            double coOffset = (this.random.nextDouble() - 0.5) * 0.8;
 
-                switch (this.getDirection()) {
-                    case UP:
-                    case DOWN:
-                        x += offset;
-                        z += coOffset;
-                        break;
-                    case NORTH:
-                    case SOUTH:
-                        x += offset;
-                        y += coOffset;
-                        break;
-                    case EAST:
-                    case WEST:
-                        y += offset;
-                        z += coOffset;
-                        break;
-                }
-
-                switch (this.getDirection()) {
-                    case UP:
-                        y += 0.1;
-                        break;
-                    case DOWN:
-                        y -= 0.1;
-                        break;
-            case NORTH:
-                z -= 0.1;
-                break;
-            case SOUTH:
-                z += 0.1;
-                break;
-            case EAST:
-                x += 0.1;
-                break;
-            case WEST:
-                x -= 0.1;
-                break;
+            switch (this.getDirection()) {
+                case UP:
+                case DOWN:
+                    x += offset;
+                    z += coOffset;
+                    break;
+                case NORTH:
+                case SOUTH:
+                    x += offset;
+                    y += coOffset;
+                    break;
+                case EAST:
+                case WEST:
+                    y += offset;
+                    z += coOffset;
+                    break;
             }
-    
+
+            switch (this.getDirection()) {
+                case UP:
+                    y += 0.1;
+                    break;
+                case DOWN:
+                    y -= 0.1;
+                    break;
+                case NORTH:
+                    z -= 0.1;
+                    break;
+                case SOUTH:
+                    z += 0.1;
+                    break;
+                case EAST:
+                    x += 0.1;
+                    break;
+                case WEST:
+                    x -= 0.1;
+                    break;
+            }
+
             level.addParticle(ParticleTypes.MYCELIUM, x, y, z, 0, -0.5, 0);
         }
     }

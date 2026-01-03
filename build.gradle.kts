@@ -22,7 +22,6 @@ val requiredJava = when {
 
 
 
-
 repositories {
     /**
      * Restricts dependency search of the given [groups] to the [maven URL][url],
@@ -69,7 +68,19 @@ dependencies {
     }
 }
 
+
+
 loom {
+
+    splitEnvironmentSourceSets()
+
+    mods {
+        create(project.property("mod.id") as String) {
+            sourceSet(sourceSets["main"])
+            sourceSet(sourceSets["client"])
+        }
+    }
+
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json") // Useful for interface injection
     accessWidenerPath = sc.process(rootProject.file("src/main/resources/stellarity.accesswidener"), "build/dev.aw")
     file("build/generated/stonecutter/main/resources/stellarity.accesswidener").let {
@@ -88,13 +99,18 @@ loom {
         ideConfigGenerated(true)
         vmArgs("-Dmixin.debug.export=true -XX:+AllowEnhancedClassRedefinition")
     }
+
+
 }
+
+
 
 fabricApi {
     configureDataGeneration {
         client = true
-        modId = "${project.property("mod.id")}"
+        modId = "stellarity-datagen"
         createSourceSet = true
+        strictValidation = true
     }
 
     sourceSets["datagen"].apply {
@@ -104,11 +120,17 @@ fabricApi {
             }
         }
 
+        val main = sourceSets["main"]
+
+        compileClasspath += main.compileClasspath
+        runtimeClasspath += main.runtimeClasspath
+        compileClasspath += main.output
+        runtimeClasspath += main.output
 
     }
 
-}
 
+}
 
 
 java {
@@ -131,7 +153,10 @@ fletchingTable {
     }
 }
 
+
+
 tasks {
+
     processResources {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         inputs.property("id", project.property("mod.id"))
@@ -151,9 +176,15 @@ tasks {
 
         filesMatching("fabric.mod.json") { expand(props) }
 
+        sourceSets["datagen"].apply {
+            filesMatching("fabric.mod.json") { expand(props) }
+        }
+
+
         val mixinJava = "JAVA_${requiredJava.majorVersion}"
         filesMatching("*.mixins.json") { expand("java" to mixinJava) }
     }
+
 
     // Builds the version into a shared folder in `build/libs/${mod version}/`
     register<Copy>("buildAndCollect") {
@@ -170,6 +201,8 @@ tasks {
     stonecutterGenerate {
         dependsOn("validateAccessWidener")
     }
+
+
 }
 
 

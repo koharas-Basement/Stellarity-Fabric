@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -44,14 +43,14 @@ import xyz.kohara.stellarity.interface_injection.ExtFishingHook;
 
 //? >= 1.21.10 {
 /*import net.minecraft.core.particles.PowerParticleOption;
-*///?} else {
+ *///?} else {
 
 //?}
 
 //? >= 1.21 {
 
 /*import net.minecraft.core.registries.Registries;
-*///? }
+ *///? }
 
 @Mixin(FishingHook.class)
 public abstract class FishingHookMixin extends Projectile implements ExtFishingHook {
@@ -59,9 +58,9 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     private static final ParticleOptions DRAGON_BREATH =
         //? >= 1.21.9 {
         /*PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1f);
-    *///?} else {
-    ParticleTypes.DRAGON_BREATH;
-     //?}
+         *///?} else {
+        ParticleTypes.DRAGON_BREATH;
+    //?}
 
     @Unique
     private boolean buffVoidFishing = false;
@@ -97,9 +96,9 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
     private boolean isEnd() {
         //? <= 1.20.1 {
         return this.level().dimensionTypeId() == BuiltinDimensionTypes.END;
-         //?} else {
+        //?} else {
         /*return this.level().dimensionTypeRegistration().is(BuiltinDimensionTypes.END);
-        *///?}
+         *///?}
     }
 
     @Unique
@@ -149,7 +148,8 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void visuals(CallbackInfo ci) {
-        if (level() instanceof ClientLevel level) {
+        var level = level();
+        if (level.isClientSide()) {
             if (!isVoidFishing) return;
             double x = getX();
             double y = getY();
@@ -224,9 +224,9 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
 
         //? < 1.21 {
         return lure + 2;
-         //? } else {
+        //? } else {
         /*return lure + 200;
-        *///? }
+         *///? }
     }
 
     @Unique
@@ -239,9 +239,9 @@ public abstract class FishingHookMixin extends Projectile implements ExtFishingH
         if (isVoidFishing) {
             //? 1.20.1 {
             instance = level().getServer().getLootData().getLootTable(Stellarity.id("void_fishing/event"));
-             //? } else {
+            //? } else {
             /*instance = level().getServer().reloadableRegistries().getLootTable(Stellarity.key(Registries.LOOT_TABLE, "void_fishing/event"));
-            *///? }
+             *///? }
         }
         ObjectArrayList<ItemStack> list = original.call(instance, lootParams);
         if (isVoidFishing) {

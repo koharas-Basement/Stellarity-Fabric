@@ -1,6 +1,6 @@
 {
     "required": true,
-    "package": "xyz.kohara.stellarity.client.mixin",
+    "package": "xyz.kohara.stellarity.mixin",
     "compatibilityLevel": "${java}",
     "mixins": [],
     "injectors": {

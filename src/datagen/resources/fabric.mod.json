@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "${id}",
+    "id": "${id}-datagen",
     "version": "${version}",
     "name": "${name}",
     "description": "This is an example description! Tell everyone what your mod is about!",
@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "xyz.kohara.stellarity.Stellarity"
+            "xyz.kohara.stellarity.datagen.StellarityDatagen"
         ],
-        "client": [
-            "xyz.kohara.stellarity.StellarityClient"
+        "fabric-datagen": [
+            "xyz.kohara.stellarity.datagen.StellarityDatagen"
         ]
     },
     "mixins": [
