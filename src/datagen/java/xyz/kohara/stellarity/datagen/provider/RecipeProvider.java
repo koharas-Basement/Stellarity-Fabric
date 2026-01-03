@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -74,7 +75,7 @@ public class RecipeProvider extends FabricRecipeProvider {
         //? } = 1.21.1 {
     /*@Override
     public void buildRecipes(RecipeOutput output) {
-    *///? } else {
+        *///? } else {
         /*public void buildRecipes(HolderLookup.Provider provider, RecipeOutput output) {
          *///? }
         altarOfTheAccursed(output, new AltarSimpleRecipe(
@@ -116,6 +117,7 @@ public class RecipeProvider extends FabricRecipeProvider {
 
     @Override
     public String getName() {
-        return "stellarity";
+        return Stellarity.MOD_ID;
     }
+
 }

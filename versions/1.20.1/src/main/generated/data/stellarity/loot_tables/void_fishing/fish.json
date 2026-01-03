@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "stellarity:ender_koi",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "stellarity:crystal_heartfish",
+          "weight": 4
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

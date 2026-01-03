@@ -3,6 +3,7 @@ package xyz.kohara.stellarity.datagen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.datagen.provider.*;
 import xyz.kohara.stellarity.datagen.provider.loot_table.BlockLootTableProvider;
 import xyz.kohara.stellarity.datagen.provider.loot_table.FishingLootTableProvider;
@@ -31,6 +32,11 @@ public class StellarityDatagen implements DataGeneratorEntrypoint, ModInitialize
 
     @Override
     public void onInitialize() {
-        
+
+    }
+
+    @Override
+    public @Nullable String getEffectiveModId() {
+        return "stellarity";
     }
 }

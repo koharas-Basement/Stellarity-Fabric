@@ -119,14 +119,6 @@ fabricApi {
                 exclude("dev/aaronhowser/mods/patchoulidatagen/**")
             }
         }
-
-        val main = sourceSets["main"]
-
-        compileClasspath += main.compileClasspath
-        runtimeClasspath += main.runtimeClasspath
-        compileClasspath += main.output
-        runtimeClasspath += main.output
-
     }
 
 
@@ -138,6 +130,8 @@ java {
     targetCompatibility = requiredJava
     sourceCompatibility = requiredJava
 }
+
+
 
 fletchingTable {
     mixins.register("main") {
@@ -153,38 +147,31 @@ fletchingTable {
     }
 }
 
+tasks.withType<ProcessResources> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    inputs.property("id", project.property("mod.id"))
+    inputs.property("name", project.property("mod.name"))
+    inputs.property("version", project.property("mod.version"))
+    inputs.property("minecraft", project.property("mod.mc_dep"))
+    inputs.property("fabric_api", project.property("deps.fabric_api"))
 
+
+    val props = mapOf(
+        "id" to project.property("mod.id"),
+        "name" to project.property("mod.name"),
+        "version" to project.property("mod.version"),
+        "minecraft" to project.property("mod.mc_dep"),
+        "fabric_api" to project.property("deps.fabric_api"),
+    )
+
+    filesMatching("fabric.mod.json") { expand(props) }
+
+
+    val mixinJava = "JAVA_${requiredJava.majorVersion}"
+    filesMatching("*.mixins.json") { expand("java" to mixinJava) }
+}
 
 tasks {
-
-    processResources {
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        inputs.property("id", project.property("mod.id"))
-        inputs.property("name", project.property("mod.name"))
-        inputs.property("version", project.property("mod.version"))
-        inputs.property("minecraft", project.property("mod.mc_dep"))
-        inputs.property("fabric_api", project.property("deps.fabric_api"))
-
-
-        val props = mapOf(
-            "id" to project.property("mod.id"),
-            "name" to project.property("mod.name"),
-            "version" to project.property("mod.version"),
-            "minecraft" to project.property("mod.mc_dep"),
-            "fabric_api" to project.property("deps.fabric_api"),
-        )
-
-        filesMatching("fabric.mod.json") { expand(props) }
-
-        sourceSets["datagen"].apply {
-            filesMatching("fabric.mod.json") { expand(props) }
-        }
-
-
-        val mixinJava = "JAVA_${requiredJava.majorVersion}"
-        filesMatching("*.mixins.json") { expand("java" to mixinJava) }
-    }
-
 
     // Builds the version into a shared folder in `build/libs/${mod version}/`
     register<Copy>("buildAndCollect") {
