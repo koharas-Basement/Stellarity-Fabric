@@ -107,9 +107,9 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
                     dx = level.random.nextGaussian() * 0.5;
                     dz = level.random.nextGaussian() * 0.5;
                     level.addParticle(
-                    ParticleTypes.ENCHANT,
-                    x + dx, y + 1.5, z + dz,
-                    dx * 2, -1.5, dz * 2
+                        ParticleTypes.ENCHANT,
+                        x + dx, y + 1.5, z + dz,
+                        dx * 2, -1.5, dz * 2
                     );
                 }
 
@@ -122,19 +122,19 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
 
             } else if (level instanceof ServerLevel serverLevel) {
 
-            if (!state.isCreative()) {
-                var end = serverLevel.getServer().getLevel(Level.END);
-                EndDragonFight dragonFight = end == null ? null : end.getDragonFight();
+                if (!state.isCreative()) {
+                    var end = serverLevel.getServer().getLevel(Level.END);
+                    EndDragonFight dragonFight = end == null ? null : end.getDragonFight();
 
 
-                AltarOfTheAccursed.State newState = dragonFight != null && dragonFight.hasPreviouslyKilledDragon() && dragonFight.stellarity$dragonKilled() ?
-                AltarOfTheAccursed.State.UNLOCKED : AltarOfTheAccursed.State.LOCKED;
-                if (state != newState) {
-                    serverLevel.setBlockAndUpdate(blockPos, blockState.setValue(AltarOfTheAccursed.STATE, newState));
+                    AltarOfTheAccursed.State newState = dragonFight != null && dragonFight.hasPreviouslyKilledDragon() && dragonFight.stellarity$dragonKilled() ?
+                        AltarOfTheAccursed.State.UNLOCKED : AltarOfTheAccursed.State.LOCKED;
+                    if (state != newState) {
+                        serverLevel.setBlockAndUpdate(blockPos, blockState.setValue(AltarOfTheAccursed.STATE, newState));
+                    }
                 }
-            }
 
-            if (entity.ticksPassed % 10 == 0) entity.handleItems(serverLevel, x, y, z, blockState);
+                if (entity.ticksPassed % 10 == 0) entity.handleItems(serverLevel, x, y, z, blockState);
 
             }
         }
@@ -169,7 +169,7 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
             entity.stellarity$setItemMode(itemMode);
         }
 
-        if (itemEntities.size() < 2) return;
+        if (itemEntities.isEmpty()) return;
 
 
         AltarRecipe.Output output = null;
@@ -179,13 +179,13 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
         if (itemMode == ExtItemEntity.ItemMode.CRAFTING) {
             //? = 1.21.1 {
             /*var allRecipes = serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE);
-             *///? } > 1.21.9 {
+            *///? } > 1.21.9 {
             /*var allRecipes = serverLevel.getServer().getRecipeManager().getAllOfType(StellarityRecipeTypes.ALTAR_RECIPE);
              *///? }
             //? = 1.20.1 {
             for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
-                //? } else {
-                /*for (var recipeHolder : allRecipes) {
+             //? } else {
+            /*for (var recipeHolder : allRecipes) {
                 var recipe = recipeHolder.value();
                 *///? }
 
@@ -207,6 +207,11 @@ public class AltarOfTheAccursedBlockEntity extends BlockEntity {
         ItemEntity resultItem = new ItemEntity(serverLevel, x, y + 0.75, z, output.result());
         resultItem.stellarity$setItemMode(ExtItemEntity.ItemMode.RESULT);
         serverLevel.addFreshEntity(resultItem);
+
+        var pos = this.getBlockPos().getCenter();
+        serverLevel.sendParticles(ParticleTypes.FLASH, pos.x, pos.y + 1, pos.z, 1, 0, 0, 0, 0);
+
+        serverLevel.sendParticles(ParticleTypes.END_ROD, pos.x, pos.y + 1, pos.z, 17, 0, 0, 0, 0.13);
     }
 
 

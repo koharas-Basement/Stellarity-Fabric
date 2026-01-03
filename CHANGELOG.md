@@ -108,6 +108,8 @@ the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](h
 
 **[+] Enderite Upgrade + 9 Purpur Block + 5 Enderite Shard = 2 Enderite Upgrade**
 
+**[+] Enchanted Book = Endonomicon**
+
 # Developers Note
 
 so much new content :3

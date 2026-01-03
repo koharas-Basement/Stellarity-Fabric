@@ -27,8 +27,8 @@ public class EndonomiconBookProvider extends PatchouliBookProvider {
         PatchouliBook book = PatchouliBook.builder()
             .setBookText(
                 Stellarity.MOD_ID,
-                "Generated via Java!",
-                "This book was generated using the Patchouli DataGen library in Java."
+                "Endonomicon",
+                "An WIP collection of Stellarity knowledge."
             )
             .disableBook()
             .save(consumer);

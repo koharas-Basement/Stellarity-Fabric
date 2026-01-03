@@ -104,6 +104,14 @@ public class RecipeProvider extends FabricRecipeProvider {
             }},
             new ItemStack(StellarityItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE, 2)
         ));
+
+        altarOfTheAccursed(output, new AltarSimpleRecipe(
+            Stellarity.id("altar_of_the_accursed/endonomicon"),
+            new LinkedHashMap<>() {{
+                put(Ingredient.of(Items.ENCHANTED_BOOK), 1);
+            }},
+            new ItemStack(StellarityItems.ENDONOMICON, 1)
+        ));
     }
 
     @Override

@@ -1,0 +1,12 @@
+{
+  "type": "stellarity:altar_of_the_accursed_simple",
+  "ingredients": [
+    {
+      "ingredient": "minecraft:enchanted_book"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stellarity:endonomicon"
+  }
+}
