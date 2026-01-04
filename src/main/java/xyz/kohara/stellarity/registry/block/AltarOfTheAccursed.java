@@ -3,6 +3,9 @@ package xyz.kohara.stellarity.registry.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -12,11 +15,14 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
@@ -25,52 +31,44 @@ import xyz.kohara.stellarity.registry.StellarityBlockEntityTypes;
 
 //? > 1.21 {
 /*import com.mojang.serialization.MapCodec;
-*///? } else {
+ *///? } else {
 
 //? }
 
 public class AltarOfTheAccursed extends BaseEntityBlock {
-    public enum State implements StringRepresentable {
-        LOCKED,
-        UNLOCKED,
-        CREATIVE_LOCKED,
-        CREATIVE_UNLOCKED;
+    public enum PlaceType implements StringRepresentable {
+        NORMAL,
+        CREATIVE,
+        SATCHEL;
 
         @Override
 
         public String getSerializedName() {
             return switch (this) {
-                case LOCKED -> "locked";
-                case UNLOCKED -> "unlocked";
-                case CREATIVE_LOCKED -> "creative_locked";
-                case CREATIVE_UNLOCKED -> "creative_unlocked";
+                case NORMAL -> "normal";
+                case CREATIVE -> "creative";
+                case SATCHEL -> "satchel";
             };
         }
 
-        public boolean isCreative() {
-            return this == CREATIVE_LOCKED || this == CREATIVE_UNLOCKED;
-        }
-
-        public boolean isUnlocked() {
-            return this == UNLOCKED || this == CREATIVE_UNLOCKED;
-        }
-
-        public boolean isLocked() {
-            return this == LOCKED || this == CREATIVE_LOCKED;
+        public boolean bypassesDragon() {
+            return this == CREATIVE;
         }
     }
 
-    public static final EnumProperty<State> STATE = EnumProperty.create("state", State.class);
+    public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
+    public static final EnumProperty<PlaceType> PLACE_TYPE = EnumProperty.create("place_type", PlaceType.class);
+
 
     public AltarOfTheAccursed(Properties properties) {
         super(properties);
 
-        registerDefaultState(defaultBlockState().setValue(STATE, State.CREATIVE_UNLOCKED));
+        registerDefaultState(defaultBlockState().setValue(LOCKED, false).setValue(PLACE_TYPE, PlaceType.CREATIVE));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(STATE);
+        builder.add(LOCKED).add(PLACE_TYPE);
     }
 
 
@@ -82,8 +80,7 @@ public class AltarOfTheAccursed extends BaseEntityBlock {
             .instrument(NoteBlockInstrument.BASEDRUM)
             .sound(SoundType.GLASS)
             .lightLevel((blockStatex) -> 7)
-            .strength(-1.0F, 6700000.0F)
-            .noLootTable();
+            .strength(-1.0F, 6700000.0F);
     }
 
 

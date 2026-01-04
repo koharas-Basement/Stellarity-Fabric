@@ -1,117 +1,24 @@
-# 0.3.0
+# 0.3.1
 
-⚠️ This update refactors the code so that development code is no longer included in the files you are recieve. Please
-let us know if this causes any bugs.
-
-This update addresses loot tables and adds more items (they depend on each other)
+was originally gonna be a hotfix but like already started with some other stuff, so its going to be 0.3.1
 
 # Changes
 
 Unless annotated, all changes are considered to be up to date with
 the [wiki](https://koharasbasement.wiki.gg/wiki/Stellarity) and the [datapack](https://modrinth.com/datapack/stellarity)
 
+## Misc Bug Fixes
+
+- Fixed client mixins as they were not being applied at all.
+
 ## Blocks
 
-**[*] Rooted Ender Dirt**
+**[*] AOTA**
 
-- Now hoeable into Ender Dirt and Hanging Roots
-- Added loot table
-- Speed is now affected by use of shovels
-
-**[*] Ender Dirt**
-
-- Can be flattened into Ender Dirt Path
-- Added loot table
-- Speed is now affected by use of shovels
-
-**[*] Ender Grass Block**
-
-- Can be flattened into Ender Dirt Path
-- Added loot table
-- Speed is now affected by use of shovels
-
-**[*] Ender Dirt Path**
-
-- Added loot table
-- Speed is now affected by use of shovels
-
-**[*] Ashen Froglight**
-
-- Added mining loot table
-- Adding magma cube being eaten by frog loot table
-
-## Items
-
-**[*] Tamaris**
-
-- Implemented execution disabling
-- Made better implemented death messages
-
-**[+] Prismatic Pearl**
-
-**[+] Enderite Shard**
-
-**[+] Enderite Smithing Template**
-
-**[+] Hallowed Ingot**
-
-**[+] Sand Rune**
-
-**[+] Starlight Soot**
-
-**[+] Gilded Purpur Key**
-
-**[+] Purpur Key**
-
-**[+] Winged Key**
-
-**[+] Endonomicon**
-
-## Creative Mode Tabs
-
-**[+] Ingredients**
-
-**[+] Trinkets**
-
-## Mob Effects
-
-**[+] Voided**
-
-**[+] Jinx**
-
-**[+] Brittle**
-
-**[+] Creative Shock**
-
-**[+] Frostburn**
-
-**[+] Prismatic Inferno**
-
-## Entities
-
-**[*] Frog**
-
-- Added Ender Frog variant
-
-## Mechanics
-
-**[*] Void Fishing**
-
-- Most of the loot table is implemented
-- Missing biome dependent loot
-
-## Recipes
-
-### AOTA
-
-**[+] Iron Ingot + 2 Popped Chorus Fruit = Chorus Plating**
-
-**[+] Enderite Upgrade + 9 Purpur Block + 5 Enderite Shard = 2 Enderite Upgrade**
-
-**[+] Enchanted Book = Endonomicon**
+- Seperated states out to `locked` and `place_type`. May affect existing altars from loading older worlds.
+- Items now no longer remain glitched on top of an locked altar when switches from unlocked to locked.
+- Added a new state `SATCHEL` to `place_type` state for turning altars from crying obsidian.
 
 # Developers Note
 
-so much new content :3
-
-kohara was here
+oopsies 🤭

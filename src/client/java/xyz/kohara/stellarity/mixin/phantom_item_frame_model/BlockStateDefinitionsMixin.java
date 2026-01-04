@@ -2,7 +2,7 @@
 /*package xyz.kohara.stellarity.mixin.phantom_item_frame_model;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.kikugie.fletching_table.annotation.MixinEnvironment;
+
 import net.minecraft.client.resources.model.BlockStateDefinitions;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -21,7 +21,6 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Mixin(BlockStateDefinitions.class)
-@MixinEnvironment("client")
 public class BlockStateDefinitionsMixin {
     @Inject(method = "definitionLocationToBlockStateMapper", at = @At(value = "INVOKE", target = "Ljava/util/Objects;requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;"))
     private static void addStellarityBlockStates(CallbackInfoReturnable<Function<ResourceLocation, StateDefinition<Block, BlockState>>> cir, @Local Map<ResourceLocation, StateDefinition<Block, BlockState>> map) {

@@ -1,6 +1,6 @@
 package xyz.kohara.stellarity.registry.block;
 
-import dev.kikugie.fletching_table.annotation.MixinEnvironment;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -21,7 +21,6 @@ import net.minecraft.world.level.LevelAccessor;
     //? }
 
 
-@MixinEnvironment
 public class EnderDirtPath extends DirtPathBlock {
     public EnderDirtPath(Properties properties) {
         super(properties);

@@ -1,7 +1,7 @@
 //? 1.21.1 {
 /*package xyz.kohara.stellarity.mixin.phantom_item_frame_model;
 
-import dev.kikugie.fletching_table.annotation.MixinEnvironment;
+
 import net.minecraft.client.resources.model.BlockStateModelLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -19,7 +19,6 @@ import java.util.Map;
 import static xyz.kohara.stellarity.registry.renderer.entity.PhantomItemFrameRenderer.FAKE_STATE_DEFINITION;
 
 @Mixin(BlockStateModelLoader.class)
-@MixinEnvironment("client")
 public abstract class BlockStateModelLoaderMixin {
     @Shadow
     protected abstract void loadBlockStateDefinitions(ResourceLocation resourceLocation, StateDefinition<Block, BlockState> stateDefinition);

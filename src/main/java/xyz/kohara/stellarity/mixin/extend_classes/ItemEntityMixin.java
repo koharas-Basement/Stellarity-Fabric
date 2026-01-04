@@ -28,6 +28,8 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 import java.util.HashMap;
 
+import xyz.kohara.stellarity.registry.block.AltarOfTheAccursed;
+
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     @Shadow
@@ -80,7 +82,7 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
         CompoundTag tag, CallbackInfo ci
         //? } else {
         /*ValueOutput tag, CallbackInfo ci
-        *///? }
+         *///? }
     ) {
 
         tag.putString("stellarity:mode", itemMode.toString());
@@ -94,14 +96,14 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
         CompoundTag tag, CallbackInfo ci
         //? } else {
         /*ValueInput tag, CallbackInfo ci
-        *///? }
+         *///? }
     ) {
         if (tag.contains("stellarity:mode")) {
             try {
                 stellarity$setItemMode(ItemMode.valueOf(tag.getString("stellarity:mode")
                     //? > 1.21.9 {
                     /*.get()
-                    *///? }
+                     *///? }
                 ));
             } catch (Exception e) {
                 Stellarity.LOGGER.info("Detected invalid itemmode, ignoring");
@@ -113,7 +115,8 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;tick()V", shift = At.Shift.AFTER))
     public void movedOffRecipeBlock(CallbackInfo ci) {
         if (level() instanceof ServerLevel level) {
-            if (level.getBlockState(BlockPos.containing(this.position().add(0, -0.5, 0))).is(StellarityBlocks.ALTAR_OF_THE_ACCURSED))
+            var blockstate = level.getBlockState(BlockPos.containing(this.position().add(0, -0.5, 0)));
+            if (blockstate.is(StellarityBlocks.ALTAR_OF_THE_ACCURSED) && !blockstate.getValue(AltarOfTheAccursed.LOCKED))
                 return;
             if (itemMode == ItemMode.CRAFTING) stellarity$setItemMode(ItemMode.PICKUP);
         }
