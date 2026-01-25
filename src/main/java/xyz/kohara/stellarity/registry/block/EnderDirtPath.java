@@ -1,6 +1,5 @@
 package xyz.kohara.stellarity.registry.block;
 
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -11,14 +10,8 @@ import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import org.jetbrains.annotations.NotNull;
 import xyz.kohara.stellarity.registry.StellarityBlocks;
-//? > 1.21.9 {
-/*import net.minecraft.world.level.ScheduledTickAccess;
-import net.minecraft.util.RandomSource;
-*///? } else {
 import net.minecraft.world.level.LevelAccessor;
-    //? }
 
 
 public class EnderDirtPath extends DirtPathBlock {
@@ -39,32 +32,18 @@ public class EnderDirtPath extends DirtPathBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return
             !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ?
-                Block.pushEntitiesUp(this.defaultBlockState(), StellarityBlocks.ENDER_DIRT.defaultBlockState(), context.getLevel(), context.getClickedPos()) :
+                Block.pushEntitiesUp(this.defaultBlockState(), StellarityBlocks.ENDER_DIRT.get().defaultBlockState(), context.getLevel(), context.getClickedPos()) :
                 super.getStateForPlacement(context);
     }
 
-    //? <= 1.21.1 {
     @Override
     public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
         if (direction == Direction.UP && !blockState.canSurvive(levelAccessor, blockPos)) {
-            return StellarityBlocks.ENDER_DIRT.defaultBlockState();
+            return StellarityBlocks.ENDER_DIRT.get().defaultBlockState();
         }
 
         return super.updateShape(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2);
     }
-    //? } else {
-
-    /*@Override
-    protected BlockState updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource) {
-        if (direction == Direction.UP && !blockState.canSurvive(levelReader, blockPos)) {
-            return StellarityBlocks.ENDER_DIRT.defaultBlockState();
-        }
-
-        return super.updateShape(blockState, levelReader, scheduledTickAccess, blockPos, direction, blockPos2, blockState2, randomSource);
-    }
-
-
-    *///? }
 
     @SuppressWarnings("deprecation")
     @Override

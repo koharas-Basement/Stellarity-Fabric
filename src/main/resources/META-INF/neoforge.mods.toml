@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "*"
+license = "GNU GPL 3.0"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "${name}"
+authors = "Authors"
+description = ""
+logoFile = "assets/${id}/icon.png"
+logoBlur = false
+
+[[dependencies."${id}"]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."${id}"]]
+modId = "architectury"
+type = "required"
+versionRange = "[1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "stellarity-common.mixins.json"
+
+[[mixins]]
+config = "stellarity-neoforge.mixins.json"

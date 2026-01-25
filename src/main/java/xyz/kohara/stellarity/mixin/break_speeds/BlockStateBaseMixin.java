@@ -44,7 +44,7 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
 
     @WrapMethod(method = "getDestroySpeed")
     private float dynamicDestroySpeed(BlockGetter blockGetter, BlockPos blockPos, Operation<Float> original) {
-        if (is(StellarityBlocks.ALTAR_OF_THE_ACCURSED) && getValue(AltarOfTheAccursed.PLACE_TYPE) == AltarOfTheAccursed.PlaceType.SATCHEL)
+        if (is(StellarityBlocks.ALTAR_OF_THE_ACCURSED.get()) && getValue(AltarOfTheAccursed.PLACE_TYPE) == AltarOfTheAccursed.PlaceType.SATCHEL)
             return 50;
 
         return original.call(blockGetter, blockPos);

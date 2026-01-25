@@ -2,13 +2,6 @@ package xyz.kohara.stellarity.registry.item;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-import xyz.kohara.stellarity.registry.StellarityItems;
-
-//? >=1.21.10 {
-/*import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.component.Consumables;
-import net.minecraft.world.item.consume_effects.TeleportRandomlyConsumeEffect;
-*///?} else {
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -16,13 +9,12 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import org.jetbrains.annotations.NotNull;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.player.Player;
-//?}
+import xyz.kohara.stellarity.registry.StellarityItems;
 
 public abstract class TeleportingFood extends Item {
     private final int teleportDiameter;
@@ -35,32 +27,7 @@ public abstract class TeleportingFood extends Item {
     public int getTeleportDiameter() {
         return teleportDiameter;
     }
-
-    //? >=1.21.9 {
-    /*public static Properties foodProperties(int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
-        return foodProperties(
-            Consumables.defaultFood(),
-            nutrition,
-            saturation,
-            alwaysEat,
-            teleportDiameter,
-            effectChances
-        );
-    }
-
-    public static Properties foodProperties(Consumable.Builder consumable, int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
-        return StellarityItems.foodProperties(
-            new Item.Properties(),
-            new FoodProperties.Builder(),
-            consumable.onConsume(new TeleportRandomlyConsumeEffect(teleportDiameter)),
-            nutrition,
-            saturation,
-            alwaysEat,
-            effectChances
-        );
-    }
-    *///?}
-
+    
     public static Properties foodProperties(int nutrition, float saturation, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
         return foodProperties(
             nutrition,
@@ -70,8 +37,7 @@ public abstract class TeleportingFood extends Item {
             effectChances
         );
     }
-
-    //? <= 1.21.1 {
+    
     public static Properties foodProperties(int nutrition, float saturation, boolean alwaysEat, int teleportDiameter, StellarityItems.EffectChance... effectChances) {
         return StellarityItems.foodProperties(
             new Item.Properties(),
@@ -85,7 +51,6 @@ public abstract class TeleportingFood extends Item {
 
 
     @Override
-    @NotNull
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
         ItemStack itemStack2 = super.finishUsingItem(itemStack, level, livingEntity);
         if (!level.isClientSide) {
@@ -128,5 +93,4 @@ public abstract class TeleportingFood extends Item {
         }
         return itemStack2;
     }
-    //?}
 }

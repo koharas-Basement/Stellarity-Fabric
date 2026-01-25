@@ -27,20 +27,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Comparator;
 
-public class Tamaris extends
-    //? < 1.21.9 {
-    SwordItem
-     //? } else {
-    /*Item
-    *///? }
-{
+public class Tamaris extends SwordItem {
     public Tamaris(Properties properties) {
-        //? 1.20.1 {
+        //? if 1.20.1 {
         super(Tiers.NETHERITE, 2, -2.4f, properties);
-         //? } 1.21.1 {
+        //? } else {
         /*super(Tiers.NETHERITE, properties.attributes(SwordItem.createAttributes(Tiers.NETHERITE, 2, -2.4F)));
-         *///? } else {
-        /*super(properties.sword(ToolMaterial.NETHERITE, 2, -2.4F));
         *///? }
     }
 
@@ -50,26 +42,8 @@ public class Tamaris extends
     }
 
     @Override
-        //? > 1.21.9 {
-    /*public void inventoryTick(ItemStack itemStack, ServerLevel level, Entity entity, @Nullable EquipmentSlot equipmentSlot) {
-        super.inventoryTick(itemStack, level, entity, equipmentSlot);
-
-        inventoryTick(itemStack, (Level) level, entity, equipmentSlot);
-    }
-    *///? }
-
-    public void inventoryTick(
-        //? < 1.21.9 {
-        ItemStack itemStack, Level level, Entity entity, int i, boolean bl
-         //? } else {
-        /*ItemStack itemStack, Level level, Entity entity, @Nullable EquipmentSlot equipmentSlot
-        *///? }
-    ) {
-        //? < 1.21.9 {
+    public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean bl) {
         super.inventoryTick(itemStack, level, entity, i, bl);
-         //? } else {
-
-        //? }
 
         boolean isClient = level.isClientSide();
         Vec3 position = entity.position();
@@ -103,7 +77,7 @@ public class Tamaris extends
                         }
                     }
 
-                    if (!nearby./*? < 1.21.9 {*/hurt(/*? } else {*//*hurtServer((ServerLevel) level, *//*? } */ nearby.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE, player), 999f))
+                    if (!nearby.hurt(nearby.damageSources().source(StellarityDamageTypes.TAMARIS_EXECUTE, player), 999f))
                         continue;
 
 
@@ -118,10 +92,10 @@ public class Tamaris extends
                         *///? }
                     );
 
-                    nearby.playSound(StellaritySounds.TAMARIS_EXECUTE);
+                    nearby.playSound(StellaritySounds.TAMARIS_EXECUTE.get());
 
                     if (failed) {
-                        player.getCooldowns().addCooldown(/*? < 1.21.10 { */StellarityItems.TAMARIS /*? } else { */ /*itemStack *//*? } */, 11 * 20);
+                        player.getCooldowns().addCooldown(StellarityItems.TAMARIS.get(), 11 * 20);
                     }
 
                     break;

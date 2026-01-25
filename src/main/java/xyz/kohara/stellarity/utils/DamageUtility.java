@@ -1,18 +1,16 @@
 package xyz.kohara.stellarity.utils;
 
-import net.fabricmc.fabric.api.event.Event;
-import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import org.jetbrains.annotations.Nullable;
-import xyz.kohara.stellarity.Stellarity;
-//? 1.20.1 {
+//? if 1.20.1 {
 import java.util.UUID;
 //? } else {
 /*import net.minecraft.world.item.Item;
+import xyz.kohara.stellarity.Stellarity;
 *///? }
 
 
@@ -21,7 +19,6 @@ public final class DamageUtility {
     private final DamageSource apDamageSource;
     private final float apRatio;
     private final float damageBoostEfficiency;
-    private final boolean noop;
 
     private DamageUtility(Builder builder) {
         if (builder.damageSource == null) throw new NullPointerException("Damage source is null");
@@ -29,7 +26,6 @@ public final class DamageUtility {
         apDamageSource = builder.apDamageSource;
         apRatio = builder.apRatio;
         damageBoostEfficiency = builder.damageBoostEfficiency;
-        noop = false;
     }
 
     private DamageUtility(DamageUtility other) {
@@ -37,7 +33,6 @@ public final class DamageUtility {
         apDamageSource = other.apDamageSource;
         apRatio = other.apRatio;
         damageBoostEfficiency = other.damageBoostEfficiency;
-        noop = true;//cloned
     }
 
     /**
@@ -54,22 +49,19 @@ public final class DamageUtility {
     }
 
     public void damageEntity(LivingEntity entity, float damage) {
-        if (noop) return;
         float damageWithBonus = calculateDamageBoostEfficiency(entity, damage, damageBoostEfficiency);
         ModifiableArg<Float> actualNonAPDamage = new ModifiableArg<>(damageWithBonus);
         ModifiableArg<Float> apDamage = new ModifiableArg<>(0.0f);
         if (apRatio >= 0 && apDamageSource != null) {
             actualNonAPDamage.setArg(damageWithBonus * (1 - apRatio));
             apDamage.setArg(damageWithBonus - actualNonAPDamage.getArg());
-            Thread.onSpinWait();
         }
-        DamageUtility clone = makeNoOpClone();//stackoverflow protection
-        PreDamage.EVENT.invoker().preDamage(entity, actualNonAPDamage, apDamage, clone);
+        preDamage(entity, actualNonAPDamage, apDamage);
         //the actual damaging part
         if (apDamage.getArg() != 0)
             entity.hurt(apDamageSource, apDamage.getArg());
         entity.hurt(damageSource, actualNonAPDamage.getArg());
-        PostDamage.EVENT.invoker().postDamage(entity, actualNonAPDamage.getArg(), apDamage.getArg(), clone);
+        postDamage(entity, actualNonAPDamage.getArg(), apDamage.getArg());
     }
 
     public DamageSource getDamageSource() {
@@ -86,11 +78,6 @@ public final class DamageUtility {
 
     public float getDamageBoostEfficiency() {
         return damageBoostEfficiency;
-    }
-
-    private DamageUtility makeNoOpClone() {
-        if (noop) return this;
-        return new DamageUtility(this);
     }
 
     @SuppressWarnings("DataFlowIssue")
@@ -119,24 +106,12 @@ public final class DamageUtility {
         return (damage * damageRatio / 100) + damage;
     }
 
-    public interface PreDamage {
-        Event<PreDamage> EVENT = EventFactory.createArrayBacked(PreDamage.class, callbacks -> (entity, nonAPDamage, apDamage, damageUtility) -> {
-            for (var callback : callbacks) {
-                callback.preDamage(entity, nonAPDamage, apDamage, damageUtility);
-            }
-        });
-
-        void preDamage(LivingEntity entity, ModifiableArg<Float> nonAPDamage, ModifiableArg<Float> apDamage, DamageUtility damageUtility);
+    private void preDamage(LivingEntity entity, ModifiableArg<Float> nonAPDamage, ModifiableArg<Float> apDamage) {
+        // add all things here for pre damage
     }
 
-    public interface PostDamage {
-        Event<PostDamage> EVENT = EventFactory.createArrayBacked(PostDamage.class, callbacks -> (entity, nonAPDamage, apDamage, damageUtility) -> {
-            for (var callback : callbacks) {
-                callback.postDamage(entity, nonAPDamage, apDamage, damageUtility);
-            }
-        });
-
-        void postDamage(LivingEntity entity, float nonAPDamage, float apDamage, DamageUtility damageUtility);
+    private void postDamage(LivingEntity entity, float nonAPDamage, float apDamage) {
+        // and here for post damage
     }
 
     @Override

@@ -16,7 +16,7 @@ public class PhantomItemFrame extends ItemFrame {
     }
 
     public PhantomItemFrame(Level level, BlockPos blockPos, Direction direction) {
-        this(StellarityEntities.PHANTOM_ITEM_FRAME, level, blockPos, direction);
+        this(StellarityEntities.PHANTOM_ITEM_FRAME.get(), level, blockPos, direction);
     }
 
     public PhantomItemFrame(EntityType<? extends ItemFrame> entityType, Level level, BlockPos blockPos, Direction direction) {
@@ -25,7 +25,7 @@ public class PhantomItemFrame extends ItemFrame {
 
     @Override
     public ItemStack getFrameItemStack() {
-        return new ItemStack(StellarityItems.PHANTOM_ITEM_FRAME);
+        return new ItemStack(StellarityItems.PHANTOM_ITEM_FRAME.get());
     }
 
     @Override

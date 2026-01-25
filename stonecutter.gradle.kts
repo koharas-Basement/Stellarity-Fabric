@@ -1,11 +1,12 @@
+import kotlin.collections.set
+
 plugins {
     id("dev.kikugie.stonecutter")
-    id("fabric-loom") version "1.14-SNAPSHOT" apply false
     // id("me.modmuss50.mod-publish-plugin") version "1.0.+" apply false
     id("co.uzzu.dotenv.gradle") version "4.0.0"
 }
 
-stonecutter active "1.20.1"
+stonecutter active "forge+1.20.1"
 
 /*
 // Make newer versions be published last

@@ -101,7 +101,7 @@ public record AltarSimpleRecipe(@Nullable ResourceLocation id,
 
     @Override
     public RecipeSerializer<? extends Recipe<Input>> getSerializer() {
-    return StellarityRecipeSerializers.ALTAR_SIMPLE;
+        return StellarityRecipeSerializers.ALTAR_SIMPLE.get();
     }
 
     public static class Serializer implements RecipeSerializer<AltarSimpleRecipe> {
@@ -137,9 +137,9 @@ public record AltarSimpleRecipe(@Nullable ResourceLocation id,
         int size = buf.readInt();
         HashMap<Ingredient, Integer> ingredients = new HashMap<>();
         for (int i = 0; i < size; i++) {
-        Ingredient ingredient = Ingredient.fromNetwork(buf);
-        int count = buf.readInt();
-        ingredients.put(ingredient, count);
+            Ingredient ingredient = Ingredient.fromNetwork(buf);
+            int count = buf.readInt();
+            ingredients.put(ingredient, count);
         }
         ItemStack itemStack = buf.readItem();
 
@@ -150,8 +150,8 @@ public record AltarSimpleRecipe(@Nullable ResourceLocation id,
     public void toNetwork(FriendlyByteBuf buf, AltarSimpleRecipe recipe) {
         buf.writeInt(recipe.ingredients.size());
         for (var entry : recipe.ingredients.entrySet()) {
-        entry.getKey().toNetwork(buf);
-        buf.writeInt(entry.getValue());
+            entry.getKey().toNetwork(buf);
+            buf.writeInt(entry.getValue());
         }
 
         buf.writeItem(recipe.result);

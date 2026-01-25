@@ -1,13 +1,6 @@
 package xyz.kohara.stellarity.registry;
 
-//? 1.20.1 {
-
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
- //?} else {
-
-/*import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-    *///? }
-
+import dev.architectury.event.events.common.LootEvent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import xyz.kohara.stellarity.Stellarity;
@@ -17,15 +10,11 @@ import static xyz.kohara.stellarity.utils.LootTableUtils.*;
 
 public class StellarityLootTables {
     public static void init() {
-        LootTableEvents.MODIFY.register((
-            /*?1.20.1 {*/resourceManager, lootManager, id, builder, source/*? } else {*/  /*key, builder, source, provider *//*?}*/) -> {
+        LootEvent.MODIFY_LOOT_TABLE.register((lootDataManager, id, context, builtin) -> {
             //? 1.21.1 {
             /*var id = key.location();
-
-             *///? } > 1.21.10 {
-            /*var id = key.identifier();
             *///? }
-
+            
             if (id.equals(Stellarity.mcId("entities/magma_cube"))) {
                 Stellarity.LOGGER.info("Modifying Magma Cube Loot Table");
                 /*
@@ -55,18 +44,17 @@ public class StellarityLootTables {
                  *           "name": "minecraft:ochre_froglight"
                  *         }
                  */
-
+                
                 var tag = new CompoundTag();
                 tag.putString("variant", "stellarity:end");
-
-                builder.withPool(pool().when(
+                
+                context.addPool(pool().when(
                     onDamage(
                         damage().source(
                             entity().entityType(entityType(EntityType.FROG)).nbt(nbt(tag))
                         )
-                    )).add(item(StellarityItems.ASHEN_FROGLIGHT)));
+                    )).add(item(StellarityItems.ASHEN_FROGLIGHT.get())));
             }
         });
-
     }
 }

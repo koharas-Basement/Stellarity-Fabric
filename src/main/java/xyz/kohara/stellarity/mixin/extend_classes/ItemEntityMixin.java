@@ -116,7 +116,7 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
     public void movedOffRecipeBlock(CallbackInfo ci) {
         if (level() instanceof ServerLevel level) {
             var blockstate = level.getBlockState(BlockPos.containing(this.position().add(0, -0.5, 0)));
-            if (blockstate.is(StellarityBlocks.ALTAR_OF_THE_ACCURSED) && !blockstate.getValue(AltarOfTheAccursed.LOCKED))
+            if (blockstate.is(StellarityBlocks.ALTAR_OF_THE_ACCURSED.get()) && !blockstate.getValue(AltarOfTheAccursed.LOCKED))
                 return;
             if (itemMode == ItemMode.CRAFTING) stellarity$setItemMode(ItemMode.PICKUP);
         }

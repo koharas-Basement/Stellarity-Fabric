@@ -19,21 +19,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.kohara.stellarity.registry.effect.CreativeShockEffect;
 
-import java.util.Collection;
-
 //? < 1.21.9 {
 import net.minecraft.core.BlockPos;
-
-    //? } else {
+//? } else {
 /*import com.llamalad7.mixinextras.sugar.Local;
- *///? }
+import java.util.Collection;
+*///? }
 
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player {
     @Shadow
     @Final
     public ServerPlayerGameMode gameMode;
-
 
     @Shadow
     public abstract boolean setGameMode(GameType gameType);
@@ -47,7 +44,6 @@ public abstract class ServerPlayerMixin extends Player {
         super(level, blockPos, f, gameProfile);
     }
     //? } else {
-
     /*public ServerPlayerMixin(Level level, GameProfile gameProfile) {
         super(level, gameProfile);
     }
@@ -56,11 +52,10 @@ public abstract class ServerPlayerMixin extends Player {
 
     @Inject(method = "onEffectAdded", at = @At("HEAD"))
     private void effectAdded(MobEffectInstance effectInstance, Entity entity, CallbackInfo ci) {
-        var type = gameMode.getGameModeForPlayer();
+        GameType type = gameMode.getGameModeForPlayer();
 
         if (!(effectInstance.getEffect()/*? > 1.21 {*//*.value()*//*? } */ instanceof CreativeShockEffect effect))
             return;
-
 
         if (!effect.extremeCreativeShock() && type == GameType.CREATIVE) return;
 
@@ -72,19 +67,14 @@ public abstract class ServerPlayerMixin extends Player {
     @Inject(method = "onEffectRemoved", at = @At("HEAD"))
     protected void effectRemoved(MobEffectInstance effectInstance, CallbackInfo ci)
     //? } else {
-
     /*@Inject(method = "onEffectsRemoved", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerGamePacketListenerImpl;send(Lnet/minecraft/network/protocol/Packet;)V", shift = At.Shift.AFTER))
     protected void effectRemoved(Collection<MobEffectInstance> collection, CallbackInfo ci, @Local MobEffectInstance effectInstance)
     *///? }
     {
-
-        if (!(effectInstance.getEffect()/*? > 1.21 {*//*.value()*//*? } */ instanceof CreativeShockEffect effect))
+        if (!(effectInstance.getEffect()/*? > 1.21 {*//*.value()*//*? } */ instanceof CreativeShockEffect))
             return;
 
         setGameMode(initialGameType);
         initialGameType = null;
-
-
     }
-
 }

@@ -1,7 +1,8 @@
 import dev.kikugie.fletching_table.annotation.MixinEnvironment
 
 plugins {
-    id("fabric-loom")
+    id("dev.architectury.loom") version "1.13-SNAPSHOT"
+    id("architectury-plugin") version "3.4-SNAPSHOT"
     id("dev.kikugie.fletching-table.fabric") version "0.1.0-alpha.22"
     id("me.modmuss50.mod-publish-plugin") version "1.1.0"
 
@@ -9,6 +10,35 @@ plugins {
     id("com.google.devtools.ksp") version "2.2.10-2.0.2"
     // `maven-publish`
 }
+
+val platform: String = property("loom.platform") as String
+
+loom.silentMojangMappingsLicense()
+
+enum class Loader(val loaderName: String) {
+    FABRIC("fabric") { override fun isFabric(): Boolean = true },
+    FORGE("forge") { override fun isForge(): Boolean = true },
+    NEOFORGE("neoforge") { override fun isNeoforge(): Boolean = true },
+    UNKNOWN("unknown");
+
+    open fun isFabric(): Boolean = false
+    open fun isForge(): Boolean = false
+    fun isForgeLike(): Boolean = isForge() || isNeoforge()
+    open fun isNeoforge(): Boolean = false
+
+    override fun toString(): String = loaderName
+
+    companion object {
+        fun fromString(str: String, throwing: Boolean = false): Loader = when (str.lowercase()) {
+            "fabric", "loom" -> FABRIC
+            "forge", "moddevgradle-legacy" -> FORGE
+            "neoforge", "moddevgradle-regular", "moddevgradle" -> NEOFORGE
+            else -> if (!throwing) UNKNOWN else throw IllegalArgumentException("unknown or unsupported platform \"$str\"")
+        }
+    }
+}
+
+val loader: Loader = Loader.fromString(platform, throwing = true)
 
 version = "${property("mod.version")}+${stonecutter.current.version}"
 base.archivesName = property("mod.id") as String
@@ -19,8 +49,6 @@ val requiredJava = when {
     stonecutter.eval(stonecutter.current.version, ">=1.17") -> JavaVersion.VERSION_16
     else -> JavaVersion.VERSION_1_8
 }
-
-
 
 repositories {
     /**
@@ -33,10 +61,11 @@ repositories {
     }
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+    maven("https://maven.minecraftforge.net")
+    maven("https://maven.neoforged.net/releases/")
     maven("https://maven.blamejared.com")
     maven("https://maven.latvian.dev/releases")
     maven("https://thedarkcolour.github.io/KotlinForForge/")
-
 }
 
 dependencies {
@@ -44,16 +73,29 @@ dependencies {
      * Fetches only the required Fabric API modules to not waste time downloading all of them for each version.
      * @see <a href="https://github.com/FabricMC/fabric">List of Fabric API modules</a>
      */
-    fun fapi(vararg modules: String) {
-        for (it in modules) modImplementation(fabricApi.module(it, property("deps.fabric_api") as String))
-    }
+//    fun fapi(vararg modules: String) {
+//        for (it in modules) modImplementation(fabricApi.module(it, property("deps.fabric_api") as String))
+//    }
 
     minecraft("com.mojang:minecraft:${stonecutter.current.version}")
     mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
-
-
+    //should fix forge
+    val mixinExtras = "io.github.llamalad7:mixinextras-%s:${property("deps.mixin_extras")}"
+    "io.github.llamalad7:mixinextras-$loader:${property("deps.mixin_extras")}".let {modApi(it); /*compileOnlyApi(it);*/ annotationProcessor(it); include(it) }
+    "io.github.llamalad7:mixinextras-common:${property("deps.mixin_extras")}".let { compileOnlyApi(it); annotationProcessor(it) }//fixes forge not being able to find mixinextras for whatever reason
+    modImplementation("dev.architectury:architectury-$loader:${property("deps.arch_api")}")
+    if (loader.isFabric()) {
+        modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
+        modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
+    }
+    if (loader.isForge()) {
+        "forge"("net.minecraftforge:forge:${stonecutter.current.version}-${property("deps.forge")}")
+        compileOnly(annotationProcessor(mixinExtras.format("common"))!!)
+        include(implementation(mixinExtras.format("forge"))!!)
+    }
+    if (loader.isNeoforge()) {
+        "neoForge"("net.neoforged:neoforge:${property("deps.neoforge")}")
+    }
     // begin mod dependencies
 
     // patchouli datagen
@@ -61,25 +103,22 @@ dependencies {
     // those with eval blocks mean dependency is only added for certain MC versions
     // for non required dependencies, use modCompileOnly. This means ur mod will not be present in the runClient. To use, add to version/<version>/run/mods/
     // for required dependencies, use modImplementation
-    if (stonecutter.eval(stonecutter.current.version, "<= 1.21.1")) {
-        // be sure to declare deps.patchouli (or similar) in version/<version>/run/mods/gradle.properties where the mod applies
-        modImplementation("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
-        implementation("dev.aaronhowser.mods:aaron-1.21.1:1.5.0-build.107")
-    }
+    // be sure to declare deps.patchouli (or similar) in version/<version>/run/mods/gradle.properties where the mod applies
+    modImplementation("vazkii.patchouli:Patchouli:${property("deps.patchouli")}")
+    implementation("dev.aaronhowser.mods:aaron-1.21.1:1.5.0-build.107")
 }
 
 
 
 loom {
+//    splitEnvironmentSourceSets() // <- this breaks (neo)forge for some reason
 
-    splitEnvironmentSourceSets()
-
-    mods {
-        create(project.property("mod.id") as String) {
-            sourceSet(sourceSets["main"])
-            sourceSet(sourceSets["client"])
-        }
-    }
+//    mods {
+//        create(project.property("mod.id") as String) {
+//            sourceSet(sourceSets["main"])
+//            sourceSet(sourceSets["client"])
+//        }
+//    }
 
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json") // Useful for interface injection
     accessWidenerPath = sc.process(rootProject.file("src/main/resources/stellarity.accesswidener"), "build/dev.aw")
@@ -102,9 +141,10 @@ loom {
     runConfigs.all {
         ideConfigGenerated(true)
         vmArgs("-Dmixin.debug.export=true -XX:+AllowEnhancedClassRedefinition")
+        if (loader.isForge()) {
+            vmArgs("-Dfml.pluginLayerLibraries=language-minecraft-47.3.0.jar -Dfml.gameLayerLibraries=language-minecraft-47.3.0.jar")
+        }
     }
-
-
 }
 
 
@@ -135,19 +175,16 @@ java {
     sourceCompatibility = requiredJava
 }
 
-
-
 fletchingTable {
     mixins.register("main") {
-        mixin("default", "stellarity.mixins.json")
-    }
-
-    mixins.register("client") {
-        mixin("default", "stellarity.client.mixins.json") {
-            environment = MixinEnvironment.Env.CLIENT
+        //its monolithic already
+        mixin("default", "stellarity.mixins.json") {
+            env(MixinEnvironment.Env.CLIENT, "xyz.kohara.stellarity.client.mixin")
+        }
+        mixin("default", "stellarity-$loader.mixins.json") {
+            env(MixinEnvironment.Env.DEFAULT, "xyz.kohara.stellarity.platform.$loader")
         }
     }
-
 
     j52j.register("main") {
         if (stonecutter.eval(stonecutter.current.version, "< 1.21")) {
@@ -164,7 +201,6 @@ tasks.withType<ProcessResources> {
     inputs.property("minecraft", project.property("mod.mc_dep"))
     inputs.property("fabric_api", project.property("deps.fabric_api"))
 
-
     val props = mapOf(
         "id" to project.property("mod.id"),
         "name" to project.property("mod.name"),
@@ -174,14 +210,14 @@ tasks.withType<ProcessResources> {
     )
 
     filesMatching("fabric.mod.json") { expand(props) }
-
+    filesMatching("mods.toml") { expand(props) }
+    filesMatching("neoforge.mods.toml") { expand(props) }
 
     val mixinJava = "JAVA_${requiredJava.majorVersion}"
     filesMatching("*.mixins.json") { expand("java" to mixinJava) }
 }
 
 tasks {
-
     // Builds the version into a shared folder in `build/libs/${mod version}/`
     register<Copy>("buildAndCollect") {
         group = "build"
@@ -197,13 +233,11 @@ tasks {
     stonecutterGenerate {
         dependsOn("validateAccessWidener")
     }
-
-
 }
-
 
 // Publishes builds to Modrinth and Curseforge with changelog from the CHANGELOG.md file
 // Publishing using publishMods task
+
 publishMods {
     file = tasks.remapJar.map { it.archiveFile.get() }
     displayName = "${property("mod.name")} ${property("mod.version")} for ${property("mod.mc_title")}"
@@ -243,8 +277,21 @@ stonecutter {
         replace("ResourceLocation", "Identifier")
         replace("net.minecraft.advancements.critereon", "net.minecraft.advancements.criterion")
     }
+    constants["fabric"] = loader.isFabric()
+    constants["forge"] = loader.isForge()
+    constants["neoforge"] = loader.isNeoforge()
+    constants["forgelike"] = loader.isForgeLike()
+    swaps["clientOnly"] = when (loader) {
+        Loader.FORGE -> "@net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.CLIENT)"
+        Loader.NEOFORGE -> "@net.neoforged.api.distmarker.OnlyIn(net.neoforged.api.distmarker.Dist.CLIENT)"
+        else -> "@net.fabricmc.api.Environment(net.fabricmc.api.EnvType.CLIENT)"
+    }
+    swaps["serverOnly"] = when (loader) {
+        Loader.FORGE -> "@net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.SERVER)"
+        Loader.NEOFORGE -> "@net.neoforged.api.distmarker.OnlyIn(net.neoforged.api.distmarker.Dist.SERVER)"
+        else -> "@net.fabricmc.api.Environment(net.fabricmc.api.EnvType.SERVER)"
+    }
 }
-
 
 /*
 // Publishes builds to a maven repository under `com.example:template:0.1.0+mc`

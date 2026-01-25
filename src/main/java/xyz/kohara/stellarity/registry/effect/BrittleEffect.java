@@ -1,9 +1,8 @@
 package xyz.kohara.stellarity.registry.effect;
 
 //? if >= 1.21.1 {
-
 /*import net.minecraft.server.level.ServerLevel;
-    *///?}
+*///?}
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -19,10 +18,10 @@ public class BrittleEffect extends MobEffect {
 
     private @Nullable DamageUtility damageUtility;
 
-    public /*? > 1.21 {*/ /*boolean *//*? } else { */ void /*? } */ applyEffectTick(/*? > 1.21.9 {*/ /*ServerLevel serverLevel,  *//*? } */LivingEntity livingEntity, int amplifier) {
+    public /*? > 1.21 {*//*boolean *//*? } else { */void/*? }*/ applyEffectTick(LivingEntity livingEntity, int amplifier) {
         if (livingEntity.level().isClientSide()) return /*? if >= 1.21.1 {*/ /*false *//*?}*/;
         if (damageUtility == null) damageUtility = initDamageUtility(livingEntity.damageSources());
-        if (livingEntity.hurtTime != 9) return /*? if >= 1.21.1 {*/ /*false *//*?}*/;
+        if (livingEntity.hurtTime != 9) return /*? if >= 1.21.1 {*//*false *//*?}*/;
         damageUtility.damageEntity(livingEntity, (float) amplifier + 1);
         livingEntity.hurtTime = 8;
         /*? if >= 1.21.1 {*/
@@ -38,9 +37,9 @@ public class BrittleEffect extends MobEffect {
     }
 
     @Override
-        //? < 1.21.1
+    //? < 1.21.1
     public boolean isDurationEffectTick(int duration, int amplifier) {
-        //? >= 1.21.1
+    //? >= 1.21.1
     //public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return true;
     }

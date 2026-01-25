@@ -1,34 +1,33 @@
 package xyz.kohara.stellarity.networking;
 
+import io.netty.buffer.Unpooled;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import xyz.kohara.stellarity.Stellarity;
 
 import java.util.ArrayList;
 
-//? 1.20.1 {
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+//? if 1.20.1 {
 import net.minecraft.network.FriendlyByteBuf;
-
-    //? } else {
+//? } else {
 /*import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.codec.StreamCodec;
 *///? }
 
-
 import java.util.List;
+import java.util.function.Consumer;
 
 public record S2CSetStellarityEntityDataPacket(int id, List<SynchedEntityData.DataValue<?>> list)
-//? > 1.21 {
+//? if > 1.21 {
     /*implements CustomPacketPayload
     *///? }
 {
     public static final ResourceLocation ID = Stellarity.id("set_entity_data");
 
-    //? 1.20.1 {
+    //? if 1.20.1 {
     public FriendlyByteBuf pack() {
-        var buf = PacketByteBufs.create();
+        FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
         buf.writeVarInt(id);
         for (SynchedEntityData.DataValue<?> dataValue : list) {
             dataValue.write(buf);

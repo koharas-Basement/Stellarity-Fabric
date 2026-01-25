@@ -1,7 +1,10 @@
 package xyz.kohara.stellarity.registry;
 
+import dev.architectury.registry.registries.Registrar;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
@@ -14,9 +17,11 @@ import xyz.kohara.stellarity.Stellarity;
 import java.util.HashMap;
 
 public class StellarityPotions {
+    private static final Registrar<Potion> POTIONS = StellarityRegistries.MANAGER.get().get(Registries.POTION);
+    
     public static final HashMap<Potion, Integer> COLORS = new HashMap<>();
 
-    public static final Potion BLIND_RAGE = register("blind_rage", "blind_rage",
+    public static final RegistrySupplier<Potion> BLIND_RAGE = register("blind_rage", "blind_rage",
         new MobEffectInstance(MobEffects.DARKNESS, 15 * 20, 0),
         new MobEffectInstance(
             //? < 1.21.9 {
@@ -31,12 +36,12 @@ public class StellarityPotions {
     *///? }
 
 
-    private static Potion register(String id, String name, MobEffectInstance... effects) {
-        return Registry.register(BuiltInRegistries.POTION, Stellarity.id(id), new Potion("stellarity." + name, effects));
+    private static RegistrySupplier<Potion> register(String id, String name, MobEffectInstance... effects) {
+        return POTIONS.register(Stellarity.id(id), () -> new Potion("stellarity." + name, effects));
     }
 
     public static void init() {
         Stellarity.LOGGER.info("Registering Stellarity Potions");
-        COLORS.put(BLIND_RAGE, 7230976);
+        BLIND_RAGE.listen(potion -> COLORS.put(potion, 7230976));
     }
 }

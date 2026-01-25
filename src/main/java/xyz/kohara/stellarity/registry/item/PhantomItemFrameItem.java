@@ -1,6 +1,5 @@
 package xyz.kohara.stellarity.registry.item;
 
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -16,14 +15,13 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import xyz.kohara.stellarity.registry.StellarityEntities;
 import xyz.kohara.stellarity.registry.entity.PhantomItemFrame;
 
-
 public class PhantomItemFrameItem extends ItemFrameItem {
     public PhantomItemFrameItem(EntityType<? extends HangingEntity> entityType, Item.Properties properties) {
         super(entityType, properties);
     }
 
     public PhantomItemFrameItem(Item.Properties properties) {
-        this(StellarityEntities.PHANTOM_ITEM_FRAME, properties);
+        this(StellarityEntities.PHANTOM_ITEM_FRAME.get(), properties);
     }
 
     public InteractionResult useOn(UseOnContext useOnContext) {

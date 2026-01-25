@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 import xyz.kohara.stellarity.interface_injection.ExtItemEntity;
+import xyz.kohara.stellarity.mixin.accessors.SimpleContainerAccessor;
 import xyz.kohara.stellarity.registry.StellarityRecipeTypes;
 //? 1.20.1 {
 import net.minecraft.core.RegistryAccess;
@@ -47,7 +48,7 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
         @Override
             *///? }
         public int size() {
-            return this.items.size();
+            return ((SimpleContainerAccessor) this).items().size();
         }
     }
 
@@ -165,13 +166,13 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
 
     @Override
     default RecipeType<? extends Recipe<Input>> getType() {
-        return StellarityRecipeTypes.ALTAR_RECIPE;
+        return StellarityRecipeTypes.ALTAR_RECIPE.get();
     }
 
 
     @Override
     default boolean matches(Input container, Level level) {
-        return craft(container.items) == null;
+        return craft(((SimpleContainerAccessor) container).items()) == null;
     }
 
     static void handleItems(ServerLevel serverLevel, double x, double y, double z, boolean locked) {
@@ -216,7 +217,7 @@ public interface AltarRecipe extends Recipe<AltarRecipe.Input> {
             /*var allRecipes = serverLevel.getServer().getRecipeManager().getAllOfType(StellarityRecipeTypes.ALTAR_RECIPE);
              *///? }
             //? = 1.20.1 {
-            for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE)) {
+            for (var recipe : serverLevel.getRecipeManager().getAllRecipesFor(StellarityRecipeTypes.ALTAR_RECIPE.get())) {
              //? } else {
             /*for (var recipeHolder : allRecipes) {
                 var recipe = recipeHolder.value();

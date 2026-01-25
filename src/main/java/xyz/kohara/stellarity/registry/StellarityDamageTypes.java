@@ -5,9 +5,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageType;
 import xyz.kohara.stellarity.Stellarity;
 
-import static net.minecraft.core.registries.Registries.DAMAGE_TYPE;
-
-
 public class StellarityDamageTypes {
     //DOT
     public static final ResourceKey<DamageType> FROSTBURN = create("dot/frostburn");
@@ -19,7 +16,7 @@ public class StellarityDamageTypes {
     public static final ResourceKey<DamageType> ARMOR_PIERCING = create("armor_piercing");
     public static final ResourceKey<DamageType> ARMOR_PIERCING_SCALING = create("armor_piercing_difficulty_scaling");
     public static final ResourceKey<DamageType> ARMOR_PIERCING_NO_KB = create("armor_piercing_no_knockback");
-    //true damage
+    //true damage (aka armor piercing but on crack)
     public static final ResourceKey<DamageType> TRUE_DAMAGE = create("true_damage");
     public static final ResourceKey<DamageType> TRUE_DAMAGE_SCALING = create("true_damage_difficulty_scaling");
     public static final ResourceKey<DamageType> TRUE_DAMAGE_RESPECTS_RESISTANCE = create("true_damage_respects_resistance");

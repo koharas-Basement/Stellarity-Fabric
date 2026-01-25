@@ -15,28 +15,23 @@ import xyz.kohara.stellarity.Stellarity;
 import xyz.kohara.stellarity.registry.StellarityItems;
 //? < 1.21.1 {
 import net.minecraft.advancements.Advancement;
- //?} else {
+//?} else {
 /*import net.minecraft.advancements.AdvancementHolder;
-    *///?}
+*///?}
 
-
-//? >= 1.21.9 {
-/*import net.minecraft.world.item.component.Consumables;
-    *///?}
 
 import java.util.List;
 import java.util.Objects;
 
 //? 1.20.1 {
 import java.util.UUID;
- //? }
+//? }
 
 public class CrystalHeartfish extends Item {
     public CrystalHeartfish(Properties properties) {
         super(properties);
     }
 
-    //? <= 1.21.1 {
     @Override
     public int getUseDuration(ItemStack itemStack
                               //? = 1.21.1
@@ -44,13 +39,10 @@ public class CrystalHeartfish extends Item {
     ) {
         return 100;
     }
-    //?}
 
 
     public static Properties properties() {
         return StellarityItems.foodProperties(new Properties(), new FoodProperties.Builder(),
-            //? >= 1.21.9
-            //Consumables.defaultFood().consumeSeconds(5f),
             0, 0.0f, true
         );
     }
@@ -88,13 +80,9 @@ public class CrystalHeartfish extends Item {
                 /*AdvancementHolder advancement = Objects.requireNonNull(server.getAdvancements().get(location));
                 *///?} else {
                 Advancement advancement = Objects.requireNonNull(server.getAdvancements().getAdvancement(location));
-                 //?}
+                //?}
 
-                //? if <= 1.21.1 {
                 AdvancementCommands.Action.GRANT.perform(player, List.of(advancement));
-                 //?} else {
-                /*AdvancementCommands.Action.GRANT.perform(player, List.of(advancement), true);
-                *///?}
             }
 
             if (amount >= 10) return;

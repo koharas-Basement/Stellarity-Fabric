@@ -25,7 +25,7 @@ import org.joml.Vector3f;
 
 public class AltarOfTheAccursedBlockEntity extends BlockEntity {
     public AltarOfTheAccursedBlockEntity(BlockPos pos, BlockState state) {
-        this(StellarityBlockEntityTypes.ALTAR_OF_THE_ACCURSED, pos, state);
+        this(StellarityBlockEntityTypes.ALTAR_OF_THE_ACCURSED.get(), pos, state);
     }
 
     private long ticksPassed = 0;
