@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:noise",
+    "noise": {
+      "base_amplitude": 0.9494731054427981,
+      "base_octave": 1,
+      "octave_count": 2
+    },
+    "scale": 1.0,
+    "seed": 12345,
+    "states": [
+      "minecraft:allium",
+      "minecraft:amethyst_cluster",
+      "minecraft:pink_tulip",
+      "minecraft:peony",
+      "minecraft:pink_tulip",
+      "minecraft:allium",
+      "minecraft:lilac",
+      "minecraft:allium",
+      "minecraft:amethyst_cluster"
+    ]
+  }
+}

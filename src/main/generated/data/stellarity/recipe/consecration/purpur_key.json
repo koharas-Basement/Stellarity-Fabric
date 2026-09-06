@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "stellarity:gilded_purpur_key",
+  "result": {
+    "id": "stellarity:purpur_key"
+  }
+}

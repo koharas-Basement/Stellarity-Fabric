@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:lantern",
+  "result": {
+    "id": "minecraft:soul_lantern"
+  }
+}

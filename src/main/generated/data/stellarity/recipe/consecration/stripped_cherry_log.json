@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "#stellarity:stripped_logs_except_cherry",
+  "result": {
+    "id": "minecraft:stripped_cherry_log"
+  }
+}

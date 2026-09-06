@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:honey_block",
+  "result": {
+    "id": "minecraft:slime_block"
+  }
+}

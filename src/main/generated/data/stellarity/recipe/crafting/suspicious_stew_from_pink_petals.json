@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:bowl",
+    "minecraft:pink_petals",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom"
+  ],
+  "result": {
+    "components": {
+      "minecraft:suspicious_stew_effects": [
+        {
+          "duration": 180,
+          "id": "minecraft:absorption"
+        }
+      ]
+    },
+    "id": "minecraft:suspicious_stew"
+  }
+}

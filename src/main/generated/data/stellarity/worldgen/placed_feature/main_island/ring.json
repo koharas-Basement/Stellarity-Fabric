@@ -1,0 +1,8 @@
+{
+  "feature": "stellarity:main_island/ring",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

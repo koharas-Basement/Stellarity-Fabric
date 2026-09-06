@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_damage",
+            "damage": {
+              "type": "minecraft:uniform",
+              "max": 0.75,
+              "min": 0.15
+            }
+          },
+          "name": "stellarity:fisher_of_voids"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "stellarity:hallowed_ingot",
+  "result": {
+    "id": "minecraft:iron_ingot"
+  }
+}

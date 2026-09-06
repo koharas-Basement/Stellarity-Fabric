@@ -1,0 +1,15 @@
+{
+  "additional_wants": {
+    "count": 64,
+    "id": "stellarity:enderite_shard"
+  },
+  "gives": {
+    "id": "stellarity:book_of_updraft"
+  },
+  "max_uses": 1,
+  "reputation_discount": 0.2,
+  "wants": {
+    "id": "minecraft:book"
+  },
+  "xp": 20
+}

@@ -1,0 +1,12 @@
+{
+  "feature": "stellarity:main_island/patch",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 2
+    }
+  ]
+}

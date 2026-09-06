@@ -1,0 +1,21 @@
+{
+  "assets": {
+    "angry": "stellarity:entity/wolf/wolf_end_angry",
+    "tame": "stellarity:entity/wolf/wolf_end_tame",
+    "wild": "stellarity:entity/wolf/wolf_end"
+  },
+  "baby_assets": {
+    "angry": "stellarity:entity/wolf/wolf_end_angry_baby",
+    "tame": "stellarity:entity/wolf/wolf_end_tame_baby",
+    "wild": "stellarity:entity/wolf/wolf_end_baby"
+  },
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#minecraft:is_end"
+      },
+      "priority": 5
+    }
+  ]
+}

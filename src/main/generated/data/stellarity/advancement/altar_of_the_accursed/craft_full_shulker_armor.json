@@ -1,0 +1,72 @@
+{
+  "parent": "stellarity:altar_of_the_accursed/cursed_crafting",
+  "criteria": {
+    "boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stellarity:shulker_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stellarity:shulker_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stellarity:shulker_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stellarity:shulker_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.craft_full_shulker_armor.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "stellarity:shulker_chestplate"
+    },
+    "title": {
+      "translate": "advancements.stellarity.craft_full_shulker_armor"
+    }
+  },
+  "requirements": [
+    [
+      "helmet"
+    ],
+    [
+      "chestplate"
+    ],
+    [
+      "leggings"
+    ],
+    [
+      "boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

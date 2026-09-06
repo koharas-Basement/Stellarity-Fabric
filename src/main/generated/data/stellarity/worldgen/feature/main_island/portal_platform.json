@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:end_spike",
+  "crystal_invulnerable": true,
+  "spikes": [
+    {
+      "height": 60,
+      "radius": 16,
+      "stellarity:has_crystal": false
+    }
+  ]
+}

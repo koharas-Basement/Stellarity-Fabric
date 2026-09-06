@@ -1,0 +1,88 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": "minecraft:ambient.basalt_deltas.additions",
+        "tick_chance": 0.0111
+      },
+      "loop": "stellarity:ambient.the_end.heavenly_grim",
+      "mood": {
+        "block_search_extent": 6,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.basalt_deltas.mood",
+        "tick_delay": 1100
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {
+          "minecraft:enderman": {
+            "charge": 0.7,
+            "energy_budget": 1.0
+          }
+        },
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "minecraft:enderman",
+              "count": 4,
+              "weight": 20
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_light_color": "#3f473f",
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:dripping_obsidian_tear"
+        },
+        "probability": 2.2E-4
+      }
+    ],
+    "minecraft:visual/fog_color": "#000000",
+    "minecraft:visual/sky_color": "#000000",
+    "minecraft:visual/water_fog_color": "#5d2a6f"
+  },
+  "carvers": [],
+  "downfall": 0.5,
+  "effects": {
+    "foliage_color": "#dd90fe",
+    "grass_color": "#dd90fe",
+    "water_color": "#e499ff"
+  },
+  "features": [
+    [
+      "stellarity:global/stalactites",
+      "stellarity:crystal_crags/hills"
+    ],
+    [
+      "stellarity:crystal_crags/crystal_roots",
+      "stellarity:crystal_crags/amethyst_crystals",
+      "stellarity:crystal_crags/amethyst_deltas",
+      "stellarity:crystal_crags/grass_deltas"
+    ],
+    [
+      "stellarity:crystal_crags/budding_amethyst_ore"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "stellarity:crystal_crags/chorus_plants",
+      "stellarity:crystal_crags/crystal_grass",
+      "stellarity:crystal_crags/grass"
+    ],
+    [
+      "stellarity:global/dungeons",
+      "stellarity:global/fossils"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 0.5
+}

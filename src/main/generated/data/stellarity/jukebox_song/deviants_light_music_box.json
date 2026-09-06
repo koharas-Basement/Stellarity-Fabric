@@ -1,0 +1,8 @@
+{
+  "comparator_output": 13,
+  "description": {
+    "translate": "item.stellarity.music_disc_deviants_light_music_box.desc"
+  },
+  "length_in_seconds": 350.0,
+  "sound_event": "stellarity:music_disc.deviants_light_music_box"
+}

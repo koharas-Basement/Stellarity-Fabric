@@ -1,0 +1,25 @@
+{
+  "given_item_modifier": {
+    "type": "minecraft:enchant_with_levels",
+    "levels": {
+      "type": "minecraft:uniform",
+      "max": 29,
+      "min": 15
+    },
+    "options": "#minecraft:on_random_loot"
+  },
+  "gives": {
+    "id": "minecraft:fishing_rod"
+  },
+  "max_uses": 2,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 8,
+      "min": 5
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 4
+}

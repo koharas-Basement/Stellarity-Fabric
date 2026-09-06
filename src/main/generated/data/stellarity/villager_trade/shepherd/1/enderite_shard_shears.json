@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "minecraft:shears"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 2
+}

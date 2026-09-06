@@ -1,0 +1,24 @@
+{
+  "feature": "stellarity:prismatic_dunes/delta",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 40
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:diorite",
+        "offset": [
+          0,
+          -1,
+          0
+        ]
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

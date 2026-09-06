@@ -1,0 +1,49 @@
+{
+  "feature": "stellarity:fiery_hills/lava_delta",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 20,
+            "weight": 1
+          },
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "max_inclusive": 15,
+              "min_inclusive": 10
+            },
+            "weight": 2
+          },
+          {
+            "data": 5,
+            "weight": 3
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": [
+          "minecraft:end_stone",
+          "minecraft:blackstone",
+          "minecraft:smooth_basalt",
+          "minecraft:basalt"
+        ],
+        "offset": [
+          0,
+          -1,
+          0
+        ]
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

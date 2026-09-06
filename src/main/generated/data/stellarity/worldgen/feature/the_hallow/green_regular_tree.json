@@ -1,0 +1,114 @@
+{
+  "type": "minecraft:tree",
+  "below_trunk_provider": {
+    "id": "stellarity:ender_dirt"
+  },
+  "decorators": [
+    {
+      "type": "minecraft:beehive",
+      "probability": 0.06
+    },
+    {
+      "type": "stellarity:hanging_column",
+      "chance": 0.1,
+      "layers": [
+        {
+          "height": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 16,
+            "min_inclusive": 4
+          },
+          "provider": {
+            "id": "minecraft:iron_chain",
+            "properties": {
+              "axis": "y",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "height": 1,
+          "provider": {
+            "id": "minecraft:lantern",
+            "properties": {
+              "hanging": "true",
+              "waterlogged": "false"
+            }
+          }
+        }
+      ],
+      "min_size": 2,
+      "place_under_leaves": false,
+      "place_under_trunk": true,
+      "prioritize_tip": true
+    }
+  ],
+  "foliage_placer": {
+    "type": "minecraft:fancy_foliage_placer",
+    "height": 4,
+    "offset": 4,
+    "radius": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 3,
+      "min_inclusive": 2
+    }
+  },
+  "foliage_provider": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:green_wool",
+        "weight": 5
+      },
+      {
+        "data": "minecraft:green_stained_glass",
+        "weight": 2
+      }
+    ]
+  },
+  "ignore_vines": true,
+  "minimum_size": {
+    "type": "minecraft:two_layers_feature_size"
+  },
+  "root_placer": {
+    "type": "minecraft:mangrove_root_placer",
+    "above_root_placement": {
+      "above_root_placement_chance": 0.5,
+      "above_root_provider": {
+        "id": "minecraft:stripped_birch_wood",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "mangrove_root_placement": {
+      "can_grow_through": "#stellarity:worldgen/grass_block",
+      "max_root_length": 3,
+      "max_root_width": 1,
+      "muddy_roots_in": "#stellarity:worldgen/dirt",
+      "muddy_roots_provider": {
+        "id": "minecraft:stone"
+      },
+      "random_skew_chance": 0.1
+    },
+    "root_provider": {
+      "id": "minecraft:stripped_birch_wood",
+      "properties": {
+        "axis": "y"
+      }
+    },
+    "trunk_offset_y": 0
+  },
+  "trunk_placer": {
+    "type": "minecraft:fancy_trunk_placer",
+    "base_height": 15,
+    "height_rand_a": 6,
+    "height_rand_b": 9
+  },
+  "trunk_provider": {
+    "id": "minecraft:stripped_birch_log",
+    "properties": {
+      "axis": "y"
+    }
+  }
+}

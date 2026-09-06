@@ -1,0 +1,38 @@
+{
+  "type": "stellarity:spike",
+  "height": {
+    "type": "minecraft:uniform",
+    "max_exclusive": 30.0,
+    "min_inclusive": 25.0
+  },
+  "material": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:obsidian",
+        "weight": 8
+      },
+      {
+        "data": "minecraft:crying_obsidian",
+        "weight": 1
+      }
+    ]
+  },
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_exclusive": 8.0,
+    "min_inclusive": 5.0
+  },
+  "wind_x": {
+    "type": "minecraft:trapezoid",
+    "max": 0.5,
+    "min": -0.5,
+    "plateau": 0.5
+  },
+  "wind_z": {
+    "type": "minecraft:trapezoid",
+    "max": 0.5,
+    "min": -0.5,
+    "plateau": 0.5
+  }
+}

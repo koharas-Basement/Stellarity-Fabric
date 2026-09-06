@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:chiseled_sandstone",
+  "result": {
+    "id": "minecraft:chiseled_red_sandstone"
+  }
+}

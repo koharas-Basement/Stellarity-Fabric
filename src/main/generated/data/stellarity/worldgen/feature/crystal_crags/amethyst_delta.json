@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:delta_feature",
+  "contents": "minecraft:amethyst_block",
+  "rim": "minecraft:smooth_basalt",
+  "rim_size": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 3,
+    "min_inclusive": 1
+  },
+  "size": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 7,
+    "min_inclusive": 0
+  }
+}

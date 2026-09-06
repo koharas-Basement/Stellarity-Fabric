@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/grass_block",
+  "textures": {
+    "bottom": "stellarity:block/ender_dirt",
+    "overlay": "stellarity:block/ender_grass_block_side_overlay",
+    "side": "stellarity:block/ender_grass_block_side",
+    "top": "stellarity:block/ender_grass_block_top"
+  }
+}

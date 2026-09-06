@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:delta_feature",
+  "contents": "stellarity:ender_grass_block",
+  "rim": "stellarity:ender_grass_block",
+  "rim_size": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 3,
+    "min_inclusive": 1
+  },
+  "size": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 7,
+    "min_inclusive": 4
+  }
+}

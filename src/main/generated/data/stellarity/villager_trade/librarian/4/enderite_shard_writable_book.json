@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "minecraft:writable_book"
+  },
+  "max_uses": 6,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 6
+}

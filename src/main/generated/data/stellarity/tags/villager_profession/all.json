@@ -1,0 +1,17 @@
+{
+  "values": [
+    "stellarity:armorer",
+    "stellarity:butcher",
+    "stellarity:cartographer",
+    "stellarity:cleric",
+    "stellarity:farmer",
+    "stellarity:fisherman",
+    "stellarity:fletcher",
+    "stellarity:leatherworker",
+    "stellarity:librarian",
+    "stellarity:mason",
+    "stellarity:shepherd",
+    "stellarity:toolsmith",
+    "stellarity:weaponsmith"
+  ]
+}

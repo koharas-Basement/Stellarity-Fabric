@@ -1,0 +1,47 @@
+{
+  "parent": "stellarity:void_fishing/void_reels",
+  "criteria": {
+    "eat": {
+      "conditions": {
+        "item": {
+          "items": "stellarity:crystal_heartfish"
+        },
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_attribute_modifiers": {
+              "entries": [
+                {
+                  "amount": {
+                    "min": 9.0
+                  },
+                  "attribute": "minecraft:max_health",
+                  "id": "stellarity:crystal_heartfish"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.topped_off.description"
+    },
+    "icon": {
+      "id": "stellarity:crystal_heartfish"
+    },
+    "title": {
+      "translate": "advancements.stellarity.topped_off"
+    }
+  },
+  "requirements": [
+    [
+      "eat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,22 @@
+{
+  "given_item_modifier": {
+    "type": "minecraft:set_components",
+    "components": {
+      "minecraft:painting/variant": "stellarity:a_hop_and_a_skip_away"
+    }
+  },
+  "gives": {
+    "id": "minecraft:painting"
+  },
+  "max_uses": 2,
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 6,
+      "min": 4
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 20
+}

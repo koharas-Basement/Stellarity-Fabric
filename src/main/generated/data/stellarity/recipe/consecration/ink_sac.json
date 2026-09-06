@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:glow_ink_sac",
+  "result": {
+    "id": "minecraft:ink_sac"
+  }
+}

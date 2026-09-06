@@ -1,0 +1,24 @@
+{
+  "feature": {
+    "type": "minecraft:random_selector",
+    "default": "stellarity:nothing",
+    "features": [
+      {
+        "chance": 0.12,
+        "feature": {
+          "feature": "stellarity:ashfall_deltas/basalt_columns",
+          "placement": []
+        }
+      }
+    ]
+  },
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 2
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

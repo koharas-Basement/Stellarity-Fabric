@@ -1,0 +1,15 @@
+{
+  "additional_wants": {
+    "id": "stellarity:enderite_shard"
+  },
+  "gives": {
+    "count": 2,
+    "id": "minecraft:glow_item_frame"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 2,
+    "id": "minecraft:item_frame"
+  },
+  "xp": 8
+}

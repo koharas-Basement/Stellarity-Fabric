@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "minecraft:pink_bed"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 10
+}

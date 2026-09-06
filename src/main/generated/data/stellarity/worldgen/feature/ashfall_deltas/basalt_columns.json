@@ -1,0 +1,83 @@
+{
+  "type": "minecraft:weighted_random_selector",
+  "features": [
+    {
+      "data": {
+        "feature": {
+          "type": "minecraft:stepped_column_cluster",
+          "block": {
+            "id": "minecraft:basalt",
+            "properties": {
+              "axis": "y"
+            }
+          },
+          "can_replace": {
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_block_tag",
+                "tag": "minecraft:air"
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:lava"
+              }
+            ]
+          },
+          "cannot_place_on": "#minecraft:cannot_place_basalt_pillar_on",
+          "cluster_reach": 5,
+          "column_count": 50,
+          "column_reach": 0,
+          "continue_through": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:basalt"
+          },
+          "height": 1
+        },
+        "placement": []
+      },
+      "weight": 7
+    },
+    {
+      "data": {
+        "feature": {
+          "type": "minecraft:stepped_column_cluster",
+          "block": {
+            "id": "minecraft:basalt",
+            "properties": {
+              "axis": "y"
+            }
+          },
+          "can_replace": {
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_block_tag",
+                "tag": "minecraft:air"
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:lava"
+              }
+            ]
+          },
+          "cannot_place_on": "#minecraft:cannot_place_basalt_pillar_on",
+          "cluster_reach": 5,
+          "column_count": 50,
+          "column_reach": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 3,
+            "min_inclusive": 2
+          },
+          "continue_through": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:basalt"
+          },
+          "height": 1
+        },
+        "placement": []
+      },
+      "weight": 3
+    }
+  ]
+}

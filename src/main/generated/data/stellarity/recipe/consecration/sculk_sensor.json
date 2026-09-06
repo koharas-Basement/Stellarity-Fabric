@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:calibrated_sculk_sensor",
+  "result": {
+    "id": "minecraft:sculk_sensor"
+  }
+}

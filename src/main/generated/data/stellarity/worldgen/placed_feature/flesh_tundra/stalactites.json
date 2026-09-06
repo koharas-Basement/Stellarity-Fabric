@@ -1,0 +1,64 @@
+{
+  "feature": "stellarity:global/stalactites",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 7,
+            "weight": 100
+          },
+          {
+            "data": 14,
+            "weight": 50
+          },
+          {
+            "data": 28,
+            "weight": 25
+          },
+          {
+            "data": 40,
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:noise_based_count",
+      "noise_factor": 55.0,
+      "noise_to_count_ratio": 5
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "below_top": 0
+        },
+        "min_inclusive": {
+          "above_bottom": 0
+        }
+      }
+    },
+    {
+      "type": "minecraft:environment_scan",
+      "allowed_search_condition": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      },
+      "direction_of_search": "up",
+      "max_steps": 32,
+      "target_condition": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

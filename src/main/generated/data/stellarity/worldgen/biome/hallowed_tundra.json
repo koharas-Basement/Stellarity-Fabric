@@ -1,0 +1,92 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": {
+          "sound_id": "minecraft:ambient.underwater.loop.additions.rare"
+        },
+        "tick_chance": 5.5E-4
+      },
+      "loop": "stellarity:ambient.the_end.heavenly_blessed",
+      "mood": {
+        "block_search_extent": 2,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.soul_sand_valley.mood",
+        "tick_delay": 900
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {
+          "stellarity:pixie": {
+            "charge": 1.0,
+            "energy_budget": 0.25
+          }
+        },
+        "spawns_by_category": {
+          "ambient": [
+            {
+              "type": "stellarity:pixie",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 20
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_light_color": "#3f472f",
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:cherry_leaves"
+        },
+        "probability": 0.0012
+      }
+    ],
+    "minecraft:visual/fog_color": "#c0d8ff",
+    "minecraft:visual/sky_color": "#7ba4ff",
+    "minecraft:visual/water_fog_color": "#e566ff"
+  },
+  "carvers": [],
+  "downfall": 0.6,
+  "effects": {
+    "foliage_color": "#a6e4ff",
+    "grass_color": "#b2e1ff",
+    "water_color": "#ea80ff"
+  },
+  "features": [
+    [
+      "stellarity:global/stalactites",
+      "stellarity:frozen_spikes/large_dripstone",
+      "stellarity:frosted_valley/hills"
+    ],
+    [
+      "stellarity:the_hallow/crystal_roots",
+      "stellarity:the_hallow/rocks"
+    ],
+    [
+      "stellarity:hallowed_tundra/lake"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "stellarity:hallowed_tundra/trees",
+      "stellarity:the_hallow/lanterns"
+    ],
+    [
+      "stellarity:global/freeze_water"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": -0.5,
+  "temperature_modifier": "frozen"
+}

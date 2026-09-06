@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.0,
+  "size": 4,
+  "targets": [
+    {
+      "state": "minecraft:budding_amethyst",
+      "target": {
+        "block": "minecraft:amethyst_block",
+        "predicate_type": "minecraft:block_match"
+      }
+    }
+  ]
+}

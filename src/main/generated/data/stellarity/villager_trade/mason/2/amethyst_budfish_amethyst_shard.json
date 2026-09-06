@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "count": 4,
+    "id": "minecraft:amethyst_shard"
+  },
+  "max_uses": 6,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "stellarity:amethyst_budfish"
+  },
+  "xp": 4
+}

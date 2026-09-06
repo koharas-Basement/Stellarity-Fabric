@@ -1,0 +1,23 @@
+{
+  "given_item_modifier": {
+    "type": "minecraft:set_random_potion",
+    "options": [
+      "minecraft:strength",
+      "stellarity:endurance"
+    ]
+  },
+  "gives": {
+    "id": "minecraft:potion"
+  },
+  "max_uses": 3,
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 11,
+      "min": 7
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 15
+}

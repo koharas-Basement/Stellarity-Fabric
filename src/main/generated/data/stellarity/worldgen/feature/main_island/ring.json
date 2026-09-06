@@ -1,0 +1,78 @@
+{
+  "type": "minecraft:end_spike",
+  "spikes": [
+    {
+      "centerX": 63,
+      "height": 100,
+      "radius": 5,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": 50,
+      "centerZ": 36,
+      "height": 105,
+      "radius": 4,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": 18,
+      "centerZ": 59,
+      "guarded": true,
+      "height": 94,
+      "radius": 4,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": -19,
+      "centerZ": 59,
+      "height": 106,
+      "radius": 5,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": -51,
+      "centerZ": 36,
+      "height": 105,
+      "radius": 4,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": -63,
+      "guarded": true,
+      "height": 93,
+      "radius": 5,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": -51,
+      "centerZ": -39,
+      "height": 100,
+      "radius": 6,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": -19,
+      "centerZ": -60,
+      "height": 96,
+      "radius": 6,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": 18,
+      "centerZ": -60,
+      "guarded": true,
+      "height": 87,
+      "radius": 5,
+      "stellarity:crying_obsidian_tops": true
+    },
+    {
+      "centerX": 50,
+      "centerZ": -39,
+      "guarded": true,
+      "height": 105,
+      "radius": 8,
+      "stellarity:altar": true,
+      "stellarity:crying_obsidian_tops": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "feature": "stellarity:hallowed_tundra/lake",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 10
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE"
+    }
+  ]
+}

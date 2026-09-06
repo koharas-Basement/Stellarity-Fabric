@@ -1,0 +1,29 @@
+{
+  "values": [
+    "#c:boats",
+    "#minecraft:impact_projectiles",
+    "#c:minecarts",
+    "minecraft:item_frame",
+    "minecraft:glow_item_frame",
+    "minecraft:painting",
+    "minecraft:armor_stand",
+    "minecraft:leash_knot",
+    "minecraft:interaction",
+    "minecraft:area_effect_cloud",
+    "minecraft:ender_pearl",
+    "minecraft:end_crystal",
+    "minecraft:evoker_fangs",
+    "minecraft:experience_bottle",
+    "minecraft:experience_orb",
+    "minecraft:eye_of_ender",
+    "minecraft:falling_block",
+    "minecraft:fishing_bobber",
+    "minecraft:firework_rocket",
+    "minecraft:fireball",
+    "minecraft:item",
+    "minecraft:llama_spit",
+    "minecraft:shulker_bullet",
+    "minecraft:splash_potion",
+    "minecraft:lingering_potion"
+  ]
+}

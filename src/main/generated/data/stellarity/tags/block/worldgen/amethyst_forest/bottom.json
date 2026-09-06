@@ -1,0 +1,12 @@
+{
+  "values": [
+    "minecraft:end_stone",
+    "minecraft:calcite",
+    "minecraft:tuff",
+    "minecraft:grass_block",
+    "minecraft:dirt",
+    "stellarity:ender_dirt",
+    "stellarity:ender_grass_block",
+    "minecraft:diorite"
+  ]
+}

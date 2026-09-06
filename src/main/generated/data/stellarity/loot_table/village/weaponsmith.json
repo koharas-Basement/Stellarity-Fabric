@@ -1,0 +1,137 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 39,
+              "min": 29
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:iron_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 39,
+              "min": 29
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:iron_spear"
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 39,
+              "min": 29
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:golden_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 39,
+              "min": 29
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:golden_spear"
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 39,
+              "min": 29
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:diamond_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 39,
+              "min": 29
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:diamond_spear"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2,
+        "min": 1
+      }
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": {
+              "type": "minecraft:uniform",
+              "max": 3,
+              "min": 2
+            }
+          },
+          "name": "minecraft:coal",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_ingot",
+              "weight": 8
+            }
+          ]
+        }
+      ],
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": {
+          "type": "minecraft:uniform",
+          "max": 3,
+          "min": 1
+        }
+      },
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 7,
+        "min": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:block_column",
+  "allowed_placement": {
+    "type": "minecraft:matching_blocks",
+    "blocks": "minecraft:air",
+    "offset": [
+      0,
+      -1,
+      0
+    ]
+  },
+  "direction": "down",
+  "layers": [
+    {
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 9,
+        "min_inclusive": 3
+      },
+      "provider": {
+        "id": "minecraft:cave_vines_plant",
+        "properties": {
+          "berries": "false"
+        }
+      }
+    },
+    {
+      "height": 1,
+      "provider": {
+        "id": "minecraft:cave_vines",
+        "properties": {
+          "age": "25",
+          "berries": "false"
+        }
+      }
+    },
+    {
+      "height": 1,
+      "provider": {
+        "type": "minecraft:weighted",
+        "entries": [
+          {
+            "data": "minecraft:verdant_froglight",
+            "weight": 1
+          },
+          {
+            "data": "stellarity:ashen_froglight",
+            "weight": 1
+          },
+          {
+            "data": "minecraft:pearlescent_froglight",
+            "weight": 1
+          },
+          {
+            "data": "minecraft:ochre_froglight",
+            "weight": 1
+          }
+        ]
+      }
+    }
+  ],
+  "prioritize_tip": true
+}

@@ -1,0 +1,15 @@
+{
+  "additional_wants": {
+    "count": 64,
+    "id": "stellarity:enderite_shard"
+  },
+  "gives": {
+    "id": "stellarity:stellar_striker"
+  },
+  "max_uses": 1,
+  "reputation_discount": 0.2,
+  "wants": {
+    "id": "minecraft:golden_sword"
+  },
+  "xp": 25
+}

@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "stellarity:champion"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "stellarity:champion"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "stellarity:champion"
+      }
+    ]
+  }
+}

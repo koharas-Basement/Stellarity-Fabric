@@ -1,0 +1,8 @@
+{
+  "asset_id": "stellarity:entity/voided_skeleton/voided_skeleton_normal",
+  "spawn_conditions": [
+    {
+      "priority": 0
+    }
+  ]
+}

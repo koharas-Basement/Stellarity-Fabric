@@ -1,0 +1,28 @@
+{
+  "additional_wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 24,
+      "min": 15
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "given_item_modifier": {
+    "type": "minecraft:enchant_randomly",
+    "options": [
+      "minecraft:fire_aspect",
+      "minecraft:flame",
+      "minecraft:knockback",
+      "minecraft:aqua_affinity"
+    ]
+  },
+  "gives": {
+    "id": "minecraft:book"
+  },
+  "max_uses": 3,
+  "reputation_discount": 0.2,
+  "wants": {
+    "id": "minecraft:book"
+  },
+  "xp": 8
+}

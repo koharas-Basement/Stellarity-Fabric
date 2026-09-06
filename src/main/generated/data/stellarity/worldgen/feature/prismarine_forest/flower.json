@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:dual_noise",
+    "noise": {
+      "base_amplitude": 0.9381732587751008,
+      "base_octave": -2,
+      "octave_count": 3
+    },
+    "scale": 1.0,
+    "seed": 14112006,
+    "slow_noise": {
+      "base_amplitude": 0.9381732587751008,
+      "base_octave": -3,
+      "octave_count": 3
+    },
+    "slow_scale": 1.0,
+    "states": [
+      "minecraft:pitcher_plant",
+      "minecraft:azure_bluet",
+      "minecraft:cornflower",
+      "minecraft:oxeye_daisy",
+      "minecraft:lily_of_the_valley",
+      "minecraft:white_tulip",
+      "minecraft:blue_orchid"
+    ],
+    "variety": 1
+  }
+}

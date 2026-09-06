@@ -1,0 +1,11 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "stellarity:block/colored_leaves",
+    "tints": [
+      {
+        "type": "stellarity:color"
+      }
+    ]
+  }
+}

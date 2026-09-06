@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:short_grass",
+        "weight": 5
+      },
+      {
+        "data": "minecraft:tall_grass",
+        "weight": 1
+      },
+      {
+        "data": "minecraft:nether_sprouts",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:warped_roots",
+        "weight": 2
+      }
+    ]
+  }
+}

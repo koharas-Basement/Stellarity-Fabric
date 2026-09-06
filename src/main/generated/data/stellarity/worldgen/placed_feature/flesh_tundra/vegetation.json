@@ -1,0 +1,75 @@
+{
+  "feature": "stellarity:flesh_tundra/vegetation",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 200
+    },
+    {
+      "type": "minecraft:noise_based_count",
+      "noise_factor": 60.0,
+      "noise_offset": 0.1139,
+      "noise_to_count_ratio": 150
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "below_top": 0
+        },
+        "min_inclusive": {
+          "above_bottom": 0
+        }
+      }
+    },
+    {
+      "type": "minecraft:environment_scan",
+      "allowed_search_condition": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        ]
+      },
+      "direction_of_search": "down",
+      "max_steps": 4,
+      "target_condition": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:count",
+      "count": 4
+    },
+    {
+      "type": "minecraft:offset",
+      "x": {
+        "type": "minecraft:trapezoid",
+        "max": 1,
+        "min": -1,
+        "plateau": 0
+      },
+      "y": {
+        "type": "minecraft:trapezoid",
+        "max": 1,
+        "min": -1,
+        "plateau": 0
+      },
+      "z": {
+        "type": "minecraft:trapezoid",
+        "max": 1,
+        "min": -1,
+        "plateau": 0
+      }
+    }
+  ]
+}

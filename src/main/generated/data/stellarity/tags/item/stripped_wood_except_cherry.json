@@ -1,0 +1,8 @@
+{
+  "fabric:remove": [
+    "minecraft:stripped_cherry_wood"
+  ],
+  "values": [
+    "#c:stripped_woods"
+  ]
+}

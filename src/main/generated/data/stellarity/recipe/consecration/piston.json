@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:sticky_piston",
+  "result": {
+    "id": "minecraft:piston"
+  }
+}

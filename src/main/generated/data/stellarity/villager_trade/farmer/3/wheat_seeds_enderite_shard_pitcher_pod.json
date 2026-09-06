@@ -1,0 +1,20 @@
+{
+  "additional_wants": {
+    "id": "stellarity:enderite_shard"
+  },
+  "gives": {
+    "count": 3,
+    "id": "minecraft:pitcher_pod"
+  },
+  "max_uses": 8,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 11,
+      "min": 8
+    },
+    "id": "minecraft:wheat_seeds"
+  },
+  "xp": 5
+}

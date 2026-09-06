@@ -1,0 +1,28 @@
+{
+  "feature": {
+    "type": "minecraft:random_selector",
+    "default": "stellarity:nothing",
+    "features": [
+      {
+        "chance": 0.8,
+        "feature": {
+          "feature": "stellarity:ashfall_deltas/tree",
+          "placement": []
+        }
+      }
+    ]
+  },
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 2
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 5
+    }
+  ]
+}

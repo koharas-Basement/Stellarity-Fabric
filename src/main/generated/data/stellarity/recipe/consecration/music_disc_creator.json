@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:music_disc_creator_music_box",
+  "result": {
+    "id": "minecraft:music_disc_creator"
+  }
+}

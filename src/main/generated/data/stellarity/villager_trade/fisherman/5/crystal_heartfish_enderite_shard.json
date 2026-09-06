@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "count": 5,
+    "id": "stellarity:enderite_shard"
+  },
+  "max_uses": 3,
+  "reputation_discount": 0.2,
+  "wants": {
+    "id": "stellarity:crystal_heartfish"
+  },
+  "xp": 15
+}

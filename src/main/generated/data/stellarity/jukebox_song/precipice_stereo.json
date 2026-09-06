@@ -1,0 +1,8 @@
+{
+  "comparator_output": 10,
+  "description": {
+    "translate": "item.stellarity.music_disc_precipice_stereo.desc"
+  },
+  "length_in_seconds": 302.0,
+  "sound_event": "stellarity:music_disc.precipice_stereo"
+}

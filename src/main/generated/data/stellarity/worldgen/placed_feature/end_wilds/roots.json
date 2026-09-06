@@ -1,0 +1,117 @@
+{
+  "feature": {
+    "type": "minecraft:simple_block",
+    "to_place": {
+      "id": "minecraft:hanging_roots",
+      "properties": {
+        "waterlogged": "false"
+      }
+    }
+  },
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 64
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "below_top": 0
+        },
+        "min_inclusive": {
+          "above_bottom": 0
+        }
+      }
+    },
+    {
+      "type": "minecraft:environment_scan",
+      "allowed_search_condition": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      },
+      "direction_of_search": "up",
+      "max_steps": 24,
+      "target_condition": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:has_sturdy_face",
+            "direction": "down"
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "stellarity:ender_dirt",
+              "stellarity:ender_grass_block",
+              "stellarity:rooted_ender_dirt"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:offset",
+      "x": 0,
+      "y": -1,
+      "z": 0
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:count",
+      "count": 24
+    },
+    {
+      "type": "minecraft:offset",
+      "x": {
+        "type": "minecraft:trapezoid",
+        "max": 5,
+        "min": -5,
+        "plateau": 0
+      },
+      "y": {
+        "type": "minecraft:trapezoid",
+        "max": 4,
+        "min": -4,
+        "plateau": 0
+      },
+      "z": {
+        "type": "minecraft:trapezoid",
+        "max": 5,
+        "min": -5,
+        "plateau": 0
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "stellarity:ender_dirt",
+              "stellarity:ender_grass_block",
+              "stellarity:rooted_ender_dirt"
+            ],
+            "offset": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "type": "minecraft:vegetation_patch",
+  "depth": 4,
+  "extra_bottom_block_chance": 0.0,
+  "extra_edge_column_chance": 0.5,
+  "ground_state": {
+    "id": "minecraft:netherrack"
+  },
+  "replaceable": "#stellarity:worldgen/end_stone",
+  "surface": "ceiling",
+  "vegetation_chance": 1.0,
+  "vegetation_feature": {
+    "feature": {
+      "type": "minecraft:block_column",
+      "allowed_placement": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      },
+      "direction": "down",
+      "layers": [
+        {
+          "height": {
+            "type": "minecraft:weighted_list",
+            "distribution": [
+              {
+                "data": 1,
+                "weight": 1
+              },
+              {
+                "data": 0,
+                "weight": 14
+              }
+            ]
+          },
+          "provider": {
+            "id": "minecraft:netherrack"
+          }
+        },
+        {
+          "height": 1,
+          "provider": {
+            "id": "minecraft:netherrack"
+          }
+        }
+      ],
+      "prioritize_tip": true
+    },
+    "placement": [
+      {
+        "type": "minecraft:environment_scan",
+        "direction_of_search": "up",
+        "max_steps": 32,
+        "target_condition": {
+          "type": "minecraft:solid"
+        }
+      }
+    ]
+  },
+  "vertical_range": 25,
+  "xz_radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 4,
+    "min_inclusive": 2
+  }
+}

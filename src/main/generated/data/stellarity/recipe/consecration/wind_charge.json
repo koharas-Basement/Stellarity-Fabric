@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:fire_charge",
+  "result": {
+    "id": "minecraft:wind_charge"
+  }
+}

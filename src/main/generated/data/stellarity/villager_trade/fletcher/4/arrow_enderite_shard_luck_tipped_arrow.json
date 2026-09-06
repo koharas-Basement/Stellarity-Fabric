@@ -1,0 +1,21 @@
+{
+  "additional_wants": {
+    "count": 64,
+    "id": "stellarity:enderite_shard"
+  },
+  "given_item_modifier": {
+    "type": "minecraft:set_potion",
+    "id": "minecraft:luck"
+  },
+  "gives": {
+    "count": 8,
+    "id": "minecraft:tipped_arrow"
+  },
+  "max_uses": 5,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 8,
+    "id": "minecraft:arrow"
+  },
+  "xp": 8
+}

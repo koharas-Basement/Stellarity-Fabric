@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:soul_campfire",
+  "result": {
+    "id": "minecraft:campfire"
+  }
+}

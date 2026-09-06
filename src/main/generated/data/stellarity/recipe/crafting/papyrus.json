@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:chorus_plant",
+    "minecraft:chorus_plant",
+    "minecraft:chorus_plant",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "count": 6,
+    "id": "minecraft:paper"
+  }
+}

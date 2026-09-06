@@ -1,0 +1,67 @@
+{
+  "feature": {
+    "type": "minecraft:random_selector",
+    "default": "stellarity:nothing",
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "stellarity:end_highlands/chorus_leaf",
+          "placement": []
+        }
+      }
+    ]
+  },
+  "placement": [
+    {
+      "type": "minecraft:noise_based_count",
+      "noise_factor": 2.0,
+      "noise_offset": 1.0,
+      "noise_to_count_ratio": 40
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "below_top": 0
+        },
+        "min_inclusive": {
+          "above_bottom": 0
+        }
+      }
+    },
+    {
+      "type": "minecraft:environment_scan",
+      "direction_of_search": "down",
+      "max_steps": 32,
+      "target_condition": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:replaceable"
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:end_stone",
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 1
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:lake",
+  "barrier": {
+    "id": "minecraft:calcite"
+  },
+  "can_place_feature": {
+    "type": "minecraft:true"
+  },
+  "can_replace_with_air_or_fluid": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "stellarity:ender_grass_block",
+      "stellarity:ender_dirt",
+      "stellarity:rooted_ender_dirt",
+      "minecraft:end_stone"
+    ]
+  },
+  "can_replace_with_barrier": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "stellarity:ender_grass_block",
+      "stellarity:ender_dirt",
+      "stellarity:rooted_ender_dirt",
+      "minecraft:end_stone"
+    ]
+  },
+  "fluid": {
+    "id": "minecraft:water",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

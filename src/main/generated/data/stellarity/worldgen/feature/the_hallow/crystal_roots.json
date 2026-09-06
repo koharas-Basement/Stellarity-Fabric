@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:root_system",
+  "allowed_tree_position": {
+    "type": "minecraft:true"
+  },
+  "allowed_vertical_water_for_tree": 1,
+  "feature": {
+    "feature": {
+      "type": "minecraft:simple_block",
+      "to_place": {
+        "id": "minecraft:amethyst_block"
+      }
+    },
+    "placement": []
+  },
+  "hanging_root_placement_attempts": 15,
+  "hanging_root_radius": 3,
+  "hanging_root_state_provider": {
+    "id": "minecraft:amethyst_cluster",
+    "properties": {
+      "facing": "up",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_roots_vertical_span": 2,
+  "level_test_distance": 8,
+  "max_level_deviation": 2,
+  "required_vertical_space_for_tree": 1,
+  "root_column_max_height": 100,
+  "root_placement_attempts": 20,
+  "root_radius": 3,
+  "root_replaceable": "#stellarity:worldgen/stalactite_replaceable",
+  "root_state_provider": {
+    "id": "minecraft:amethyst_block"
+  }
+}

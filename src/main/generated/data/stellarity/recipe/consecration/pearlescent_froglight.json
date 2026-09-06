@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:verdant_froglight",
+  "result": {
+    "id": "minecraft:pearlescent_froglight"
+  }
+}

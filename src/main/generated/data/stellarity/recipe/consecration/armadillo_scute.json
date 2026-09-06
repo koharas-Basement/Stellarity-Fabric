@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:turtle_scute",
+  "result": {
+    "id": "minecraft:armadillo_scute"
+  }
+}

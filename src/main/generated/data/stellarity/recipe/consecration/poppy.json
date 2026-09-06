@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:wither_rose",
+  "result": {
+    "id": "minecraft:poppy"
+  }
+}

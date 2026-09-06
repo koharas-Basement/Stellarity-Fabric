@@ -1,0 +1,35 @@
+{
+  "additional_wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 17,
+      "min": 9
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "given_item_modifier": {
+    "type": "minecraft:set_components",
+    "components": {
+      "minecraft:potion_contents": {
+        "custom_effects": [
+          {
+            "duration": 1800,
+            "id": "minecraft:levitation",
+            "show_icon": true
+          }
+        ]
+      }
+    }
+  },
+  "gives": {
+    "count": 8,
+    "id": "minecraft:tipped_arrow"
+  },
+  "max_uses": 6,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 8,
+    "id": "minecraft:arrow"
+  },
+  "xp": 8
+}

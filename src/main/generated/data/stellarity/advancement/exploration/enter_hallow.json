@@ -1,0 +1,251 @@
+{
+  "parent": "minecraft:end/enter_end_gateway",
+  "criteria": {
+    "enter_hallow": {
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "biomes": "stellarity:the_hallow"
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "extra": [
+        {
+          "color": "#FFAFAF",
+          "text": "'"
+        },
+        {
+          "color": "#F9B0A4",
+          "text": "O"
+        },
+        {
+          "color": "#F4B19A",
+          "text": "n"
+        },
+        {
+          "color": "#EEB290",
+          "text": "c"
+        },
+        {
+          "color": "#E9B385",
+          "text": "e "
+        },
+        {
+          "color": "#E3B47B",
+          "text": "y"
+        },
+        {
+          "color": "#DEB571",
+          "text": "o"
+        },
+        {
+          "color": "#DDBA6C",
+          "text": "u "
+        },
+        {
+          "color": "#E2C570",
+          "text": "e"
+        },
+        {
+          "color": "#E7D074",
+          "text": "n"
+        },
+        {
+          "color": "#EDDB78",
+          "text": "t"
+        },
+        {
+          "color": "#F2E67C",
+          "text": "e"
+        },
+        {
+          "color": "#F8F180",
+          "text": "r "
+        },
+        {
+          "color": "#FDFC84",
+          "text": "h"
+        },
+        {
+          "color": "#F1FF85",
+          "text": "a"
+        },
+        {
+          "color": "#DEFF85",
+          "text": "l"
+        },
+        {
+          "color": "#CCFF85",
+          "text": "l"
+        },
+        {
+          "color": "#B9FF85",
+          "text": "o"
+        },
+        {
+          "color": "#A7FF85",
+          "text": "w"
+        },
+        {
+          "color": "#95FF85",
+          "text": "e"
+        },
+        {
+          "color": "#85FF87",
+          "text": "d "
+        },
+        {
+          "color": "#85FF99",
+          "text": "l"
+        },
+        {
+          "color": "#85FFAC",
+          "text": "a"
+        },
+        {
+          "color": "#85FFBE",
+          "text": "n"
+        },
+        {
+          "color": "#85FFD0",
+          "text": "d"
+        },
+        {
+          "color": "#85FFE3",
+          "text": ", "
+        },
+        {
+          "color": "#85FFF5",
+          "text": "y"
+        },
+        {
+          "color": "#80FAFA",
+          "text": "o"
+        },
+        {
+          "color": "#78F0F0",
+          "text": "u "
+        },
+        {
+          "color": "#6FE6E6",
+          "text": "w"
+        },
+        {
+          "color": "#67DCDC",
+          "text": "i"
+        },
+        {
+          "color": "#5ED2D2",
+          "text": "l"
+        },
+        {
+          "color": "#56C8C8",
+          "text": "l "
+        },
+        {
+          "color": "#4EBEBE",
+          "text": "s"
+        },
+        {
+          "color": "#52B3C5",
+          "text": "e"
+        },
+        {
+          "color": "#58A8CF",
+          "text": "e "
+        },
+        {
+          "color": "#5E9DD9",
+          "text": "a "
+        },
+        {
+          "color": "#6492E3",
+          "text": "r"
+        },
+        {
+          "color": "#6A88ED",
+          "text": "a"
+        },
+        {
+          "color": "#707DF7",
+          "text": "i"
+        },
+        {
+          "color": "#7A74FF",
+          "text": "n"
+        },
+        {
+          "color": "#8F74FF",
+          "text": "b"
+        },
+        {
+          "color": "#A373FF",
+          "text": "o"
+        },
+        {
+          "color": "#B873FF",
+          "text": "w "
+        },
+        {
+          "color": "#CD72FF",
+          "text": "i"
+        },
+        {
+          "color": "#E271FF",
+          "text": "n "
+        },
+        {
+          "color": "#F771FF",
+          "text": "t"
+        },
+        {
+          "color": "#F86DF8",
+          "text": "h"
+        },
+        {
+          "color": "#EF68EF",
+          "text": "e "
+        },
+        {
+          "color": "#E562E5",
+          "text": "s"
+        },
+        {
+          "color": "#DB5DDB",
+          "text": "k"
+        },
+        {
+          "color": "#D257D2",
+          "text": "y"
+        },
+        {
+          "color": "#C852C8",
+          "text": "."
+        }
+      ],
+      "text": ""
+    },
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:amethyst_cluster"
+    },
+    "title": {
+      "translate": "advancements.stellarity.enter_hallow"
+    }
+  },
+  "requirements": [
+    [
+      "enter_hallow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

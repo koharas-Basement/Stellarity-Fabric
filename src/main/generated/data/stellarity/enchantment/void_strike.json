@@ -1,0 +1,53 @@
+{
+  "anvil_cost": 10,
+  "description": {
+    "color": "#D600F4",
+    "translate": "enchantment.stellarity.void_strike"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "minecraft:apply_mob_effect",
+          "max_amplifier": 0.0,
+          "max_duration": 160.0,
+          "min_amplifier": 0.0,
+          "min_duration": 160.0,
+          "to_apply": "stellarity:voided"
+        },
+        "enchanted": "attacker",
+        "requirements": {
+          "type": "minecraft:damage_source_properties",
+          "predicate": {
+            "is_direct": true,
+            "tags": [
+              {
+                "expected": true,
+                "id": "#stellarity:melee"
+              },
+              {
+                "expected": false,
+                "id": "#minecraft:bypasses_invulnerability"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 100,
+    "per_level_above_first": 0
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 75,
+    "per_level_above_first": 0
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/weapon",
+  "weight": 1
+}

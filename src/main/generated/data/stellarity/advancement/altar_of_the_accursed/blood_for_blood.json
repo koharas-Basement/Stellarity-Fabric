@@ -1,0 +1,35 @@
+{
+  "parent": "stellarity:altar_of_the_accursed/cursed_crafting",
+  "criteria": {
+    "kill": {
+      "conditions": {
+        "killing_blow": {
+          "tags": [
+            {
+              "expected": true,
+              "id": "#stellarity:blood_for_blood"
+            }
+          ]
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.blood_for_blood.description"
+    },
+    "icon": {
+      "id": "stellarity:tamaris"
+    },
+    "title": {
+      "translate": "advancements.stellarity.blood_for_blood"
+    }
+  },
+  "requirements": [
+    [
+      "kill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

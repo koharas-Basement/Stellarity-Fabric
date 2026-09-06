@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enderite_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stellarity:enderite_shard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "stellarity:crafting/enderite_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enderite_shard"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "stellarity:crafting/enderite_block"
+    ]
+  }
+}

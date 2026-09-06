@@ -1,0 +1,19 @@
+{
+  "type": "stellarity:altar_of_the_accursed_upgrade",
+  "equipment": "minecraft:netherite_sword",
+  "ingredients": [
+    {
+      "ingredient": "stellarity:enderite_upgrade_smithing_template"
+    },
+    {
+      "count": 8,
+      "ingredient": "stellarity:enderite_shard"
+    },
+    {
+      "ingredient": "minecraft:wither_skeleton_skull"
+    }
+  ],
+  "result": {
+    "id": "stellarity:tamaris"
+  }
+}

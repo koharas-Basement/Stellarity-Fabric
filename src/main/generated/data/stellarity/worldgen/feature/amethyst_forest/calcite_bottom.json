@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:vegetation_patch",
+  "depth": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 8,
+    "min_inclusive": 3
+  },
+  "extra_bottom_block_chance": 0.5,
+  "extra_edge_column_chance": 0.5,
+  "ground_state": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:calcite",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:diorite",
+        "weight": 1
+      }
+    ]
+  },
+  "replaceable": "#stellarity:worldgen/end_stone",
+  "surface": "ceiling",
+  "vegetation_chance": 1.0,
+  "vegetation_feature": {
+    "feature": {
+      "type": "minecraft:block_column",
+      "allowed_placement": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      },
+      "direction": "down",
+      "layers": [
+        {
+          "height": 1,
+          "provider": {
+            "type": "minecraft:weighted",
+            "entries": [
+              {
+                "data": "minecraft:calcite",
+                "weight": 2
+              },
+              {
+                "data": "minecraft:diorite",
+                "weight": 1
+              }
+            ]
+          }
+        }
+      ],
+      "prioritize_tip": true
+    },
+    "placement": []
+  },
+  "vertical_range": 20,
+  "xz_radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 8,
+    "min_inclusive": 3
+  }
+}

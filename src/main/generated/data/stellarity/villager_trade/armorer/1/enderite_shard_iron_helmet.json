@@ -1,0 +1,38 @@
+{
+  "given_item_modifier": [
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:trim": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:spire"
+        }
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.5
+      }
+    },
+    {
+      "type": "minecraft:enchant_randomly",
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.5
+      }
+    }
+  ],
+  "gives": {
+    "id": "minecraft:iron_helmet"
+  },
+  "max_uses": 6,
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 11,
+      "min": 7
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 2
+}

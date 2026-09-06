@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:adventure/kill_a_mob",
+  "criteria": {
+    "kill": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:phantom"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.night_sky_stalkers.description"
+    },
+    "icon": {
+      "id": "minecraft:phantom_membrane"
+    },
+    "title": {
+      "translate": "advancements.stellarity.night_sky_stalkers"
+    }
+  },
+  "requirements": [
+    [
+      "kill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

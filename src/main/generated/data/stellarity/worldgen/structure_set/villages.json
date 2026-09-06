@@ -1,0 +1,16 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "frequency": 0.7,
+    "salt": 2343435,
+    "separation": 26,
+    "spacing": 51,
+    "spread_type": "triangular"
+  },
+  "structures": [
+    {
+      "structure": "stellarity:village",
+      "weight": 1
+    }
+  ]
+}

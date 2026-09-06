@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:sculk_shrieker",
+  "result": {
+    "id": "minecraft:sculk_catalyst"
+  }
+}

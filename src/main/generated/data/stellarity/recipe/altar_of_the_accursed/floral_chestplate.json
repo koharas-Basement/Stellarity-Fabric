@@ -1,0 +1,16 @@
+{
+  "type": "stellarity:altar_of_the_accursed_upgrade",
+  "equipment": "minecraft:netherite_chestplate",
+  "ingredients": [
+    {
+      "count": 8,
+      "ingredient": "minecraft:cherry_leaves"
+    },
+    {
+      "ingredient": "stellarity:enderite_upgrade_smithing_template"
+    }
+  ],
+  "result": {
+    "id": "stellarity:floral_chestplate"
+  }
+}

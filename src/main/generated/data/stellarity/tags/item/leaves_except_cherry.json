@@ -1,0 +1,8 @@
+{
+  "fabric:remove": [
+    "minecraft:cherry_leaves"
+  ],
+  "values": [
+    "#minecraft:leaves"
+  ]
+}

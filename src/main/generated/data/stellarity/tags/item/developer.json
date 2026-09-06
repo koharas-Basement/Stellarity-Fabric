@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "stellarity:tamaris",
+      "required": false
+    },
+    {
+      "id": "stellarity:harvester",
+      "required": false
+    },
+    {
+      "id": "stellarity:stellar_striker",
+      "required": false
+    },
+    {
+      "id": "stellarity:potassifish",
+      "required": false
+    }
+  ]
+}

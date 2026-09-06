@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chorus_flower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chorus_flower"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "stellarity:crafting/purple_dye_from_chorus_flower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chorus_flower"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "stellarity:crafting/purple_dye_from_chorus_flower"
+    ]
+  }
+}

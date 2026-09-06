@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:nether_brick",
+  "result": {
+    "id": "minecraft:brick"
+  }
+}

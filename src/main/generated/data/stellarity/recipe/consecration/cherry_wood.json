@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "#stellarity:wood_except_cherry",
+  "result": {
+    "id": "minecraft:cherry_wood"
+  }
+}

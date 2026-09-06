@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "minecraft:hanging_roots",
+    "properties": {
+      "waterlogged": "false"
+    }
+  }
+}

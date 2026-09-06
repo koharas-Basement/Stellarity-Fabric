@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "stellarity:enderite_shard"
+  },
+  "max_uses": 14,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 2,
+    "id": "stellarity:shulker_body"
+  },
+  "xp": 12
+}

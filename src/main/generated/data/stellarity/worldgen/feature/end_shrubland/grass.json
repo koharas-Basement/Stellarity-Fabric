@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:fern",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:short_grass",
+        "weight": 11
+      },
+      {
+        "data": "minecraft:tall_grass",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:tall_grass",
+        "weight": 2
+      },
+      {
+        "data": {
+          "id": "minecraft:acacia_leaves",
+          "properties": {
+            "distance": "7",
+            "persistent": "true",
+            "waterlogged": "false"
+          }
+        },
+        "weight": 2
+      }
+    ]
+  }
+}

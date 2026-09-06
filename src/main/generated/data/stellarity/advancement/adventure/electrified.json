@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "dash": {
+      "conditions": {
+        "victim_count": {
+          "min": 5
+        },
+        "weapon": {
+          "items": "stellarity:copper_elektra_shield"
+        }
+      },
+      "trigger": "stellarity:dash"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.electrified.description"
+    },
+    "icon": {
+      "id": "stellarity:copper_elektra_shield"
+    },
+    "title": {
+      "translate": "advancements.stellarity.electrified"
+    }
+  },
+  "requirements": [
+    [
+      "dash"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

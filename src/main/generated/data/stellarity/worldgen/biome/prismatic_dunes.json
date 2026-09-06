@@ -1,0 +1,83 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": {
+          "sound_id": "minecraft:ambient.underwater.loop.additions.rare"
+        },
+        "tick_chance": 5.499999970197678E-4
+      },
+      "loop": "stellarity:ambient.the_end.heavenly_blessed",
+      "mood": {
+        "block_search_extent": 2,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.soul_sand_valley.mood",
+        "tick_delay": 900
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "ambient": [
+            {
+              "type": "stellarity:pixie",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 20
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_light_color": "#3f472f",
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:white_ash"
+        },
+        "probability": 0.002
+      }
+    ],
+    "minecraft:visual/fog_color": "#c0d8ff",
+    "minecraft:visual/sky_color": "#7ba4ff",
+    "minecraft:visual/water_fog_color": "#e566ff"
+  },
+  "carvers": [],
+  "downfall": 0.6,
+  "effects": {
+    "foliage_color": "#58ccfe",
+    "grass_color": "#5cc0ff",
+    "water_color": "#ea80ff"
+  },
+  "features": [
+    [
+      "stellarity:the_hallow/diorite_bottom",
+      "stellarity:crystal_crags/amethyst_crystals"
+    ],
+    [
+      "stellarity:the_hallow/crystal_roots",
+      "stellarity:prismatic_dunes/glass_spikes"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "stellarity:prismatic_dunes/crystal_grass",
+      "stellarity:prismatic_dunes/grass_patches"
+    ],
+    [
+      "stellarity:global/fossils"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 0.6
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard",
+    "stellarity:enderite_shard"
+  ],
+  "result": {
+    "id": "stellarity:enderite_block"
+  }
+}

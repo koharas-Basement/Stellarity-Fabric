@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "bottom": "stellarity:block/ender_dirt",
+    "particle": "stellarity:block/ender_dirt",
+    "side": "stellarity:block/ender_dirt_path_side",
+    "top": "stellarity:block/ender_dirt_path_top"
+  }
+}

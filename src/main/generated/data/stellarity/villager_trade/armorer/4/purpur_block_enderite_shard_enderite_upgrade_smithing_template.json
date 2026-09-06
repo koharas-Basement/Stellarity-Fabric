@@ -1,0 +1,24 @@
+{
+  "additional_wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 40,
+      "min": 28
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "gives": {
+    "id": "stellarity:enderite_upgrade_smithing_template"
+  },
+  "max_uses": 2,
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 30,
+      "min": 20
+    },
+    "id": "minecraft:purpur_block"
+  },
+  "xp": 10
+}

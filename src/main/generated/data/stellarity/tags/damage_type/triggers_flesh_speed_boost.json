@@ -1,0 +1,19 @@
+{
+  "values": [
+    "#stellarity:melee",
+    "#minecraft:is_projectile",
+    "#minecraft:is_explosion",
+    "#minecraft:is_fall",
+    "minecraft:cactus",
+    "minecraft:cramming",
+    "minecraft:dragon_breath",
+    "minecraft:hot_floor",
+    "minecraft:sting",
+    "minecraft:in_fire",
+    "minecraft:sweet_berry_bush",
+    "minecraft:stalagmite",
+    "minecraft:sonic_boom",
+    "minecraft:lightning_bolt",
+    "stellarity:electric"
+  ]
+}

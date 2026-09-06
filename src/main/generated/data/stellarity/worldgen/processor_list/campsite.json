@@ -1,0 +1,20 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:end_stone_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.076
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": "minecraft:end_stone"
+        }
+      ]
+    }
+  ]
+}

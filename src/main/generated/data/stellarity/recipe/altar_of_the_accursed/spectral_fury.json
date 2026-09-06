@@ -1,0 +1,20 @@
+{
+  "type": "stellarity:altar_of_the_accursed_upgrade",
+  "equipment": "stellarity:sharanga",
+  "ingredients": [
+    {
+      "ingredient": "stellarity:enderite_upgrade_smithing_template"
+    },
+    {
+      "count": 8,
+      "ingredient": "minecraft:phantom_membrane"
+    },
+    {
+      "count": 3,
+      "ingredient": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "id": "stellarity:spectral_fury"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": {
+          "id": "minecraft:acacia_leaves",
+          "properties": {
+            "distance": "7",
+            "persistent": "true",
+            "waterlogged": "false"
+          }
+        },
+        "weight": 2
+      },
+      {
+        "data": {
+          "id": "minecraft:azalea_leaves",
+          "properties": {
+            "distance": "7",
+            "persistent": "true",
+            "waterlogged": "false"
+          }
+        },
+        "weight": 2
+      },
+      {
+        "data": "minecraft:orange_tulip",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:pink_tulip",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:white_tulip",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:lilac",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:pitcher_plant",
+        "weight": 1
+      }
+    ]
+  }
+}

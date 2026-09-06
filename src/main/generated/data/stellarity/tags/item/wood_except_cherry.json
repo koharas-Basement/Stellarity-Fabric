@@ -1,0 +1,8 @@
+{
+  "fabric:remove": [
+    "minecraft:cherry_wood"
+  ],
+  "values": [
+    "#c:natural_woods"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:campfire",
+        "weight": 6
+      },
+      {
+        "data": {
+          "id": "minecraft:campfire",
+          "properties": {
+            "facing": "north",
+            "lit": "true",
+            "signal_fire": "true",
+            "waterlogged": "false"
+          }
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

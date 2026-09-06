@@ -1,0 +1,294 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": {
+              "type": "minecraft:uniform",
+              "max": 3,
+              "min": 1
+            }
+          },
+          "name": "stellarity:enderite_shard"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald_block",
+          "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": {
+              "type": "minecraft:uniform",
+              "max": 2,
+              "min": 1
+            }
+          },
+          "name": "minecraft:emerald",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:enchant_with_levels",
+            "levels": {
+              "type": "minecraft:uniform",
+              "max": 40,
+              "min": 30
+            },
+            "options": "#minecraft:on_random_loot"
+          },
+          "name": "minecraft:book",
+          "quality": 1
+        }
+      ],
+      "rolls": 2
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots"
+        }
+      ],
+      "modifier": [
+        {
+          "type": "minecraft:enchant_with_levels",
+          "condition": {
+            "type": "minecraft:random_chance",
+            "chance": 0.5
+          },
+          "levels": {
+            "type": "minecraft:uniform",
+            "max": 32,
+            "min": 20
+          },
+          "options": "#minecraft:on_random_loot"
+        },
+        {
+          "type": "minecraft:set_damage",
+          "damage": {
+            "type": "minecraft:uniform",
+            "max": 0.88,
+            "min": 0.4
+          }
+        },
+        {
+          "type": "minecraft:set_components",
+          "components": {
+            "minecraft:trim": {
+              "material": "minecraft:iron",
+              "pattern": "minecraft:vex"
+            }
+          },
+          "condition": {
+            "type": "minecraft:random_chance",
+            "chance": 0.3333
+          }
+        },
+        {
+          "type": "minecraft:set_components",
+          "components": {
+            "minecraft:trim": {
+              "material": "minecraft:gold",
+              "pattern": "minecraft:vex"
+            }
+          },
+          "condition": {
+            "type": "minecraft:random_chance",
+            "chance": 0.3333
+          }
+        },
+        {
+          "type": "minecraft:set_components",
+          "components": {
+            "minecraft:trim": {
+              "material": "minecraft:emerald",
+              "pattern": "minecraft:vex"
+            }
+          },
+          "condition": {
+            "type": "minecraft:random_chance",
+            "chance": 0.3333
+          }
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_spear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_spear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:crossbow"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shield"
+        }
+      ],
+      "modifier": [
+        {
+          "type": "minecraft:enchant_with_levels",
+          "condition": {
+            "type": "minecraft:random_chance",
+            "chance": 0.5
+          },
+          "levels": {
+            "type": "minecraft:uniform",
+            "max": 32,
+            "min": 20
+          },
+          "options": "#minecraft:on_random_loot"
+        },
+        {
+          "type": "minecraft:set_damage",
+          "damage": {
+            "type": "minecraft:uniform",
+            "max": 0.88,
+            "min": 0.4
+          }
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2,
+        "min": 1
+      }
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": {
+              "type": "minecraft:uniform",
+              "max": 18,
+              "min": 9
+            }
+          },
+          "name": "minecraft:arrow"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_potion",
+            "id": "minecraft:long_regeneration"
+          },
+          "name": "minecraft:splash_potion",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_potion",
+            "id": "minecraft:strong_healing"
+          },
+          "name": "minecraft:splash_potion",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": {
+              "type": "minecraft:uniform",
+              "max": 2,
+              "min": 1
+            }
+          },
+          "name": "stellarity:chorus_pie",
+          "weight": 22
+        },
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:set_potion",
+            "id": "stellarity:chorus_juice"
+          },
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "condition": {
+                "type": "minecraft:random_chance",
+                "chance": 0.1
+              },
+              "name": "minecraft:enchanted_golden_apple"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:golden_apple",
+              "weight": 3
+            }
+          ]
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 3,
+        "min": 2
+      }
+    }
+  ]
+}

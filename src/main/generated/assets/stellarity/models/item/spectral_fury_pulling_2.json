@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "stellarity:item/spectral_fury_pulling_2"
+  }
+}

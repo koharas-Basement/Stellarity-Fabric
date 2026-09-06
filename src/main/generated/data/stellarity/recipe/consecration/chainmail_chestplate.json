@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:iron_chestplate",
+  "result": {
+    "id": "minecraft:chainmail_chestplate"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "stellarity:floral"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "stellarity:floral"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "stellarity:floral"
+      }
+    ]
+  }
+}

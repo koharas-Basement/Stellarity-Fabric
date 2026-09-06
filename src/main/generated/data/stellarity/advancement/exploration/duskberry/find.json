@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:story/enter_the_end",
+  "criteria": {
+    "get_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stellarity:duskberry"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.duskberry_find.description"
+    },
+    "icon": {
+      "id": "stellarity:duskberry"
+    },
+    "title": {
+      "translate": "advancements.stellarity.duskberry_find"
+    }
+  },
+  "requirements": [
+    [
+      "get_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

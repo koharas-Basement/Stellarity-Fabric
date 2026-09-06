@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": "stellarity:ender_dirt",
+    "G": "minecraft:gravel"
+  },
+  "pattern": [
+    "DG",
+    "GD"
+  ],
+  "result": {
+    "count": 4,
+    "id": "stellarity:coarse_ender_dirt"
+  }
+}

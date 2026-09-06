@@ -1,0 +1,26 @@
+{
+  "values": [
+    "#minecraft:terracotta",
+    "#minecraft:base_stone_nether",
+    "#minecraft:base_stone_overworld",
+    "#stellarity:dirt",
+    "minecraft:end_stone",
+    "minecraft:dirt",
+    "minecraft:tuff",
+    "minecraft:basalt",
+    "minecraft:moss_block",
+    "minecraft:smooth_basalt",
+    "minecraft:deepslate",
+    "minecraft:cobbled_deepslate",
+    "minecraft:grass_block",
+    "minecraft:sculk",
+    "minecraft:packed_mud",
+    "minecraft:smooth_sandstone",
+    "minecraft:snow_block",
+    "minecraft:ice",
+    "minecraft:white_concrete_powder",
+    "minecraft:calcite",
+    "minecraft:moss_block",
+    "minecraft:warped_wart_block"
+  ]
+}

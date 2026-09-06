@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:charcoal",
+  "result": {
+    "id": "minecraft:coal"
+  }
+}

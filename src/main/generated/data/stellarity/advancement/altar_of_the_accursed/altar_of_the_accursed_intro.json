@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:end/kill_dragon",
+  "criteria": {
+    "craft": {
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "stellarity:altar_of_the_accursed"
+        },
+        "result": {
+          "items": "stellarity:endonomicon"
+        }
+      },
+      "trigger": "stellarity:special_craft"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.altar_of_the_accursed_intro.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "stellarity:endonomicon"
+    },
+    "title": {
+      "translate": "advancements.stellarity.altar_of_the_accursed_intro"
+    }
+  },
+  "requirements": [
+    [
+      "craft"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

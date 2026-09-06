@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:soul_torch",
+  "result": {
+    "id": "minecraft:torch"
+  }
+}

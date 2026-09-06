@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:shroomlight",
+  "result": {
+    "id": "minecraft:glowstone"
+  }
+}

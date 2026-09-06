@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "summon": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:ender_dragon"
+          }
+        }
+      },
+      "trigger": "minecraft:summoned_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.sacrificial_ritual.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:end_crystal"
+    },
+    "title": {
+      "translate": "advancements.stellarity.sacrificial_ritual"
+    }
+  },
+  "requirements": [
+    [
+      "summon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

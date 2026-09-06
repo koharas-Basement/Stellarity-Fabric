@@ -1,0 +1,30 @@
+{
+  "type": "stellarity:altar_of_the_accursed_simple",
+  "ingredients": [
+    {
+      "ingredient": "minecraft:leather"
+    },
+    {
+      "ingredient": "minecraft:string"
+    },
+    {
+      "count": 2,
+      "ingredient": "minecraft:nether_star"
+    },
+    {
+      "count": 4,
+      "ingredient": "minecraft:netherite_ingot"
+    },
+    {
+      "count": 64,
+      "ingredient": "stellarity:enderite_shard"
+    },
+    {
+      "count": 64,
+      "ingredient": "stellarity:starlight_soot"
+    }
+  ],
+  "result": {
+    "id": "stellarity:satchel_of_voids"
+  }
+}

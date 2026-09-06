@@ -1,0 +1,15 @@
+{
+  "gives": {
+    "id": "stellarity:prismatic_sushi"
+  },
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 20,
+      "min": 14
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 15
+}

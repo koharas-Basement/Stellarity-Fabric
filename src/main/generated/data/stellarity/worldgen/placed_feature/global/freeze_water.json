@@ -1,0 +1,10 @@
+{
+  "feature": {
+    "type": "stellarity:freeze_water"
+  },
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

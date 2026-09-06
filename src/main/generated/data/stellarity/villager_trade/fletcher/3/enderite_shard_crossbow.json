@@ -1,0 +1,25 @@
+{
+  "given_item_modifier": {
+    "type": "minecraft:enchant_with_levels",
+    "levels": {
+      "type": "minecraft:uniform",
+      "max": 29,
+      "min": 15
+    },
+    "options": "#minecraft:on_random_loot"
+  },
+  "gives": {
+    "id": "minecraft:crossbow"
+  },
+  "max_uses": 2,
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 17,
+      "min": 10
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 12
+}

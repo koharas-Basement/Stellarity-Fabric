@@ -1,0 +1,41 @@
+{
+  "parent": "stellarity:adventure/night_sky_stalkers",
+  "criteria": {
+    "kill_large": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:phantom",
+            "minecraft:nbt_number": {
+              "paths": {
+                "size": {
+                  "min": 2.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.stellarity.kill_large_phantom.description"
+    },
+    "icon": {
+      "id": "minecraft:phantom_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.stellarity.kill_large_phantom"
+    }
+  },
+  "requirements": [
+    [
+      "kill_large"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

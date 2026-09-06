@@ -1,0 +1,102 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": "minecraft:ambient.crimson_forest.additions",
+        "tick_chance": 0.0033
+      },
+      "loop": "stellarity:ambient.the_end.dark",
+      "mood": {
+        "block_search_extent": 3,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.basalt_deltas.mood",
+        "tick_delay": 1250
+      }
+    },
+    "minecraft:gameplay/creature_world_gen_spawn_probability": 0.2,
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "creature": [
+            {
+              "type": "minecraft:frog",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 4,
+                "min_inclusive": 1
+              },
+              "weight": 100
+            }
+          ],
+          "monster": [
+            {
+              "type": "stellarity:voided_skeleton",
+              "count": 2,
+              "weight": 11
+            },
+            {
+              "type": "stellarity:voided_slime",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 20
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:gameplay/surface_slime_spawn_chance": 0.4,
+    "minecraft:visual/ambient_light_color": "#3f473f",
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:white_ash"
+        },
+        "probability": 0.01
+      }
+    ],
+    "minecraft:visual/fog_color": "#000000",
+    "minecraft:visual/sky_color": "#000000",
+    "minecraft:visual/water_fog_color": "#c4c4cf"
+  },
+  "carvers": [],
+  "downfall": 0.9,
+  "effects": {
+    "foliage_color": "#c2c2c2",
+    "grass_color": "#dedede",
+    "water_color": "#e5eeff"
+  },
+  "features": [
+    [
+      "stellarity:global/stalactites"
+    ],
+    [],
+    [],
+    [
+      "stellarity:ashfall_deltas/water_deltas",
+      "stellarity:ashfall_deltas/grass_deltas",
+      "stellarity:ashfall_deltas/basalt_columns"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "stellarity:ashfall_deltas/seagrass",
+      "stellarity:ashfall_deltas/trees",
+      "stellarity:ashfall_deltas/vegetation",
+      "minecraft:patch_bush"
+    ],
+    [
+      "stellarity:ashfall_deltas/magma",
+      "stellarity:ashfall_deltas/ash_piles"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 0.8
+}

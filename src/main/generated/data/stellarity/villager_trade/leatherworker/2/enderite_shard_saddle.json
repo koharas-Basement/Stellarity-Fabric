@@ -1,0 +1,16 @@
+{
+  "gives": {
+    "id": "minecraft:saddle"
+  },
+  "max_uses": 3,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 10,
+      "min": 5
+    },
+    "id": "stellarity:enderite_shard"
+  },
+  "xp": 5
+}

@@ -1,0 +1,7 @@
+{
+  "type": "stellarity:consecration",
+  "item": "minecraft:crying_obsidian",
+  "result": {
+    "id": "minecraft:obsidian"
+  }
+}
