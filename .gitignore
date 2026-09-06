@@ -39,8 +39,6 @@ replay_*.log
 *.hprof
 *.jfr
 
-src/main/generated
-
 .cache/
 
 .venv/
