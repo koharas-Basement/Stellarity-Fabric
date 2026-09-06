@@ -45,7 +45,7 @@ public interface ExtItemEntity extends AttachmentTarget {
 		public @Nullable Short getPickupDelay() {
 			if (this == ALTAR_CRAFTING) return Short.MAX_VALUE;
 			if (this == CONSECRATING) return null;
-			return 0;
+			return 5;
 		}
 
 		public boolean isCrafting() {

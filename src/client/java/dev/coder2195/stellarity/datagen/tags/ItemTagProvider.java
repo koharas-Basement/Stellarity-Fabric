@@ -1,20 +1,24 @@
 package dev.coder2195.stellarity.datagen.tags;
 
+import dev.coder2195.stellarity.tags.StellarityItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.BlockItemTagAppender;
 import net.minecraft.references.ItemIds;
+import net.minecraft.tags.BlockItemTagId;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import dev.coder2195.stellarity.tags.StellarityItemTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static dev.coder2195.stellarity.registry.StellarityItemIds.*;
 import static net.minecraft.references.ItemIds.*;
+import static net.minecraft.references.BlockItemIds.*;
 
 
 public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -28,6 +32,14 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 		var appender = builder(tagKey);
 		for (var tag : tags) {
 			appender.forceAddTag(tag);
+		}
+		return appender;
+	}
+
+	public final BlockItemTagAppender<Item> addTagsBlock(TagKey<Item> tagKey, BlockItemTagId... tags) {
+		var appender = builder(tagKey);
+		for (var tag : tags) {
+			appender.forceAddTag(tag.item());
 		}
 		return appender;
 	}
@@ -86,8 +98,13 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 		addTags(StellarityItemTags.REPAIRS_PHANTOM_WINGS).add(PHANTOM_MEMBRANE);
 		addTags(StellarityItemTags.REPAIRS_DRAGON_WINGS).add(PHANTOM_MEMBRANE);
 		addTags(StellarityItemTags.REPAIRS_EMPRESS_WINGS).add(PHANTOM_MEMBRANE);
-
 		addTags(StellarityItemTags.SHULKER_TOOL_MATERIALS).add(SHULKER_SHELL);
+
+		addTagsBlock(StellarityItemTags.STRIPPED_LOGS_EXCEPT_CHERRY, ConventionalBlockItemTags.STRIPPED_LOGS).remove(STRIPPED_CHERRY_LOG.item());
+		addTagsBlock(StellarityItemTags.LOGS_EXCEPT_CHERRY, ConventionalBlockItemTags.NATURAL_LOGS).remove(CHERRY_LOG.item());
+		addTagsBlock(StellarityItemTags.WOOD_EXCEPT_CHERRY, ConventionalBlockItemTags.NATURAL_WOODS).remove(CHERRY_WOOD.item());
+		addTagsBlock(StellarityItemTags.STRIPPED_WOOD_EXCEPT_CHERRY, ConventionalBlockItemTags.STRIPPED_WOODS).remove(STRIPPED_CHERRY_WOOD.item());
+		addTagsBlock(StellarityItemTags.LEAVES_EXCEPT_CHERRY, BlockItemTags.LEAVES).remove(CHERRY_LEAVES.item());
 
 	}
 }

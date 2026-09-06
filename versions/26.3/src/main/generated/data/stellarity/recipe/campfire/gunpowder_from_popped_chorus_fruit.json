@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:campfire_cooking",
-  "cookingtime": 600,
-  "group": "gunpowder",
-  "ingredient": "minecraft:popped_chorus_fruit",
-  "result": {
-    "id": "minecraft:gunpowder"
-  }
-}

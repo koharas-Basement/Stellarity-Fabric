@@ -1,8 +1,0 @@
-{
-  "feature": "stellarity:main_island/portal_platform",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
-}

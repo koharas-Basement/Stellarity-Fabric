@@ -29,6 +29,12 @@ public interface StellarityItemTags {
 
 	TagKey<Item> SHULKER_TOOL_MATERIALS = id("shulker_tool_materials");
 
+	TagKey<Item> WOOD_EXCEPT_CHERRY = id("wood_except_cherry");
+	TagKey<Item> LOGS_EXCEPT_CHERRY = id("logs_except_cherry");
+	TagKey<Item> STRIPPED_WOOD_EXCEPT_CHERRY = id("stripped_wood_except_cherry");
+	TagKey<Item> STRIPPED_LOGS_EXCEPT_CHERRY = id("stripped_logs_except_cherry");
+	TagKey<Item> LEAVES_EXCEPT_CHERRY = id("leaves_except_cherry");
+
 	static TagKey<Item> id(String id) {
 		return TagKey.create(Registries.ITEM, Stellarity.id(id));
 	}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_item_frame",
-  "textures": {
-    "back": "minecraft:block/quartz_pillar_top",
-    "particle": "minecraft:block/purpur_pillar_top",
-    "wood": "minecraft:block/purpur_pillar_top"
-  }
-}

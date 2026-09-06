@@ -33,11 +33,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Debug(export = true)
 public abstract class EndSpikeFeatureMixin implements Feature {
 	@Unique
-	private RandomSource random;
+	private RandomSource random = RandomSource.create();
 
 	@Inject(method = "placeSpike", at = @At("HEAD"))
 	private void stellaritySpikeInit(ServerLevelAccessor level, RandomSource random, EndSpikeFeature.EndSpike spike, CallbackInfo ci) {
-		random = new RandomSequence((long) (spike.getCenterX()) << 32 & spike.getCenterZ(), Stellarity.id("obsidian_splatter")).random();
+		this.random = new RandomSequence((long) (spike.getCenterX()) << 32 & spike.getCenterZ(), Stellarity.id("obsidian_splatter")).random();
 	}
 
 	@Definition(id = "OBSIDIAN", field = "Lnet/minecraft/world/level/block/Blocks;OBSIDIAN:Lnet/minecraft/world/level/block/Block;")

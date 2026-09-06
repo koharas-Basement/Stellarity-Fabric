@@ -15,6 +15,14 @@ Compatibility update along with general additions of armor and recipes
 
 **[+] Shulker Shovel**
 
+## Recipes
+### Consecration
+
+
+## Mechanics
+**[+] Consecration**
+- Available through `stellarity:consecration` recipe type
+
 ## Versions
 **[*] 26.2 -> 26.3d**
 

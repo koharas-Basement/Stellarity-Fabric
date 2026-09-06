@@ -29,7 +29,7 @@ public abstract class ItemEntityMixin extends Entity implements ExtItemEntity {
 
 	@Override
 	public void stellarity$setItemMode(ItemMode mode, @Nullable Integer color) {
-		ExtItemEntity.super.stellarity$setItemMode(mode);
+		ExtItemEntity.super.stellarity$setItemMode(mode, color);
 
 		boolean crafting = mode.isCrafting();
 		setGlowingTag(color != null || crafting);

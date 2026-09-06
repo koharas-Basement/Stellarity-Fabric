@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "stellarity:block/duskberry_bush_stage2"
-  }
-}

@@ -148,7 +148,7 @@ public interface AltarOfTheAccursedRecipe extends Recipe<AltarOfTheAccursedRecip
 
 	@Override
 	default boolean showNotification() {
-		return false;
+		return true;
 	}
 
 

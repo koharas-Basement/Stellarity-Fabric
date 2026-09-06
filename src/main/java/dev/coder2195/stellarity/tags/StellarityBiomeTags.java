@@ -23,6 +23,7 @@ public interface StellarityBiomeTags {
 	TagKey<Biome> HAS_STRUCTURE_VILLAGE = id("has_structure/village");
 
 	TagKey<Biome> NO_VOID_FISHING = id("no_void_fishing");
+	TagKey<Biome> ALLOWS_CONSECRATION = id("allows_consecration");
 
 	static TagKey<Biome> id(String id) {
 		return TagKey.create(Registries.BIOME, Stellarity.id(id));
